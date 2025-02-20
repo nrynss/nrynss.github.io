@@ -1,0 +1,21 @@
+{{ $isListPage := .IsHome }}
+
+<div class="space-y-10 prose dark:prose-invert">
+  {{ if and .Site.Params.homepage.showRecent .Site.Params.homepage.showRecentItems }}
+    {{ $recentArticles := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ if $recentArticles }}
+      <h2 class="mt-8 text-2xl font-semibold">
+        {{ .Site.Params.homepage.recentTitle | default (T "recent") }}
+      </h2>
+      {{ range first .Site.Params.homepage.showRecentItems $recentArticles }}
+        {{ partial "article-link.html" . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if .Content }}
+    <div class="home-content">
+      {{ .Content }}
+    </div>
+  {{ end }}
+</div>

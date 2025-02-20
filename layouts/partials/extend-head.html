@@ -1,0 +1,7 @@
+{{ $customCSS := resources.Get "css/custom.css" }}
+{{ $customCSS = $customCSS | resources.Minify | resources.Fingerprint "sha512" }}
+<link rel="stylesheet" href="{{ $customCSS.RelPermalink }}" integrity="{{ $customCSS.Data.Integrity }}">
+
+{{ $animationJS := resources.Get "js/animation.js" }}
+{{ $animationJS = $animationJS | resources.Minify | resources.Fingerprint "sha512" }}
+<script src="{{ $animationJS.RelPermalink }}" integrity="{{ $animationJS.Data.Integrity }}" defer></script>

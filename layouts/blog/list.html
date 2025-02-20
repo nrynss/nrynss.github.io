@@ -1,0 +1,49 @@
+{{ define "main" }}
+  <header>
+    <h1 class="mt-5 text-4xl font-bold">{{ .Title }}</h1>
+    {{ if .Description }}
+      <div class="mt-2 text-xl text-neutral-500">{{ .Description }}</div>
+    {{ end }}
+  </header>
+
+  <section class="mt-10">
+    {{ if gt (len .Pages) 0 }}
+      {{ range (.Paginate .Pages).Pages }}
+        <article class="mb-10 pb-10 border-b border-neutral-200 dark:border-neutral-700">
+          <h2 class="mb-2 text-3xl font-bold">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
+          
+          <div class="text-sm text-neutral-500 mb-5">
+            {{ if .Date }}{{ .Date.Format "January 2, 2006" }} · {{ end }}
+            {{ .ReadingTime }} min read
+          </div>
+          
+          <div class="prose dark:prose-invert max-w-none">
+            {{ .Content }}
+          </div>
+        </article>
+      {{ end }}
+    {{ else }}
+      <p>No posts found. Try creating one!</p>
+    {{ end }}
+  </section>
+  
+  {{ if gt .Paginator.TotalPages 1 }}
+    <nav class="flex justify-center mt-10">
+      {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}" class="px-4 py-2 mx-1 bg-neutral-100 dark:bg-neutral-800 rounded">Previous</a>
+      {{ end }}
+      
+      {{ range .Paginator.Pagers }}
+        <a href="{{ .URL }}" class="px-4 py-2 mx-1 {{ if eq . $.Paginator }}bg-primary-500 text-white{{ else }}bg-neutral-100 dark:bg-neutral-800{{ end }} rounded">
+          {{ .PageNumber }}
+        </a>
+      {{ end }}
+      
+      {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}" class="px-4 py-2 mx-1 bg-neutral-100 dark:bg-neutral-800 rounded">Next</a>
+      {{ end }}
+    </nav>
+  {{ end }}
+{{ end }}

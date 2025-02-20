@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome on Blowfish</title>
-    <link>http://localhost:52903/</link>
-    <description>Recent content in Welcome on Blowfish</description>
-    <generator>Hugo</generator>
+    <title>Welcome on nryn</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Welcome on nryn</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:52903/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2025 </copyright>
+    <lastBuildDate>Thu, 20 Feb 2025 18:35:20 +0400</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cursor and future</title>
+      <link>http://localhost:1313/blog/first-post/</link>
+      <pubDate>Thu, 20 Feb 2025 18:35:20 +0400</pubDate>
+      
+      <guid>http://localhost:1313/blog/first-post/</guid>
+      <description></description>
+      
+    </item>
+    
   </channel>
 </rss>

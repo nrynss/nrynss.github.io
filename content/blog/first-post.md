@@ -1,6 +1,5 @@
 +++
 date = '2025-02-20T18:35:20+04:00'
-draft = true
 title = 'Cursor and future'
 +++
 
@@ -8,7 +7,7 @@ Yet another "First Post". This time the gap is less than a year compared to the 
 
 Why? I have been using [Hugo](https://gohugo.io/) for a while now. I have enjoyed playing trapeze with it at work. It is time I played some trapeze with it at home.
 
-![Ewok Playing Trapeze](../../static/images/ewokplayingtrapeze.jpeg)
+![Ewok Playing Trapeze](/images/ewokplayingtrapeze.jpeg)
 
 This is supposed to be an image of an ewok playing trapeze according to [Leonardo.ai](https://leonardo.ai/). Gemini says it cannot create an image of an ewok playing trapeze. Maybe it got sick of all the ewok doing things I have been asking it to make.
 
@@ -16,19 +15,19 @@ Since my last post, I have been tinkering with AI related stuff. Contrary to my 
 
 What prompted me to get of my ass and get this up and running? [Cursor](https://www.cursor.com/). Works pretty damn well. Quite capable of making me a relic.
 
-![Cursor](../../static/images/cursor.png)
+![Cursor](/images/cursor.png)
 
 Heck, it is already issuing threats!
 
 More and more of it!
 
-![Cursor Threat](../../static/images/cursorthread.png)
+![Cursor Threat](/images/cursorthread.png)
 
 You get the idea. Autocomplete on Captain America super serum. If it has the context of your repository, it can do lots.
 
 Now I regret using the word, relic. As I write, it is spinning up pretty good words for a blog post. Remember, not much of a context here.
 
-![Relic Again](../../static/images/relicagain.png)
+![Relic Again](/images/relicagain.png)
 
 But the best part I have liked so far is that, it is alleviating the pain point of syntax and speeding me up. For a dev shop, superfast onboarding and delivery is mostly guaranteed.
 
@@ -38,7 +37,7 @@ But I am looking at the implication for the regular content industry. Imagine an
 
 Remember agents?
 
-![Agents](../../static/images/agents.jpg)
+![Agents](/images/agents.jpg)
 
 **No life. Only compute.**
 
@@ -54,9 +53,11 @@ We would probably keel over once robotics reach an inflection point.
 
 **Enough nihilism for a day.**
 
-![Eww](../../static/images/cursoreww.png)
+![Eww](/images/cursoreww.png)
 
 **And the insults continue to flow.**
+
+**P.S.** One good thing is that you have someone to critique your work.
 
 {{< review-callout title="DeepSeek R1 1776 says..." rating="7" >}}
 A lively but uneven reflection on AI tools (Cursor) and Hugo, mixing witty tech anecdotes with existential AI dread.

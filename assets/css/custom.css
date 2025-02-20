@@ -1,0 +1,105 @@
+/* Animated Background */
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  body {
+    background: linear-gradient(-45deg, #1a1e2c, #12141c, #1e3a5f, #1e1f31);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+  
+  /* Remove backgrounds from content containers */
+  .main, .container, .prose, article, .article-content {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Main container - remove any background */
+  #main-content {
+    background-color: transparent !important;
+  }
+  
+  /* Semi-transparent text background only when needed for readability */
+  .prose p, .prose h1, .prose h2, .prose h3, .prose ul, .prose ol {
+    display: inline;
+    background-color: rgba(13, 18, 30, 0.5);
+    box-decoration-break: clone;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+  }
+  
+  /* Enhanced text styling for seamless integration */
+  h1, h2, h3 {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    background: transparent !important;
+    display: inline-block;
+    margin-bottom: 0.5em;
+  }
+  
+  /* Main title special styling */
+  .main-title, h1.text-4xl {
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    background: transparent !important;
+  }
+  
+  /* Smooth link effects */
+  a {
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    padding: 0.1em 0.2em;
+    margin: -0.1em -0.2em;
+    border-radius: 0.2em;
+  }
+  
+  a:hover {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Content container styling */
+  .home-content, .content-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Add a slight fade effect at the edges of the content */
+  .main:before, .main:after {
+    content: "";
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .main:before {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(13, 18, 30, 0.5), transparent);
+  }
+  
+  .main:after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, rgba(13, 18, 30, 0.5), transparent);
+  }
+
+  .prose p {
+    margin-bottom: 1.5em;
+  }
