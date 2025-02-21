@@ -3,25 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/blog/</loc>
+    <loc>http://localhost:54889/blog/</loc>
     <lastmod>2025-02-20T18:35:20+04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blog/first-post/</loc>
+    <loc>http://localhost:54889/blog/first-post/</loc>
     <lastmod>2025-02-20T18:35:20+04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:54889/</loc>
     <lastmod>2025-02-20T18:35:20+04:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://localhost:54889/about/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

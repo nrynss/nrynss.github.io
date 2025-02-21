@@ -1,105 +1,316 @@
-/* Animated Background */
-@keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+/***************************************
+ * CSS Variable Definitions
+ ***************************************/
+ :root {
+  /* Layout */
+  --max-width: 1400px;
+  --content-padding: 2rem;
+  
+  /* Colors - Main Theme */
+  --bg-main: rgb(17, 24, 39);
+  --bg-card: rgb(31, 41, 55);
+  --bg-callout: rgb(35, 45, 60);  /* Updated for review cards */
+  
+  /* Colors - Text */
+  --text-primary: rgb(243, 244, 246);
+  --text-secondary: rgb(209, 213, 219);
+  --text-muted: rgba(156, 163, 175, 0.8);  /* Updated opacity */
+  
+  /* Colors - Accents */
+  --accent-blue: rgb(96, 165, 250);
+  --accent-green: rgb(110, 231, 183);
+  --accent-red: rgb(248, 113, 113);
+  --rating-gold: rgb(234, 179, 8);
+  
+  /* Borders & Shadows */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+               0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/***************************************
+ * Reset & Base Styles
+ ***************************************/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/***************************************
+ * Layout & Container Overrides
+ ***************************************/
+/* Override Blowfish Defaults */
+.main-container,
+.container,
+.prose,
+article,
+.article-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Main Content Container */
+.main {
+  max-width: var(--max-width) !important;
+  width: 90% !important;
+  margin: 0 auto !important;
+  padding: var(--content-padding) 0 !important;
+}
+
+/***************************************
+ * Typography
+ ***************************************/
+h1, h2, h3, h4 {
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  margin: 0 0 1.5rem;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-blue), white 20%);
+  text-decoration: underline;
+}
+
+/***************************************
+ * Article & Content
+ ***************************************/
+.article-content {
+  background-color: var(--bg-card);
+  border-radius: 1rem;
+  margin: 2rem auto !important;
+  padding: 2rem !important;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+}
+
+/* Code Blocks */
+pre, code {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  padding: 0.2em 0.4em;
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+/***************************************
+ * Review Card Styles [UPDATED]
+ ***************************************/
+.review-callout {
+  background-color: var(--bg-callout);
+  border-radius: 1rem;
+  padding: 2rem;  /* Increased from 2rem */
+  margin: 2rem 0;
+  box-shadow: var(--shadow-md);
+}
+
+/* Review Header [UPDATED] */
+.review-header {
+  margin-bottom: 2.5rem;  /* Increased from 2rem */
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.review-title-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;  /* Changed from center */
+  gap: 1.5rem;
+}
+
+/* Title Styling [UPDATED] */
+.review-title {
+  font-size: 1.25rem;
+  display: inline-flex;  /* Changed to inline-flex */
+  align-items: baseline;
+  gap: 0.25rem;  /* Reduced gap */
+  margin: 0;
+  line-height: 1.4;
+}
+
+.reviewer-name {
+  color: var(--accent-blue);
+  margin-left: 1rem;
+  font-weight: 600;
+}
+
+.reviewer-suffix {
+  color: var(--text-muted);
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Rating Display [UPDATED] */
+.review-rating {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.rating-score {
+  display: flex;
+  margin-right: 1rem;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.rating-star {
+  color: var(--rating-gold);
+  font-size: 1.25rem;
+}
+
+.rating-number {
+  color: var(--rating-gold);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+/* Review Content [UPDATED] */
+.review-content {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+
+.review-content p {
+  margin: 0.75rem 0;  /* Increased from 1.75rem */
+}
+
+.review-content p:first-child {
+  margin-top: 0;
+}
+
+.review-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Category Labels [UPDATED] */
+.review-content strong {
+  font-weight: 600;
+  color: inherit;  /* Reset color to inherit from parent */
+  display: inline;  /* Changed from block */
+  margin: 0;  /* Reset margins */
+  font-size: inherit;  /* Reset font size */
+}
+
+
+/* Category Colors */
+.review-content strong:first-child { color: var(--accent-green); }  /* Pros */
+.review-content strong:nth-of-type(2) { color: var(--accent-red); }  /* Cons */
+.review-content strong:nth-of-type(3) { color: var(--accent-blue); }  /* Quick Take */
+
+/***************************************
+ * Responsive Design
+ ***************************************/
+/* Mobile Adjustments */
+@media (max-width: 640px) {
+  .main {
+    width: 95% !important;
+    padding: 1rem 0 !important;
   }
   
-  body {
-    background: linear-gradient(-45deg, #1a1e2c, #12141c, #1e3a5f, #1e1f31);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
+  .article-content {
+    padding: 1rem !important;
   }
   
-  /* Remove backgrounds from content containers */
-  .main, .container, .prose, article, .article-content {
-    background-color: transparent !important;
-    backdrop-filter: none !important;
-    border: none !important;
-    box-shadow: none !important;
+  .review-callout {
+    padding: 1.75rem;  /* Increased from 1.5rem */
   }
   
-  /* Main container - remove any background */
-  #main-content {
-    background-color: transparent !important;
-  }
-  
-  /* Semi-transparent text background only when needed for readability */
-  .prose p, .prose h1, .prose h2, .prose h3, .prose ul, .prose ol {
-    display: inline;
-    background-color: rgba(13, 18, 30, 0.5);
-    box-decoration-break: clone;
-    padding: 0.2em 0.4em;
-    border-radius: 0.2em;
-  }
-  
-  /* Enhanced text styling for seamless integration */
-  h1, h2, h3 {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    background: transparent !important;
-    display: inline-block;
-    margin-bottom: 0.5em;
-  }
-  
-  /* Main title special styling */
-  .main-title, h1.text-4xl {
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    background: transparent !important;
-  }
-  
-  /* Smooth link effects */
-  a {
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
-    padding: 0.1em 0.2em;
-    margin: -0.1em -0.2em;
-    border-radius: 0.2em;
-  }
-  
-  a:hover {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  /* Content container styling */
-  .home-content, .content-wrapper {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  /* Add a slight fade effect at the edges of the content */
-  .main:before, .main:after {
-    content: "";
-    position: fixed;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  .main:before {
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(13, 18, 30, 0.5), transparent);
-  }
-  
-  .main:after {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to top, rgba(13, 18, 30, 0.5), transparent);
+  .review-content {
+    padding: 0 0.25rem;  /* Reduced padding for mobile */
   }
 
-  .prose p {
-    margin-bottom: 1.5em;
+  .review-title-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
+  
+  .review-title {
+    font-size: 1.125rem;
+  }
+  
+  .rating-star,
+  .rating-number {
+    font-size: 1rem;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1536px) {
+  :root {
+    --max-width: 1600px;
+  }
+}
+
+/***************************************
+ * Print Styles
+ ***************************************/
+@media print {
+  :root {
+    --bg-main: white;
+    --bg-card: white;
+    --bg-callout: white;
+    --text-primary: black;
+    --text-secondary: rgb(55, 65, 81);
+    --border-color: #eee;
+  }
+
+  .review-callout {
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+    color: black;
+  }
+}

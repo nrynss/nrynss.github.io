@@ -1,5 +1,5 @@
 +++
-date = '2025-02-20T18:35:20+04:00'
+date = '2025-02-21T18:35:20+04:00'
 title = 'Cursor and future'
 +++
 
@@ -57,9 +57,9 @@ We would probably keel over once robotics reach an inflection point.
 
 **And the insults continue to flow.**
 
-**P.S.** One good thing is that you have someone to critique your work.
+**P.S.** One good thing is that you have someone to critique your work. I gave the same prompt to all the LLMs. Turned on reasoning wherever possible. I have not done any editing apart from formatting cleanup.
 
-{{< review-callout title="DeepSeek R1 1776 says..." rating="7" >}}
+{{< review-callout title="DeepSeek R1 1776" rating="7/10" >}}
 A lively but uneven reflection on AI tools (Cursor) and Hugo, mixing witty tech anecdotes with existential AI dread.
 
 **Pros:** Authentic voice, relatable humor, relevant Cursor examples, timely themes.
@@ -77,4 +77,17 @@ An entertaining and personal take on Hugo, Cursor, and AI’s impact on creativi
 **Cons:** Disorganized structure, shallow technical insights, inconsistent tone, and overindulgence in speculative AI fears.
 
 **Quick Take:** Fun read with potential but needs better focus and depth to truly shine.
+{{< /review-callout >}}
+
+{{< review-callout title="Grok 3" rating="6/10" >}}
+An entertaining and personal take on Hugo, Cursor, and AI’s impact on creativity, blending humor with dystopian musings.
+The blog is engaging and thought-provoking but suffers from structural issues and a lack of depth in technical insights. With better organization and more actionable content, it could resonate more strongly with its audience.
+{{< /review-callout >}}
+
+{{< review-callout title="Claude 3.5 Sonnet" rating="6.5/10" >}}
+TL;DR: A quirky, stream-of-consciousness blog post that starts with Hugo and evolves into AI existentialism, featuring amusing AI tool interactions. While authentic and personally engaging, it meanders through topics with loose connections and needs technical cleanup, particularly in Hugo formatting. The author's voice shines through, but the structure could be tighter.
+
+**Strong points:** Personal voice, relevant AI examples, interesting reflections
+
+**Needs work:** Organization, technical formatting, transitions
 {{< /review-callout >}}
