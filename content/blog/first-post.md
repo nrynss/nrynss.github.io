@@ -41,7 +41,7 @@ Remember agents?
 
 **No life. Only compute.**
 
-Human farms to generate electricity shown in The Matrix never made sense. The original script used humans as compute power. Not electricity.
+Human farms to generate electricity shown in The Matrix never made sense. The original script used humans as compute power. Not electricity. Now that makes more sense.
 
 Is this the start of our overlords?
 
