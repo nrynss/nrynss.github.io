@@ -1,7 +1,24 @@
-{{ $customCSS := resources.Get "css/custom.css" }}
-{{ $customCSS = $customCSS | resources.Minify | resources.Fingerprint "sha512" }}
-<link rel="stylesheet" href="{{ $customCSS.RelPermalink }}" integrity="{{ $customCSS.Data.Integrity }}">
+{{ $customCSS := resources.Get "css/custom.css" }} {{ $customCSS = $customCSS |
+resources.Minify | resources.Fingerprint "sha512" }}
+<link
+    rel="stylesheet"
+    href="{{ $customCSS.RelPermalink }}"
+    integrity="{{ $customCSS.Data.Integrity }}"
+/>
 
-{{ $animationJS := resources.Get "js/animation.js" }}
-{{ $animationJS = $animationJS | resources.Minify | resources.Fingerprint "sha512" }}
-<script src="{{ $animationJS.RelPermalink }}" integrity="{{ $animationJS.Data.Integrity }}" defer></script>
+{{ $animationJS := resources.Get "js/animation.js" }} {{ $animationJS =
+$animationJS | resources.Minify | resources.Fingerprint "sha512" }}
+<script
+    src="{{ $animationJS.RelPermalink }}"
+    integrity="{{ $animationJS.Data.Integrity }}"
+    defer
+></script>
+
+{{ if or .Params.showComments .Site.Params.article.showComments }}
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+{{ $comments := resources.Get "js/comment.js" | minify | fingerprint }}
+<script
+    src="{{ $comments.RelPermalink }}"
+    integrity="{{ $comments.Data.Integrity }}"
+></script>
+{{ end }}
