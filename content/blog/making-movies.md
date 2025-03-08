@@ -19,7 +19,7 @@ Binary files looked somewhat like this I guess. My friend KJ had the idea of cre
 
 Quite recently, I had to create a diagram. I loathe creating diagrams in tools like Visio or Figma. Takes too long and you have to have a mechanism to manage the source. I have seen far too many diagrams that needed update and had to be removed because I could never get the source. Mermaid is pretty cool to create graphics-as-code, and I have thoroughly enjoyed using it thanks to LLMs, which can give a base from which we can work. It is also quite time consuming to get it properly working without the help of LLMs. But the source is with you and easy to edit.
 
-We have implemented [mermaid.js](mermaid.js) into our Hugo docs and we have started putting in diagrams. Very helpful in certain cases where the diagram literally speaks a 1000 words.
+We have implemented [mermaid.js](https://mermaid.js.org) into our Hugo docs and we have started putting in diagrams. Very helpful in certain cases where the diagram literally speaks a 1000 words.
 
 The particular diagram in question was a kind of resolution matrix that did not fit into any of the available mermaid styles. It was not an difficult diagram to create using any random tool but I wanted it to be programmatic. I used and abused Claude so much that it finally gave up. It said you are trying to do something, which is not fit for mermaid. If you use any LLM, you would realize it is quite rare that the bugger throws up hand and politely asks you to fuck off.
 
