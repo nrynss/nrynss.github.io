@@ -16,9 +16,5 @@ $animationJS | resources.Minify | resources.Fingerprint "sha512" }}
 
 {{ if site.Params.article.showComments }}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-{{ $comments := resources.Get "js/comment.js" | minify | fingerprint }}
-<script
-    src="{{ $comments.RelPermalink }}"
-    integrity="{{ $comments.Data.Integrity }}"
-></script>
+<script src="/js/comment.js"></script>
 {{ end }}

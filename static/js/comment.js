@@ -15,56 +15,58 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize Supabase client
   try {
     console.log("Initializing Supabase client");
-    const supabaseUrl = "https://zjjuciivklxnwbcougxv.supabase.co"; // Replace with your Supabase URL
+    const supabaseUrl = "https://zjjuciivklxnwbcougxv.supabase.co";
     const supabaseKey =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqanVjaWl2a2x4bndiY291Z3h2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0MTMyMTgsImV4cCI6MjA1Njk4OTIxOH0.joBatKD3WtVgOY4YLIJ6LfDWpTC4GrmX93SN4gRHcjI"; // Replace with your anon/public key
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqanVjaWl2a2x4bndiY291Z3h2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0MTMyMTgsImV4cCI6MjA1Njk4OTIxOH0.joBatKD3WtVgOY4YLIJ6LfDWpTC4GrmX93SN4gRHcjI"; // Replace with your actual key
 
     console.log("Using Supabase URL:", supabaseUrl);
-    // Don't log the full key for security reasons
     console.log("Supabase key provided:", supabaseKey ? "Yes" : "No");
 
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    // The correct way to initialize the Supabase client
+    const supabaseClient = window.supabase.createClient(
+      supabaseUrl,
+      supabaseKey,
+    );
     console.log("Supabase client created successfully");
+
+    // Get the post slug
+    const postSlug =
+      commentsContainer.dataset.postSlug ||
+      window.location.pathname
+        .split("/")
+        .filter(Boolean)
+        .pop()
+        .replace(".html", "");
+    console.log("Post slug detected:", postSlug);
+
+    // Load existing comments
+    loadComments(supabaseClient, postSlug);
+
+    // Set up form submission
+    const commentForm = document.getElementById("comment-form");
+    if (commentForm) {
+      console.log("Comment form found and event listener attached");
+      commentForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        submitComment(supabaseClient, postSlug);
+      });
+    } else {
+      console.error(
+        "Comment form NOT found - users won't be able to submit comments",
+      );
+    }
   } catch (error) {
     console.error("Failed to initialize Supabase client:", error);
     commentsContainer.innerHTML =
       "<p>Error initializing comments. Please try again later.</p>";
-    return;
   }
 
-  // Get the post slug
-  const postSlug =
-    commentsContainer.dataset.postSlug ||
-    window.location.pathname
-      .split("/")
-      .filter(Boolean)
-      .pop()
-      .replace(".html", "");
-  console.log("Post slug detected:", postSlug);
-
-  // Load existing comments
-  loadComments(postSlug);
-
-  // Set up form submission
-  const commentForm = document.getElementById("comment-form");
-  if (commentForm) {
-    console.log("Comment form found and event listener attached");
-    commentForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      submitComment();
-    });
-  } else {
-    console.error(
-      "Comment form NOT found - users won't be able to submit comments",
-    );
-  }
-
-  async function loadComments(slug) {
+  async function loadComments(supabaseClient, slug) {
     console.log("Loading comments for slug:", slug);
     try {
       // Query all comments for this post
       console.log("Sending request to Supabase for comments");
-      const { data, error } = await supabase
+      const { data, error } = await supabaseClient
         .from("comments")
         .select("*")
         .eq("post_slug", slug)
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  async function submitComment() {
+  async function submitComment(supabaseClient, postSlug) {
     console.log("Submit comment function called");
 
     const authorName = document.getElementById("author-name").value;
@@ -143,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       // Insert the new comment
       console.log("Sending insert request to Supabase");
-      const { data, error } = await supabase.from("comments").insert([
+      const { data, error } = await supabaseClient.from("comments").insert([
         {
           post_slug: postSlug,
           author_name: authorName,
@@ -181,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Reload comments to show the new one
       console.log("Reloading comments to show the new comment");
-      loadComments(postSlug);
+      loadComments(supabaseClient, postSlug);
     } catch (error) {
       console.error("Error submitting comment:", error);
       if (notification) {
