@@ -14,7 +14,10 @@ $animationJS | resources.Minify | resources.Fingerprint "sha512" }}
     defer
 ></script>
 
-{{ if site.Params.article.showComments }}
+{{ if and .Params.showComments (eq .Layout "single") }}
+<!-- Only load comment scripts on single pages with showComments parameter -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/js/comment.js"></script>
+
+<!-- Load comment.js script directly (not through Hugo's bundling) -->
+<script src="/js/comment.js" defer></script>
 {{ end }}
