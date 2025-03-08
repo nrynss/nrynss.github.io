@@ -1,23 +1,84 @@
-{{- $width := .Get "width" | default "100%" -}}
-{{- $height := .Get "height" | default "500px" -}}
-{{- $id := .Get "id" | default "test-svg" -}}
+{{- $svgFile := .Get "src" -}} {{- $width := .Get "width" | default "100%" -}}
+{{- $id := .Get "id" | default (printf "svg-%s" (sha1 $svgFile)) -}}
 
-<div class="svg-animation-container" style="width: {{ $width }}; height: {{ $height }};">
-  <style>
-    /* Your existing styles */
-  </style>
-  
-  <div id="{{ $id }}-wrapper">
-    <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="40" fill="red">
-        <animate attributeName="r" values="40;20;40" dur="2s" repeatCount="indefinite" />
-      </circle>
-    </svg>
-  </div>
-  
-  <button class="replay-button" onclick="replaySvg('{{ $id }}-wrapper')">Replay</button>
+<div class="svg-animation-container" style="width: {{ $width }};">
+    <style>
+        .svg-animation-container {
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .svg-animation-container .svg-wrapper {
+            position: relative;
+            padding-bottom: 70%; /* Aspect ratio - adjust based on SVG dimensions */
+            height: 0;
+            overflow: visible;
+        }
+        .svg-animation-container svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .replay-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            z-index: 10;
+        }
+    </style>
+
+    <div class="svg-wrapper">
+        <div id="{{ $id }}-wrapper">
+            {{- with $svgFile -}} {{- $resourcePath := strings.TrimPrefix "/" .
+            -}} {{- $resource := resources.Get $resourcePath -}} {{- if
+            $resource -}} {{- $resource.Content | safeHTML -}} {{- else -}}
+            <div style="color: red; padding: 20px; border: 1px solid red">
+                Error: Could not load SVG resource: {{ . }}<br />
+                Note: When using resources.Get, file path should be relative to
+                the assets directory.
+            </div>
+            {{- end -}} {{- else -}}
+            <div style="color: orange; padding: 20px; border: 1px solid orange">
+                Warning: SVG source file not specified
+            </div>
+            {{- end -}}
+        </div>
+    </div>
+
+    <button class="replay-button" onclick="replaySvg('{{ $id }}-wrapper')">
+        Replay
+    </button>
 </div>
 
 <script>
-  /* Your existing script */
+    (function () {
+        if (typeof window.replaySvg === "undefined") {
+            window.replaySvg = function (id) {
+                const wrapper = document.getElementById(id);
+                if (!wrapper) return;
+                const oldSvg = wrapper.innerHTML;
+                wrapper.innerHTML = "";
+                setTimeout(() => {
+                    wrapper.innerHTML = oldSvg;
+                }, 10);
+            };
+        }
+        // Ensure SVG is properly sized after load
+        document.addEventListener("DOMContentLoaded", function () {
+            const svgElement = document.querySelector("#{{ $id }}-wrapper svg");
+            if (svgElement) {
+                svgElement.setAttribute("width", "100%");
+                svgElement.setAttribute("height", "100%");
+                svgElement.setAttribute("preserveAspectRatio", "xMidYMid meet");
+            }
+        });
+    })();
 </script>
