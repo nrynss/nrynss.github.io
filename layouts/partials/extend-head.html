@@ -14,7 +14,7 @@ $animationJS | resources.Minify | resources.Fingerprint "sha512" }}
     defer
 ></script>
 
-{{ if or .Params.showComments .Site.Params.article.showComments }}
+{{ if site.Params.article.showComments }}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 {{ $comments := resources.Get "js/comment.js" | minify | fingerprint }}
 <script

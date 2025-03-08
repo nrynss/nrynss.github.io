@@ -1,6 +1,7 @@
 +++
 date = '2025-02-25T15:45:20+05:30'
 title = 'Cursor and future'
+showComments = true
 +++
 
 Yet another "First Post". This time the gap is less than a year compared to the usual years and years!
