@@ -25,7 +25,7 @@ The particular diagram in question was a kind of resolution matrix that did not 
 
 I asked for alternatives dreading another tool and the potentially fuckery that awaited with its integration. Claude suggested SVG. Up until then, I never quite explored SVGs and didn't know much apart from it being a vector format. I hadn't put two and two together until then. Claude created a beautiful SVG and given the amount of information, it is perfectly readable and manageable. Very much editable if we wanted.
 
-That got my attention. KJ had the write idea to create art from editing files. Just that we didn't know about SVGs.
+That got my attention. KJ had the right idea to create art from editing files. Just that we didn't know about SVGs.
 
 Behold my SVG animation.
 
