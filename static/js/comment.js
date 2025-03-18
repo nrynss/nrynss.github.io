@@ -22,7 +22,7 @@
       console.log("Initializing Supabase client");
       const supabaseUrl = "https://zjjuciivklxnwbcougxv.supabase.co";
       const supabaseKey =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqanVjaWl2a2x4bndiY291Z3h2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0MTMyMTgsImV4cCI6MjA1Njk4OTIxOH0.joBatKD3WtVgOY4YLIJ6LfDWpTC4GrmX93SN4gRHcjI"; // Replace with your actual key
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqanVjaWl2a2x4bndiY291Z3h2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDE0MTMyMTgsImV4cCI6MjA1Njk4OTIxOH0.joBatKD3WtVgOY4YLIJ6LfDWpTC4GrmX93SN4gRHcjI";
 
       console.log("Using Supabase URL:", supabaseUrl);
       console.log("Supabase key provided:", supabaseKey ? "Yes" : "No");
