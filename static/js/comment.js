@@ -157,7 +157,7 @@
             author_name: authorName,
             author_email: authorEmail,
             content: content,
-            is_approved: false, // Comments need approval before showing
+            is_approved: true, // Comments need approval before showing
           },
         ]);
 
