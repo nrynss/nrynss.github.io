@@ -470,3 +470,30 @@ button[type="submit"]:hover {
         align-items: flex-start;
     }
 }
+
+/***************************************
+ * Grid Layout Overrides
+ ***************************************/
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.post-entry {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+.entry-content {
+    flex-grow: 1;
+}
+
+/* Ensure first entry spans full width */
+.first-entry {
+    grid-column: 1 / -1;
+    min-height: auto;
+    margin-bottom: 0;
+}
