@@ -1,6 +1,6 @@
 ---
 title: "Tabula Rasa"
-date: 2025-11-20T19:58:38+05:30
+date: 2025-11-30T19:58:38+05:30
 showComments : true
 draft: true
 ---
