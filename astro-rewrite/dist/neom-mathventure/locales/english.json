@@ -1,0 +1,66 @@
+{
+  "ui": {
+    "title": "Neom Mathventure",
+    "timer": "Time",
+    "highScore": "High Score",
+    "level": "Level",
+    "score": "Score",
+    "accuracy": "Accuracy",
+    "defaultPlayerName": "Player",
+    "namePlaceholder": "Enter your name here",
+    "welcomeMessage": "Welcome to the world of math adventures!",
+    "welcomeIntro": "Join Thangamma the Tapir and Kannappan the Capybara on an exciting journey.",
+    "enterName": "Enter Your Name:",
+    "getReady": "Get Ready!",
+    "finalScore": "Final Score",
+    "finalAccuracy": "Final Accuracy",
+    "correctAnswerWas": "The correct answer was",
+    "buttons": {
+      "start": "Let's Begin! 🚀",
+      "check": "Check Answer! 🎯",
+      "playAgain": "Play Again! 🔄"
+    },
+    "gameOver": "Game Over!"
+  },
+  "mascots": {
+    "thangamma": {
+      "name": "Thangamma",
+      "greetings": [
+        ["Hello!", "Let's learn math", "Shall we begin?"],
+        ["Welcome!", "Are you ready?", "Ready to learn?"],
+        ["Hi!", "Ready to play?", "Let's learn together!"]
+      ],
+      "encouragement": [
+        ["Great!", "Very good", "Keep going!"],
+        ["Awesome!", "Well done", "Forward!"],
+        ["Fantastic!", "Excellent performance", "Wonderful!"]
+      ],
+      "celebrations": [
+        ["Level up!", "You're getting better!", "Amazing progress!"],
+        ["New level!", "You're a star!", "Brilliant work!"],
+        ["Moving up!", "Incredible learning!", "You're mastering this!"]
+      ]
+    },
+    "kannappan": {
+      "name": "Kannappan",
+      "motivation": [
+        ["Try!", "We can do it", "Success awaits!"],
+        ["Once more!", "That's better", "You can do it!"],
+        ["No worries!", "Let's try again", "Next time!"]
+      ],
+      "celebrations": [
+        ["Victory!", "Super", "Success!"],
+        ["Amazing!", "Well done", "Brilliant!"],
+        ["Excellent!", "Perfect", "Great!"]
+      ]
+    }
+  },
+  "feedback": {
+    "correct": ["Very good!", "Perfect!", "Excellent!"],
+    "incorrect": ["Not quite right", "Try again", "Close, but not correct"],
+    "enterNumber": "Please enter a number",
+    "correctAnswerWas": "The correct answer was",
+    "levelUp": ["Next level!", "Moving up!", "Onwards!"],
+    "gameStats": "Score: {} | Accuracy: {}%"
+  }
+}

@@ -1,0 +1,71 @@
+---
+import Button from "../ui/Button.astro";
+import Heading from "../ui/Heading.astro";
+import AbstractCard from "../ui/AbstractCard.astro";
+import { getCollection } from "astro:content";
+
+const [staticData] = await getCollection("staticData");
+const {
+  profileLink,
+  profileName,
+  profileTitle,
+  email,
+  emailIconName,
+  contactSectionButtonText,
+} = staticData.data;
+---
+
+<section
+  class="scroll-m-16 px-8 max-sm:px-4 py-8"
+  id="home"
+  aria-label="Professional profile and introduction"
+>
+  <AbstractCard
+    variant="shape-1"
+    class="mx-auto mb-12 h-auto w-full max-w-4xl bg-linear-to-r from-mint-300 dark:from-mint-600 to-mint-50 dark:to-mint-200/5 p-[.2rem]"
+  >
+    <div
+      class="flex h-full flex-col items-center justify-center gap-8 bg-linear-to-tr from-riptide-100 to-white px-16 py-24 text-center dark:bg-linear-to-r dark:from-mint-950 dark:to-zinc-950 dark:before:bg-[radial-gradient(circle,rgba(13,188,130)_0,rgba(1,45,34)_100%)] before:bg-[radial-gradient(circle,rgba(95,255,202)_0,rgba(144,253,210)_100%)] before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:h-[60%] before:aspect-square before:rounded-full before:blur-3xl before:opacity-50 before:-z-10 before:transition"
+    >
+        <span
+          class="relative inline-flex items-center text-xs font-semibold leading-0 dark:text-white text-blacktext"
+        >
+          <span
+            class="before:mr-2 before:block before:h-1.5 before:w-1.5 before:rounded-full before:bg-green-400 before:shadow-[0px_0px_0px_3px_rgba(34,197,94,0.5)] before:animate-pulse before:content-['']"
+          ></span>
+          Available for work
+        </span>
+
+        <h1
+          class="text-5xl font-black leading-none text-blacktext dark:text-white max-md:text-4xl"
+        >
+          {profileName} 👋
+        </h1>
+        <p
+          class="mb-0 text-xl font-semibold leading-8 text-blacktext dark:text-gray-200 max-w-2xl"
+        >
+          <span
+            class="bg-linear-to-r from-riptide-500 to-mint-500 bg-clip-text font-black text-transparent dark:from-riptide-300 dark:to-mint-200"
+            >{profileTitle}</span
+          > with over <span
+            class="bg-linear-to-r from-riptide-500 to-mint-500 bg-clip-text font-black text-transparent dark:from-riptide-300 dark:to-mint-200"
+            >two decades of experience</span
+          >. I write about application security, DevSecOps, and a lot of other stuff. 🚀☕
+        </p>
+
+        <div class="flex gap-4 max-sm:flex-col max-sm:items-center">
+          <Button
+            link={"mailto:" + email}
+            text={contactSectionButtonText}
+            iconName={emailIconName}
+          />
+          <Button
+            link={profileLink}
+            text="About Me"
+            iconName="person"
+            variant="dark"
+          />
+        </div>
+    </div>
+  </AbstractCard>
+</section>

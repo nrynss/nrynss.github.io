@@ -1,0 +1,38 @@
+{
+  "profileImage": "/images/efeeleprofile.webp",
+  "profileAlt": "Nrynss",
+  "profileLink": "/about",
+  "profileTitle": "Technical Writer",
+  "profileName": "Nrynss",
+  "github": "https://github.com/nrynss",
+  "githubText": "Check out the code",
+  "portfolioImage": "/images/portfolio.webp",
+  "email": "hello@nrynss.dev",
+  "linkedin": "https://www.linkedin.com/in/nrynss/",
+  "instagram": "https://www.instagram.com/nrynss/",
+  "youtube": "https://www.youtube.com/@nrynss",
+  "alias": "Nrynss",
+  "contactSectionTitle": "Want to collaborate?",
+  "contactSectionSubtitle": "Let's connect.",
+  "contactSectionButtonText": "Contact Me",
+  "contactSectionButtonIcon": "paperplane",
+  "techsTitle": "Tech Stack",
+  "instagramIconName": "instagram",
+  "youtubeIconName": "youtube",
+  "githubIconName": "github",
+  "linkedinIconName": "linkedin",
+  "emailIconName": "envelope",
+  "hobbies": [
+    "Writing",
+    "Gaming",
+    "Reading",
+    "Coding",
+    "Movies"
+  ],
+  "pageTitle": "Nrynss | Technical Writer",
+  "pageDescription": "Personal blog and portfolio of Nrynss.",
+  "OGImage": {
+    "url": "/images/imagedefault.webp",
+    "alt": "Nrynss Portfolio"
+  }
+}

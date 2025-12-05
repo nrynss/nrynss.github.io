@@ -1,0 +1,6 @@
+---
+const { src, height } = Astro.props;
+---
+<div class="svg-animation-container w-full flex justify-center my-8">
+    <img src={src} style={{ height: height || 'auto', maxWidth: '100%' }} alt="SVG Animation" />
+</div>
