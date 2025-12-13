@@ -1,11 +1,13 @@
 ---
-title: "Tabula Rasa"
-date: 2025-11-30T19:58:38+05:30
+title: "Tabula Rasa: 12 Days of Christmas"
+date: 2025-12-13T19:58:38+05:30
 showComments : true
-draft: true
+draft: false
 ---
 
-The title pretty much has nothing to do with the topic. Something that came into my mind while typing the file name. I had to look it up to remember what it means. 
+The title pretty much has nothing to do with the topic. Something that came into my mind while typing the file name. I had to look it up to remember what it means.
+
+The second part of the title is my new series. I have been working on quite a few projects. I have not been able to write them out and sanitize them enough for the general public. When I came across the 12 Days of Christmas, I thought it would be a fun idea to write about the projects I have been working on and force me to put in the time to write them out. I had this post prepared for a couple of weeks now. All it needed was some more work.
 
 **"Tabula rasa is a Latin phrase meaning “blank slate,” used mainly in philosophy and psychology to describe the idea that the human mind starts out without innate ideas or content, and is shaped by experience."**
 
@@ -110,7 +112,24 @@ The equivalent Markdown would be:
 | Owl      | Dense forests and open countryside where they hunt small mammals and insects at night.                                            | Owls are carnivorous nocturnal birds, feeding on small mammals, insects, and other birds by hunting silently using their acute senses.                  |
 ```
 
-Now you need to rely on a linter, which is not a bad idea. But invariably mistakes will creep in. Markdown linters need to be configured properly or else you get a lot of errors, which are not errors in your book. The possibility of errors increase dramatically. Readability has also come down a lot. It would look a lot decent on the page, but not inside the IDE. Especially when you have several panels and limited screensize if you are on a laptop.
+Now you need to rely on a linter, which is not a bad idea. But invariably mistakes will creep in. Markdown linters need to be configured properly or else you get a lot of errors, which are not errors in your book. The possibility of errors increase dramatically. Readability has also come down a lot. It would look a lot decent on the page, but not inside the IDE. Especially when you have several panels and limited screensize if you are on a laptop. Even more so now that you have an agent panel and agents running in Cursor.
+
+The YAML format is clean and readable within the IDE. Perhaps, LLMs might like it too. If you have plans to feed LLMs with your content, it might be good fit too.
+
+So what do we do with the existing tables? I created a script that would help doing that. It crawls through the content directory and converts tables to YAML. All the tables in a file are converted into YAML tables in the file of the same name. You can find it [here](https://github.com/nrynss/markdown-table-converter).
+
+I have also incuded the actual shortcode that you can use in [your project](https://github.com/nrynss/markdown-table-converter/blob/main/yamltable.html).
+
+You can simply use the shortcode in your content as follows:
+
+{{% yamltable %}}
+- Option: ascending
+  Description: Ascending order (default)
+- Option: descending
+  Description: Descending order
+{{% /yamltable %}}
 
 
+The converter only looks through your files of type `_index.en.md`. You may have to modify it to fit your needs. I guess this can be extended to work with other static site generators too. I never tried anything apart from Hugo. YMMV!
 
+Tomorrow, we will be writing about a game. Hopefully.
