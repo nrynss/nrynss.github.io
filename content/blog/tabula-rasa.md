@@ -163,8 +163,9 @@ Still, this is a solid blend of narrative and utility: a blog post that teaches,
 
 ChatGPT did catch the "we" that Gemini missed! Yeah the opening is bad. I wrote it in a minute to get in the 12 days timeframe. Trade offs and all that.
 
-<review-callout title="Grok 4.1" rating="7"> Practical engineering post that nails the problem-solution demo with YAML vs. Markdown side-by-sides—readability wins leap off the page for any doc maintainer. GitHub repo and shortcode usage example deliver instant utility, rare in tool-focused blogs. Honest admission of team table-breaking mishaps builds trust without excuses.
+{{< review-callout title="Grok 4.1" rating="7">}} 
+Practical engineering post that nails the problem-solution demo with YAML vs. Markdown side-by-sides—readability wins leap off the page for any doc maintainer. GitHub repo and shortcode usage example deliver instant utility, rare in tool-focused blogs. Honest admission of team table-breaking mishaps builds trust without excuses.
 Title and intro setup fizzles fast, leaving "Tabula Rasa" as unused potential for a blank-slate docs metaphor. Problem narrative meanders through context before the payoff, diluting punch. Spotlight IDE readability as the hero insight from the start; dial back qualifiers like "YAMLesque" for crisper prose. Strong bones for series opener—sharpen the arc.
-</review-callout>
+{{< /review-callout >}}
 
 I think the review is sharp and critical as it should be. On a side note, Grok is something I am using to build something now. Mainly due to the cost. Let us see how it goes.
