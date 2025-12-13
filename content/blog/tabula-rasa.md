@@ -123,12 +123,12 @@ I have also incuded the actual shortcode that you can use in [your project](http
 You can simply use the shortcode in your content as follows:
 
 ```yaml
-{{% yamltable %}}
+{{%/* yamltable */%}}
 - Option: ascending
   Description: Ascending order (default)
 - Option: descending
   Description: Descending order
-{{% /yamltable %}}
+{{%/* /yamltable */%}}
 ```
 
 The converter only looks through your files of type `_index.en.md`. You may have to modify it to fit your needs. I guess this can be extended to work with other static site generators too. I never tried anything apart from Hugo. YMMV!
