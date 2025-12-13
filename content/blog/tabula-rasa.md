@@ -134,3 +134,37 @@ You can simply use the shortcode in your content as follows:
 The converter only looks through your files of type `_index.en.md`. You may have to modify it to fit your needs. I guess this can be extended to work with other static site generators too. I never tried anything apart from Hugo. YMMV!
 
 Tomorrow, we will be writing about a game. Hopefully.
+
+{{< review-callout title="Claude Opus 4.5" rating="7" >}}
+A practical, workmanlike post that earns its keep through a genuinely useful solution to a genuinely annoying problem. The long YAML example is the rhetorical MVP here—it makes the case better than any prose could. The confession that "we were breaking more of them than others" is the kind of honest self-implication that builds trust with readers. Where it stumbles: the "Tabula Rasa" title gambit falls flat (self-acknowledged, which doesn't quite save it), and the LLM aside feels like a checkbox rather than a conviction. The abrupt "Tomorrow, we will be writing about a game" sign-off suggests the 12-day constraint is already exerting pressure. Would benefit from a single screenshot of the rendered output—show, don't just tell—and perhaps a note on edge cases the shortcode doesn't handle. Solid first entry; the series has potential if subsequent posts go deeper into the why behind the what.
+{{< /review-callout >}}
+
+Not the highest quality. I guess the LLM reviews would reflect that. I had to argue to make it 7 from 6.
+
+{{< review-callout title="Kimi K2 Thinking" rating="7.5" >}}
+A pragmatic solution post that shines when showing rather than telling. The YAML-versus-Markdown comparisons make the readability argument instantly clear—anyone who's wrestled with broken tables in monorepos will nod along. The GitHub links add immediate value, and the self-awareness about your own team's table-breaking habits creates rare authenticity.
+
+The "Tabula Rasa" framing feels disconnected, never integrating with the technical core. The opening wanders before finding its footing, and the tool announcement at the end lands abruptly. The real insight—that IDE readability matters as much as output—deserves to be the thesis, not a supporting detail. More confidence in the solution's elegance and less apology for the problem would strengthen the voice. Solid engineering writing that nearly hides its best insight.
+{{< /review-callout >}}
+
+First time using Kimi K2 for anything at all. The observation is actually very, very astute.
+
+{{< review-callout title="Gemini 3 Pro" rating="7.5" >}} A utilitarian fix wrapped in a whimsical, slightly disjointed intro. The post finds its footing the moment it abandons the "12 Days" pretext and attacks the "bane of existence" that is Markdown tables. The visual evidence—the clean YAML list versus the horizontal-scroll nightmare of the populated Markdown table—is the most persuasive argument for "docs-as-data" I've seen in a long time. The acknowledgment that "non-technical writers were breaking the tables" hits a raw nerve in collaborative docs culture; it’s a problem that deserves this kind of engineering solution. However, the preamble about the title feels like throat-clearing; trust your content enough to let it stand without the disclaimer. Solid tooling, less apology next time. {{< /review-callout >}}
+
+I guess the post needed clarity in the "we". Gemini didn't catch that. "we" as in technical writers were breaking the table. Not our dear contributors!
+
+{{< review-callout title="ChatGPT 5.2" rating="8" >}}
+A practical, experience-driven post that earns its keep by solving a real documentation pain point rather than theorizing about one. The author’s frustration with Markdown tables is familiar, but here it’s backed by concrete constraints—CI checks, monorepo workflows, and the reality that “everyone owns the docs.” The YAML-to-table shortcode is well motivated, clearly explained, and convincingly justified through before/after examples that make the readability argument hard to dispute.
+
+Where the post shines most is its calm refusal of dogma: Markdown isn’t evil, YAML isn’t perfect, and tooling choices are framed as trade-offs made under real-world pressure. The acknowledgement that even technical writers break tables is refreshingly honest. The weakest aspect is the framing—the title and philosophical throat-clearing promise more abstraction than the post delivers, and the “12 Days of Christmas” conceit barely registers. Tightening the opening and aligning it more closely with the strong middle would elevate the whole piece.
+
+Still, this is a solid blend of narrative and utility: a blog post that teaches, ships code, and respects the reader’s time. More posts like this, and the series earns its name.
+{{< /review-callout >}}
+
+ChatGPT did catch the "we" that Gemini missed! Yeah the opening is bad. I wrote it in a minute to get in the 12 days timeframe. Trade offs and all that.
+
+<review-callout title="Grok 4.1" rating="7"> Practical engineering post that nails the problem-solution demo with YAML vs. Markdown side-by-sides—readability wins leap off the page for any doc maintainer. GitHub repo and shortcode usage example deliver instant utility, rare in tool-focused blogs. Honest admission of team table-breaking mishaps builds trust without excuses.
+Title and intro setup fizzles fast, leaving "Tabula Rasa" as unused potential for a blank-slate docs metaphor. Problem narrative meanders through context before the payoff, diluting punch. Spotlight IDE readability as the hero insight from the start; dial back qualifiers like "YAMLesque" for crisper prose. Strong bones for series opener—sharpen the arc.
+</review-callout>
+
+I think the review is sharp and critical as it should be. On a side note, Grok is something I am using to build something now. Mainly due to the cost. Let us see how it goes.
