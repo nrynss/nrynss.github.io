@@ -27,7 +27,7 @@ Technically, almost the entire source is in Rust. Music and locales are in JSON.
 
 The game does hold the attention of my kids for some minutes. I guess that is the best something as simple as this can go. But I think it shows the potential of Rust and web assembly. Talented people can build something that would be a lot more fun.
 
-![Neom Mathventure](/images/neom.png)
+![Neom Mathventure](/static/images/neom.png)
 
 The game is open-source and available [here](https://github.com/nrynss/neom-mathventure). It is called Neom Mathventure, named after my children.
 
