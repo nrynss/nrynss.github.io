@@ -59,3 +59,23 @@ I confess that I had to look up "diptych". One more word that I can use while wr
 Personal storytelling at its most effective—90s Indian computing nostalgia (floppy hunts, pricy games, DTP flops) flows seamlessly into reviving a game-designer dream for your kids' math woes. The capybara-tapir bedtime lore origin adds heartwarming depth, and Rust/WASM/Dioxus flexes modern indie cred without alienating non-devs. Playable demo + repo links seal the deal for tinkerers.
 New eerie AI reflection and cross-platform tease enrich the tech-philosophy layer, but gameplay could shine brighter with difficulty curve details or kid feedback quotes. Title feels placeholder-ish amid such vivid history; lean harder into "Neom Mathventure" branding. PS bug-hunt tease hooks for next post—keep threading that project universe.
 {{< /review-callout >}}
+
+Grok is a little subdued today. May be it is so when Elon is sleeping. Well, it is a Sunday after all.
+
+{{< review-callout title="ChatGPT 5.2" rating="7" >}}
+A warm, meandering essay that works best as a personal narrative and least as a technical showcase. The opening recollection of 1990s computing in India is vivid and grounded, anchoring the post in lived experience rather than nostalgia-for-its-own-sake. The throughline—from childhood games, to abandoned dreams of game design, to building something small and imperfect for one’s own children—is sincere and emotionally credible, and it carries the reader even when the structure wanders.
+
+The technical sections are informative but secondary. Mentions of Rust, WebAssembly, and Dioxus feel more like proof-of-capability than deep exploration, which is appropriate given the post’s reflective intent, but they occasionally interrupt the narrative momentum. The strongest material lies in the personal motivations: the bedtime stories that become mascots, the delight of children engaging with something you made, and the quiet reckoning with how generative AI collapses barriers that once felt insurmountable.
+
+Where the post falters is focus. Several threads—game design culture, AI unease, localization, music generation, OCR side projects—compete for attention without fully resolving. Tightening these into one or two dominant themes would significantly sharpen the impact. Still, as a standalone entry, it succeeds as a thoughtful, humane account of making something small, imperfect, and meaningful—arguably the most honest kind of game development story.
+{{< /review-callout >}}
+
+{{< review-callout title="ChatGPT 5.2" rating="7" >}}
+A warm, meandering personal essay that works best when it leans into memory and motivation rather than technology evangelism. The opening sections—about 90s computing in India, pirated games, abandonware, and the quiet death of a childhood dream—are vivid and grounded, carrying an authenticity that can’t be manufactured. The pivot to building a game for the author’s daughter feels earned, and the tapir–capybara backstory is genuinely charming, adding emotional ballast to what could otherwise be a straightforward project write-up.
+
+Where the post falters is focus. The narrative jumps between nostalgia, parenting, Rust/WebAssembly advocacy, GenAI commentary, and game mechanics without quite settling on a dominant thread. The technical sections are interesting but high-level, occasionally slipping into justification (“performance gains,” “availability of developers”) rather than insight drawn from hard-won experience. Similarly, the philosophical aside about machines, music, and knowledge is intriguing but fleeting—more a spark than a developed thought.
+
+Still, the piece succeeds on human terms. This is less a polished product announcement than a reflective logbook entry: imperfect, honest, and quietly proud of having built something that held a child’s attention for a few minutes. As a standalone post, it invites empathy more than awe—and that may be its strongest achievement.
+{{< /review-callout >}}
+
+ChatGPT gave two responses and asked me to choose one. I left it hanging. Both of them are too much drivel in my opinion.
