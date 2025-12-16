@@ -60,3 +60,8 @@ Opus seems to be lost cause. I got redirected to Sonnet. That quality difference
 
 Gemini still thinks it is 1.5. It actually did some fine editing that others didn't. It even prefaced with something like, "I know you didn't ask for this but here are some things anyway." Very cool.
 
+{{< review-callout title="Kimi K2" rating="8/10" >}}
+This post brilliantly captures the technical writer's evolution from scribe to tool-builder. The author's pivot from LLM-driven to OpenAPI spec-based generation is sharp engineering—trading hallucination risk for deterministic reliability. Cursor's role as a "codebase oracle" that empowers writers to architect their own solutions is the piece's most valuable insight. However, the narrative loses focus in its final third; the OCR postscript feels like a separate essay grafted onto an otherwise tight story. The Hugo performance claims, while intriguing, beg for benchmarks to substantiate them. Still, it's a compelling rallying cry for documentation teams to stop waiting for engineering resources and start building their own force multipliers.
+{{< /review-callout >}}
+
+It was intriguing to see how Kimi struggled with the title and finally said AI Assistant's Review. Like any tech reviewer it asks for benchmarks!
