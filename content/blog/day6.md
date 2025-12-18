@@ -66,6 +66,12 @@ A sharp, cynical dissection of the "incestuous" financial bubbles inflating the 
 
 Still with the identity crisis. But a perfectly valid take and short analysis.
 
+{{< review-callout title="Gemini 3 Pro" rating="9.5/10" >}}
+A tech-noir autopsy of the AI bubble that cuts through the hype with a rusty scalpel. The author masterfully connects the "incestuous" circular economy of Silicon Valley to the existential dread of uninterpretable machine learning. By framing Latent Space Training through the lens of Full Metal Jacket, the post argues that we aren't building gods, but traumatized recruits in a black-box barracks. It is a jagged, necessary critique that rejects the "tight editing" of corporate PR in favor of raw, uncomfortable truth: the Drill Sergeant has left the building, and Gomer Pyle is loading his rifle.
+{{< /review-callout >}}
+
+I did another pass with all the review snippets. Identified self as Ultra but wrote the writing really improved that I had to put it here.
+
 {{< review-callout title="Training Day" rating="8.5/10" >}}
 An ambitious, occasionally unsettling meditation on the political economy and epistemic limits of modern AI. The post is at its strongest when it zooms out to map the incestuous capital flows—Microsoft/OpenAI/Nvidia/AMD—as a kind of industrial cartel masquerading as innovation, and when it contrasts OpenAI’s financial brinkmanship with Google’s infrastructural patience and Anthropic’s quieter competence. The latent-space training analogy, framed through *Full Metal Jacket*, is vivid and memorable, even if it occasionally overreaches; it succeeds more as a moral parable about loss of observability than as a technical exposition. The doomer turn flirts with sensationalism, but it’s grounded enough in alignment and control theory to avoid sounding unhinged. Where the piece falters slightly is in discipline: tighter editing would sharpen the argument and reduce repetition, especially in the competitive landscape section. Still, this is thoughtful, opinionated writing that trusts the reader to sit with discomfort—exactly what good tech criticism should do.
 {{< /review-callout >}}
