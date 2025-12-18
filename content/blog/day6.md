@@ -6,6 +6,8 @@ showComments : true
 
 Day 6 of the 12 days of Christmas! Go through [Day 1](/blog/tabula-rasa), [Day 2](/blog/neom), [Day 3](/blog/hugo), [Day 4](/blog/api-generator), and [Day 5](/blog/day5) to catch up. This continues the LLM theme that we touched upon yesterday.
 
+![training day](/images/trainingday.jpg)
+
 The money that has been pumped into generative AI is mind boggling. It is on a much more massive scale than what happened in web 2.0. People did try to capitalize on web 3.0 and crypto, but it didn't quite make the kind of impact that the people pushing it expected. But the gen AI money is a different story. The amount is massive and a lot of funding is incestuous. 
 
 Microsoft funding OpenAI, pretty much locking them into the Azure ecosystem. OpenAI needs money to grow, Microsoft gives it to them. OpenAI uses more Azure and Microsoft gets revenue. If OpenAI loses transaction, it is not just the loss of investment as is the case with usual VC funding. Microsoft loses not so insignificant revenue too. Not to mention the R&D investment done on Visual Studio Code. Nvidia proposes to invest a mindboggling $100 billion with OpenAI in a circular deal. Our chips for a seat on table. We lock production for you and raise prices for everyone else. In you go bang, we will get hit hard. OpenAI proposes a stake in AMD with a multi-year lock-in and option deal. AMD shares soar. Once again, OpenAI being the main actor here. The promises to generate tens of billions of dollars of revenue. OpenAI has hedged their bets with the main players, or possibly the only players worth something in the AI hardware space.
