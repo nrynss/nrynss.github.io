@@ -1,6 +1,6 @@
 ---
 title: "Local LLMs: What Do They Know? Do They Know Things?? Let's Find Out! - 2"
-date: 2025-12-21T23:42:45+05:30
+date: 2025-12-20T23:42:45+05:30
 showComments : true
 ---
 
