@@ -1,21 +1,13 @@
 {{ $customCSS := resources.Get "css/custom.css" }} {{ $customCSS = $customCSS |
 resources.Minify | resources.Fingerprint "sha512" }}
-<link
-    rel="stylesheet"
-    href="{{ $customCSS.RelPermalink }}"
-    integrity="{{ $customCSS.Data.Integrity }}"
-/>
+<link rel="stylesheet" href="{{ $customCSS.RelPermalink }}" integrity="{{ $customCSS.Data.Integrity }}" />
 
 {{ $animationJS := resources.Get "js/animation.js" }} {{ $animationJS =
 $animationJS | resources.Minify | resources.Fingerprint "sha512" }}
-<script
-    src="{{ $animationJS.RelPermalink }}"
-    integrity="{{ $animationJS.Data.Integrity }}"
-    defer
-></script>
+<script src="{{ $animationJS.RelPermalink }}" integrity="{{ $animationJS.Data.Integrity }}" defer></script>
 
-{{ if and .Params.showComments (eq .Layout "single") }}
-<!-- Only load comment scripts on single pages with showComments parameter -->
+{{ if and (or .Params.comments .Params.showComments) .IsPage }}
+<!-- Only load comment scripts on page types with comment parameters enabled -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <!-- Load comment.js script directly (not through Hugo's bundling) -->
