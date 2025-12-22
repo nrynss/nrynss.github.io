@@ -1,4 +1,4 @@
-{{ $customCSS := resources.Get "css/custom.css" }} {{ $customCSS = $customCSS |
+{{ $customCSS := resources.Get "css/extended/custom.css" }} {{ $customCSS = $customCSS |
 resources.Minify | resources.Fingerprint "sha512" }}
 <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}" integrity="{{ $customCSS.Data.Integrity }}" />
 
@@ -13,3 +13,4 @@ $animationJS | resources.Minify | resources.Fingerprint "sha512" }}
 <!-- Load comment.js script directly (not through Hugo's bundling) -->
 <script src="/js/comment.js" defer></script>
 {{ end }}
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
