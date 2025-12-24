@@ -1,0 +1,10 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "Animated GIF" }}
+{{ $caption := .Get "caption" }}
+
+<figure class="gif-container">
+    <img src="{{ $src }}" alt="{{ $alt }}" loading="lazy" decoding="async" />
+    {{ with $caption }}
+    <figcaption>{{ . }}</figcaption>
+    {{ end }}
+</figure>

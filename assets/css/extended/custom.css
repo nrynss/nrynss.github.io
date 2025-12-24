@@ -557,3 +557,20 @@ button[type="submit"]:hover {
     min-height: auto;
     margin-bottom: 0;
 }
+
+.gif-container {
+    margin: 1.5rem 0;
+}
+
+.gif-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.gif-container figcaption {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.5rem;
+    text-align: center;
+}
