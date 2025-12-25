@@ -1,0 +1,66 @@
+<details class="expandable" {{ with .Get "open" }}open{{ end }}>
+    <summary>{{ .Get "title" | default "Click to expand" }}</summary>
+    <div class="expandable-content">
+        {{ .Inner | markdownify }}
+    </div>
+</details>
+
+<style>
+    .expandable {
+        margin: 1.5rem 0;
+        background-color: var(--bg-callout);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .expandable summary {
+        padding: 1rem 1.25rem;
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--text-primary);
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .expandable summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .expandable summary::before {
+        content: "▶";
+        font-size: 0.75rem;
+        color: var(--accent-primary);
+        transition: transform 0.2s ease;
+    }
+
+    .expandable[open] summary::before {
+        transform: rotate(90deg);
+    }
+
+    .expandable summary:hover {
+        color: var(--accent-primary);
+    }
+
+    .expandable-content {
+        padding: 0 1.25rem 1.25rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+
+    .expandable-content p:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 640px) {
+        .expandable summary {
+            padding: 0.875rem 1rem;
+        }
+
+        .expandable-content {
+            padding: 0 1rem 1rem;
+        }
+    }
+</style>
