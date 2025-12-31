@@ -1,0 +1,19 @@
+{{/* layouts/shortcodes/project-card.html */}}
+{{ $title := .Get "title" }}
+{{ $description := .Get "description" }}
+{{ $blog := .Get "blog" }}
+{{ $project := .Get "project" }}
+{{ $demo := .Get "demo" }}
+
+<div class="project-card">
+  <div class="project-header">
+    <span class="project-title">{{ $title }}</span>
+  </div>
+  <p class="project-description">{{ $description }}</p>
+  <div class="project-links">
+    {{ with $blog }}<a href="{{ . }}" class="project-link link-blog">Blog</a>{{ end }}
+    {{ with $project }}<a href="{{ . }}" class="project-link link-project" target="_blank" rel="noopener">Project</a>{{
+    end }}
+    {{ with $demo }}<a href="{{ . }}" class="project-link link-demo" target="_blank" rel="noopener">Live</a>{{ end }}
+  </div>
+</div>

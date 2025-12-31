@@ -1,0 +1,16 @@
+{{/* layouts/shortcodes/projects-list.html - Renders all projects from data/projects.yaml */}}
+<div class="project-grid">
+{{- range site.Data.projects }}
+  <div class="project-card">
+    <div class="project-header">
+      <span class="project-title">{{ .title }}</span>
+    </div>
+    <p class="project-description">{{ .description }}</p>
+    <div class="project-links">
+      {{ with .blog }}<a href="{{ . }}" class="project-link link-blog">Blog</a>{{ end }}
+      {{ with .project }}<a href="{{ . }}" class="project-link link-project" target="_blank" rel="noopener">Project</a>{{ end }}
+      {{ with .demo }}<a href="{{ . }}" class="project-link link-demo" target="_blank" rel="noopener">Live</a>{{ end }}
+    </div>
+  </div>
+{{- end }}
+</div>

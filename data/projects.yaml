@@ -1,0 +1,20 @@
+- title: "Neom Mathventure"
+  description: "A math game built for my children featuring tapir and capybara mascots. The difficulty increases as the child progresses."
+  blog: "/blog/neom/"
+  project: "https://github.com/nrynss/neom-mathventure/"
+  demo: "https://nryn.dev/neom/"
+
+- title: "Vimanam"
+  description: "Generate Markdown documentation from OpenAPI specifications. Supports both OpenAPI v2 and v3 json files."
+  blog: "/blog/vibing-vith-vimanam/"
+  project: "https://github.com/nrynss/vimanam/"
+
+- title: "Markdown Table Converter"
+  description: "Convert fragile Markdown tables into a robust, readable YAML format for Hugo shortcodes."
+  blog: "/blog/tabula-rasa/"
+  project: "https://github.com/nrynss/markdown-table-converter"
+
+- title: "API Query Builder"
+  description: "A dynamic tool that generates complex CLI commands on-the-fly from an OpenAPI specification."
+  blog: "/blog/api-generator/"
+  demo: "https://docs.endorlabs.com/rest-api/api-query-builder/"

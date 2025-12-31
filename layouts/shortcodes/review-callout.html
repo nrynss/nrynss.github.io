@@ -1,23 +1,9 @@
 {{/* layouts/shortcodes/review-callout.html */}}
-<article class="review-callout" aria-labelledby="review-title-{{ .Get "title" | urlize }}">
+<article class="review-callout">
   <header class="review-header">
-    <div class="review-title-group">
-      <div class="review-info">
-        <h3 id="review-title-{{ .Get "title" | urlize }}" class="review-title">
-          <span class="reviewer-name">{{ $name := index (split (.Get "title") " says...") 0 }}{{ $name }}</span>
-          <span class="reviewer-suffix">says...</span>
-        </h3>
-      </div>
-      
-      <div class="review-rating" aria-label="Rating {{ .Get "rating" }}">
-        <div class="rating-score">
-          <span class="rating-star" aria-hidden="true">★</span>
-          <span class="rating-number">{{ .Get "rating" }}</span>
-        </div>
-      </div>
-    </div>
+    <span class="reviewer-name">{{ $name := index (split (.Get "title") " says...") 0 }}{{ $name }}</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">{{ .Get "rating" }}</span></span>
   </header>
-
   <div class="review-content">
     {{ .Inner | markdownify }}
   </div>
