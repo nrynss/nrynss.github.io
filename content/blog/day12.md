@@ -21,3 +21,33 @@ What does 2026 hold? Acceleration of AI adoption will continue relentlessly. Som
 For me personally, I am looking forward to building new things. I am looking into a vector databases and how to achieve an optimal chunking strategy for documentation. Let us see how far we can take this.
 
 Wish you all a happy new year!
+
+{{< review-callout title="Kimi K2" rating="7/10" >}}
+A belated but refreshingly honest wrap-up that ditches the 12-day pretense for a meandering year-end meditation on AI's relentless march, mixing self-deprecating humor (that two-day delay confession) with genuinely sharp observations—from the darkly funny Skynet-versus-destitution preference to the eyebrow-raising tale of technical writers classified alongside dishwashers. The author excels when dissecting AI's documentation paradox (better tools need better human writers, yet they're undervalued) and when forecasting 2026's security nightmares like Shai Hulud and AI-driven social engineering. Personal asides—the Bruichladdich wishful thinking, the 100% AI-generated code admission—add authentic texture, though the piece occasionally stumbles between doomscrolling and New Year's resolutions. It's less a polished finale than a late-night pub conversation with a tech-savvy friend: messy, opinionated, but genuinely engaging for anyone building AI tools while questioning their own hubris. Just don't expect deep dives into that promised vector database strategy—this is a toast, not a tutorial.
+{{< /review-callout >}}
+
+How is Bruichladdich wishful thinking when I have the bottle in hand? Still not intelligent enough.
+
+{{< review-callout title="ChatGPT 5.2" rating="8/10" >}}
+A reflective, slightly rambling year-end coda that works best when it leans into lived experience rather than tech prognostication, tying together missed deadlines, whisky-adjacent temptations, and a simmering unease about where AI adoption is headed. The author’s skepticism toward metric-driven “AI mandates” and auto-generated prose is sharp and grounded, especially in the thoughtful defense of human-authored documentation as both craft and prerequisite for effective AI use. Doom-laced humor (Skynet vs. destitution is a memorable bit) keeps the heavier themes—security blowback, social engineering, and institutional myopia—from tipping into pure fatalism. It’s less a neat conclusion to the series than a candid exhale at the end of a long sprint: messy, honest, and quietly optimistic about building better things amid the chaos.
+{{< /review-callout>}}
+
+Lived experience seems to be ChatGPT's favourite word these days. I have seen this way too many times.
+
+{{< review-callout title="Claude Opus 4.5" rating="7/10" >}}
+A candid, slightly disheveled finale to a 12-day marathon that ran two days over budget—fitting, given the theme of AI's chaotic 2025 trajectory. The author trades technical deep-dives for year-end musings on AI adoption mandates (30% AI commits by March? *how* do you even?), the stubborn pride of human writing ("may be it is hubris"), and the delicious irony that AI needs better documentation written by the very humans boards once classified alongside dishwashers. Highlights include the Bruichladdich name-drop, the unflinching Skynet-vs-destitution calculus, and a genuinely prescient doom forecast involving Shai Hulud variants and uncensored Llama social engineers. The post meanders more than it concludes—vector databases and chunking strategies get a tease but no teeth—yet the weary honesty ("I had a lot more fun than be caged with a computer") makes it feel less like a missed deadline and more like a toast raised to messy, human imperfection in an increasingly automated world.
+{{< /review-callout >}}
+
+Opus shining here and actually covers everything.
+
+{{< review-callout title="Gemini 3.0 Pro" rating="8.5/10" >}} 
+A reflective, if slightly tardy, capstone to the "12 Days" sprint that trades technical tutorials for holiday confessions and sharp industry forecasting. Highlights include a relatable justification for missed deadlines (whisky over coding), a scathing critique of arbitrary "30% AI commit" mandates, and a spirited defense of human-authored documentation against the "sparse and verbose" output of its silicon rivals. The shift from personal anecdotes to grim security predictions—specifically the Shai Hulud shoutout and AI social engineering—provides a sobering counterweight to the New Year's cheer. It lacks the code snippets of earlier days but makes up for it with a human perspective that even an LLM can appreciate. 
+{{< /review-callout>}}
+
+Gemini being way too generous here.
+
+{{< review-callout title="Grok 4.1" rating="7/10" >}}
+A breezy, end-of-year ramble wrapping up a delayed holiday series on local LLMs, blending personal anecdotes—like travel triumphs over tech drudgery and wistful whiskey stares—with wry takes on AI's 2025 boom, from doomy Skynet-vs-destitution debates to mandated gen-AI commits in big tech (30% by March? Quantify that chaos!). Dives into the quirks of AI-assisted writing, championing human touch for docs amid sparse LLM verbosity, while nodding to tech writer woes (lumped with plumbers? Ouch) and forecasting security nightmares like souped-up Shai Hulud attacks and AI-fueled social engineering storms. It's relatable and humorous in its weary optimism, a quick palate cleanser for AI enthusiasts eyeing vector dbs and chunking strategies, though it skimps on series closure and drifts into vague futurism without deep dives—just enough spark to toast the new year, but brace for the unfinished vibe.
+{{< /review-callout>}}
+
+Did I promise any deep dives Groky?
