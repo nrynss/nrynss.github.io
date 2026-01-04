@@ -11,8 +11,12 @@ Reading the posts made me realize that I am not remembering certain events at al
 ```text
 
 Disclaimer: Do not try this until you want a reinstall!
-I am posting this from our Linux class. I just happened to be one of the instruments who crashed the system. We were taught some stuff about bash scripting and how to run scripts at the start of a login. Me and Jackie made a couple of scripts. And i made an iterative statement "Kill Gates" display for 20 times. Then some absolute idiot modified a core file bashrc and the whole system crashed. I was the prime suspect and actually I was going to write a script which would have pinged 200 computers and displayed the results at the start of login.
-Well, for those who don't know, pinging means checking the availability of a system over the network and it takes about 20 seconds to ping one system.Imagine pinging 200 systems, takes about 7 minutes. Not only that several users will be trying that at the same time! So imagine the chaos that would be created...
+I am posting this from our Linux class. I just happened to be one of the instruments who crashed the system. 
+We were taught some stuff about bash scripting and how to run scripts at the start of a login. Me and Jackie made a couple of scripts. 
+And i made an iterative statement "Kill Gates" display for 20 times. Then some absolute idiot modified a core file bashrc and the whole system crashed. 
+I was the prime suspect and actually I was going to write a script which would have pinged 200 computers and displayed the results at the start of login.
+Well, for those who don't know, pinging means checking the availability of a system over the network and it takes about 20 seconds to ping one system.
+Imagine pinging 200 systems, takes about 7 minutes. Not only that several users will be trying that at the same time! So imagine the chaos that would be created...
 Things are still not rectified. Atleast sir won't ask me to sit in front in the server anymore ;-)
 
 ```
