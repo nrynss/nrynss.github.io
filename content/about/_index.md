@@ -5,6 +5,8 @@ description: "About me"
 
 I am a technical writer. Have been one for close to two decades. I break down complex technical information, mentor writers, design processes, and implement tools to make documentation better and products better with documentation. My primary focus is on the developer experience of the customers that use our products. Both in and out of traditional documentation.
 
+Outside of my official work, I have developed open-source tools to make documentation better. I have also made small contributions to an open-source project or two. Check out my [GitHub](https://github.com/nrynss).
+
 I live with my wife and two kids in our own little world. My anchor and my rock.
 
 I spend an inordinate amount of time on a computer. The tiny one, small one, the big one, and virtual ones. Anything with a screen. Sometimes without.
