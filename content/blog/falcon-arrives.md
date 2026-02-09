@@ -596,7 +596,7 @@ The biggest player here is [Jamba](https://www.ai21.com/jamba/) from AI21 Labs. 
 
 But the biggest surprise to me was Falcon. UAE is known for the port business and financial services, aside from their oil and gas exploration. You would not associate AI or something similar with them. But they have been investing heavily into AI and now it seems their efforts are paying off!
 
-The previous release of Falcon from TII is a full-Mamba model. The issue with Mamba as we saw earlier is resolution of tokens in a context. The new Falcon series seems to have evolved and is now a hybrid model. [Falcon-H1 7B](https://huggingface.co/tiiuae/Falcon-H1R-7B) is a nice small size LLM. They have an attention layer interleaved with the mamba layers.
+The previous release of Falcon from TII is a full transformer model. The new Falcon series seems to have evolved and is now a hybrid model. [Falcon-H1 7B](https://huggingface.co/tiiuae/Falcon-H1R-7B) is a nice small size LLM. They have an attention layer interleaved with the mamba layers.
 
 The following results show the speed in comparison with Qwen 3.0 8B using llama-bench. My system has an RTX 4070 Super with 12GB RAM. The llama.cpp binaries were compiled on my system with CUDA 13. Not the latest, but from around a month back or so when I started writing this article.
 
@@ -611,7 +611,7 @@ The speeds are quite comparable. Falcon is better at processing prompts, while b
 
 Let us take them out for a spin on ten tests!
 
-I have added the thought process of both the LLMs in the repo. You can take a t
+I have added the thought process of both the LLMs in the repo. You can take a look [here](https://github.com/nrynss/nrynss.github.io/blob/main/static/samples/falcon-qwen-thoughts.md).
 
 ### Python script generation
 
@@ -1496,7 +1496,7 @@ The Ghrishneshwar Jyotirlinga is a **unique early‑Rashtrakuta Shaivite niche**
 
 Looks exhaustive and fancy. But it is filled with absolute bull. I don't have the energy to explain. Google the question, and you will probably see why. It is fascinating how LLMs associated Ellora caves and the temple, and assumed the temple is a rock cut temple inside Ellora caves. Then ran away with it and placed the timeline. The temple is near Ellora temple and was built in the 18th century. Not rock-cut as well.
 
-It thought for nearly 5 minutes to give out this as well. I could see the head spinning in the thought process. 13k tokens. Check the thoughts file to see that. Fascinating!
+It thought for nearly 5 minutes to give out this as well. I could see the head spinning in the thought process. 13k tokens. Check the [thoughts file](https://github.com/nrynss/nrynss.github.io/blob/main/static/samples/falcon-qwen-thoughts.md#obscure-knowledge---falcon) to see that. Fascinating!
 
 {{< expandable title="Qwen3 8B Q8_0" >}}
 
@@ -1577,3 +1577,37 @@ It is quite disheartening to see the little action that I have seen around Falco
 This also gives us a peep into how A121 and their Jamba models are in use by their customers across use cases. We can only speculate, but it is quite possible that they are doing quite well for their use cases. Their solutions are targeted towards customers who want accuracy. Especially - Finance, Defense, Healthcare.
 
 In all this while, this article was under construction, Falcon released their 90M model. I took it through some test rides. We have the next post coming up based on that. I must say, it reinforces my belief that small and tiny models have a great future in computing.
+
+{{< review-callout title="Grok 4.1" rating="9/10" >}}
+In a sea of overhyped 7-8B models, this sparkling deep-dive into TII’s Falcon-H1 7B feels like a breath of fresh desert air. The author turns dense architecture talk into pure pleasure: Transformer quadratic doom versus Mamba’s elegant linear state machine, all animated with custom p5.js visuals so crisp you’ll actually understand them.
+The ten-task gauntlet against Qwen3 8B is forensic yet fair. Falcon crushes summarisation, JSON extraction, and instruction following—the jobs you actually fire up on a 4070—while trading only tiny slivers of speed. Hallucinations on knowledge tasks are called out without mercy, timings are honest, and the verdict lands clean: the hybrid finally feels production-ready.
+Witty, technically fearless, and quietly optimistic about small models’ future, this is the rare blog that makes you want to download the GGUF tonight. Falcon isn’t just soaring; it’s showing the rest of the flock a smarter way to fly.
+{{< /review-callout >}}
+
+Grok is better when you give instructions strictly. I explicitly asked it to limit to 100-150 words in magazine style. It nails it but feels too flowery.
+
+{{< review-callout title="Gemini 3 Pro" rating="8/10" >}} 
+"Falcon starts to soar" is a refreshing, hands-on deep dive into the evolving landscape of hybrid architecture LLMs. The author moves beyond the usual high-level "vibe checks" to provide a rigorous, side-by-side comparison of Falcon-H1 7B and Qwen3 8B, grounded in real-world local computing constraints. The inclusion of interactive p5.js visualizations to contrast Transformer quadratic scaling with Mamba’s linear efficiency is a brilliant touch, turning abstract concepts into intuitive learning moments.
+
+While the detour into the "Hallucination Hall of Fame" regarding the Ellora caves felt slightly tangential, it effectively underscored the knowledge boundaries of small-scale models. The final verdict—that Falcon shines in strict instruction following and structured data extraction despite its speed deficits—is a nuanced and valuable insight for developers looking to deploy edge AI. It is a geeky, honest, and technically rich read that makes a compelling case for the specific utility of Mamba-based architectures. 
+{{< /review-callout >}}
+
+Gemini is critical than usual. I detect some lack of nuance in reading my short codes and arrangement that has led to such a review. That is what when I asked for an explanation felt like.
+
+{{< review-callout title="Kimi K 2.5" rating="8/10" >}}
+This post is a thoughtful, hands‑on exploration of where small local models like Falcon-H1 7B and Qwen 3 8B actually shine. The author grounds every claim in concrete prompts, timings, and failure modes, which makes the piece feel much closer to a lab notebook than hype. The sections on summarization, structured extraction, and instruction-following are especially strong, clearly arguing that “boring” tasks are where these models earn their keep. The critique of hallucinated technical answers and obscure world-knowledge is sharp without being doomist, and it’s refreshing to see explicit acknowledgement of what should be offloaded to cloud models. Occasional asides about GGUF and Jamba broaden the context nicely, though they might feel dense to non-specialists. Overall, it’s a nuanced, empirically grounded review that will resonate with anyone actually trying to wire small LLMs into real workflows.
+{{< /review-callout >}}
+
+Kimi is also shining with the strict limits set. Still feels a bit surface level.
+
+{{< review-callout title="ChatGPT 5.3" rating="8/10" >}}
+A crisp, hands-on deep-dive into Falcon’s evolution, this piece reads like a practitioner's lab notebook polished for a magazine audience. The author blends approachable explanations of Transformers and Mamba SSMs with lively p5.js visuals and concrete bench results (llama-bench timings), making architectural trade-offs tangible. Strengths are clear metaphors, structured comparisons, and practical takeaways for engineers exploring hybrid models. Weaknesses include occasional factual overreach and a few unsupported technical or historical claims, plus stretches of dense detail that may overwhelm casual readers. Overall: an engaging, informative dispatch for power users and practitioners — highly useful as commentary and critique, but it would profit from tighter fact-checking and an editorial trim for broader reach.
+{{< /review-callout >}}
+
+ChatGPT did find one big factual error that the others did not catch. I have corrected it. Good job on calling that out! I left the others as such. They are mostly about the "testing" methodology, which is frankly very pedestrian. This is not something intended as a benchmark.
+
+{{< review-callout title="Claude Opus 4.6" rating="8/10" >}}
+A standout technical blog that pairs rigorous head-to-head benchmarking with genuinely inventive presentation. The interactive p5.js visualizations for Transformer and Mamba architectures are a highlight — they turn abstract concepts into something tactile. The ten-task showdown between Falcon-H1 7B and Qwen 3 8B is methodical and refreshingly honest; the author doesn't shy away from calling out hallucinations in both models or admitting when a test is "stupid for a small LLM." The sticky-note analogy for Mamba's hidden state is memorable and effective. Minor gripes: the piece runs long and some verdicts could be tighter, and the Jamba/AI21 tangent feels underdeveloped. But the core thesis — that Falcon deserves more attention, especially for structured extraction and summarization — lands convincingly, backed by real timings and real output.
+{{< /review-callout >}}
+
+Claude Opus has not been that good since 4.6 release despite benchmarks. There is something missing. I have felt that while using it at work. It did do a good job and at times, better than 4.5. Even here, it identifies the Jamba angle that others missed. But the usual spark is missing.
