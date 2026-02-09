@@ -1,0 +1,16 @@
+{{- $id := .Get "id" | default (printf "p5-sketch-%d" .Ordinal) -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $height := .Get "height" | default "400px" -}}
+
+{{- if not (.Page.Scratch.Get "p5jsLoaded") -}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  {{- .Page.Scratch.Set "p5jsLoaded" true -}}
+{{- end -}}
+
+<div id="{{ $id }}" style="width: {{ $width }}; height: {{ $height }};"></div>
+
+<script>
+  new p5(function(p) {
+    {{ .Inner | safeJS }}
+  }, '{{ $id }}');
+</script>
