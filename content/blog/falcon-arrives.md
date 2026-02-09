@@ -609,7 +609,7 @@ The speeds are quite comparable. Falcon is better at processing prompts, while b
 
 ## Falcon vs Qwen
 
-Let us take them out for a spin on ten tests!
+Let us take them out for a spin on ten tests! I used LM Studio to run the tests. Default settings as of 0.4.2 on CUDA 12 llama.cpp runtime.
 
 I have added the thought process of both the LLMs in the repo. You can take a look [here](https://github.com/nrynss/nrynss.github.io/blob/main/static/samples/falcon-qwen-thoughts.md).
 
