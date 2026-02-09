@@ -6,7 +6,7 @@ showComments : true
 
 When ChatGPT made their big launch, I was blindsided by the AI advances. Till then, I considered machine learning to be something esoteric. Not niche. But something that was going to be a middleware rather than a product in itself. People started to use the OpenAI API to build stuff. I was extremely concerned with the privacy aspect with respect to the source code and internal processes. Years later, things have settled down and data protection rules are in place. AI rules over internal processes and documentation (see Glean) and source code (see Cursor). Back then, I had a few vague ideas but didn't trust the cloud models. I went on HuggingFace for the first time and saw there were local models. I was surprised to see [Falcon](https://huggingface.co/tiiuae/falcon-180B-chat) and even more surprised that it was from a university in Abu Dhabi. Not a place you would associate with cutting edge artificial intelligence research. Plans never materialized because I quickly realized that the 180B was not something that you can actually run.
 
-Falcon made its appearance in my radar a couple of times. But it was not something that really caught my attention aside from an academic interest over its Mamba architecture.
+Falcon made its appearance in my radar a couple of times. But it was not something that really caught my attention aside from an academic interest around a new model.
 
 ## Transformer Architecture
 
