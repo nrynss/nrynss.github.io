@@ -1574,7 +1574,7 @@ In three of these, Falcon wins. The one in which Qwen wins, it wins by a small m
 
 It is quite disheartening to see the little action that I have seen around Falcon. It is a very good model, which deserves more attention. Qwen 3 is a very capable little model and Qwen 3 series has been extremely good across various weights. Falcon actually edging it out in my tests show that it is built very well and reinforces the usefulness of Mamba.
 
-This also gives us a peep into how A121 and their Jamba models are in use by their customers across use cases. We can only speculate, but it is quite possible that they are doing quite well for their use cases. Their solutions are targeted towards customers who want accuracy. Especially - Finance, Defense, Healthcare.
+This also gives us a peep into how AI21 and their Jamba models are in use by their customers across use cases. We can only speculate, but it is quite possible that they are doing quite well for their use cases. Their solutions are targeted towards customers who want accuracy. Especially - Finance, Defense, Healthcare.
 
 In all this while, this article was under construction, Falcon released their 90M model. I took it through some test rides. We have the next post coming up based on that. I must say, it reinforces my belief that small and tiny models have a great future in computing.
 
