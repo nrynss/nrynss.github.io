@@ -13,7 +13,17 @@
       "Bash(git reflog:*)",
       "Bash(git for-each-ref:*)",
       "Bash(git prune:*)",
-      "Bash(git submodule:*)"
+      "Bash(git submodule:*)",
+      "Bash(git config:*)",
+      "Bash(command -v:*)",
+      "Bash(echo:*)",
+      "Bash(export PATH:*)",
+      "Bash(/usr/bin/git:*)",
+      "Bash(source:*)",
+      "Bash(git --version:*)",
+      "Bash(export:*)",
+      "Bash(/usr/bin/ls:*)",
+      "Bash(git add:*)"
     ]
   }
 }

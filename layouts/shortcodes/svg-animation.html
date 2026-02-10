@@ -1,5 +1,6 @@
 {{- $svgFile := .Get "src" -}} {{- $width := .Get "width" | default "100%" -}}
 {{- $id := .Get "id" | default (printf "svg-%s" (sha1 $svgFile)) -}}
+{{- $aspectRatio := .Get "aspectRatio" | default "70" -}}
 
 <div class="svg-animation-container" style="width: {{ $width }};">
     <style>
@@ -10,7 +11,7 @@
         }
         .svg-animation-container .svg-wrapper {
             position: relative;
-            padding-bottom: 70%; /* Aspect ratio - adjust based on SVG dimensions */
+            padding-bottom: {{ $aspectRatio }}%; /* Aspect ratio - configurable via aspectRatio parameter */
             height: 0;
             overflow: visible;
         }
