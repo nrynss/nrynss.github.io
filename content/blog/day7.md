@@ -4,6 +4,16 @@ date: 2025-12-19T23:42:45+05:30
 showComments : true
 ---
 
+{{< notice title="Local LLMs Series" >}}
+This article is the part of the series I have written on local LLMs.
+
+- [Introduction to Local LLMs](/blog/day7) -> You are here!
+- [LLM file formats](/blog/day8)
+- [Simplifying models, types, and quantization](/blog/day9)
+- [LLM families](/blog/day10)
+- [Running LLMs locally](/blog/day11)
+{{< /notice >}}
+
 Day 7 of the 12 days of Christmas! Go through [Day 1](/blog/tabula-rasa), [Day 2](/blog/neom), [Day 3](/blog/hugo), [Day 4](/blog/api-generator), [Day 5](/blog/day5), and [Day 6](/blog/day6) to catch up.
 
 The title is a bait and switch. We will indeed be looking at local LLMs. Not the actual models, but how we can deploy them locally. I thought it would be good way to start rather than jump straight into the models and about what they know.

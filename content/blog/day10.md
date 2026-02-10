@@ -4,6 +4,16 @@ date: 2025-12-23T23:42:45+05:30
 showComments : true
 ---
 
+{{< notice title="Local LLMs Series" >}}
+This article is the part of the series I have written on local LLMs.
+
+- [Introduction to Local LLMs](/blog/day7)
+- [LLM file formats](/blog/day8)
+- [Simplifying models, types, and quantization](/blog/day9)
+- [LLM families](/blog/day10) -> You are here!
+- [Running LLMs locally](/blog/day11)
+{{< /notice >}}
+
 Day 10 of the 12 days of Christmas! Go through [Day 1](/blog/tabula-rasa), [Day 2](/blog/neom), [Day 3](/blog/hugo), [Day 4](/blog/api-generator), [Day 5](/blog/day5), [Day 6](/blog/day6), [Day 7](/blog/day7), [Day 8](/blog/day8), and [Day 9](/blog/day9) to catch up.
 
 Local LLMs continue today as well. No. This won't be the last part. But I promise that this will be the penultimate post on local LLMs. I thought of completing the series today, but there is a lot to cover. Especially with the new GLM release that dropped a few hours back. We looked at the tools to run the models, the model formats, and the model types. Today, we need to look at the model families. This is important because there are many model families out there and their variants, that may be even better or more useful for your usecase. I will not be making a big distinction as to which is better for what. To be frank, I haven't done enough benchmarking across the models to make such a distinction. But if I have used the models enough, I will be making my commentary.

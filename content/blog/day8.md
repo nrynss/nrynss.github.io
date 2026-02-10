@@ -4,6 +4,16 @@ date: 2025-12-20T23:42:45+05:30
 showComments : true
 ---
 
+{{< notice title="Local LLMs Series" >}}
+This article is the part of the series I have written on local LLMs.
+
+- [Introduction to Local LLMs](/blog/day7)
+- [LLM file formats](/blog/day8) -> You are here!
+- [Simplifying models, types, and quantization](/blog/day9)
+- [LLM families](/blog/day10)
+- [Running LLMs locally](/blog/day11)
+{{< /notice >}}
+
 Day 8 of the 12 days of Christmas! Go through [Day 1](/blog/tabula-rasa), [Day 2](/blog/neom), [Day 3](/blog/hugo), [Day 4](/blog/api-generator), [Day 5](/blog/day5), [Day 6](/blog/day6), and [Day 7](/blog/day7) to catch up.
 
 The next part of the series is here. About the formats used by the LLMs. I am talking about LLMs in general, not just local LLMs. From what we know, your state-of-the-art models can also be available in these formats, and you can run theoretically run them locally. You would probably need a small power plant and custom hardware to do so. Small caveat. Yes.

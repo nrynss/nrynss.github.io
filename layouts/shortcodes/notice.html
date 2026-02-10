@@ -1,0 +1,9 @@
+{{/* layouts/shortcodes/notice.html */}}
+<div class="notice-box">
+  {{ if .Get "title" }}
+  <div class="notice-title">{{ .Get "title" }}</div>
+  {{ end }}
+  <div class="notice-content">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

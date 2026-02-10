@@ -628,6 +628,51 @@ button[type="submit"]:hover {
     color: var(--accent-primary);
 }
 
+/***************************************
+ * Notice Box Styles
+ ***************************************/
+.notice-box {
+    background-color: var(--bg-callout);
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 6px;
+    padding: 1.25rem 1.75rem;
+    margin: 1.5rem 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.notice-box:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.notice-title {
+    color: var(--accent-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.notice-content {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.notice-content p:last-child {
+    margin-bottom: 0;
+}
+
+.notice-content ul {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+}
+
+.notice-content li {
+    margin-bottom: 0.25rem;
+}
+
 .gif-container {
     margin: 1.5rem 0;
 }

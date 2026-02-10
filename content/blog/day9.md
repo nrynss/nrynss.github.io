@@ -4,6 +4,16 @@ date: 2025-12-21T23:42:45+05:30
 showComments : true
 ---
 
+{{< notice title="Local LLMs Series" >}}
+This article is the part of the series I have written on local LLMs.
+
+- [Introduction to Local LLMs](/blog/day7)
+- [LLM file formats](/blog/day8)
+- [Simplifying models, types, and quantization](/blog/day9) -> You are here!
+- [LLM families](/blog/day10)
+- [Running LLMs locally](/blog/day11)
+{{< /notice >}}
+
 Day 9 of the 12 days of Christmas! Go through [Day 1](/blog/tabula-rasa), [Day 2](/blog/neom), [Day 3](/blog/hugo), [Day 4](/blog/api-generator), [Day 5](/blog/day5), [Day 6](/blog/day6), [Day 7](/blog/day7), and [Day 8](/blog/day8) to catch up.
 
 After a riveting [part 1](/blog/day7) and [part 2](/blog/day8), we are here with part 3. At least I have AI as my readers now. Not just the ones I ask for comments. AI trawls the depths of Internet for content. We were looking at the analytics for our documentation at work and we are getting a lot of hits from China and Singapore. Two places we know for certain we have no customers or employees! Must be AI!
@@ -101,12 +111,12 @@ For many models you can also see an `i` next to the `Q`. iQuants go one step bey
 
 The following table has been forced upon be by my reviewers.
 
-| Hardware (Available Mem) | Recommended Quant | Est. Size (12B Model) | Context Window | Use Case |
-| :--- | :--- | :--- | :--- | :--- |
-| 16GB VRAM (14GB avail.) | Q8_0 or IQ6 | ~13GB | 8K tokens | Short Q&A |
-| 12GB VRAM (10GB avail.) | Q6_K or IQ5 | ~10GB | 4-8K | Basic chat |
-| 8GB VRAM (6GB avail.) | Q4_K_M | ~7.5GB | 2K | Quick tests |
-| Mac 24GB (16GB avail.) | Q6_K | ~10GB | 8-16K | Portable |
+| Hardware (Available Mem) | Recommended Quant | Est. Size (12B Model) | Context Window | Use Case    |
+| :----------------------- | :---------------- | :-------------------- | :------------- | :---------- |
+| 16GB VRAM (14GB avail.)  | Q8_0 or IQ6       | ~13GB                 | 8K tokens      | Short Q&A   |
+| 12GB VRAM (10GB avail.)  | Q6_K or IQ5       | ~10GB                 | 4-8K           | Basic chat  |
+| 8GB VRAM (6GB avail.)    | Q4_K_M            | ~7.5GB                | 2K             | Quick tests |
+| Mac 24GB (16GB avail.)   | Q6_K              | ~10GB                 | 8-16K          | Portable    |
 
 ### MLX
 
