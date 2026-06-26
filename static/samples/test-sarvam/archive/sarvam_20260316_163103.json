@@ -1,0 +1,119 @@
+[
+  {
+    "id": 1,
+    "cat": "Multilingual",
+    "name": "Technical translation",
+    "subs": [
+      {
+        "content": "API gateway आने वाले अनुरोधों को एक रेट लिमिटर के माध्यम से उन्हें फॉरवर्ड करने से पहले उपयुक्त microservice पर मार्गदर्शन करता है। यदि circuit breaker खुला है, तो यह एक 503 Service Unavailable response लौटाता है। सभी request metadata एक distributed tracing backend पर लॉग किया जाता है, अवलोकन के लिए।",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 231.1,
+        "tokens": 2957,
+        "prompt_tokens": 169,
+        "t_per_s": 12.8,
+        "error": null,
+        "label": "Hindi"
+      },
+      {
+        "content": "API গেটওয়ে আগত অনুরোধগুলোকে একটি রেট লিমিটারের মাধ্যমে উপযুক্ত মাইক্রোসার্ভিসে রাউটিং করে। যদি সার্কিট ব্রেকার খোলা থাকে, এটি একটি 503 সার্ভিস অনুপলব্ধ রেসপন্স রিটার্ন করে। সব অনুরোধ মেটাডেটা একটি বন্টিত ট্রেসিং ব্যাকএন্ডে লগ করা হয়, যাতে এটি পর্যবেক্ষণযোগ্য হয়।",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 861.91,
+        "tokens": 7549,
+        "prompt_tokens": 172,
+        "t_per_s": 8.8,
+        "error": null,
+        "label": "Bengali"
+      },
+      {
+        "content": "API gateway incoming requests through a rate limiter, before forwarding them to the appropriate microservice, route them. જો સર્કિટ બ્રેકર ખુલ્લું હોય, તે 503 Service Unavailable response આપે છે. તમામ વિનંતી મેટાડેટા, અવલોકનક્ષમતા માટે, વિતરિત ટ્રેસિંગ બેકએન્ડમાં લોગ કરવામાં આવે છે.",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 657.55,
+        "tokens": 6275,
+        "prompt_tokens": 172,
+        "t_per_s": 9.5,
+        "error": null,
+        "label": "Gujarati"
+      },
+      {
+        "content": "API ಗೇಟ್‌ವೇ ಬರುವ ವಿನಂತಿಗಳನ್ನು ಸೂಕ್ತವಾದ ಮೈಕ್ರೋಸರ್ವಿಸ್‌ಗೆ ದರ ಲಿಮಿಟರ್ ಮೂಲಕ ಫಾರ್ವರ್ಡ್ ಮಾಡುವ ಮೊದಲು ಕಳುಹಿಸುತ್ತದೆ. ಒಂದು ವೇಳೆ ಸರ್ಕ್ಯೂಟ್ ಬ್ರೇಕರ್ ತೆರೆದಿದ್ದರೆ, ಅದು 503 ಸರ್ವಿಸ್ ಅನ್ ಅವೈಲಬಲ್ ಪ್ರತಿಕ್ರಿಯೆ ನೀಡುತ್ತದೆ. ಎಲ್ಲಾ ವಿನಂತಿ ಮೆಟಾಡೇಟಾ ಒಂದು ವಿತರಿಸಲ್ಪಟ್ಟ ಟ್ರೇಸಿಂಗ್ ಬ್ಯಾಕೆಂಡ್ ಗೆ ಅಬ್ಸರ್ವಬಿಲಿಟಿಗಾಗಿ ಲಾಗ್ ಆಗಿದೆ.",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 3264.36,
+        "tokens": 3482,
+        "prompt_tokens": 172,
+        "t_per_s": 1.1,
+        "error": null,
+        "label": "Kannada"
+      },
+      {
+        "content": "ஏ.பி.ஐ. வாயில் வரும் கோரிக்கைகளை வேகக் கட்டுப்படுத்தி மூலம் அவை முன்னனுப்புகிறது பொருத்தமான நுண்-சேவைக்கு. சுற்றுச் சுற்றுத் தடைப்பான் திறந்திருக்கும் போது, அது 503 Service Unavailable பதில் திரும்ப அளிக்கிறது. அனைத்து கோரிக்கை மெட்டா தரவு ஒரு பரவலான கண்காணிப்பு பின்முனையத்திற்கு கண்ணுக்குத் தெரியாமைக்காக பதிவு செய்யப்படுகிறது.",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 1184.35,
+        "tokens": 7967,
+        "prompt_tokens": 172,
+        "t_per_s": 6.7,
+        "error": null,
+        "label": "Malayalam"
+      },
+      {
+        "content": "एपीआय गेटवे येणाऱ्या विनंत्यांना रेट लिमिटरद्वारे योग्य मायक्रोसर्व्हिसकडे फॉरवर्ड करतो. जर सर्किट ब्रेकर उघडा असेल, तर ते 503 Service Unavailable response परत करते. सर्व विनंती मेटाडेटा डिस्ट्रिब्युटेड ट्रेसिंग बॅकएंडवर लॉग केला जातो.",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 396.0,
+        "tokens": 2349,
+        "prompt_tokens": 169,
+        "t_per_s": 5.9,
+        "error": null,
+        "label": "Marathi"
+      },
+      {
+        "content": "API gateway ଆସୁଥିବା request-requests କୁ rate limiter ମାଧ୍ୟମରେ ଉପଯୁକ୍ତ microservice କୁ manage କରେ। ଯଦି circuit breaker kh<0xC5><0x8D>l<0xC4><0x81> achi, ଏହା 503 Service Unavailable pratikriy<0xC4><0x81> pradan କରେ। ସମସ୍ତ request-metadata ଏକ distributed tracing backend ରେ ଲଗ୍ କରାଯାଏ, ପର୍ଯ୍ୟବେକ୍ଷଣ ପାଇଁ।",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 1421.28,
+        "tokens": 8048,
+        "prompt_tokens": 172,
+        "t_per_s": 5.7,
+        "error": null,
+        "label": "Odia"
+      },
+      {
+        "content": "API gateway ਆਉਣ ਵਾਲੀਆਂ ਬੇਨਤੀਆਂ ਨੂੰ ਇੱਕ ਰੇਟ ਲਿਮਿਟਰ ਰਾਹੀਂ ਢੁਕਵੀਂ ਮਾਈਕ੍ਰੋਸਰਵਿਸ ਵੱਲ ਭੇਜਦਾ ਹੈ। ਜੇਕਰ ਸਰਕਟ ਬ੍ਰੇਕਰ ਖੁੱਲ੍ਹਾ ਹੈ, ਤਾਂ ਇਹ ਇੱਕ 503 ਸਰਵਿਸ ਅਣਉਪਲਬਧ ਜਵਾਬ ਵਾਪਸ ਕਰਦਾ ਹੈ। ਸਾਰੀਆਂ ਬੇਨਤੀ ਮੈਟਾਡਾਟਾ ਇੱਕ ਡਿਸਟ੍ਰੀਬਿਊਟਡ ਟ੍ਰੇਸਿੰਗ ਬੈਕਐਂਡ ਵਿੱਚ ਨਿਰੀਖਣਸ਼ੀਲਤਾ ਲਈ ਲੌਗ ਕੀਤਾ ਗਿਆ ਹੈ।",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 599.64,
+        "tokens": 3349,
+        "prompt_tokens": 172,
+        "t_per_s": 5.6,
+        "error": null,
+        "label": "Punjabi"
+      },
+      {
+        "content": "API கேட்வே வரும் கோரிக்கைகளை ஒரு வீதக் கட்டுப்படுத்தி (rate limiter) வழியாக அவற்றை அனுப்பும் முன், பொருத்தமான மைக்ரோசர்வீஸிற்கு (microservice) அனுப்புகிறது. மின்சுற்று முறிப்பி (circuit breaker) திறந்திருந்தால், அது 503 சேவை கிடைக்கவில்லை (503 Service Unavailable) என்ற பதிலை வழங்குகிறது. அனைத்து கோரிக்கை மெட்டாடேட்டா (request metadata), கண்காணிப்புத் திறனுக்காக (observability) ஒரு பரவலாக்கப்பட்ட கண்காணிப்பு பின்புலத்தில் (distributed tracing backend) பதிவு செய்யப்படுகிறது.",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 768.58,
+        "tokens": 5158,
+        "prompt_tokens": 169,
+        "t_per_s": 6.7,
+        "error": null,
+        "label": "Tamil"
+      },
+      {
+        "content": "API గేట్‌వే, రేట్ లిమిటర్ ద్వారా వచ్చే అభ్యర్థనలను తగిన మైక్రోసర్వీస్ కు నిర్దేశిస్తుంది. సర్క్యూట్ బ్రేకర్ ఓపెన్ అయితే, అది 503 రెస్పాన్స్ ఇస్తుంది. అన్ని అభ్యర్థనల మెటాడేటా, పంపిణీ చేయబడిన ట్రేసింగ్ బ్యాకెండ్ కు పరిశీలన సామర్థ్యం కోసం లాగ్ చేయబడింది.",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 1080.06,
+        "tokens": 6638,
+        "prompt_tokens": 169,
+        "t_per_s": 6.1,
+        "error": null,
+        "label": "Telugu"
+      }
+    ]
+  }
+]

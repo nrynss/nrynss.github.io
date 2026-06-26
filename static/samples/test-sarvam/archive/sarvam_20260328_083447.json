@@ -1,0 +1,185 @@
+[
+  {
+    "id": 1,
+    "cat": "Multilingual",
+    "name": "Technical translation",
+    "subs": [
+      {
+        "content": "API gateway आने वाले अनुरोधों को फॉरवर्ड करने से पहले rate limiter के ज़रिए उपयुक्त माइक्रोसर्विस को राउट करता है। यदि circuit breaker खुला है, तो यह 503 Service Unavailable response रिटर्न करता है। सभी अनुरोध मेटाडेटा को ऑब्जर्वेबिलिटी के लिए एक डिस्ट्रिब्यूटेड ट्रेसिंग बैकएंड में लॉग किया जाता है।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 202.92,
+        "tokens": 3011,
+        "prompt_tokens": 169,
+        "t_per_s": 14.8,
+        "error": null,
+        "label": "Hindi",
+        "prompt": "Translate the following paragraph into Hindi, using native Hindi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Hindi translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway aagoto request-guloke rate limiter-er madhyome pathay, er age tader upojukto microservice-e. Jodi circuit breaker open thake, eti 503 Service Unavailable response ferot dey. Shob request data-gulo distributed tracing backend-e observability-r jonno log kora hoy.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 412.72,
+        "tokens": 3745,
+        "prompt_tokens": 172,
+        "t_per_s": 9.1,
+        "error": null,
+        "label": "Bengali",
+        "prompt": "Translate the following paragraph into Bengali, using native Bengali script. Preserve technical terms in English where no standard native equivalent exists. Output only the Bengali translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "length",
+        "elapsed_s": 3149.68,
+        "tokens": 28244,
+        "prompt_tokens": 172,
+        "t_per_s": 9.0,
+        "error": null,
+        "label": "Gujarati",
+        "prompt": "Translate the following paragraph into Gujarati, using native Gujarati script. Preserve technical terms in English where no standard native equivalent exists. Output only the Gujarati translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "length",
+        "elapsed_s": 2846.52,
+        "tokens": 28244,
+        "prompt_tokens": 172,
+        "t_per_s": 9.9,
+        "error": null,
+        "label": "Kannada",
+        "prompt": "Translate the following paragraph into Kannada, using native Kannada script. Preserve technical terms in English where no standard native equivalent exists. Output only the Kannada translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "length",
+        "elapsed_s": 2847.59,
+        "tokens": 28244,
+        "prompt_tokens": 172,
+        "t_per_s": 9.9,
+        "error": null,
+        "label": "Malayalam",
+        "prompt": "Translate the following paragraph into Malayalam, using native Malayalam script. Preserve technical terms in English where no standard native equivalent exists. Output only the Malayalam translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "length",
+        "elapsed_s": 2850.7,
+        "tokens": 28247,
+        "prompt_tokens": 169,
+        "t_per_s": 9.9,
+        "error": null,
+        "label": "Marathi",
+        "prompt": "Translate the following paragraph into Marathi, using native Marathi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Marathi translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway, rate limiter ମାଧ୍ୟମରେ, ଆସୁଥିବା ଅନୁରୋଧଗୁଡ଼ିକୁ ଉପଯୁକ୍ତ microservice କୁ forward କରିଥାଏ । ଯଦି circuit breaker kh<0xC4><0x81>la th<0xC4><0x81>le, ଏହା 503 Service Unavailable response ଫେରସ୍ତ କରେ । ସମସ୍ତ ଅନୁରୋଧ metadata, observability ପାଇଁ, ଏକ distributed tracing backend କୁ log କରାଯାଏ ।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 396.32,
+        "tokens": 4984,
+        "prompt_tokens": 172,
+        "t_per_s": 12.6,
+        "error": null,
+        "label": "Odia",
+        "prompt": "Translate the following paragraph into Odia, using native Odia script. Preserve technical terms in English where no standard native equivalent exists. Output only the Odia translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API ਦਰਵਾਜ਼ਾ ਆਉਣ ਵਾਲੀਆਂ ਬੇਨਤੀਆਂ ਨੂੰ ਇੱਕ ਰੇਟ ਲਿਮਿਟਰ ਰਾਹੀਂ ਉਚਿਤ ਮਾਈਕਰੋ ਸਰਵਿਸ ਵੱਲ ਰਾਉਟ ਕਰਦਾ ਹੈ। ਜੇਕਰ ਸਰਕਟ ਬ੍ਰੇਕਰ ਖੁੱਲ੍ਹਾ ਹੈ, ਤਾਂ ਇਹ ਇੱਕ 503 ਸਰਵਿਸ ਅਨਅਵੇਲੇਬਲ ਜਵਾਬ ਵਾਪਸ ਕਰਦਾ ਹੈ। ਸਾਰੇ ਬੇਨਤੀਆਂ ਦਾ ਮੈਟਾਡਾਟਾ ਇੱਕ ਵੰਡਿਆ ਹੋਇਆ ਟ੍ਰੇਸਿੰਗ ਬੈਕਐਂਡ ਵਿੱਚ ਲੌਗ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਤਾਂ ਜੋ ਨਿਰੀਖਣਯੋਗਤਾ ਬਣੀ ਰਹੇ।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 553.99,
+        "tokens": 5048,
+        "prompt_tokens": 172,
+        "t_per_s": 9.1,
+        "error": null,
+        "label": "Punjabi",
+        "prompt": "Translate the following paragraph into Punjabi, using native Punjabi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Punjabi translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "ஏபிஐ நுழைவாயில் உள்வரும் கோரிக்கைகளை வேகக் கட்டுப்படுத்தி மூலம் பொருத்தமான நுண் சேவைக்கு வழிப்படுத்துகிறது. மின்சுற்று உடைப்பான் திறந்திருந்தால், அது 503 Service Unavailable பதில் அளிக்கிறது. அனைத்து கோரிக்கை மெட்டாடேட்டா கண்காணிப்புத் திறனுக்காக விநியோகிக்கப்பட்ட கண்காணிப்பு அடிப்படைக்கு பதிவு செய்யப்படுகிறது.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 472.45,
+        "tokens": 5157,
+        "prompt_tokens": 169,
+        "t_per_s": 10.9,
+        "error": null,
+        "label": "Tamil",
+        "prompt": "Translate the following paragraph into Tamil, using native Tamil script. Preserve technical terms in English where no standard native equivalent exists. Output only the Tamil translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API గేట్వే వచ్చే అభ్యర్థనలను రేట్ లిమిటర్ ద్వారా పంపే ముందు, వాటిని తగిన మైక్రోసర్వీస్ కి మళ్ళిస్తుంది. ఒకవేళ సర్క్యూట్ బ్రేకర్ ఓపెన్ గా ఉంటే, అది 503 సర్వీస్ అన్‌అవైలబుల్ రెస్పాన్స్ ఇస్తుంది. అన్ని అభ్యర్థన మెటాడేటా ఒక పంపిణీ చేయబడిన ట్రేసింగ్ బ్యాకెండ్‌కు లాగ్ చేయబడుతుంది పరిశీలన కోసం.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 599.05,
+        "tokens": 5579,
+        "prompt_tokens": 169,
+        "t_per_s": 9.3,
+        "error": null,
+        "label": "Telugu",
+        "prompt": "Translate the following paragraph into Telugu, using native Telugu script. Preserve technical terms in English where no standard native equivalent exists. Output only the Telugu translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "cat": "Multilingual",
+    "name": "Product copy",
+    "subs": [
+      {
+        "content": "यह सौर जल पंप आपके खेतों की तरक्की की नई उम्मीद है। अब बिजली के झटकों और डीजल के भारी खर्चा से आज़ादी। सूरज की रोशनी से चलता है, तो आपकी फसल को हर मौसम में भरपूर पानी मिलेगा। यह सिर्फ एक मशीन नहीं, बल्कि आपकी खेती की तरक्की और आज़ादी का प्रतीक है।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 145.8,
+        "tokens": 1254,
+        "prompt_tokens": 105,
+        "t_per_s": 8.6,
+        "error": null,
+        "label": "Hindi",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Hindi using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Hindi text."
+      },
+      {
+        "content": "Apn<0xC4><0x81>r bh<0xC5><0xAB>mi-r j<0xC5><0xAB>nno, surj<0xC4><0x93>r <0xC5><0x9B>hokti. Suryal<0xC5><0x8D>k-c<0xC4><0x81>lito jol<0xC4><0x93>r pump. Bidyut-er kosh<0xE1><0xB9><0xAD>ho chhara, diesel-er khoroch chhara. Shudhu surj<0xC4><0x93>r alo diyei k<0xC4><0x93>t-e jol. Shomoy ar porishrom b<0xC4><0x81>chiy<0xC4><0x93>, bhalo ph<0xC5><0x8D><0xE1><0xB9><0xA3>ol ar shomriddhi n<0xC4><0xAB>yuk.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 395.2,
+        "tokens": 3186,
+        "prompt_tokens": 107,
+        "t_per_s": 8.1,
+        "error": null,
+        "label": "Bengali",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Bengali using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Bengali text."
+      },
+      {
+        "content": "Surya-shakti ne paani, aapna khet ma bharpur. Koi diesel, bijli na bill ni chinta nahi. Surya ni sahay, aaplo khet, aaplo pani. Kheti ni majbooti, aapla vikas. Pani ni kami, dur kariye.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 283.8,
+        "tokens": 2057,
+        "prompt_tokens": 107,
+        "t_per_s": 7.2,
+        "error": null,
+        "label": "Gujarati",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Gujarati using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Gujarati text."
+      }
+    ]
+  }
+]

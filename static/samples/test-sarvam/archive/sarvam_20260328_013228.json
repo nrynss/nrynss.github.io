@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "cat": "Multilingual",
+    "name": "Technical translation",
+    "subs": [
+      {
+        "content": "API gateway आने वाले अनुरोधों को दर सीमांकक के माध्यम से उपयुक्त माइक्रोसर्विसे तक मार्गदर्शन करता है। यदि सर्किट ब्रेकर खुला है, तो यह एक 503 Service Unavailable प्रतिक्रिया देता है। सभी अनुरोध मेटाडेटा एक वितरित ट्रेसिंग बैकएंड पर अवलोकनीयता के लिए लॉग किया जाता है।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 181.06,
+        "tokens": 2681,
+        "prompt_tokens": 169,
+        "t_per_s": 14.8,
+        "error": null,
+        "label": "Hindi",
+        "prompt": "Translate the following paragraph into Hindi, using native Hindi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Hindi translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "এপিআই গেটওয়ে আগত অনুরোধ রেট লিমিটার এর মাধ্যমে উপযুক্ত মাইক্রোসার্ভিসে রাউট করে। যদি সার্কিট ব্রেকার খোলা থাকে, তবে এটি একটি 503 Service Unavailable response রিটার্ন করে। সব অনুরোধ মেটাডেটা একটি ডিস্ট্রিবিউটেড ট্রেসিং ব্যাকএন্ডে লগ করা হয় পর্যবেক্ষণযোগ্যতার জন্য।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 418.93,
+        "tokens": 3760,
+        "prompt_tokens": 172,
+        "t_per_s": 9.0,
+        "error": null,
+        "label": "Bengali",
+        "prompt": "Translate the following paragraph into Bengali, using native Bengali script. Preserve technical terms in English where no standard native equivalent exists. Output only the Bengali translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "એ પી આઈ ગેટવે આવનારી વિનંતીઓ રેટ લિમિટર દ્વારા યોગ્ય માઈક્રોસર્વિસ પર માર્ગદર્શન કરે છે. જો સર્કિટ બ્રેકર ખુલ્લું હોય, તો તે 503 સર્વિસ અનએવેલેબલ પ્રતિસાદ પરત કરે છે. તમામ રિક્વેસ્ટ મેટાડેટા ડિસ્ટ્રિબ્યુટેડ ટ્રેસિંગ બેકએન્ડમાં લોગ થાય છે ઓબ્ઝર્વેબિલિટી માટે.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 340.04,
+        "tokens": 3020,
+        "prompt_tokens": 172,
+        "t_per_s": 8.9,
+        "error": null,
+        "label": "Gujarati",
+        "prompt": "Translate the following paragraph into Gujarati, using native Gujarati script. Preserve technical terms in English where no standard native equivalent exists. Output only the Gujarati translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway ಬರುವ ಅರ್ಜಿಗಳನ್ನು rate limiter ಮೂಲಕ ಸರಿಯಾದ microservice-ಗೆ ನಿರ್ದೇಶಿಸುತ್ತದೆ. ಒಂದು ವೇಳೆ circuit breaker ತೆರೆದಿದ್ದರೆ, ಅದು 503 Service Unavailable ಪ್ರತಿಕ್ರಿಯೆ ಹಿಂತಿರುಗಿಸುತ್ತದೆ. ಎಲ್ಲಾ request metadata ಒಂದು distributed tracing backend-ಗೆ observability-ಗಾಗಿ ದಾಖಲಿಸಲಾಗುತ್ತದೆ.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 502.4,
+        "tokens": 4730,
+        "prompt_tokens": 172,
+        "t_per_s": 9.4,
+        "error": null,
+        "label": "Kannada",
+        "prompt": "Translate the following paragraph into Kannada, using native Kannada script. Preserve technical terms in English where no standard native equivalent exists. Output only the Kannada translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API ഗേറ്റ്‌വേ വരുന്നത് അഭ്യർത്ഥനകളെ നിരക്ക് പരിധിയിലൂടെ (rate limiter) അനുയോജ്യമായ മൈക്രോ സർവീസിലേക്ക് (microservice) വഴിവിടുന്നു. സർക്യൂട്ട് ബ്രേക്കർ തുറന്നിരിക്കുകയാണെങ്കിൽ, അത് 503 Service Unavailable response നൽകുന്നു. എല്ലാ റിക്വസ്റ്റ് മെറ്റാഡാറ്റയും (request metadata) നിരീക്ഷണത്തിനായി (observability) ഒരു ഡിസ്ട്രിബ്യൂട്ടഡ് ട്രേസിംഗ് ബാക്ക് എൻഡിൽ (distributed tracing backend) ലോഗ് ചെയ്യപ്പെടുന്നു.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 549.73,
+        "tokens": 3884,
+        "prompt_tokens": 172,
+        "t_per_s": 7.1,
+        "error": null,
+        "label": "Malayalam",
+        "prompt": "Translate the following paragraph into Malayalam, using native Malayalam script. Preserve technical terms in English where no standard native equivalent exists. Output only the Malayalam translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      }
+    ]
+  }
+]

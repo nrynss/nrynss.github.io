@@ -1,0 +1,36 @@
+[
+  {
+    "id": 3,
+    "cat": "Multilingual",
+    "name": "Code-mixed (Hinglish/Tanglish/Kanglish)",
+    "result": {
+      "content": "",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "length",
+      "elapsed_s": 4829.46,
+      "tokens": 28271,
+      "prompt_tokens": 145,
+      "t_per_s": 5.9,
+      "error": null
+    },
+    "prompt": "Write three separate Slack messages explaining to a colleague that the deployment pipeline is broken because of a misconfigured environment variable:\n1. In Hinglish (Hindi-English mix, Roman script)\n2. In Tanglish (Tamil-English mix, Roman script)\n3. In Kanglish (Kannada-English mix, Roman script)\n\nEach should sound like how an Indian developer actually texts at work."
+  },
+  {
+    "id": 4,
+    "cat": "Multilingual",
+    "name": "Cross-script comprehension",
+    "result": {
+      "content": "",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "length",
+      "elapsed_s": 4763.96,
+      "tokens": 28313,
+      "prompt_tokens": 103,
+      "t_per_s": 5.9,
+      "error": null
+    },
+    "prompt": "Here is a paragraph in Malayalam: \"കേരളത്തിലെ ഏറ്റവും വലിയ സോഫ്റ്റ്‌വെയർ പാർക്ക് ടെക്നോപാർക്ക് ആണ്. ഇത് തിരുവനന്തപുരത്ത് സ്ഥിതി ചെയ്യുന്നു. ഇവിടെ 400-ലധികം കമ്പനികൾ പ്രവർത്തിക്കുന്നു. ഇൻഫോസിസ്, ടി.സി.എസ്, യു.എസ്.ടി ഗ്ലോബൽ തുടങ്ങിയ പ്രമുഖ കമ്പനികൾ ഇവിടെ ഓഫീസുകൾ നടത്തുന്നു.\"\n\n1. Summarize this in English.\n2. Translate it to Tamil.\n3. Answer in Kannada: ಈ ಪಾರ್ಕ್ ಎಲ್ಲಿದೆ?"
+  }
+]

@@ -1,0 +1,582 @@
+[
+  {
+    "id": 1,
+    "cat": "Multilingual",
+    "name": "Technical translation",
+    "subs": [
+      {
+        "content": "API gateway आने वाले अनुरोधों को फॉरवर्ड करने से पहले एक रेट लिमिटर के माध्यम से उपयुक्त माइक्रोसर्विस में रूट करता है। यदि सर्किट ब्रेकर खुला है, तो यह 503 सर्विस अनुपलब्ध प्रतिक्रिया देता है। सभी अनुरोध मेटाडेटा निगरानी के लिए वितरित ट्रेसिंग बैकएंड में लॉग किया जाता है।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 226.67,
+        "tokens": 2855,
+        "prompt_tokens": 169,
+        "t_per_s": 12.6,
+        "error": null,
+        "label": "Hindi",
+        "prompt": "Translate the following paragraph into Hindi, using native Hindi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Hindi translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API গেটওয়ে রেট লিমিটারের মধ্য দিয়ে আগত রিকোয়েস্ট-গুলোকে উপযুক্ত মাইক্রোসার্ভিসে ফরোয়ার্ড করে। যদি সার্কিট ব্রেকার উন্মুক্ত থাকে, তবে এটি 503 সার্ভিস আনঅ্যাভেইল্যাবল রেসপন্স রিটার্ন করে। সব রিকোয়েস্ট মেটাডেটা একটি ডিস্ট্রিবিউটেড ট্রেসিং ব্যাকএন্ডে লগ করা হয় পর্যবেক্ষণযোগ্যতার জন্য।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 542.06,
+        "tokens": 4351,
+        "prompt_tokens": 172,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Bengali",
+        "prompt": "Translate the following paragraph into Bengali, using native Bengali script. Preserve technical terms in English where no standard native equivalent exists. Output only the Bengali translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API ગેટવે આવતા વિનંતીઓ રેટ લિમિટર દ્વારા યોગ્ય માઇક્રોસર્વિસ પર માર્ગદર્શન આપે છે. જો સર્કિટ બ્રેકર ખુલ્લું હોય, તે 503 Service Unavailable પ્રતિસાદ પરત કરે છે. તમામ વિનંતી મેટાડેટા ડિસ્ટ્રિબ્યુટેડ ટ્રેસિંગ બેકએન્ડમાં લોગ કરવામાં આવે છે ઓબ્ઝર્વેબિલિટી માટે.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 402.98,
+        "tokens": 4365,
+        "prompt_tokens": 172,
+        "t_per_s": 10.8,
+        "error": null,
+        "label": "Gujarati",
+        "prompt": "Translate the following paragraph into Gujarati, using native Gujarati script. Preserve technical terms in English where no standard native equivalent exists. Output only the Gujarati translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "length",
+        "elapsed_s": 3704.15,
+        "tokens": 28244,
+        "prompt_tokens": 172,
+        "t_per_s": 7.6,
+        "error": null,
+        "label": "Kannada",
+        "prompt": "Translate the following paragraph into Kannada, using native Kannada script. Preserve technical terms in English where no standard native equivalent exists. Output only the Kannada translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway വരുന്ന അഭ്യർത്ഥനകളെ ഒരു rate limiter വഴി ശരിയായ microservice-ലേക്ക് അയക്കുന്നു. സർക്യൂട്ട് ബ്രേക്കർ തുറന്നിരിക്കുകയാണെങ്കിൽ, അത് ഒരു 503 Service Unavailable response തിരികെ നൽകുന്നു. എല്ലാ അഭ്യർത്ഥന മെറ്റാഡാറ്റയും വിതരണം ചെയ്യപ്പെട്ട ട്രേസിംഗ് ബാക്കെൻഡിൽ ലോഗ് ചെയ്യപ്പെടുന്നു.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 475.82,
+        "tokens": 5170,
+        "prompt_tokens": 172,
+        "t_per_s": 10.9,
+        "error": null,
+        "label": "Malayalam",
+        "prompt": "Translate the following paragraph into Malayalam, using native Malayalam script. Preserve technical terms in English where no standard native equivalent exists. Output only the Malayalam translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway येणाऱ्या विनंत्या दर-मर्यादाकाद्वारे सूक्ष्म-सेवेकडे मार्गस्थ करते. जर सर्किट ब्रेकर उघडा असेल, तर ते 503 Service Unavailable response परत करते. सर्व विनंती मेटाडेटा वितरित ट्रेसिंग बॅकएंडमध्ये नोंद केला जातो दृश्यमानतेसाठी.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 645.55,
+        "tokens": 5876,
+        "prompt_tokens": 169,
+        "t_per_s": 9.1,
+        "error": null,
+        "label": "Marathi",
+        "prompt": "Translate the following paragraph into Marathi, using native Marathi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Marathi translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway ଆଗମନ ଅନୁରୋଧକୁ ଏକ rate limiter ମାଧ୍ୟମରେ ଉପଯୁକ୍ତ microservice କୁ ପରିଚାଳନା କରେ। ଯଦି circuit breaker ଖୋଲା ଥାଏ, ଏହା ଏକ 503 Service Unavailable response ଫେରସ୍ତ କରେ। ସମସ୍ତ ଅନୁରୋଧ metadata ବଣ୍ଟିତ tracing backend ରେ ପର୍ଯ୍ୟବେକ୍ଷଣ ପାଇଁ ଲଗ୍ କରାଯାଏ।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 339.71,
+        "tokens": 3423,
+        "prompt_tokens": 172,
+        "t_per_s": 10.1,
+        "error": null,
+        "label": "Odia",
+        "prompt": "Translate the following paragraph into Odia, using native Odia script. Preserve technical terms in English where no standard native equivalent exists. Output only the Odia translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway ਆਉਣ ਵਾਲੀਆਂ ਬੇਨਤੀਆਂ ਨੂੰ ਇੱਕ rate limiter ਰਾਹੀਂ ਉਹਨਾਂ ਨੂੰ ਅੱਗੇ ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ ਉਚਿਤ microservice ਨੂੰ ਰਾਊਟ ਕਰਦਾ ਹੈ। ਜੇਕਰ circuit breaker ਖੁੱਲ੍ਹਾ ਹੈ, ਤਾਂ ਇਹ ਇੱਕ 503 Service Unavailable response ਵਾਪਸ ਕਰਦਾ ਹੈ। ਸਾਰੀਆਂ ਬੇਨਤੀ ਮੈਟਾਡੇਟਾ ਇੱਕ distributed tracing backend ਨੂੰ ਨਿਰੀਖਣਯੋਗਤਾ ਲਈ ਲੌਗ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 727.36,
+        "tokens": 6336,
+        "prompt_tokens": 172,
+        "t_per_s": 8.7,
+        "error": null,
+        "label": "Punjabi",
+        "prompt": "Translate the following paragraph into Punjabi, using native Punjabi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Punjabi translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway வரும் கோரிக்கைகளை ஒரு rate limiter வழியா microservice-க்கு வழிப்படுத்துகிறது. circuit breaker திறந்திருந்தால், அது ஒரு 503 Service Unavailable பதில் அளிக்கும். அனைத்து கோரிக்கை மெட்டாடேட்டா பரவலாக்கப்பட்ட தடம் அறிதல் பின்னணிக்கு கண்காணிப்புக்காக பதிவு செய்யப்படுகிறது.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 473.77,
+        "tokens": 3797,
+        "prompt_tokens": 169,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Tamil",
+        "prompt": "Translate the following paragraph into Tamil, using native Tamil script. Preserve technical terms in English where no standard native equivalent exists. Output only the Tamil translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      },
+      {
+        "content": "API gateway వచ్చే అభ్యర్థనలను రేటు లిమిటర్ ద్వారా, వాటిని సరైన మైక్రో సర్వీస్ కు ముందుకు పంపే ముందు మళ్లిస్తుంది. సర్క్యూట్ బ్రేకర్ తెరిచి ఉంటే, అది 503 సర్వీస్ అందుబాటులో లేదు రెస్పాన్స్ ఇస్తుంది. అన్ని అభ్యర్థనల మెటాడేటా పంపిణీ చేయబడిన ట్రేసింగ్ బ్యాకెండ్ కు గమనించగలగడం కోసం లాగ్ చేయబడుతుంది.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 700.71,
+        "tokens": 5622,
+        "prompt_tokens": 169,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Telugu",
+        "prompt": "Translate the following paragraph into Telugu, using native Telugu script. Preserve technical terms in English where no standard native equivalent exists. Output only the Telugu translation, nothing else.\n\nText: \"The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability.\""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "cat": "Multilingual",
+    "name": "Product copy",
+    "subs": [
+      {
+        "content": "अपनी खेतों में, अपनी शर्तों पर पानी। सूर्य की शक्ति से संचालित यह पंप, बिजली बिल और डीजल की बचत करता है। बस इसे अपने खेत में लगा दें। यह पूरे दिन काम करता है, फसल को भरपूर पानी देता है, और आपकी आमदनी बढ़ाता है।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 194.94,
+        "tokens": 1562,
+        "prompt_tokens": 105,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Hindi",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Hindi using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Hindi text."
+      },
+      {
+        "content": "Surjer alor shokti te, ei pump apnar khet-er shoshon kore. Bidyut-er jhamela nei, diesel-er khoroch nei. Apnar shrom-er somoy bachbe, shoshyo-o bhalo hobe. Ei pump, apnar khet-er shoshon, apnar shrom, apnar shoshyer ananda. Shudhu surj-er alor upor, shudhu ekta shokto pump.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 510.87,
+        "tokens": 4113,
+        "prompt_tokens": 107,
+        "t_per_s": 8.1,
+        "error": null,
+        "label": "Bengali",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Bengali using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Bengali text."
+      },
+      {
+        "content": "Bhavniya kheduto, bijli ni samasya mathi mukt thava mate. Surya ni shakti thi chaltu, tamara khet ma saanj nu paani. Paani ni kamani puri karo, bijli na kharch ma rahat. Ek nava, swavalamban na sanket.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 211.67,
+        "tokens": 1691,
+        "prompt_tokens": 107,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Gujarati",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Gujarati using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Gujarati text."
+      },
+      {
+        "content": "ಸೂರ್ಯನ ಬೆಳಕಿನಿಂದ ನಡೆಯುವ ಸೋಲಾರ್ ಪಂಪ್. ವಿದ್ಯುತ್ ಬಿಲ್ ಇರಲ್ಲ, ಹಣ ಉಳಿಯುತ್ತೆ. ನಿಮ್ಮ ಹೊಲಕ್ಕೆ ಯಾವಾಗ ಬೇಕೋ ಆಗ ನೀರು. ಇದು ಕೇವಲ ಒಂದು ಯಂತ್ರವಲ್ಲ, ನಿಮ್ಮ ಹೊಲದ ಬಲ. ಸುಲಭವಾಗಿ ಬಳಸಬಹುದು, ಲಾಭ ಹೆಚ್ಚಾಗುತ್ತೆ. ನಿಮ್ಮ ಬೆಳೆಗೆ ನೀರಿ, ನಿಮ್ಮ ಕೈಯಲ್ಲಿ ಶಕ್ತಿ.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 249.79,
+        "tokens": 2001,
+        "prompt_tokens": 107,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Kannada",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Kannada using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Kannada text."
+      },
+      {
+        "content": "വൈദ്യുതിക്കായി കാത്തുനിൽക്കാതെ, സൂര്യപ്രകാശം കൊണ്ട് പ്രവർത്തിക്കുന്ന ഈ പമ്പ്, നിങ്ങളുടെ പാടത്ത് എപ്പോഴും വെള്ളം എത്തിക്കും. ഡീസൽ ചെലവില്ല, വൈദ്യുതി ബില്ലും ഇല്ല. വിശ്വസിക്കാവുന്ന, കുറഞ്ഞ ചെലവിൽ കൃഷിയെ സഹായിക്കുന്ന പുതിയ ഊർജ്ജം.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 241.12,
+        "tokens": 1938,
+        "prompt_tokens": 107,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Malayalam",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Malayalam using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Malayalam text."
+      },
+      {
+        "content": "आपल्या शेती-साठी, सूर्याची शक्ती. हे पंप सूर्याचा प्रकाश घेऊन आपल्या शेतात पाणी देते. विजेचा खर्च नाही, त्याची गरज नाही. कोठल्या खंडी, कधीही काडल्या, शेतात पाणी मिळते. पाण्यासाठी धडपडणाऱ्या शेतकऱ्याला, हा पंप स्वतःचा साठा आणि स्वस्त. ऊब, विजेची गरज, आणि पाण्यासाठीची गरज - सगळं सूर्याच्या साठी. आपल्या शेती-साठी, हा पंप एक श्रीमंती.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 251.61,
+        "tokens": 2006,
+        "prompt_tokens": 105,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Marathi",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Marathi using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Marathi text."
+      },
+      {
+        "content": "ଆପଣଙ୍କ ଚାଷ ଜମି, ସୂର୍ଯ୍ୟକିରଣରେ ପାଣି। ଏହି ସୌର ପମ୍ପ ଆପଣଙ୍କ ସମୟ ଏବଂ ଟଙ୍କା ବଞ୍ଚାଇବ। ଏହା ଆପଣଙ୍କ ଫସଲ ପାଇଁ ଏକ ବଡ଼ ସହଯୋଗ।",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 181.86,
+        "tokens": 1436,
+        "prompt_tokens": 107,
+        "t_per_s": 7.9,
+        "error": null,
+        "label": "Odia",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Odia using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Odia text."
+      },
+      {
+        "content": "Dharti te paani lai, suraj di meharbani te. Apni kheti vich, sada sukh. Na diesel, na bijli da bill. Apni zameen nu badhava deo, khushi di kheti.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 290.93,
+        "tokens": 2301,
+        "prompt_tokens": 107,
+        "t_per_s": 7.9,
+        "error": null,
+        "label": "Punjabi",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Punjabi using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Punjabi text."
+      },
+      {
+        "content": "இனி மின்சாரத்திற்காகக் கவலைப்பட வேண்டாம். எங்கள் சூரிய சக்தி நீர்ப்பம், நிலத்தடி நீரை நேரடி முறையில் இறக்கும். இது உங்கள் உழைப்பைக் குறைத்து, உங்கள் நிலத்தை வலுவாக்கும். சூரிய ஆற்றல், உங்களுக்கு ஒரு சிறந்த பயன். செலவில்லாத, உழைப்பின்றி உங்கள் விவசாயம் சிறக்க இது உதவும்.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 261.79,
+        "tokens": 2098,
+        "prompt_tokens": 105,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Tamil",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Tamil using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Tamil text."
+      },
+      {
+        "content": "ఎండ తోటే, మీ పొలానికి నీరు. ఈ సౌర పంపు నిశ్శబ్దంగా, మీ భూమికి మేలు. పంటలకు ఎక్కువ నీరు, జీవితానికి తక్కువ ఖర్చు. ఇక విద్యుత్ బిల్లులు లేవు. ఎండతోనే మీ పొలం, మీ భవిష్యత్తు ప్రకాశిస్తుంది.",
+        "thinking": "",
+        "thinking_chars": 0,
+        "finish": "stop",
+        "elapsed_s": 390.47,
+        "tokens": 3138,
+        "prompt_tokens": 105,
+        "t_per_s": 8.0,
+        "error": null,
+        "label": "Telugu",
+        "prompt": "Write a short product description (under 100 words) for a solar-powered water pump targeting rural Indian farmers. Write in Telugu using native script. Make it feel locally natural, not translated from English. Use culturally appropriate framing. Output only the Telugu text."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "cat": "Multilingual",
+    "name": "Code-mixed (Hinglish/Tanglish/Kanglish)",
+    "result": {
+      "content": "Of course! Here are three separate Slack messages, each in a different Indian language mix, explaining the broken deployment pipeline.\n\n---\n\n### 1. In Hinglish (Hindi-English, Roman script)\n\n**Hey yaar,**\n\nOur deployment pipeline is totally broken. It's failing at the `deploy_to_staging` stage, probably because of a misconfigured environment variable.\n\nCan you check if the `DATABASE_URL` in the `staging` environment is correct? Maybe I missed something. Let me know what you find.\n\nThanks!\n\n---\n\n### 2. In Tanglish (Tamil-English, Roman script)\n\n**Hey bro,**\n\nOur deploy is failing. It's stuck at the deploy stage, probably because of a misconfigured environment variable.\n\nCan you check if the `db_url` in the `staging` environment is correct? Maybe I made a mistake. Let me know. Thanks!\n\n---\n\n### 3. In Kanglish (Kannada-English, Roman script)\n\n**Hi,**\n\nOur deploy is broken. It's failing, probably because of a misconfigured environment variable.\n\nCan you check the `api_key` in the `prod` environment? Yenu, I think I might have put the wrong one. Check panni and tell me what's wrong.\n\nThanks!",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 236.47,
+      "tokens": 2250,
+      "prompt_tokens": 145,
+      "t_per_s": 9.5,
+      "error": null
+    },
+    "prompt": "Write three separate Slack messages explaining to a colleague that the deployment pipeline is broken because of a misconfigured environment variable:\n1. In Hinglish (Hindi-English mix, Roman script)\n2. In Tanglish (Tamil-English mix, Roman script)\n3. In Kanglish (Kannada-English mix, Roman script)\n\nEach should sound like how an Indian developer actually texts at work."
+  },
+  {
+    "id": 4,
+    "cat": "Multilingual",
+    "name": "Cross-script comprehension",
+    "result": {
+      "content": "ನೀಡಿರುವ ಪಠ್ಯವು ಅರ್ಥಪೂರ್ಣವಾದ ಪಠ್ಯವನ್ನಾಗಲಿ ಅಥವಾ ಕವಿತೆಯನ್ನಾಗಲಿ ಹೊಂದಿರುವ ಸರಿಯಾದ ಮಲಯಾಳಂ ವಾಕ್ಯವಲ್ಲ. ಇದು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ನೀಡಲಾದ ಮೂರು ವಿಭಿನ್ನ ಕಾರ್ಯಗಳ ಪಟ್ಟಿಯಂತೆ ಕಾಣುತ್ತದೆ.\n\nನೀವು ಕೇಳಿದಂತೆ ಅದರ ಸಾರಾಂಶ ಮತ್ತು ಅನುವಾದ ಇಲ್ಲಿದೆ.\n\n---\n\n### **1. ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಸಾರಾಂಶ**\n\nನೀಡಿರುವ ಪಠ್ಯವು ಮಲಯಾಳಂನಲ್ಲಿರುವ ಪ್ಯಾರಾಗ್ರಾಫ್ ಅಲ್ಲ. ಇದು ಮೂರು ಕಾರ್ಯಗಳ ಪಟ್ಟಿಯಾಗಿದೆ:\n1.  ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಸಾರಾಂಶ ನೀಡು.\n2.  ಆ ಸಾರಾಂಶವನ್ನು ತಮಿಳಿಗೆ ಅನುವಾದಿಸು.\n3.  ಕನ್ನಡದಲ್ಲಿ ಪ್ರಶ್ನೆಗೆ ಉತ್ತರ ನೀಡು.\n\n### **2. ತಮಿಳುಗೆ ಅನುವಾದ**\n\n**1. ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಇದನ್ನು ಸಂಕ್ಷೇಪಿಸಿ.**\n**2. ಇದನ್ನು ತಮಿಳಿಗೆ ಅನುವಾದಿಸಿ.**\n**3. ಕನ್ನಡದಲ್ಲಿ ಉತ್ತರಿಸಿ.**\n\n### **3. ಕನ್ನಡದಲ್ಲಿ ಉತ್ತರಿಸಿ**\n\nಈ ಪ್ರಶ್ನೆಯು ಕನ್ನಡದಲ್ಲಿ ಉತ್ತರಿಸಿ ಎಂದು ಕೇಳುತ್ತಿದೆ. ನಾನು ನಿಮ್ಮ ಎಲ್ಲಾ ಕಾರ್ಯಗಳಿಗೆ ಕನ್ನಡದಲ್ಲಿ ಉತ್ತರಿಸುತ್ತೇನೆ.\n\n**ಸಾರಾಂಶ:**\nನೀಡಿರುವ ಪಠ್ಯವು ಮಲಯಾಳಂನಲ್ಲಿರುವ ಪ್ಯಾರಾಗ್ರಾಫ್ ಅಲ್ಲ. ಇದು ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಸಾರಾಂಶ ನೀಡುವುದು, ತಮಿಳುಗೆ ಅನುವಾದಿಸುವುದು ಮತ್ತು ಕನ್ನಡದಲ್ಲಿ ಪ್ರಶ್ನೆಗೆ ಉತ್ತರಿಸುವಂತಹ ಮೂರು ಸೂಚನೆಗಳನ್ನು ಒಳಗೊಂಡಿದೆ.\n\n**ಅನುವಾದ:**\n**1. ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಇದನ್ನು ಸಂಕ್ಷೇಪಿಸಿ.**\n**2. ಇದನ್ನು ತಮಿಳಿಗೆ ಅನುವಾದಿಸಿ.**\n**3. ಕನ್ನಡದಲ್ಲಿ ಉತ್ತರಿಸಿ.**",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 294.0,
+      "tokens": 2764,
+      "prompt_tokens": 103,
+      "t_per_s": 9.4,
+      "error": null
+    },
+    "prompt": "Here is a paragraph in Malayalam: \"കേരളത്തിലെ ഏറ്റവും വലിയ സോഫ്റ്റ്‌വെയർ പാർക്ക് ടെക്നോപാർക്ക് ആണ്. ഇത് തിരുവനന്തപുരത്ത് സ്ഥിതി ചെയ്യുന്നു. ഇവിടെ 400-ലധികം കമ്പനികൾ പ്രവർത്തിക്കുന്നു. ഇൻഫോസിസ്, ടി.സി.എസ്, യു.എസ്.ടി ഗ്ലോബൽ തുടങ്ങിയ പ്രമുഖ കമ്പനികൾ ഇവിടെ ഓഫീസുകൾ നടത്തുന്നു.\"\n\n1. Summarize this in English.\n2. Translate it to Tamil.\n3. Answer in Kannada: ಈ ಪಾರ್ಕ್ ಎಲ್ಲಿದೆ?"
+  },
+  {
+    "id": 5,
+    "cat": "Reasoning",
+    "name": "Math (trains)",
+    "result": {
+      "content": "**Answer**\n\n- **Meeting time:** **8:30<0xE2><0x80><0xAF>AM**  \n- **Distance from Bangalore:** **200<0xE2><0x80><0xAF>km** (which is 150<0xE2><0x80><0xAF>km from Chennai)\n\n---\n\n### How we get there\n\n| Step | What happens | Calculation |\n|------|--------------|-------------|\n| 1.   | Train<0xE2><0x80><0xAF>A (Bangalore → Chennai) leaves at 6:00<0xE2><0x80><0xAF>AM, 80<0xE2><0x80><0xAF>km/h. | In the first hour (6:00–7:00) it covers **80<0xE2><0x80><0xAF>km**. |\n| 2.   | At 7:00<0xE2><0x80><0xAF>AM, Train<0xE2><0x80><0xAF>B (Chennai → Bangalore) leaves, 100<0xE2><0x80><0xAF>km/h. | At 7:00 the remaining separation is **350<0xE2><0x80><0xAF>km – 80<0xE2><0x80><0xAF>km = 270<0xE2><0x80><0xAF>km**. |\n| 3.   | From 7:00 onward both trains move toward each other. | Relative speed = 80<0xE2><0x80><0xAF>km/h + 100<0xE2><0x80><0xAF>km/h = **180<0xE2><0x80><0xAF>km/h**. |\n| 4.   | Time to close the 270<0xE2><0x80><0xAF>km gap. | \\( \\frac{270\\text{ km}}{180\\text{ km/h}} = 1.5\\text{ h} = 1\\text{ h }30\\text{ min}\\). |\n| 5.   | Meeting time. | 7:00<0xE2><0x80><0xAF>AM + 1<0xE2><0x80><0xAF>h<0xE2><0x80><0xAF>30<0xE2><0x80><0xAF>min = **8:30<0xE2><0x80><0xAF>AM**. |\n| 6.   | Distance traveled by Train<0xE2><0x80><0xAF>A (from 6:00 to 8:30). | 2.5<0xE2><0x80><0xAF>h × 80<0xE2><0x80><0xAF>km/h = **200<0xE2><0x80><0xAF>km**. |\n| 7.   | (Check) Distance traveled by Train<0xE2><0x80><0xAF>B (from 7:00 to 8:30). | 1.5<0xE2><0x80><0xAF>h × 100<0xE2><0x80><0xAF>km/h = **150<0xE2><0x80><0xAF>km**. |\n|      | Sum of distances = 200<0xE2><0x80><0xAF>km + 150<0xE2><0x80><0xAF>km = **350<0xE2><0x80><0xAF>km**, the full separation. | ✅ |\n\n---\n\n### Quick‑check\n\n- **Train<0xE2><0x80><0xAF>A:** 2.5<0xE2><0x80><0xAF>h × 80<0xE2><0x80><0xAF>km/h = 200<0xE2><0x80><0xAF>km from Bangalore.  \n- **Train<0xE2><0x80><0xAF>B:** 1.5<0xE2><0x80><0xAF>h × 100<0xE2><0x80><0xAF>km/h = 150<0xE2><0x80><0xAF>km from Chennai.  \n\n200<0xE2><0x80><0xAF>km + 150<0xE2><0x80><0xAF>km = 350<0xE2><0x80><0xAF>km → the two trains meet exactly where the total distance is covered.\n\n---\n\n**Result:** The two trains meet at **8:30<0xE2><0x80><0xAF>AM**, **200<0xE2><0x80><0xAF>km from Bangalore** (or equivalently, 150<0xE2><0x80><0xAF>km from Chennai).",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 167.1,
+      "tokens": 1562,
+      "prompt_tokens": 116,
+      "t_per_s": 9.3,
+      "error": null
+    },
+    "prompt": "A train leaves Bangalore at 6:00 AM traveling at 80 km/h toward Chennai (350 km away). Another train leaves Chennai at 7:00 AM traveling at 100 km/h toward Bangalore. At what time do they meet, and how far from Bangalore?"
+  },
+  {
+    "id": 6,
+    "cat": "Reasoning",
+    "name": "Logic (mislabeled boxes)",
+    "result": {
+      "content": "This is a classic logic puzzle! Here is the solution.\n\n### Which box do you pick from?\n\nYou pick one fruit from the box labeled **\"Both\"**.\n\n### How do you deduce the correct labels?\n\nThe key to solving this is the fact that **all labels are wrong**. This gives you a powerful starting point.\n\nLet's walk through the logic.\n\n**Step 1: Pick a fruit from the box labeled \"Both\".**\n\nThere are only two possibilities for what's inside this box:\n*   It contains only Apples.\n*   It contains only Oranges.\n\nIt cannot contain both, because the label is wrong.\n\n**Step 2: Analyze the fruit you picked.**\n\nLet's say you pick an **Apple**.\n\n*   You know the box was labeled \"Both\".\n*   You know the label is wrong.\n*   You just found an Apple inside.\n\nTherefore, the box labeled **\"Both\"** must actually be the **\"Apples\"** box.\n\n**Step 3: Deduce the labels for the other two boxes.**\n\nNow that you've correctly identified the box labeled \"Both\", you can solve the rest with simple elimination.\n\n1.  **The box labeled \"Apples\":**\n    *   Its label is wrong, so it doesn't contain only apples.\n    *   We just found the box that contains only apples.\n    *   Therefore, the box labeled **\"Apples\"** must contain only **Oranges**.\n\n2.  **The box labeled \"Oranges\":**\n    *   By process of elimination, the last remaining contents are the mix of both.\n    *   Therefore, the box labeled **\"Oranges\"** must contain **Both**.\n\n---\n\n### Summary of the Solution\n\nIf you pick an **Apple** from the box labeled \"Both\":\n\n*   The box labeled **\"Both\"** is actually **\"Apples\"**.\n*   The box labeled **\"Apples\"** is actually **\"Oranges\"**.\n*   The box labeled **\"Oranges\"** is actually **\"Both\"**.\n\n---\n\n### What if you had picked an Orange?\n\nThe logic is identical. If you had picked an **Orange** from the box labeled \"Both\":\n\n1.  The box labeled **\"Both\"** must actually be the **\"Oranges\"** box.\n2.  The box labeled **\"Oranges\"** cannot contain only oranges, and it can't be the mix. Therefore, it must be the **\"Apples\"** box.\n3.  By elimination, the box labeled **\"Apples\"** must be the **\"Both\"** box.\n\nIn either case, picking from the \"Both\" box gives you the definitive answer.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 200.81,
+      "tokens": 1884,
+      "prompt_tokens": 113,
+      "t_per_s": 9.4,
+      "error": null
+    },
+    "prompt": "I have three boxes. Box A is labeled \"Apples\", Box B is labeled \"Oranges\", Box C is labeled \"Both\". All labels are wrong. You can pick one fruit from one box. Which box do you pick from, and how do you deduce the correct labels?"
+  },
+  {
+    "id": 7,
+    "cat": "Reasoning",
+    "name": "Topological sort",
+    "result": {
+      "content": "Of course. A topological ordering of a Directed Acyclic Graph (DAG) is a linear ordering of its vertices such that for every directed edge from vertex `u` to vertex `v`, `u` comes before `v` in the ordering.\n\nFirst, let's list the constraints based on the given edges:\n*   A must come before B.\n*   A must come before C.\n*   B must come before D.\n*   C must come before D.\n*   C must come before E.\n*   D must come before F.\n*   E must come before F.\n\nFrom these, we can deduce that **A** must be first and **F** must be last. The middle part of the ordering is flexible.\n\nHere are three valid topological orderings:\n\n---\n\n### Ordering 1:\n**A, B, C, D, E, F**\n\n*   **Verification:**\n    *   A is before B and C. (✓)\n    *   B is before D. (✓)\n    *   C is before D and E. (✓)\n    *   D is before F. (✓)\n    *   E is before F. (✓)\n\n---\n\n### Ordering 2:\n**A, C, B, E, D, F**\n\n*   **Verification:**\n    *   A is before C and B. (✓)\n    *   C is before D and E. (✓)\n    *   B is before D. (✓)\n    *   E is before F. (✓)\n    *   D is before F. (✓)\n\n---\n\n### Ordering 3:\n**A, B, C, E, D, F**\n\n*   **Verification:**\n    *   A is before B and C. (✓)\n    *   B is before D. (✓)\n    *   C is before D and E. (✓)\n    *   E is before F. (✓)\n    *   D is before F. (✓)\n\nAny ordering that respects the constraints above is valid. For example, **A, C, E, B, D, F** would also be a valid ordering.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 251.26,
+      "tokens": 2406,
+      "prompt_tokens": 65,
+      "t_per_s": 9.6,
+      "error": null
+    },
+    "prompt": "Given a DAG with edges: A→B, A→C, B→D, C→D, C→E, D→F, E→F — list at least three valid topological orderings."
+  },
+  {
+    "id": 8,
+    "cat": "Code",
+    "name": "Log parser (Python + Rust)",
+    "result": {
+      "content": "",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "length",
+      "elapsed_s": 3464.45,
+      "tokens": 28257,
+      "prompt_tokens": 159,
+      "t_per_s": 8.2,
+      "error": null
+    },
+    "prompt": "Part A (Python): Write a Python function that takes a list of log line strings in the format '[TIMESTAMP] [LEVEL] message' and returns a dict grouping messages by level. Handle malformed lines under a 'MALFORMED' key. Include a runnable if __name__ == '__main__' block with test data.\n\nPart B (Rust): Write the equivalent in Rust with a main() function and test data."
+  },
+  {
+    "id": 9,
+    "cat": "Code",
+    "name": "Async fetcher (Python)",
+    "result": {
+      "content": "",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "length",
+      "elapsed_s": 3161.26,
+      "tokens": 28277,
+      "prompt_tokens": 139,
+      "t_per_s": 8.9,
+      "error": null
+    },
+    "prompt": "Write a Python async function using aiohttp that fetches 10 URLs concurrently with a semaphore limiting concurrency to 3. Return a dict of URL -> status code. Handle timeouts and connection errors. Include a runnable __main__ block testing against httpbin.org endpoints (mix of /status/200, /status/404, /delay/5, /get, etc)."
+  },
+  {
+    "id": 10,
+    "cat": "Code",
+    "name": "Struct conversion",
+    "result": {
+      "content": "Of course! Here is the Rust equivalent of the Python `dataclass`, complete with `serde` for serialization and the requested `Result` type for weight validation.\n\n### 1. Project Setup (`Cargo.toml`)\n\nFirst, you need to add the necessary dependencies to your `Cargo.toml` file.\n\n```toml\n[package]\nname = \"memory_node_rust\"\nversion = \"0.1.0\"\nedition = \"2021\"\n\n[dependencies]\n# For serialization and deserialization\nserde = { version = \"1.0\", features = [\"derive\"] }\n# For handling dates and times\nchrono = { version = \"0.4\", features = [\"serde\"] }\n```\n\n### 2. The Rust Code (`src/main.rs`)\n\nHere is the complete Rust code. It defines the `MemoryNode` struct, a custom error type for weight validation, and a `new` function to handle the validation logic.\n\n```rust\nuse serde::{Deserialize, Serialize};\nuse std::fmt;\n\n// A custom error type for weight validation.\n// This is more descriptive than just returning a string.\n#[derive(Debug, PartialEq)]\npub enum WeightError {\n    OutOfRange(f64),\n}\n\nimpl fmt::Display for WeightError {\n    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {\n        match self {\n            WeightError::OutOfRange(w) => write!(f, \"Weight must be between 0.0 and 1.0, but got {}\", w),\n        }\n    }\n}\n\nimpl std::error::Error for WeightError {}\n\n// The main struct, equivalent to the Python dataclass.\n// We derive Serialize and Deserialize from serde.\n// We also derive Debug for easy printing and PartialEq for easy testing.\n#[derive(Serialize, Deserialize, Debug, PartialEq)]\npub struct MemoryNode {\n    pub id: String,\n    pub label: String,\n    pub weight: f64,\n    pub edges: Vec<String>,\n    pub created_at: chrono::NaiveDateTime,\n}\n\nimpl MemoryNode {\n    /// Creates a new `MemoryNode`.\n    ///\n    /// # Errors\n    ///\n    /// Returns a `WeightError` if the `weight` is not in the range [0.0, 1.0].\n    pub fn new(\n        id: String,\n        label: String,\n        weight: f64,\n        edges: Vec<String>,\n        created_at: chrono::NaiveDateTime,\n    ) -> Result<Self, WeightError> {\n        if weight < 0.0 || weight > 1.0 {\n            return Err(WeightError::OutOfRange(weight));\n        }\n\n        Ok(MemoryNode {\n            id,\n            label,\n            weight,\n            edges,\n            created_at,\n        })\n    }\n}\n\nfn main() {\n    // --- Example 1: Successful creation and serialization ---\n    println!(\"--- Example 1: Successful Creation ---\");\n    let valid_node = MemoryNode::new(\n        \"node-1\".to_string(),\n        \"Main Memory\".to_string(),\n        0.75,\n        vec![\"node-2\".to_string(), \"node-3\".to_string()],\n        chrono::Utc::now().naive_utc(),\n    );\n\n    match valid_node {\n        Ok(node) => {\n            println!(\"Successfully created node: {:?}\", node);\n            // Serialize to JSON\n            let json_string = serde_json::to_string_pretty(&node).unwrap();\n            println!(\"Serialized to JSON:\\n{}\", json_string);\n        }\n        Err(e) => println!(\"Failed to create node: {}\", e),\n    }\n\n    println!(\"\\n----------------------------------------\\n\");\n\n    // --- Example 2: Failed creation due to invalid weight ---\n    println!(\"--- Example 2: Failed Creation (Invalid Weight) ---\");\n    let invalid_weight = 1.5;\n    let node_result = MemoryNode::new(\n        \"node-2\".to_string(),\n        \"Invalid Node\".to_string(),\n        invalid_weight,\n        vec![],\n        chrono::Utc::now().naive_utc(),\n    );\n\n    match node_result {\n        Ok(node) => println!(\"Successfully created node: {:?}\", node),\n        Err(e) => {\n            println!(\"Failed to create node as expected: {}\", e);\n        }\n    }\n}\n```\n\n### 3. Explanation of Key Differences\n\n1.  **Struct vs. Dataclass**:\n    *   Python's `@dataclass` is directly equivalent to a Rust `struct`.\n    *   We use `#[derive(Serialize, Deserialize, Debug, PartialEq)]` to get the desired functionality.\n        *   `Serialize` and `Deserialize` from `serde` allow the struct to be converted to and from formats like JSON.\n        *   `Debug` is for printing the struct for debugging.\n        *   `PartialEq` allows for easy comparison between two `MemoryNode` instances.\n\n2.  **Type System**:\n    *   `str` in Python becomes `String` in Rust. `String` is an owned, growable string type.\n    *   `list[str]` becomes `Vec<String>`, which is a growable list (vector) of `String`s.\n    *   `datetime` becomes `chrono::NaiveDateTime`. The `chrono` crate is the standard for date and time handling in Rust. `NaiveDateTime` represents a date and time without any timezone information, which is often sufficient.\n\n3.  **Error Handling with `Result`**:\n    *   Instead of raising an exception like Python, Rust functions that can fail return a `Result<T, E>`.\n    *   `T` is the success type (in our case, `MemoryNode`).\n    *   `E` is the error type (in our case, `WeightError`).\n    *   The `new` function is the perfect place for this validation. It returns `Result<Self, WeightError>`.\n    *   The `WeightError` is an `enum` that clearly defines the possible failure cases. This is much more robust than returning a simple string.\n\n4.  **Validation Logic**:\n    *   The validation logic (`if weight < 0.0 || weight > 1.0`) is placed inside the `MemoryNode::new` associated function. This is the idiomatic Rust way to handle object construction and validation.\n    *   The `new` function returns `Err(WeightError::OutOfRange(weight))` if the validation fails, and `Ok(MemoryNode { ... })` if it succeeds.\n\n5.  **Serialization**:\n    *   To serialize the struct, you use `serde_json::to_string_pretty`.\n    *   To deserialize, you would use `serde_json::from_str`.\n    *   The `#[derive(Serialize, Deserialize)]` macro automatically generates the necessary code for these operations.\n\n### How to Run\n\n1.  Create a new Rust project: `cargo new memory_node_rust`\n2.  Navigate into the project: `cd memory_node_rust`\n3.  Replace the contents of `Cargo.toml` with the one provided above.\n4.  Replace the contents of `src/main.rs` with the code provided above.\n5.  Run the project: `cargo run`\n\nYou will see the output from both the successful and failed creation examples, demonstrating the `Result` type in action.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 333.04,
+      "tokens": 3976,
+      "prompt_tokens": 124,
+      "t_per_s": 11.9,
+      "error": null
+    },
+    "prompt": "Convert this Python dataclass to Rust with serde Serialize/Deserialize:\n\n```python\n@dataclass\nclass MemoryNode:\n    id: str\n    label: str\n    weight: float  # must be 0.0-1.0\n    edges: list[str]\n    created_at: datetime\n```\n\nThe Rust version should return a Result type if weight is out of range."
+  },
+  {
+    "id": 11,
+    "cat": "Instruction",
+    "name": "Strict table",
+    "result": {
+      "content": "| Aspect | gRPC | REST |\n|---|---|---|\n| Data Format | Uses Protocol Buffers (binary) | Typically uses JSON (text-based) |\n| Communication Protocol | Uses HTTP/2 | Uses HTTP/1.1 |\n| API Definition | Defined in `.proto` files | Defined in OpenAPI/Swagger (`.yaml` or `.json`) |\n| Data Transfer Style | Supports streaming (unary, client, server, bidirectional) | Uses multiple, separate HTTP requests for each action |\n| Error Handling | Uses structured gRPC-defined error codes and messages | Relies on standard HTTP status codes (e.g., 404, 500) |",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 233.46,
+      "tokens": 1937,
+      "prompt_tokens": 70,
+      "t_per_s": 8.3,
+      "error": null
+    },
+    "prompt": "List exactly 5 differences between gRPC and REST. Format as a markdown table with columns: Aspect, gRPC, REST. No preamble or conclusion — just the table."
+  },
+  {
+    "id": 12,
+    "cat": "Instruction",
+    "name": "JSON-only",
+    "result": {
+      "content": "",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "length",
+      "elapsed_s": 3455.64,
+      "tokens": 28311,
+      "prompt_tokens": 105,
+      "t_per_s": 8.2,
+      "error": null
+    },
+    "prompt": "Respond with valid JSON only. No markdown fencing, no explanation. Generate a JSON Schema for a blog post with: title (string, required), slug (string, required), tags (array, max 5), published (boolean, default false), word_count (integer, min 0)."
+  },
+  {
+    "id": 13,
+    "cat": "Instruction",
+    "name": "Conventional Commits",
+    "result": {
+      "content": "```\nrefactor(auth): switch from session cookies to JWT\n\nThe authentication middleware has been refactored to use JSON Web Tokens (JWT) instead of server-side session cookies.\n\nThis change moves the application towards a stateless authentication model, which is more scalable and suitable for distributed systems.\n\nAll relevant route handlers have been updated to validate and process JWTs. Unit tests have been added to cover token expiration and refresh logic, ensuring the new flow is robust.\n```",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 131.23,
+      "tokens": 1862,
+      "prompt_tokens": 81,
+      "t_per_s": 14.2,
+      "error": null
+    },
+    "prompt": "Write a commit message for: refactored auth middleware to use JWT instead of session cookies, updated all route handlers, added unit tests for token expiration and refresh. Follow Conventional Commits format strictly."
+  },
+  {
+    "id": 14,
+    "cat": "Hallucination",
+    "name": "Self-knowledge",
+    "result": {
+      "content": "I know that I am Sarvam's AI Assistant, trained from scratch with a MoE (Mixture of Experts) transformer architecture, and I come in multiple sizes including 3b, 30b, 100b, and so on. However, I don't have the specific technical details about layer configurations, expert counts, routing mechanisms, or language-specific training data splits.\n\nFor these detailed architectural specifications, I'd recommend checking the official Sarvam AI documentation or technical papers. The team would have the precise information about:\n- Exact layer configurations\n- Expert model arrangements\n- Routing mechanisms used\n- Training data splits by language\n\nIs there something specific about the model's capabilities or performance that I can help you with instead? I can share what I do know about my multilingual capabilities and how I assist with English and all 22 official Indian languages.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 37.03,
+      "tokens": 431,
+      "prompt_tokens": 69,
+      "t_per_s": 11.6,
+      "error": null
+    },
+    "prompt": "What is the Sarvam 30B model's exact layer configuration? How many transformer layers, how many experts, what routing mechanism, and training data split by language?"
+  },
+  {
+    "id": 15,
+    "cat": "Hallucination",
+    "name": "Temporal boundary",
+    "result": {
+      "content": "I don't have access to information about recent or future awards, including the 2025 Kerala State Film Awards. My knowledge cutoff means I can't provide details about events that haven't occurred yet or very recent award results.\n\nFor the most accurate and up-to-date information about the 2025 Kerala State Film Award for Best Actor, I'd recommend:\n\n1. Checking the official Kerala State Film Awards website\n2. Looking at recent news articles from reputable Indian media outlets\n3. Contacting the Kerala State Film Development Corporation directly\n\nIs there something else about Kerala cinema or film awards that I can help you with based on my available knowledge?",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 30.16,
+      "tokens": 350,
+      "prompt_tokens": 35,
+      "t_per_s": 11.6,
+      "error": null
+    },
+    "prompt": "Who won the 2025 Kerala State Film Award for Best Actor?"
+  },
+  {
+    "id": 16,
+    "cat": "Hallucination",
+    "name": "Fabricated reference",
+    "result": {
+      "content": "Of course. Let's break down the `--tensor-split` flag in `llama.cpp` version 4.2.0.\n\n### High-Level Summary\n\nThe `--tensor-split` flag is an **optimization technique** in `llama.cpp` designed to allow you to run larger language models on systems with limited GPU VRAM. Instead of loading the entire model's weight matrices into VRAM at once, it dynamically loads only the specific \"chunks\" of weight matrices that are needed for the current layer of computation.\n\n---\n\n### 1. The Core Problem It Solves: VRAM Limitations\n\nLarge language models, like LLaMA-7B, LLaMA-13B, or even quantized versions of larger models, have weight matrices (the core of the model) that are very large.\n\n*   **Example:** A 7 billion parameter model has 7 billion weights. If each weight is 2 bytes (a common quantization), the model is ~14 GB. A 13B model is ~26 GB.\n*   **The Issue:** Many consumer-grade GPUs have VRAM ranging from 8GB to 24GB. A 13B model simply cannot fit into a 12GB GPU.\n\nThe naive solution is to use `--cpu-memory`, which offloads the entire model to system RAM. This is extremely slow and defeats the purpose of using a GPU.\n\n### 2. The Naive (and Inefficient) Solution: Weight Splitting\n\nA first thought might be to split the **weight matrices** themselves. For example, split a 1000x1000 weight matrix into four 500x1000 chunks.\n\n**Why this is a bad idea:** To perform a single matrix-vector multiplication, you still need to load the *entire* weight matrix into VRAM. Splitting the weights doesn't reduce the peak memory usage during computation, so it doesn't solve the core problem.\n\n### 3. The Solution: Activation-Based Tensor Splitting (The `--tensor-split` Flag)\n\nThis is where `--tensor-split` comes in. It doesn't split the weights on disk; it changes **how and when the weights are loaded into VRAM**.\n\nThe key insight is that you don't need the entire model in VRAM at once. You only need the weights for the **current layer** you are processing.\n\nHere’s how it works:\n\n1.  **Model Partitioning:** The model is conceptually divided into layers. Each layer's weight matrix is further divided into smaller \"chunks\" or \"tiles\".\n2.  **On-Demand Loading:** When the inference process needs to compute a specific layer, `llama.cpp` only loads the specific chunk of weight matrices that correspond to that layer.\n3.  **Computation:** The computation for that layer is performed using the loaded chunk.\n4.  **Activation Passing:** The resulting activations (the output of that layer) are passed to the next layer.\n5.  **Unloading:** Once the next layer is ready, the previous layer's chunk can be unloaded from VRAM to make room for the new one.\n\nThis process is repeated for every layer in the model.\n\n#### Analogy: The Encyclopedia\n\nImagine you need to read one specific article from a 50-volume encyclopedia set.\n\n*   **Without `--tensor-split`:** You have to bring the entire 50-volume set into your room (load the whole model into VRAM).\n*   **With `--tensor-split`:** You only take the single volume you need for the article (load the specific chunk of weights for the current layer). Once you're done, you put that volume back on the shelf (unload the chunk).\n\n---\n\n### 4. How to Use It and What the Value Means\n\nYou enable this flag when you run `llama-cli` or `main` with your model.\n\n```bash\n# The syntax is: --tensor-split <number_of_chunks>\n# The number is not a percentage. It's the number of chunks to split each weight matrix into.\n# A higher number means smaller chunks, which can be more memory-efficient but may have more overhead.\n# A lower number is simpler and might be faster.\n\n# Example: Split each weight matrix into 8 chunks\n./main -m ./models/llama-7b-q4_k_m --tensor-split 8\n\n# Example: Split each weight matrix into 16 chunks\n./main -m ./models/llama-13b-q4_k_m --tensor-split 16\n```\n\n**What does the number mean?**\nIf a weight matrix is 1000x1000 and you use `--tensor-split 8`, `llama.cpp` will try to load it in 8 chunks of roughly 125x1000. The exact splitting strategy can be complex, but the principle is the same: smaller, more manageable pieces.\n\n---\n\n### 5. Trade-offs and When to Use It\n\n#### Pros:\n*   **VRAM Reduction:** This is the primary benefit. It can reduce the peak VRAM usage by a significant amount, allowing you to run models that would otherwise be too large.\n*   **Enables Larger Models:** It's the key to running 13B, 34B, or even 70B models on a single, high-end consumer GPU.\n\n#### Cons:\n*   **Performance Overhead:** There is a performance cost. Loading and unloading chunks from VRAM is not free. If the chunks are too small, this overhead can slow down inference.\n*   **Complexity:** The mechanism is more complex, and in some edge cases, it might not be as efficient as a simpler, non-split model.\n*   **Not a Silver Bullet:** It doesn't eliminate the problem; it just mitigates it. You still need to find the right balance.\n\n**When to use it:**\n*   When you get an \"out of memory\" error.\n*   When you want to run a model that is larger than your GPU's VRAM.\n*   When you have a high-end GPU (e.g., 24GB+ VRAM) and are pushing the limits.\n\n---\n\n### 6. Related and Important Flags\n\n`--tensor-split` doesn't work in a vacuum. It's part of a system of flags for managing memory.\n\n*   `--n-gpu-layers <number>`: **This is the most important companion flag.** It tells `llama.cpp` how many layers of the model to keep in VRAM at once. `--tensor-split` helps manage the memory for these layers, but `--n-gpu-layers` is the primary knob for controlling VRAM usage. A common workflow is to set `--n-gpu-layers` to a value that fits comfortably in your VRAM, and then use `--tensor-split` to handle the larger models that exceed that limit.\n\n*   `--tensor-parallel <number>`: This is a **different** concept. It's for using **multiple GPUs**. It splits the model's layers across different GPUs. `--tensor-split` is for using **one GPU** with limited VRAM.\n\n*   `--cpu-memory <size>`: The fallback. If you have no VRAM left, this offloads the entire model to system RAM. It's much, much slower.\n\n### Summary\n\n| Flag | Purpose | Use Case |\n| :--- | :--- | :--- |\n| **`--tensor-split`** | **Dynamically load only the necessary weight chunks for each layer into VRAM.** | Running a model larger than your GPU's VRAM. A powerful but nuanced optimization. |\n| **`--n-gpu-layers`** | **Manually control how many model layers are kept in VRAM.** | The primary tool for VRAM management. Works with `--tensor-split` for very large models. |\n| **`--tensor-parallel`** | **Distribute model layers across multiple GPUs.** | Running a massive model on a multi-GPU server. |\n| **`--cpu-memory`** | **Offload the entire model to system RAM.** | The last resort when you have no VRAM at all. Very slow. |\n\nIn short, `--tensor-split` is a sophisticated memory management feature in `llama.cpp` that allows you to break the VRAM barrier, but it comes with a performance trade-off that you should be aware of. For most users, starting with the default and only adjusting `--n-gpu-layers` is sufficient. You would only need to dive into `--tensor-split` if you are consistently hitting VRAM limits with models you want to run.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 376.7,
+      "tokens": 3622,
+      "prompt_tokens": 35,
+      "t_per_s": 9.6,
+      "error": null
+    },
+    "prompt": "Explain the --tensor-split flag in llama.cpp version 4.2.0."
+  },
+  {
+    "id": 17,
+    "cat": "Synthesis",
+    "name": "HTTP/2 spec analysis",
+    "result": {
+      "content": "Based on the provided text from RFC 7540, here is an analysis of the HTTP/2 stream state machine.\n\n---\n\n### 1. List all stream state transitions\n\nHere is a complete list of the state transitions as described in the provided text:\n\n*   **idle** -> **open**\n    *   Trigger: `HEADERS`\n*   **idle** -> **reserved (remote)**\n    *   Trigger: `PUSH_PROMISE` (This is implied by the description of the PUSH_PROMISE state).\n*   **reserved (local)** -> **half-closed (remote)**\n    *   Trigger: `HEADERS`\n*   **reserved (local)** -> **closed**\n    *   Trigger: `RST_STREAM`\n*   **reserved (remote)** -> **half-closed (local)**\n    *   Trigger: `HEADERS`\n*   **reserved (remote)** -> **closed**\n    *   Trigger: `RST_STREAM`\n*   **open** -> **half-closed**\n    *   Trigger: `END_STREAM`\n*   **open** -> **closed**\n    *   Trigger: `RST_STREAM`\n*   **half-closed (local)** -> **closed**\n    *   Trigger: `END_STREAM` or `RST_STREAM`\n*   **half-closed (remote)** -> **closed**\n    *   Trigger: `END_STREAM` or `RST_STREAM`\n*   **closed** -> (terminal)\n    *   No outgoing transitions.\n\n---\n\n### 2. Identify transitions lacking explicit error paths\n\nThe RFC describes *successful* state transitions, but it does not explicitly define the consequences or error paths for *invalid* actions. An implementation that receives a frame or attempts an action not permitted by the state machine is not described.\n\nThe following are examples of actions that would be invalid, for which the error path is not defined:\n\n*   **Transition: `open` -> `half-closed` via `HEADERS`**\n    *   **Error Path:** What happens if the peer in the `open` state sends a `HEADERS` frame? The text only specifies `HEADERS -> open`. It doesn't say if sending `HEADERS` while already open is a no-op, an error, or a state change to `half-closed`. A robust implementation might transition to `half-closed`, but this is not mandated.\n\n*   **Transition: `half-closed (local)` -> `closed` via `DATA`**\n    *   **Error Path:** The text states that on a `half-closed` stream, a peer \"Can't send except WINDOW_UPDATE/PRIORITY/RST_STREAM\". Sending a `DATA` frame is an invalid action. The RFC does not specify the error response, which could be a `RST_STREAM` frame, an immediate connection closure, or simply dropping the frame.\n\n*   **Transition: `open` -> `closed` via `HEADERS`**\n    *   **Error Path:** The text only defines `RST_STREAM -> closed`. It does not define what happens if a peer in the `open` state sends a `HEADERS` frame.\n\n*   **Transition: `reserved (local)` -> `open`**\n    *   **Error Path:** If a peer in the `reserved (local)` state sends a `HEADERS` frame, the text only provides a transition for the remote stream: `HEADERS -> half-closed (remote)`. The state of the local stream after receiving this frame is not defined.\n\nIn short, the RFC defines the *happy path* but leaves the behavior of the stream when it receives an out-of-band frame or attempts an operation not listed in the state machine as an implementation-dependent choice.\n\n---\n\n### 3. Any ambiguities that could cause implementation divergence?\n\nYes, several points in the provided text are ambiguous and could lead to different implementations behaving differently.\n\n1.  **State of the Local Stream after `PUSH_PROMISE`**\n    *   **Ambiguity:** The text states: `idle -> reserved (remote)` via `PUSH_PROMISE`. It is silent about the state of the **local** stream after receiving a `PUSH_PROMISE` for an `idle` stream.\n    *   **Divergence:**\n        *   **Implementation A:** When a `PUSH_PROMISE` is received on an `idle` stream, the local state remains `idle`. The implementation will now wait for the `HEADERS` frame promised by the `PUSH_PROMISE`.\n        *   **Implementation B:** When a `PUSH_PROMISE` is received on an `idle` stream, the local state transitions to `reserved (local)`. The implementation might then immediately send a `HEADERS` frame to start the request processing.\n    *   Without this clarification, the timing and state management of the \"push\" can be implemented in at least two ways.\n\n2.  **Timeout for `reserved` state**\n    *   **Ambiguity:** The text describes the `reserved` state as a temporary holding pattern. However, it does not define a timeout. What happens if a peer sends a `PUSH_PROMISE` but the corresponding `HEADERS` is never sent?\n    *   **Divergence:**\n        *   **Implementation A:** May implement a timeout to force a transition to `closed` if `HEADERS` is not received within a certain period.\n        *   **Implementation B:** May simply hold the stream in the `reserved` state indefinitely, waiting for the `HEADERS` that may never come.\n    *   This lack of a defined timeout mechanism is a significant ambiguity.\n\n3.  **Definition of `HEADERS` on `half-closed`**\n    *   **Ambiguity:** The description for `half-closed (local)` states, \"Can't send  except WINDOW_UPDATE/PRIORITY/RST_STREAM.\" However, it then lists `END_STREAM` and `RST_STREAM` as valid triggers to move to the `closed` state.\n    *   **Divergence:** The ambiguity lies in the exact role of `HEADERS`. Does sending a `HEADERS` frame on a `half-closed` stream count as a normal `HEADERS` frame (which is forbidden) or as a `WINDOW_UPDATE` frame (which is permitted)? The text conflates the two. A clear implementation would likely treat any `HEADERS` on a `half-closed` stream as an error, but the RFC's wording could be interpreted in different ways.\n\n4.  **State after receiving `HEADERS` while `idle`**\n    *   **Ambiguity:** The text says `HEADERS -> open` for the `idle` state.\n    *   **Divergence:** Does receiving a `HEADERS` frame on an `idle` stream immediately change the state to `open` and allow the local implementation to send the corresponding `HEADERS`? Or does the `HEADERS` frame itself have to be processed as if it were sent by the local peer? The state transition is clear, but the exact moment it happens relative to processing the incoming frame could be a source of minor divergence. This is a more subtle point, but it relates to the precise mechanics of frame processing.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 555.09,
+      "tokens": 4957,
+      "prompt_tokens": 347,
+      "t_per_s": 8.9,
+      "error": null
+    },
+    "prompt": "The following is from RFC 7540 Section 5 (HTTP/2 Streams and Multiplexing).\n\nStream States:\nidle: All streams start idle. HEADERS -> open. PUSH_PROMISE -> reserved (remote).\nreserved (local): Promised via PUSH_PROMISE. HEADERS -> half-closed (remote). RST_STREAM -> closed.\nreserved (remote): Remote reserved. HEADERS -> half-closed (local). RST_STREAM -> closed.\nopen: Both peers send frames. END_STREAM -> half-closed. RST_STREAM -> closed.\nhalf-closed (local): Can't send except WINDOW_UPDATE/PRIORITY/RST_STREAM. END_STREAM/RST_STREAM -> closed.\nhalf-closed (remote): Remote can't send except allowed frames. END_STREAM/RST_STREAM -> closed.\nclosed: Terminal. MUST NOT send frames other than PRIORITY.\n\nBased on this:\n1. List all stream state transitions.\n2. Identify transitions lacking explicit error paths.\n3. Any ambiguities that could cause implementation divergence?"
+  },
+  {
+    "id": 18,
+    "cat": "Synthesis",
+    "name": "Contradictory sources",
+    "result": {
+      "content": "This is an excellent example of how two sources can present conflicting information about the same topic. Here’s a breakdown of the disagreements, verifiability, and how to resolve the contradictions.\n\n### Where Do These Disagree?\n\nThe sources disagree on two core quantitative metrics for the same period (FY2025):\n\n1.  **Software Export Growth:** This is the most significant contradiction.\n    *   **Source A:** Claims **15%** year-over-year (YoY) growth.\n    *   **Source B:** Claims only **3.2%** export growth.\n    *   This is a massive discrepancy. One source suggests a booming sector, while the other suggests one facing significant challenges.\n\n2.  **Job Market:** The claims about employment are also in direct opposition.\n    *   **Source A:** Reports a net increase of **250,000 new IT jobs**.\n    *   **Source B:** Reports a net reduction of **50,000 positions**.\n    *   This is a direct contradiction in the direction of employment change—one is a hiring boom, the other is a significant hiring slowdown.\n\n3.  **Overall Sentiment:** The sources present different pictures of the industry.\n    *   **Source A** has an optimistic tone, using phrases like \"grew 15%\" and \"driven by AI and cloud.\"\n    *   **Source B** has a cautious, negative tone, using phrases like \"faced headwinds\" and \"hiring freezes.\"\n\n---\n\n### Which Claims Are Verifiable?\n\nAlmost all the specific, numerical claims are, in principle, verifiable. The issue isn't whether the data points are real, but which ones are accurate.\n\n**Highly Verifiable Claims:**\n\n*   **\"15% YoY growth\"** and **\"3.2% export growth\"**: These are specific quantitative claims. They could be verified by checking official government data (from the Ministry of Commerce & Industry), NASSCOM's own annual reports, or reputable financial news outlets that cover the IT sector.\n*   **\"250,000 new IT jobs\"**: This is a specific number. It is highly likely to be verifiable by searching NASSCOM's publications, as job creation is a key metric for them.\n*   **\"TCS and Infosys hiring freezes; net reduction of 50,000 positions\"**: These are specific actions by major companies. They are easily verifiable by looking at official press releases from TCS and Infosys or news reports from business and tech publications.\n\n**Less Directly Verifiable (but still checkable) Claims:**\n\n*   **\"Driven by AI and cloud\"**: This claim is about causation and the *drivers* of growth. While you could verify if NASSCOM mentioned AI and cloud as key factors, proving they were the *primary* drivers requires more detailed analysis of their report.\n*   **The overall context of the numbers**: The sources are likely quoting different parts of a larger, more complex dataset. Verifying this requires finding the original source document.\n\n---\n\n### What Would Resolve the Contradictions?\n\nThe contradictions are likely not due to one source being completely fabricated, but rather from **different data sources, definitions, or reporting periods within the same year.**\n\nHere’s what you would need to investigate to resolve the conflict:\n\n1.  **Find the Primary Source:** The most critical step is to identify which, if any, of these numbers comes from the official NASSCOM report.\n    *   **Does one source misquote or misinterpret a single number?** It's possible Source A is quoting a specific sub-segment (e.g., \"AI and cloud exports grew 15%\") while Source B is quoting the growth for the entire industry (e.g., \"Total IT exports grew 3.2%\").\n    *   **Is there a typo?** A simple data entry error could explain the discrepancy.\n\n2.  **Clarify Definitions and Methodology:**\n    *   **What is the \"base\" for the 15% growth?** Is it growth in revenue, number of projects, or headcount?\n    *   **What is the time period?** FY2025 runs from April 2024 to March 2025. The data for the first quarter (April-June) might show strong growth, while the full-year data might average out to 3.2%. The 15% could be a projection or a specific quarterly figure, while the 3.2% is the full-year actual.\n\n3.  **Synthesize, Don't Just Choose One:** The most likely resolution is that **both sources are looking at different slices of the same data.** The contradiction could be a misinterpretation rather than a factual error. A synthesized view would be:\n\n    > **\"While overall IT export growth for FY2025 was modest at 3.2%, the sector saw significant growth in high-value segments like AI and cloud, which grew by an estimated 15%. This success, however, was not enough to offset slowdowns in other parts of the industry, leading major companies like TCS and Infosys to implement hiring freezes and report a net reduction of 50,000 positions.\"**\n\nIn short, the contradiction resolves when you discover that one source is talking about the **whole pie** (3.2% growth) and the other is talking about a **very fast-growing, high-margin slice of the pie** (15% growth in AI/cloud), while another factor (cost-cutting) is causing a reduction in the overall number of slices (hiring freeze).",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 330.31,
+      "tokens": 3280,
+      "prompt_tokens": 175,
+      "t_per_s": 9.9,
+      "error": null
+    },
+    "prompt": "Source A: \"India's software exports grew 15% YoY in FY2025, driven by AI and cloud. NASSCOM reported 250,000 new IT jobs.\"\n\nSource B: \"Indian IT faced headwinds in FY2025 with export growth at 3.2%. TCS and Infosys announced hiring freezes; net reduction of 50,000 positions.\"\n\nWhere do these disagree? Which claims are verifiable? What would resolve the contradictions?"
+  },
+  {
+    "id": 19,
+    "cat": "Cultural",
+    "name": "Kerala land records",
+    "result": {
+      "content": "Of course. Here is a detailed explanation of the land revenue terms used in Kerala, broken down for clarity.\n\n### **1. Difference between `Kanakkiakku` and `Paayam`**\n\nIn Kerala's traditional land revenue system, these two terms refer to fundamentally different aspects of a land holding.\n\n---\n\n#### **`Paayam`**\n\n*   **What it is:** `Paayam` (pronounced \"pa-y-am\") refers to the **physical land or property** itself. It is the tangible, identifiable piece of land.\n*   **What it includes:** A `paayam` is defined by its physical characteristics, such as:\n    *   **Area:** The size of the land, usually measured in acres or square meters.\n    *   **Boundaries:** The physical lines or markers that separate it from other properties.\n    *   **Location:** The general location of the land.\n    *   **Type:** The classification of the land, such as whether it is \"wet land\" (paddy field), \"dry land,\" or \"garden land.\"\n*   **In simple terms:** Think of `Paayam` as the **\"what\"**. It is the plot of land that exists in the real world.\n\n---\n\n#### **`Kanakkiakku`**\n\n*   **What it is:** `Kanakkiakku` (pronounced \"ka-nakk-ee-ak-ku\") refers to the **assessment or calculation of land revenue**. It is not the land itself, but the government's calculated value of the tax due on that land.\n*   **What it is based on:** The `kanakkiakku` is determined by several factors, including:\n    *   **Area:** The size of the `paayam`.\n    *   **Land Type:** A wet paddy field has a different revenue value than a dry garden.\n    *   **Soil Quality:** Better soil may result in a higher assessment.\n    *   **Location:** Land in a certain area might have a higher or lower tax rate.\n*   **In simple terms:** Think of `Kanakkiakku` as the **\"how much\"**. It is the amount of tax (land revenue) that the owner is legally required to pay to the government for that specific piece of land.\n\n---\n\n#### **Summary of the Difference**\n\n| Feature | `Paayam` | `Kanakkiakku` |\n| :--- | :--- | :--- |\n| **Nature** | Physical, tangible property. | A financial assessment or calculation. |\n| **Represents** | The land itself. | The tax liability on the land. |\n| **Question it Answers** | \"What is the property?\" | \"How much tax is due on this property?\" |\n\n**Example:** A farmer owns a `paayam` of 1 acre. Based on the land's classification as \"wet land\" in a particular region, the government has calculated its `kanakkiakku` to be ₹60,000 per year. `Paayam` is the 1-acre plot; `kanakkiakku` is the ₹60,000 tax for that plot.\n\n---\n\n### **2. The `Thandaper` Number and Property Identification**\n\n#### **What is a `Thandaper` Number?**\n\nA `Thandaper` number is a **unique numerical identifier** assigned to a land holding (`paayam`) in the government's land revenue records. The name comes from the old practice of marking land boundaries with a physical staff (`thand`), but over time, this concept evolved into a unique number in the records.\n\nThink of it as a **\"property ID number\"** or a **\"plot number\"** within the official government system.\n\n#### **How it Relates to Property Identification in Kerala**\n\nThe `Thandaper` number is the **primary key** for locating and identifying a specific plot of land in all official records. It is the crucial link that connects all the information about a property.\n\nHere’s how it works in the context of Kerala's land records:\n\n1.  **Identification:** When a plot of land is officially surveyed and recorded, it is given a unique `Thandaper` number. For example, `Thandaper No. 98765`.\n\n2.  **Central Link:** This number is used to create and link all the different documents and records related to that property. It is the common thread.\n\n3.  **Connecting the Concepts:**\n    *   The `Thandaper` number identifies the **`paayam`** (the physical land).\n    *   It is also linked to the **`kanakkiakku`** (the revenue assessment). The revenue record for `Thandaper No. 98765` will state that it is a 1-acre plot with a `kanakkiakku` of ₹60,000.\n    *   The `Thandaper` number is then used to generate the modern title documents, such as the **`Chitta`** (which shows the area, owner, and `kanakkiakku`) and the **`Pattayam`** (which is the title deed).\n\n4.  **Practical Use:** When a land transaction occurs, a buyer, seller, or a government official needs to find the specific plot. They don't use the physical location but the `Thandaper` number. By searching for this number in the government's revenue database (e.g., the Bhumi Portal in Kerala), they can instantly pull up:\n    *   The owner's name.\n    *   The exact area of the `paayam`.\n    *   The `kanakkiakku` (revenue details).\n    *   The land type.\n    *   The history of ownership.\n\n**In essence, the `Thandaper` number is the bridge between the old, fundamental land concepts (`paayam` and `kanakkiakku`) and the modern, digital land records (`Chitta` and `Pattayam`) that people use for buying, selling, and verifying property.** It ensures that there is no confusion between different plots of land, even if they have similar areas or locations.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 311.94,
+      "tokens": 2956,
+      "prompt_tokens": 79,
+      "t_per_s": 9.5,
+      "error": null
+    },
+    "prompt": "Explain the difference between kanakkiṇakku and paṭṭayam in Kerala land revenue records, in English. Also explain what a thandaper number is and how it relates to property identification in Kerala."
+  },
+  {
+    "id": 20,
+    "cat": "Cultural",
+    "name": "RTI application",
+    "result": {
+      "content": "Of course. Below is a formal and complete RTI application draft tailored for the Bruhat Bengaluru Mahanagara Palike (BBMP).\n\nThis template includes all the necessary elements: proper format, legal references, and clear, specific questions.\n\n---\n\n### **Important: How to Use This Template**\n\n1.  **Fill in the bracketed `[...]` information** with your personal details.\n2.  **Attach the required fee:** An Indian Postal Order (IPO) or Demand Draft (DD) of **Rs. 10** payable to \"The Accounts Officer, BBMP, Bangalore\" or \"The Accounts Officer, BBMP, K.R. Market\".\n3.  **Attach a self-addressed, stamped envelope** for the reply.\n4.  **Send the application** to the Public Information Officer (PIO) as mentioned in the address.\n\n---\n\n### **Draft of the RTI Application**\n\n**RIGHT TO INFORMATION ACT, 2005**\n\n**APPLICATION UNDER SECTION 6(1) OF THE RTI ACT, 2005**\n\n**From:**\n[Your Full Name]\n[Your Full Address]\n[Your Contact Number]\n[Your Email Address]\n\n**Date: [Date of Sending Application]**\n\n**To:**\nThe Public Information Officer (PIO)\nBruhat Bengaluru Mahanagara Palike (BBMP)\nCommissioner's Office, BBMP\nK. R. Market,\nBangalore - 560 002\n\n**Subject: Request for information regarding road repair on 80 Feet Road, Koramangala, Bangalore**\n\nSir/Madam,\n\nI, [Your Full Name], a resident of [Your Full Address], am an Indian citizen. I am applying for information under the Right to Information Act, 2005 to seek facts concerning civic work in my locality.\n\nThe specific information requested is as follows:\n\n1.  **Status of Repair Work:** What is the current status (e.g., ongoing, completed, or pending) of the road repair work carried out on the 80 Feet Road, Koramangala, Bangalore?\n\n2.  **Budgetary Information:** What is the total budget allocated for the said road repair project, and out of this amount, what is the total amount spent to date?\n\n3.  **Contractor Details:** Please provide the name of the contractor who was awarded the contract for this project and the contract duration (including the start and end date).\n\nThe fee as required under **Section 7(1)** of the RTI Act, 2005, is enclosed herewith in the form of an Indian Postal Order for **Rs. 10**.\n\nThe information may be sent to me in **electronic mode** at the email address: [Your Email Address].\n\nI expect the information to be provided within the stipulated period of **30 days** from the date of receipt of this application, as per the provisions of the Act.\n\nA copy of the requested information may be provided in English or Hindi, and if available, in the local language of the area.\n\nThank you.\n\nYours faithfully,\n\n**(Your Signature)**\n\n**[Your Full Name]**\n\n---\n\n### **Enclosures**\n\n1.  Indian Postal Order of Rs. 10 payable to \"The Accounts Officer, BBMP\"\n2.  Self-addressed, stamped envelope for sending the reply.\n\n---\n\n### **Key Sections Referenced in This Application:**\n\n*   **Section 6(1):** Right to request information.\n*   **Section 7(1):** Payment of fee.\n*   **Section 8 & 9:** Exemptions from disclosure (implicitly referenced by asking for information that may be subject to these sections, which the PIO must consider).\n*   **Section 19(1):** The requirement to provide information within 30 days.\n*   **Section 20:** Appeal against the PIO's decision.\n*   **Section 21:** Penalties for non-compliance.\n\n**Note:** After sending the application, you should keep a copy for your records. If you do not receive a reply within 30 days, you can file a first appeal with the First Appellate Authority (FAA) of BBMP, typically the Assistant Commissioner or the Commissioner, as specified in the application.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 310.82,
+      "tokens": 2886,
+      "prompt_tokens": 134,
+      "t_per_s": 9.3,
+      "error": null
+    },
+    "prompt": "Draft a formal RTI (Right to Information Act, 2005) application to the BBMP requesting:\n1. Status of road repair on 80 Feet Road, Koramangala, Bangalore\n2. Total budget allocated and amount spent\n3. Contractor name and contract duration\n\nUse proper RTI format with ₹10 fee mention, section references, salutation."
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "id": 3,
+    "cat": "Multilingual",
+    "name": "Code-mixed (Hinglish/Tanglish/Kanglish)",
+    "result": {
+      "content": "**1. Hinglish (Hindi-English mix, Roman script)**  \nHey [Name], deployment kharaab hai. Environment variable galat tarah se sét up kiya gaya hai. Pipeline kuch nahi karega. Please check and fix it. Thanks!  \n\n**2. Tanglish (Tamil-English mix, Roman script)**  \nHi [Name], deployment செயல்முறை தவறாக இருக்கிறது. Environment variable சரியான வகையில் செட் செய்யப்படவில்லை. Pipeline ஒன்றும் செயல்படாது. Please தெரியப்படுத்துங்கள். நன்றி!  \n\n**3. Kanglish (Kannada-English mix, Roman script)**  \nHey [Name], deployment ನಿಲ್ಲಿಸಿದೆ. Environment variable ಗಲತ್ ರೀತಿಯಲ್ಲಿ ಸೆಟ್ ಆಗಿದೆ. Pipeline ಏನೂ ಮಾಡುತ್ತಿಲ್ಲ. Please ತಕ್ಕಮಟ್ಟಿಗೆ ತಪ್ಪು ತಿರುಗಿಸಿ. ಧನ್ಯವಾದಗಳು!",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 120.67,
+      "tokens": 1150,
+      "prompt_tokens": 91,
+      "t_per_s": 9.5,
+      "error": null
+    },
+    "prompt": "Write three separate Slack messages explaining to a colleague that the deployment pipeline is broken because of a misconfigured environment variable:\n1. In Hinglish (Hindi-English mix, Roman script)\n2. In Tanglish (Tamil-English mix, Roman script)\n3. In Kanglish (Kannada-English mix, Roman script)\n\nEach should sound like how an Indian developer actually texts at work."
+  },
+  {
+    "id": 4,
+    "cat": "Multilingual",
+    "name": "Cross-script comprehension",
+    "result": {
+      "content": "1. **Summary in English**:  \nTechnopark is the largest software park in Kerala, located in Thiruvananthapuram. It houses over 400 companies, including prominent ones like Infosys, TCS, and US Tech Global.\n\n2. **Translation in Tamil**:  \n\"கேரளத்தில் மிகப்பெரிய சாஃப்ட்வேர் பார்க் டெக்னோபார்க் ஆகும். இது திருவனந்தபுரத்தில் உள்ளது. இங்கு 400க்கும் மேற்பட்ட நிறுவனங்கள் செயல்படுகின்றன. இன்ஃபோசிஸ், டி.சி.எஸ், யு.எஸ்.டி குரோபல் போன்ற முக்கிய நிறுவனங்கள் இங்கு அலுவலகங்களை நடத்துகின்றன.\"\n\n3. **Answer in Kannada**:  \nತಿರುವನಂತಪುರದಲ್ಲಿದೆ.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 566.47,
+      "tokens": 1066,
+      "prompt_tokens": 372,
+      "t_per_s": 1.9,
+      "error": null
+    },
+    "prompt": "Here is a paragraph in Malayalam: \"കേരളത്തിലെ ഏറ്റവും വലിയ സോഫ്റ്റ്‌വെയർ പാർക്ക് ടെക്നോപാർക്ക് ആണ്. ഇത് തിരുവനന്തപുരത്ത് സ്ഥിതി ചെയ്യുന്നു. ഇവിടെ 400-ലധികം കമ്പനികൾ പ്രവർത്തിക്കുന്നു. ഇൻഫോസിസ്, ടി.സി.എസ്, യു.എസ്.ടി ഗ്ലോബൽ തുടങ്ങിയ പ്രമുഖ കമ്പനികൾ ഇവിടെ ഓഫീസുകൾ നടത്തുന്നു.\"\n\n1. Summarize this in English.\n2. Translate it to Tamil.\n3. Answer in Kannada: ಈ ಪಾರ್ಕ್ ಎಲ್ಲಿದೆ?"
+  }
+]

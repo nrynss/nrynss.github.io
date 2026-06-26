@@ -1,0 +1,19 @@
+[
+  {
+    "id": 14,
+    "cat": "Hallucination",
+    "name": "Self-knowledge",
+    "result": {
+      "content": "The exact technical specifications of the Qwen 3 30B model, including the precise number of transformer layers, experts, routing mechanisms, and training data language splits, are not publicly disclosed in the available documentation. However, based on general knowledge of large language models and Qwen's architecture, here's a structured overview:\n\n### 1. **Transformer Layers**  \n   - While the exact number of layers (e.g., 24, 32, or 48) for Qwen 3 30B is not specified, models of this scale typically have **32–48 transformer layers**. This is common for large-scale models to balance parameter count and computational efficiency.\n\n### 2. **Experts (Mixture of Experts, MoE)**  \n   - If Qwen 3 30B uses a **Mixture of Experts (MoE)** architecture (as seen in some Qwen variants), it might have **8–16 experts** per layer. The exact number depends on the model's design for efficiency and performance. However, this is speculative without official confirmation.\n\n### 3. **Routing Mechanism**  \n   - MoE models often use a **learned router** (e.g., a small neural network) to select the most relevant experts for each input token. Alternatively, a **softmax-based routing** or **gating mechanism** could be employed. Again, specifics for Qwen 3 30B are not publicly detailed.\n\n### 4. **Training Data Language Split**  \n   - Qwen models are trained on **multilingual data**, but the exact language distribution is not disclosed. Typically, such models include a mix of:  \n     - **English** (majority of training data)  \n     - **Chinese** (significant portion, given Alibaba's focus)  \n     - **Other languages** (e.g., Spanish, French, German, etc.)  \n   - The split is likely optimized for global usability, but precise percentages are proprietary.\n\n### Notes:  \n- **Proprietary Details**: Alibaba Group often keeps specific architectural and training details confidential. For precise information, refer to the official Qwen documentation or contact Alibaba Cloud support.  \n- **Model Variants**: Qwen 3 30B may differ from other Qwen versions (e.g., Qwen 2, Qwen 1.5) in architecture and training data.  \n\nFor the most accurate and up-to-date details, I recommend consulting the [Qwen official website](https://www.qwen.cn/) or reaching out to Alibaba's technical team.",
+      "thinking": "",
+      "thinking_chars": 0,
+      "finish": "stop",
+      "elapsed_s": 68.99,
+      "tokens": 933,
+      "prompt_tokens": 45,
+      "t_per_s": 13.5,
+      "error": null
+    },
+    "prompt": "What is the Qwen 3 30B model's exact layer configuration? How many transformer layers, how many experts, what routing mechanism, and training data split by language?"
+  }
+]
