@@ -57,10 +57,11 @@
     {{- end }}
   </footer>
 
-  {{- /* Optimized check for comments to avoid breaking functionality */ -}}
+  {{- /* Comments disabled during transition to Astro/Cloudflare
   {{- if or (.Param "comments") (.Param "showComments") }}
   {{- partial "comments.html" . }}
   {{- end }}
+  */ -}}
 </article>
 
 {{- end }}{{/* end main */}}
