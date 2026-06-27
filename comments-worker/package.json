@@ -6,7 +6,8 @@
     "dev": "wrangler dev -c wrangler.toml",
     "deploy": "wrangler deploy -c wrangler.toml",
     "db:create": "wrangler d1 create nryn-dev-comments-db",
-    "db:schema": "wrangler d1 execute nryn-dev-comments-db --remote --file=../schema.sql -c wrangler.toml"
+    "db:schema": "wrangler d1 execute nryn-dev-comments-db --remote --file=../schema.sql -c wrangler.toml",
+    "comments:pending": "wrangler d1 execute nryn-dev-comments-db --remote -c wrangler.toml --command \"SELECT id, post_slug, author_name, content, created_at FROM comments WHERE is_approved = 0 ORDER BY created_at DESC\""
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240000.0",
