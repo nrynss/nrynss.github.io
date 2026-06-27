@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function initSpaceAnimation() {
   // Create canvas element
   const canvas = document.createElement('canvas');
   canvas.id = 'background-canvas';
@@ -393,4 +393,10 @@ document.addEventListener('DOMContentLoaded', function () {
     resizeCanvas();
     init();
   });
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSpaceAnimation);
+} else {
+  initSpaceAnimation();
+}
