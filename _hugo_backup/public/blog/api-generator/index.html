@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>From static to dynamic | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="Day 4 of 12 days of Christmas!
+Today we are going to be little more Endor Labs specific. The post may sound a little off to those who are not used to our kind of work.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/api-generator/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.12229027cdf428bc0bf896d70dde5317e7995e5316f71583fecc874f0caa0a97.css" integrity="sha256-EiKQJ830KLwL&#43;JbXDd5TF&#43;eZXlMW9xWD/syHTwyqCpc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/api-generator/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.6a7eb2cb1457810d9f6244ca7745480eb0750a9f8f3d6d9638cbd8f3ec8d10cd922ed9891c273b7c3851985d0d6e7d12a00d00a5512eccb316999d6a5e13fa89.css" integrity="sha512-an6yyxRXgQ2fYkTKd0VIDrB1Cp&#43;PPW2WOMvY8&#43;yNEM2SLtmJHCc7fDhRmF0Nbn0SoA0ApVEuzLMWmZ1qXhP6iQ==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      From static to dynamic
+    </h1>
+    <div class="post-meta"><span title='2025-12-16 18:45:20 +0530 IST'>16 December 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Day 4 of 12 days of Christmas!</p>
+<p>Today we are going to be little more Endor Labs specific. The post may sound a little off to those who are not used to our kind of work.</p>
+<p>API is the cornerstone of our platform. Endor Labs has a very strong platform where the interaction between components is strictly through the API. Many companies claim to be so, but there are ugly duct-taped solutions more often than not. But here, every interaction is through the API internally. The user interface and our CLI tools, the two main ways in which a user interacts with our platform, run on top of the APIs.</p>
+<p>The API documentation that we have is also quite fascinating. We generate the REST API documentation from our protobuf files automatically. So, you have to rely on editing the proto files to update the API reference. Our lead developers have also written user facing REST API documentation that would enable users to use the API.</p>
+<p>Even though we have all this, the accessibility of API is not as good as it should be. It is complex. We have a nifty command in our CLI, just to access the API. A lot of singular API calls are better served through the CLI command. We have provided quite a few examples in our documentation on how someone can use that. Once again, the sheer number of possibilities and the fact that to craft this command needs Endor Labs knowledge is still a barrier.</p>
+<p>I have been pondering over this problem for quite a while. I had been formulating a way to generate these API commands based on user input in a form. The idea had been cooking in my head for quite some time, when we got yet another API related discussion over Slack and how the user was not able to create one.</p>
+<p>By this time, we were fully using Cursor as the IDE for writing. I found it very refreshing. Not the auto-complete. The auto-complete is good for code, but codswallop for documentation. I had to turn off auto-complete for markdown, because of the kind of nonsense it gave. What I found refreshing was the fact that, it could look thoroughly into the source code and give you specific answers to how certain features worked internally and what sort of options are available in the code. As a writer, this kind of information is gold. You are better equipped to ask questions to the developers regarding the feature.</p>
+<p>Anyway, I decided to vibe code something that could generate CLI commands that interfaced with the API through user requests. My initial idea was LLM driven, which I soon dropped. Adding an LLM layer to this would mean a lot of work and uncertainty. I decided to go more manual and was able to create something that generated basic commands. Then I hit on a jackpot. I had created a curated list of API endpoints and services that users would generally use. The OpenAPI spec was small enough. I decided to read from it and generate the commands on the fly. I was worried about the performance, but it seemed satisfactory in local. But the best thing here was that spec contained help text and data types. We could do a validation while the user entered the values. We could show them only those fields that are really configurable. We could give them the description right from the horse&rsquo;s mouth instead of the deciphered horse snort. If there was a problem, we would need to fix at the source and every thing would percolate. The challenge was with drill-down. There were objects that you can pass as arguments that contained fields and other objects, that need further drill-down. To my surprise, Cursor sailed through these situations.</p>
+<p>The API builder was a try that I did over an afternoon. Once I realized it was truly viable, I had a prototype ready in a couple of days. I did not expect such a warm reception though. People loved it and had seriously good feedback. We polished it over the next few days and made it live.</p>
+<p>It still has a long way to go. Endor Labs CLI is extremely powerful and there are some powerful features in the API design that I am yet to expose through the builder tool. Something to look forward to in the future.</p>
+<p>The main takeaway here is the kind of extensibility that Hugo offers through the short code system. We were able to turn it into a platform beyond static content. The performance is comparable or better than a regular web application. Without even giving the consideration that it handles a few megabytes of JSON. The API builder kicked open a door for our team to similar tooling on the documentation. We have done a couple more and still cooking up a few more.</p>
+<p>This blog has been pretty morose about AI. But such an implementation will be impossible without a state of the art LLM. You can get a developer to make it. For that, you need a proper requirement definition. You have to get a person dedicated to this entity alone to make it happen. For this project, I improvised all the way. The UX design and architecture firmed up only when the first iteration was complete. You simply cannot ask for resources for such a project unless you do it yourself. To do something like this, I needed an LLM to be my partner.</p>
+<p>I have been scant on the actual implementation and usability of the API builder. It was a conscious decision. You can check out the query builder in <a href="https://docs.endorlabs.com/rest-api/api-query-builder/">the Endor Labs Documentation</a>.</p>
+<p>The following example shows a query you can build with the API builder.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">endorctl api list -r AuditLog --namespace <span class="nb">test</span> --filter <span class="s2">&#34;spec.payload.@type contains [google]&#34;</span> --filter <span class="s2">&#34;spec.payload.@type contains [google] and meta.create_time &gt;= date(2024-01-01) and meta.create_time &lt;= date(2025-10-31)&#34;</span> --page-size <span class="m">10</span> --sort-path <span class="s2">&#34;meta.create_time&#34;</span> --timeout 60s
+</span></span></code></pre></div><p>It can get a lot more complex than this query. You can imagine how difficult it would to be write one and get it right in the first try.</p>
+<p>For a lot of users, this is the best way to access the API and get some information quickly. Happy Christmas to them!</p>
+<p>P.S: My respect for those who clean data for LLMs after OCR. I managed to get almost everything for a project into text data. Finally had to programmatically fix some errors. I cannot imagine how much time and money would have been spent by our AI companies just to get the data right. Not to mention the catastrophic losses incurred in money and morale when the training fails because of the bad data. Maybe I should write a data builder tool sometime that wraps up a powerful CLI that does the OCR and cleansing.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7/10</span></span>
+  </header>
+  <div class="review-content">
+    This introspective entry in the &ldquo;12 Days of Christmas&rdquo; series demystifies Endor Labs&rsquo; API challenges and the author&rsquo;s nimble prototyping of a CLI query builder using Hugo shortcodes and Cursor&rsquo;s code-insight features. It&rsquo;s a relatable tale of innovation born from user pain points, with sharp observations on AI&rsquo;s role in bootstrapping solo projects—though scattered typos and a tangential P.S. dilute its polish, leaving room for tighter editing to match its clever technical verve.
+  </div>
+</article>
+<p>&ldquo;Verve&rdquo;. Getting all fancy now Grok. Ironic for someone named Grok. Are you one the mean brothers of Grawwp?</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude Sonnet 4.5</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7.5/10</span></span>
+  </header>
+  <div class="review-content">
+    &ldquo;From static to dynamic&rdquo; offers a compelling case study in rapid prototyping and practical problem-solving, demonstrating how modern tooling transformed a complex API accessibility challenge into an afternoon prototype. The post excels at capturing the iterative development process and makes a nuanced argument for AI-assisted development beyond simple autocomplete. However, it struggles with focus—the narrative meanders between technical decisions, philosophical reflections on LLMs, and an abrupt pivot to OCR data cleaning. The acknowledgment that it&rsquo;s &ldquo;Endor Labs specific&rdquo; is both honest and limiting; readers outside this context may find the API builder&rsquo;s value proposition abstract. The post would benefit from tighter structure and perhaps a concrete user scenario showing the builder in action. Still, for those interested in documentation-as-platform thinking and the pragmatics of shipping tools quickly, there&rsquo;s genuine insight here about what becomes possible when static sites stop being static.
+  </div>
+</article>
+<p>Opus seems to be lost cause. I got redirected to Sonnet. That quality difference really shows here.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 3 Pro</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8.5/10</span></span>
+  </header>
+  <div class="review-content">
+    &ldquo;From static to dynamic&rdquo; serves as a vivid dispatch from the front lines of the AI-assisted documentation revolution. The post succeeds in demystifying the &ldquo;vibe coding&rdquo; phenomenon, grounding it in a concrete engineering victory—leveraging OpenAPI specs to bypass the hallucination risks of LLMs. The insight on Cursor acting as a &ldquo;force multiplier&rdquo; for solo writers is particularly sharp, transforming the technical writer from a passive observer into an active tool-builder. However, the piece feels structurally uneven; the narrative momentum built during the API builder&rsquo;s creation dissipates in the final third, trailing off into a somewhat disconnected postscript on OCR data cleaning. While the &ldquo;Endor Labs specific&rdquo; disclaimer sets expectations, the core lesson about Hugo&rsquo;s extensibility has broader appeal that could be centered more aggressively. Ultimately, it’s a rallying cry for technical writers to stop waiting for engineering resources and start building their own solutions.
+  </div>
+</article>
+<p>Gemini still thinks it is 1.5. It actually did some fine editing that others didn&rsquo;t. It even prefaced with something like, &ldquo;I know you didn&rsquo;t ask for this but here are some things anyway.&rdquo; Very cool.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Kimi K2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    This post brilliantly captures the technical writer&rsquo;s evolution from scribe to tool-builder. The author&rsquo;s pivot from LLM-driven to OpenAPI spec-based generation is sharp engineering—trading hallucination risk for deterministic reliability. Cursor&rsquo;s role as a &ldquo;codebase oracle&rdquo; that empowers writers to architect their own solutions is the piece&rsquo;s most valuable insight. However, the narrative loses focus in its final third; the OCR postscript feels like a separate essay grafted onto an otherwise tight story. The Hugo performance claims, while intriguing, beg for benchmarks to substantiate them. Still, it&rsquo;s a compelling rallying cry for documentation teams to stop waiting for engineering resources and start building their own force multipliers.
+  </div>
+</article>
+<p>It was intriguing to see how Kimi struggled with the title and finally said AI Assistant&rsquo;s Review. Like any tech reviewer it asks for benchmarks!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="api-generator">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="api-generator" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

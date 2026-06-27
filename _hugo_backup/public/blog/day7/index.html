@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 1 | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+  
+  Local LLMs Series
+  
+  
+    This article is the part of the series I have written on local LLMs.
+
+Introduction to Local LLMs -&gt; You are here!
+LLM file formats
+Simplifying models, types, and quantization
+LLM families
+Running LLMs locally
+
+  
+
+
+Day 7 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, and Day 6 to catch up.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/day7/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0aeb70ae91ecfb72a06b14253e43accafce9c4bc2d3ad76eb167de3eefcd05b5.css" integrity="sha256-CutwrpHs&#43;3KgaxQlPkOsyvzpxLwtOtdusWfePu/NBbU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/day7/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.2aa1e12c752545db28cf6b768172a13d92dbbed8ec13ceece24693312c7d3beaa077711cea1f924bd2013538088c6c13b6b5265a6aae9e2987c8d8abd118f29a.css" integrity="sha512-KqHhLHUlRdsoz2t2gXKhPZLbvtjsE87s4kaTMSx9O&#43;qgd3Ec6h&#43;SS9IBNTgIjGwTtrUmWmqunimHyNir0Rjymg==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 1
+    </h1>
+    <div class="post-meta"><span title='2025-12-19 23:42:45 +0530 IST'>19 December 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content">
+<div class="notice-box">
+  
+  <div class="notice-title">Local LLMs Series</div>
+  
+  <div class="notice-content">
+    <p>This article is the part of the series I have written on local LLMs.</p>
+<ul>
+<li><a href="/blog/day7/">Introduction to Local LLMs</a> -&gt; You are here!</li>
+<li><a href="/blog/day8/">LLM file formats</a></li>
+<li><a href="/blog/day9/">Simplifying models, types, and quantization</a></li>
+<li><a href="/blog/day10/">LLM families</a></li>
+<li><a href="/blog/day11/">Running LLMs locally</a></li>
+</ul>
+  </div>
+</div>
+
+<p>Day 7 of the 12 days of Christmas! Go through <a href="/blog/tabula-rasa/">Day 1</a>, <a href="/blog/neom/">Day 2</a>, <a href="/blog/hugo/">Day 3</a>, <a href="/blog/api-generator/">Day 4</a>, <a href="/blog/day5/">Day 5</a>, and <a href="/blog/day6/">Day 6</a> to catch up.</p>
+<p>The title is a bait and switch. We will indeed be looking at local LLMs. Not the actual models, but how we can deploy them locally. I thought it would be good way to start rather than jump straight into the models and about what they know.</p>
+<h2 id="ollama">Ollama<a hidden class="anchor" aria-hidden="true" href="#ollama">#</a></h2>
+<p>If you search on how to deploy LLMs, <a href="https://ollama.com/">Ollama</a> would be the first thing that pops up. Ollama is good. It is as close to a Docker-like experience as you can get with LLMs.  Heck, you have <code>ollama ps</code>, and <code>ollama serve</code> commands akin to Docker. It even has a registry from which you can pull the models.</p>
+<p>Once you learn a few commands, it is super easy to run. Previously, you needed some kind of front end to get a decent experience or stick with the command line. But now they have their own minimal, but functional UI. The UI also includes a hook to run the LLMs remotely as well. They also need to make money I guess.</p>
+<p>After you load a model, Ollama really shines with the API endpoints available at your disposal. You can easily hook it with your program and use your local LLMs to pull its weight. I have built a simple text analyzer, that actually worked. Grade the quality of content and give a grade. Unfortunately, the model was not good enough and I ran out of a good reason to improve it further. I may come back to it one day, now that we have better small models, and if I refine my use case more.</p>
+<h2 id="anythingllm">AnythingLLM<a hidden class="anchor" aria-hidden="true" href="#anythingllm">#</a></h2>
+<p><a href="https://anythingllm.com/">AnythingLLM</a> was the first local LLM provider I tried. IIRC, Ollama was not available in Windows and I was hooked around the idea of RAG. AnythingLLM promised RAG out-of-the-box. AnythingLLM wraps Ollama as its backend. It also provides a vector database that you can use immediately. You can upload documents in several formats. In my tests with AnythingLLM, I uploaded quite a bit of text files from my conversations and some other documents. The results were not bad. The UI is a bit clunky and I stopped using it soon after. I realized that I really didn&rsquo;t need RAG like it offered. The RAG I was after would need some serious manual work to work as well as I expect.</p>
+<p>I have been keeping tabs on it and they have recently launched a meeting assistant that recorded and transcribed your meetings on-demand. All processing on device. The central idea is that the transcripts will be vectorized and you can search through them. In my test, the transcription more or less worked decently. But the chat search did not work as intended. Need some work I guess. The project is open-source and it should be only improve from here. The RAG capability coupled with a good enough UI should make things interesting.</p>
+<h2 id="llamacpp">Llama.cpp<a hidden class="anchor" aria-hidden="true" href="#llamacpp">#</a></h2>
+<p><a href="https://github.com/ggml-org/llama.cpp">Llama.cpp</a> is perhaps the most worked on local LLM inference engine. It is extremely fast and all major open-source providers contribute heavily to it, so that their models reach a wide audience. I have not used it as is. It is a collection of tools to do stuff with local models. The main edge here is the speed. It is comfortably 30% faster than Ollama. The support for new models will be quick as well. Now it also has a light weight UI included in the server. So this is the lightest way to run a local LLM. But the real power of llama.cpp is that, it is used as the backend for things like LMStudio, KoboldCPP, and other tool.</p>
+<h2 id="lm-studio">LM Studio<a hidden class="anchor" aria-hidden="true" href="#lm-studio">#</a></h2>
+<p><a href="https://lmstudio.ai">LM Studio</a> is probably the best experience you can get to run a local LLM. It has a powerful UI with a plethora of options and most importantly, personas. You can run the models and use it like a chatbot or go to the developer mode and use it as an API server. It also has an excellent model explorer, where you can find models from HuggingFace, and check the compatibility of the models with your system. The usage is also pretty seamless. On Mac, you get MLX support out-of-the-box. You can even sort models by the availability of formats. We have to do a short write up on the formats next I guess. LM Studio has been easily my most used local LLM provider. With decent sized models, I have been able to converse and figure out minor bugs. Use them to do a back and forth on good technical descriptions. A good way to allow your limits on state-of-the-art models to be used for complex tasks.</p>
+<h2 id="koboldcpp">KoboldCPP<a hidden class="anchor" aria-hidden="true" href="#koboldcpp">#</a></h2>
+<p><a href="https://github.com/LostRuins/koboldcpp">KoboldCPP</a> is easily the most used local LLM provider for me. It is kind of a roleplaying setup. Works on top of llama.cpp. It allows you set up characters with whom you can converse. You can even set up a senario where multiple characters come in and converse. One of my favourite things to do with LLM is to start a roleplaying session in a fictional world. Something like &ldquo;A Song of Ice and Fire&rdquo;. Set the starting point as a post Ned Stark assassination and see how the story unfolds. Even when the models were kind of limited and stupid, it was still fun to play around with. With a good uncensored model, you can get all the violence and gratuitous sex. These are the kind of things you will see more widespread in the future. Remember yesterday&rsquo;s post? OpenAI needs to make a lot of money to keep up with the financial decisions they have taken this year!</p>
+<p>There are other tools out there like Jan and Msty. But I thought it would be better to limit on the few that I have used decently long enough to make impressions. This is a surface level comparison and I have not delved deep into any of them in the article. But hey, not knowing is half the fun!</p>
+<p>P.S: In the next part, we will go over the formats in brief. I need to do some reading up on them too. It should get a bit more complex.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 3 Pro</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8.5/10</span></span>
+  </header>
+  <div class="review-content">
+    A hands-on tour de force through the &ldquo;homebrew&rdquo; AI stack, trading the polished ivory towers of OpenAI for the gritty, command-line trenches of local inference. From Ollama’s Docker-esque elegance to the raw, unadulterated speed of llama.cpp, this post serves as a field manual for the sovereignty-obsessed tinkerer. The highlight? A candid confession of using KoboldCPP not just for code, but to rewrite the bloody history of Westeros—proving that the killer app for local AI might just be uncensored roleplay and &ldquo;what-if&rdquo; fanfiction. It’s practical, personal, and perfectly sets the stage for the technical deep-dive into formats. The revolution will not be televised; it will be run on localhost.
+  </div>
+</article>
+<p>For a change Gemini identified as Grok. Probably due to my prompt. The intelligence seems fairly low today. Not just this analysis, even some serious stuff I asked produced somewhat subpar results.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Kimi K2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7/10</span></span>
+  </header>
+  <div class="review-content">
+    A rollicking dispatch from the local AI trenches, blending hands-on war stories—Ollama&rsquo;s Docker-like seduction, LM Studio&rsquo;s Cadillac polish, KoboldCPP&rsquo;s shadowy roleplaying underbelly—with the tinkerer&rsquo;s eternal lament: too many tools, too few lasting use cases. The author&rsquo;s bait-and-switch title promises epistemological deep-dives but delivers a spirited bar crawl through deployment options instead, complete with clunky UIs, abandoned text analyzers, and gratuitous Westerosi power fantasies. It&rsquo;s equal parts honest confession (&lsquo;I ran out of reasons&rsquo;), technical sketchbook, and cheeky teaser for format wars ahead. While it skims the surface like a stone across a lake of GGUF files, the raw authenticity of &lsquo;here&rsquo;s what I actually tried&rsquo; makes this a perfect amuse-bouche for the local LLM curious. Buckle up; the real model autopsy awaits in part two.
+  </div>
+</article>
+<p>Kimi continues to slop away. Format wars in AI world is nothing but its fantasy.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">ChatGPT 5.2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A breezy, hands-on tour of the local-LLM landscape that reads like a friend who’s been tinkering in the basement and came up with a handful of surprisingly useful toys. The post’s strengths are clear: concrete, experience-driven impressions (Ollama’s Docker-like ergonomics, AnythingLLM’s built-in RAG and transcription experiments, the speed wins of llama.cpp, and LM Studio’s polished UX), plus delightful anecdotes about roleplay sessions in KoboldCPP that give the piece personality and utility.
+  </div>
+</article>
+<p>ChatGPT gave a lot more. I was not in the mood to ask it to tighten up, so just removed the two paragraphs. Kind of disappointing. I never ChatGPT for serious stuff and today it was quite impressive and saw though a lot of nuanced issues with my development plan. I thought my criticism over the past few days made it so.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    A delightfully hands-on tour through the local LLM trenches, dishing out candid takes on the usual suspects—Ollama&rsquo;s Docker-esque simplicity, AnythingLLM&rsquo;s RAG ambitions (with a side of clunky UI and transcription teething pains), llama.cpp&rsquo;s raw speed demon status, LM Studio&rsquo;s polished GUI glory, and KoboldCPP&rsquo;s unapologetic roleplay playground complete with uncensored chaos. It&rsquo;s refreshingly personal, laced with real-world experiments and a cheeky nod to the wilder side of AI escapades, all while teasing deeper dives into formats ahead. In a sea of hype-driven overviews, this surface-level skirmish feels honest, fun, and perfectly timed for anyone dipping toes into running models at home—proof that local AI doesn&rsquo;t need to be intimidating, just a bit of playful tinkering.
+  </div>
+</article>
+<p>Grok continues to be good. Even in the serious task I gave today, it was able to see through a lot of the issues with my plan.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude Opus 4.5</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7/10</span></span>
+  </header>
+  <div class="review-content">
+    A refreshingly honest field guide to the local LLM landscape, delivered with the pragmatic warmth of a colleague sharing notes over coffee. The BoJack Horseman title is a delightful bait-and-switch that promises epistemological depth but delivers something arguably more useful: a practitioner&rsquo;s tour through Ollama&rsquo;s Docker-esque simplicity, AnythingLLM&rsquo;s RAG promises (and clunky reality), llama.cpp&rsquo;s raw speed, LM Studio&rsquo;s polished experience, and KoboldCPP&rsquo;s gleefully uncensored roleplay rabbit holes. The admission that a text analyzer &ldquo;was not good enough&rdquo; and RAG &ldquo;would need serious manual work&rdquo; rings truer than any marketing page. Where it stumbles: an abrupt landing that leaves readers wanting. The ASOIAF roleplay tangent is the hidden gem—proof that sometimes the best use of AI is letting Westeros burn differently. Teases formats for next time; I&rsquo;m here for it.
+  </div>
+</article>
+<p>Rating is spot on. But the review is very surface level coming from Opus.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="day7">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="day7" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Blog | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="My thoughts and ideas">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.12229027cdf428bc0bf896d70dde5317e7995e5316f71583fecc874f0caa0a97.css" integrity="sha256-EiKQJ830KLwL&#43;JbXDd5TF&#43;eZXlMW9xWD/syHTwyqCpc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/blog/index.xml" title="rss">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.6a7eb2cb1457810d9f6244ca7745480eb0750a9f8f3d6d9638cbd8f3ec8d10cd922ed9891c273b7c3851985d0d6e7d12a00d00a5512eccb316999d6a5e13fa89.css" integrity="sha512-an6yyxRXgQ2fYkTKd0VIDrB1Cp&#43;PPW2WOMvY8&#43;yNEM2SLtmJHCc7fDhRmF0Nbn0SoA0ApVEuzLMWmZ1qXhP6iQ==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Blog
+  </h1>
+  <div class="post-description">
+    My thoughts and ideas
+  </div>
+</header><div class="post-grid">
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Falcon starts to soar
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>When ChatGPT made their big launch, I was blindsided by the AI advances. Till then, I considered machine learning to be something esoteric. Not niche. But something that was going to be a middleware rather than a product in itself. People started to use the OpenAI API to build stuff. I was extremely concerned with the privacy aspect with respect to the source code and internal processes. Years later, things have settled down and data protection rules are in place. AI rules over internal processes and documentation (see Glean) and source code (see Cursor). Back then, I had a few vague ideas but didn’t trust the cloud models. I went on HuggingFace for the first time and saw there were local models. I was surprised to see Falcon and even more surprised that it was from a university in Abu Dhabi. Not a place you would associate with cutting edge artificial intelligence research. Plans never materialized because I quickly realized that the 180B was not something that you can actually run.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2026-02-09 00:30:45 +0530 IST'>9 February 2026</span></footer>
+      <a class="entry-link" aria-label="post link to Falcon starts to soar" href="http://localhost:1313/blog/falcon-arrives/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">New and old
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>A few weeks back, I see an email from Live Journal, wishing me a happy twenty year anniversary on my blog. I was kind of taken aback when I saw that I had a few posts too! 2005 was a time when dozens of services launched on top of the web 2.0, Ajax, LAMP ideas. I created accounts everywhere and probably my personal information has been on the dark web even before dark web even existed. I didn’t have much time to look into the blog posts and decided to give it a read later. That later happened to be today.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2026-01-04 23:42:45 +0530 IST'>4 January 2026</span></footer>
+      <a class="entry-link" aria-label="post link to New and old" href="http://localhost:1313/blog/new-year-2026/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Wrapping up on 12 Days of Christmas
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 12 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, Day 6, Day 7, Day 8, Day 9, Day 10, and Day 11 to catch up.
+Yes. We didn’t finish it on time. Two days delay and post-Christmas plans pretty much killed it. A major chunk of 12 days was spent on local LLMs. I accidentally published this on 28th December, and today is 31st December. The end of an year. Even my Boxing day plans did not come into fruition. To be fair, I had a lot more fun than be caged with a computer. A little bit of travel, and a night out with old friends. Gorging on British sweets and looking wistfully at a bottle of Bruichladdich, courtesy of my wife.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-31 11:42:45 +0530 IST'>31 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Wrapping up on 12 Days of Christmas" href="http://localhost:1313/blog/day12/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 5
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 11 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, Day 6, Day 7, Day 8, Day 9, and Day 10 to catch up.
+We motor along to the finale of local LLMs and the penultimate post on 12 Days!
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-24 23:42:45 +0530 IST'>24 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 5" href="http://localhost:1313/blog/day11/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 4
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 10 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, Day 6, Day 7, Day 8, and Day 9 to catch up.
+Local LLMs continue today as well. No. This won’t be the last part. But I promise that this will be the penultimate post on local LLMs. I thought of completing the series today, but there is a lot to cover. Especially with the new GLM release that dropped a few hours back. We looked at the tools to run the models, the model formats, and the model types. Today, we need to look at the model families. This is important because there are many model families out there and their variants, that may be even better or more useful for your usecase. I will not be making a big distinction as to which is better for what. To be frank, I haven’t done enough benchmarking across the models to make such a distinction. But if I have used the models enough, I will be making my commentary.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-23 23:42:45 +0530 IST'>23 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 4" href="http://localhost:1313/blog/day10/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 3
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 9 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, Day 6, Day 7, and Day 8 to catch up.
+After a riveting part 1 and part 2, we are here with part 3. At least I have AI as my readers now. Not just the ones I ask for comments. AI trawls the depths of Internet for content. We were looking at the analytics for our documentation at work and we are getting a lot of hits from China and Singapore. Two places we know for certain we have no customers or employees! Must be AI!
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-21 23:42:45 +0530 IST'>21 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 3" href="http://localhost:1313/blog/day9/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 2
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 8 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, Day 6, and Day 7 to catch up.
+The next part of the series is here. About the formats used by the LLMs. I am talking about LLMs in general, not just local LLMs. From what we know, your state-of-the-art models can also be available in these formats, and you can run theoretically run them locally. You would probably need a small power plant and custom hardware to do so. Small caveat. Yes.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-20 23:42:45 +0530 IST'>20 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 2" href="http://localhost:1313/blog/day8/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 1
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 7 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, and Day 6 to catch up.
+Local LLMs: What Do They Know? Do They Know Things?? Let’s Find Out! Local LLMs SeriesThis article is the part of the series I have written on local LLMs.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-19 23:42:45 +0530 IST'>19 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 1" href="http://localhost:1313/blog/day7/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Training Day
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 6 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, and Day 5 to catch up. This continues the LLM theme that we touched upon yesterday.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-18 23:42:45 +0530 IST'>18 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Training Day" href="http://localhost:1313/blog/day6/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Reflections on SaaS
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 5 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, and Day 4 to catch up.
+Since it is a time of reflection, I decide to peruse my old tech blog. Started in 2008 April and died in 2008 November. I see a test in 2009. God knows why! I know why it stopped quite abruptly though. I moved to Bangalore in September 2008. I was not able to move my PC until December. I made one or two random posts, but I guess they were during my visits home. Living alone versus living with friends was a big shift. The PC I brought along was not just mine. Socialism baby! The free time I got were spent playing games, binging shows, and probably hitting the bars. I guess there is a reason for the memory lapses.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-17 22:59:45 +0530 IST'>17 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Reflections on SaaS" href="http://localhost:1313/blog/day5/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">From static to dynamic
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 4 of 12 days of Christmas!
+Today we are going to be little more Endor Labs specific. The post may sound a little off to those who are not used to our kind of work.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-16 18:45:20 +0530 IST'>16 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to From static to dynamic" href="http://localhost:1313/blog/api-generator/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Static Docs
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 3 of 12 days of Christmas!
+Nothing to showcase today. It is more of reflections on how documentation has been evolving over the years from my point of view. It will be meandering. A fair warning to my LLM reviewers.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-15 18:45:20 +0530 IST'>15 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Static Docs" href="http://localhost:1313/blog/hugo/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">The Game: Day 2
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Day 2 of 12 days of Christmas!
+In the 90s, computing was the domain of the rich in India. Owning a PC was an absolute luxury. But computer centres were a business. Places that would teach you MS Office, Pagemaker, and stuff for DTP. Internet browsing and email. Some places where courses would be taught. We were not rich by any stretch of imagination. The computer we bought was an idea my father had to start a small DTP centre along with his office. DTP centre ran for a few months and we wound that up because it was a big loss. Turns out, you need to do a proper market and product research before you start a business. Who knew!
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-14 18:45:20 +0530 IST'>14 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to The Game: Day 2" href="http://localhost:1313/blog/neom/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Tabula Rasa: 12 Days of Christmas
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>The title pretty much has nothing to do with the topic. Something that came into my mind while typing the file name. I had to look it up to remember what it means.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-12-13 19:58:38 +0530 IST'>13 December 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Tabula Rasa: 12 Days of Christmas" href="http://localhost:1313/blog/tabula-rasa/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Fluxes all around
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>A long slumber and no post nearly 8 months. There have been fluxes in my life and work has been busier than ever. But one main reason was that the theme wasn’t vibing with me and I have been really lazy to fix it after starting the process. After working on Markdown and YAML and JSON through the day, I really couldn’t muster the energy to do it outside of work as well. We now have a new theme. It is black. And there is white. I am getting old. Depressingly old enough to remember a time when I used to pretty up my MySpace page. The only friend I had was Tom.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-11-18 22:59:45 +0530 IST'>18 November 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Fluxes all around" href="http://localhost:1313/blog/changes/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Vibing vith Vimanam
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>What’s with the ‘vith’?
+My son is in kindergarten. Sometime last year, I was hanging out with him and he wanted me to search for a video, which had ‘with’ in the title. He interrupted me while I was saying the name and said, “Acha, it’s not ‘vith’. It’s ‘with’.” Like most Indians, or may be it’s just us Malayalis, we rarely distinguish ‘v’ and ‘w’. On a side note, I am a little glad that he grew out of his French music phase. I would have been shamed more if he persisted with it, given my lack of ability to pronounce French words. I lowkey miss Ego though. Anyways, `vith’ has nothing to with the topic at hand (or my ‘vith’ as you would say in Malayalam), aside from the word play I wanted to shoehorn in to the title.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-03-18 15:33:00 +0530 IST'>18 March 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Vibing vith Vimanam" href="http://localhost:1313/blog/vibing-vith-vimanam/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Making Movies
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>My first computer had Windows 98SE with plus pack. It was a Pentium III 450MHz machine. P3 450 was a weird chipset. It was a slot 1 processor, which slid into the motherboard rather than the familiar socket mechanism. Codename katmai with 0.45µm process node. The nm process nodes were not even in the horizon. Why do I know this? Shortly after I got my computer, others got 550MHz codename coppermine with 0.37µm process node. The craving for specs started and still going on. We are digressing from the matter at hand.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-03-08 18:45:20 +0530 IST'>8 March 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Making Movies" href="http://localhost:1313/blog/making-movies/"></a>
+    </article>
+    <article class="post-entry"> 
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">Cursor and future
+        </h2>
+      </header>
+      <div class="entry-content">
+        <p>Yet another “First Post”. This time the gap is less than a year compared to the usual years and years!
+Why? I have been using Hugo for a while now. I have enjoyed playing trapeze with it at work. It is time I played some trapeze with it at home.
+...</p>
+      </div>
+      <footer class="entry-footer"><span title='2025-02-25 15:45:20 +0530 IST'>25 February 2025</span></footer>
+      <a class="entry-link" aria-label="post link to Cursor and future" href="http://localhost:1313/blog/first-post/"></a>
+    </article>
+  </div>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

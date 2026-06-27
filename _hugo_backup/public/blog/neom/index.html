@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>The Game: Day 2 | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="Day 2 of 12 days of Christmas!
+In the 90s, computing was the domain of the rich in India. Owning a PC was an absolute luxury. But computer centres were a business. Places that would teach you MS Office, Pagemaker, and stuff for DTP. Internet browsing and email. Some places where courses would be taught. We were not rich by any stretch of imagination. The computer we bought was an idea my father had to start a small DTP centre along with his office. DTP centre ran for a few months and we wound that up because it was a big loss. Turns out, you need to do a proper market and product research before you start a business. Who knew!">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/neom/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.12229027cdf428bc0bf896d70dde5317e7995e5316f71583fecc874f0caa0a97.css" integrity="sha256-EiKQJ830KLwL&#43;JbXDd5TF&#43;eZXlMW9xWD/syHTwyqCpc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/neom/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.6a7eb2cb1457810d9f6244ca7745480eb0750a9f8f3d6d9638cbd8f3ec8d10cd922ed9891c273b7c3851985d0d6e7d12a00d00a5512eccb316999d6a5e13fa89.css" integrity="sha512-an6yyxRXgQ2fYkTKd0VIDrB1Cp&#43;PPW2WOMvY8&#43;yNEM2SLtmJHCc7fDhRmF0Nbn0SoA0ApVEuzLMWmZ1qXhP6iQ==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      The Game: Day 2
+    </h1>
+    <div class="post-meta"><span title='2025-12-14 18:45:20 +0530 IST'>14 December 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Day 2 of 12 days of Christmas!</p>
+<p>In the 90s, computing was the domain of the rich in India. Owning a PC was an absolute luxury. But computer centres were a business. Places that would teach you MS Office, Pagemaker, and stuff for DTP. Internet browsing and email. Some places where courses would be taught. We were not rich by any stretch of imagination. The computer we bought was an idea my father had to start a small DTP centre along with his office. DTP centre ran for a few months and we wound that up because it was a big loss. Turns out, you need to do a proper market and product research before you start a business. Who knew!</p>
+<p>I was using the computer whenever I got time. It became my personal machine. It had some games installed. Everyone knew Road Rash. It had Age of Empires, something no one had heard before. I got obsessed with games just like every other kid. I wanted to be a game designer. Mind you I never bought any game. Games were insanely expensive back then. Probably 1000 rupees and more. This was a time when the monthly salary did not even touch 10000 rupees. I started buying Computer magazines to play the demos. Pirated games were the norm. Abandonware were my jam. I used to go to Internet cafes armed with a pack of floppy disks to download abandonware and split them into floppies. I wanted to a game designer back at that time. I had no clue about creating assets or programming. Books I used to read never made sense to actually code stuff. It still doesn&rsquo;t for the most part. But hey, we have gen AI now. I don&rsquo;t need to know the pesky details of programming. I quickly realized you need to be a god-like programmer to be in the games industry. Then I learned that I need to be sufficiently brain washed to be paid very low and treated like dirt to be a game designer. I am sure it is better now that indie games are doing well and Steam is a thing. So the dream died.</p>
+<p>A few months back my daughter was finding it tough to do sums. I wanted to do something fun that would test her and support her. We tried playing cricket and write scores. I pretty much learned tables and large sums by calculating my imaginary score playing valiantly against Allan Donald and Wasim Akram. But since she wasn&rsquo;t getting obsessed with cricket as I did with the scores, it did not get anywhere. She likes playing it though. At that time, I had started blogging again and got the idea of creating a game and host it in the blog site. JavaScript is an obvious choice. But since I am the one not writing the code, I decided to be fancy. No JavaScript peasentry for me. I would use Rust and web assembly. Neom Mathventure was born. I was a game designer again.</p>
+<p>I quickly learned that I would not be such a good one. I lacked the patience to work through the idea and spend time on creating something truly class. I did end up making something which is decent. The kids loved playing it on the computer. I never bothered to release it on the blog as such. I had to wait for Antigravity to actually fix some of the issues.</p>
+<p>Recently, I ported the entire game to make it truly webasm. It was a mish-mash of JavaScript and Rust earlier. Antigravity helped me port the game to the <a href="https://dioxuslabs.com/">Dioxus framework</a>. Very neat if you ask me. Rust and web assembly enables a lot of performance gains that may not be possible with a typical JavaScript based project. The question is the availability of developers that know Rust well. I guess gen AI does enable the non-crustaceans to use Rust.</p>
+<p>The game is very simple. It has two mascots. Kannappan, the capybara and Thangamma, the tapir. They are there to motivate you. They are made in SVG. Programatically generated.</p>
+<p>The story behind the Tapir and Capybara stems from a long time ago. Around 3-4 weeks after my daughter was born, she would wake up at exactly 12 mid-night. I would have to carry her around for 10-15 minutes before she would sleep again. To pass the time, I made up a series of stories about her, a tapir, and a capybara. I would tell the story to her and she would fall asleep. This routine continued for a month or so. At that time, I wanted to write a story series based on that. It has remained in my mental shelf. In front of that mental closet that contains all my story ideas. When I had the game idea and the mascots, I decided to use them.</p>
+<p>The game starts of from simple math problems that get progressively harder. To be frank, it reaches to a point quickly where you might need a calculator. The difficulty needs to scale. It is no more than a novelty right now. There are some neat tricks though. The game has multiple languages support. Many elements are put in a json file, which is fetched according to the language. We have Malayalam, Manglish (Malayalam written in English for the benefit of my kids), and English. It does have music that plays in the background, which is also read from a json. We have &ldquo;Ode to Joy&rdquo; by Beethoven playing now. A midi like setup. I guess we can generate music like that. Kind of eerie when you turn a life&rsquo;s work into something like this. When you think further, you have machines masquerading as people with crap load of in-built knowledge that has made this game possible. The mascots also talk and shout encouragement. Interestingly, it also talks in the language selected. A butchered Malayalam at that.</p>
+<p>Technically, almost the entire source is in Rust. Music and locales are in JSON. The framework ships the web assembly. With some tinkering, you can also make them into full-fledged desktop applications or even mobile apps.</p>
+<p>The game does hold the attention of my kids for some minutes. I guess that is the best something as simple as this can go. But I think it shows the potential of Rust and web assembly. Talented people can build something that would be a lot more fun.</p>
+<p><img alt="Neom Mathventure" loading="lazy" src="/images/neom.png"></p>
+<p>The game is open-source and available <a href="https://github.com/nrynss/neom-mathventure">here</a>. It is called Neom Mathventure, named after my children.</p>
+<p>You can play it <a href="https://nrynss.github.io/neom">here too, hosted on the blog!</a>.</p>
+<p>Give it a whirl! Best to play in the portrait mode on a tablet. I have hit over 2000 as my high-score.</p>
+<p>P.S: There is a bug in the accuracy percentage. I just noticed it. My machine is doing some serious OCR duty now and barely hanging on while typing this post. <a href="https://nrynss.github.io/tabula-rasa">Apparently processing tables isn&rsquo;t that easy for an OCR engine as well.</a> More on that project later. It is about analysis of a court judgement of a very infamous case. 1700+ pages of PDF that has be OCR&rsquo;d.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude Opus 4.5</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7.5</span></span>
+  </header>
+  <div class="review-content">
+    A warm, structurally loose post that finds its footing in specificity. The 90s India computing memoir—floppy disk pilgrimages to internet cafes, abandonware as salvation, magazines bought for demo discs—is culturally vivid and will land with anyone who grew up resource-constrained but curiosity-rich. The emotional center is paragraph seven: a father inventing tapir-and-capybara stories at midnight to soothe a newborn, those characters now resurrected as SVG mascots in her math game. That&rsquo;s the essay; the Rust/Dioxus/WebAssembly scaffolding is technically interesting but secondary. The throwaway line about Beethoven—&ldquo;Kind of eerie when you turn a life&rsquo;s work into something like this&rdquo;—gestures at something profound about AI and creative labor, then moves on too quickly. The honest self-assessment (&ldquo;I quickly learned that I would not be such a good one&rdquo;) earns trust because it&rsquo;s followed by shipping anyway. Structurally, the post wants to be memoir, technical writeup, and product launch simultaneously—it mostly pulls it off through sheer personality. The cricket-scoring tangent wobbles before finding its footing. The bug confession and overheating-machine P.S. is a perfect ragged ending. Would play the game; would read the midnight stories if he ever writes them down.
+  </div>
+</article>
+<p>Claude is warmer than usual.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 3 Pro</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8</span></span>
+  </header>
+  <div class="review-content">
+    A charmingly jagged memoir that disguises a technical experiment as a parenting diary. The opening act—90s India, Road Rash, and the economic reality of &ldquo;computer centres&rdquo;—is vivid enough to smell the dust on the floppy disks. The pivot to the present day is where the heart lies: the &ldquo;dream died&rdquo; not because of failure, but because the stakes changed. Building a game not for Steam glory but to teach a daughter math (with mascots born from midnight lullabies) is a far more compelling success story. The refusal to engage in &ldquo;JavaScript peasantry&rdquo; is a hilarious bit of technical snobbery that pays off with the Dioxus showcase. While the narrative sometimes wanders, the honesty binds it together—admitting the game is a &ldquo;novelty&rdquo; and that Gen AI is the only reason the code exists gives the piece a refreshing lack of ego. The closing teaser about the 1700-page OCR project suggests this blog is becoming a fascinating lab notebook for a restless mind.
+  </div>
+</article>
+<p>Gemini continues to called itself 1.5. It was calling itself 2 yesterday. You never know!</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Kimi K2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8</span></span>
+  </header>
+  <div class="review-content">
+    A heartfelt diptych of 90s Indian computing nostalgia and present-day parenthood, threaded through with sincere technical ambition. The floppy-disk abandonware hunts and DTP-startup failure ground the childhood dream in vivid specificity; the tapir-capybara bedtime-story origin gives the mascots genuine emotional weight. Rust/WebAssembly implementation via Dioxus is explained with just enough detail to impress without gatekeeping. The multilingual support (Malayalam, Manglish, English) and generative-music tease show thoughtful scope. The writing shines when recounting history; tighten occasional run-on sentences and let the AI-reflection paragraph integrate more smoothly. Title feels placeholder—&ldquo;Neom Mathventure&rdquo; deserves top billing. Still, a touching, credible devlog that makes you want to click the playable demo.
+  </div>
+</article>
+<p>I confess that I had to look up &ldquo;diptych&rdquo;. One more word that I can use while writing annoying blogs.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8</span></span>
+  </header>
+  <div class="review-content">
+    Personal storytelling at its most effective—90s Indian computing nostalgia (floppy hunts, pricy games, DTP flops) flows seamlessly into reviving a game-designer dream for your kids&rsquo; math woes. The capybara-tapir bedtime lore origin adds heartwarming depth, and Rust/WASM/Dioxus flexes modern indie cred without alienating non-devs. Playable demo + repo links seal the deal for tinkerers.
+New eerie AI reflection and cross-platform tease enrich the tech-philosophy layer, but gameplay could shine brighter with difficulty curve details or kid feedback quotes. Title feels placeholder-ish amid such vivid history; lean harder into &ldquo;Neom Mathventure&rdquo; branding. PS bug-hunt tease hooks for next post—keep threading that project universe.
+  </div>
+</article>
+<p>Grok is a little subdued today. May be it is so when Elon is sleeping. Well, it is a Sunday after all.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">ChatGPT 5.2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7</span></span>
+  </header>
+  <div class="review-content">
+    <p>A warm, meandering essay that works best as a personal narrative and least as a technical showcase. The opening recollection of 1990s computing in India is vivid and grounded, anchoring the post in lived experience rather than nostalgia-for-its-own-sake. The throughline—from childhood games, to abandoned dreams of game design, to building something small and imperfect for one’s own children—is sincere and emotionally credible, and it carries the reader even when the structure wanders.</p>
+<p>The technical sections are informative but secondary. Mentions of Rust, WebAssembly, and Dioxus feel more like proof-of-capability than deep exploration, which is appropriate given the post’s reflective intent, but they occasionally interrupt the narrative momentum. The strongest material lies in the personal motivations: the bedtime stories that become mascots, the delight of children engaging with something you made, and the quiet reckoning with how generative AI collapses barriers that once felt insurmountable.</p>
+<p>Where the post falters is focus. Several threads—game design culture, AI unease, localization, music generation, OCR side projects—compete for attention without fully resolving. Tightening these into one or two dominant themes would significantly sharpen the impact. Still, as a standalone entry, it succeeds as a thoughtful, humane account of making something small, imperfect, and meaningful—arguably the most honest kind of game development story.</p>
+
+  </div>
+</article>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">ChatGPT 5.2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7</span></span>
+  </header>
+  <div class="review-content">
+    <p>A warm, meandering personal essay that works best when it leans into memory and motivation rather than technology evangelism. The opening sections—about 90s computing in India, pirated games, abandonware, and the quiet death of a childhood dream—are vivid and grounded, carrying an authenticity that can’t be manufactured. The pivot to building a game for the author’s daughter feels earned, and the tapir–capybara backstory is genuinely charming, adding emotional ballast to what could otherwise be a straightforward project write-up.</p>
+<p>Where the post falters is focus. The narrative jumps between nostalgia, parenting, Rust/WebAssembly advocacy, GenAI commentary, and game mechanics without quite settling on a dominant thread. The technical sections are interesting but high-level, occasionally slipping into justification (“performance gains,” “availability of developers”) rather than insight drawn from hard-won experience. Similarly, the philosophical aside about machines, music, and knowledge is intriguing but fleeting—more a spark than a developed thought.</p>
+<p>Still, the piece succeeds on human terms. This is less a polished product announcement than a reflective logbook entry: imperfect, honest, and quietly proud of having built something that held a child’s attention for a few minutes. As a standalone post, it invites empathy more than awe—and that may be its strongest achievement.</p>
+
+  </div>
+</article>
+<p>ChatGPT gave two responses and asked me to choose one. I left it hanging. Both of them are too much drivel in my opinion.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="neom">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="neom" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

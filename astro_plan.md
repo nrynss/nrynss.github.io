@@ -1,16 +1,17 @@
-# Astro Migration & Interactivity Plan (Svelte & Subsites)
+# Astro Migration & Interactivity Plan (Svelte & Existing Features)
 
-This plan outlines the Hugo-to-Astro transition using **Svelte** as our primary framework for building rich, interactive components and a dedicated subsite for your Sarvam AI vs. Qwen benchmark tests.
+This plan outlines the Hugo-to-Astro transition using **Svelte** as our primary framework for building rich, interactive components. While the project is architected to support future dynamic subsites (such as a Sarvam vs. Qwen benchmark playground), the current focus is entirely on migrating and enhancing your existing Hugo content, layouts, and components.
 
 ---
 
 ## 1. UI Framework Integration (Svelte)
 
-Astro supports **Island Architecture**, allowing us to compile pages to 100% static HTML by default. We will use the official Svelte integration to add interactivity to specific elements (e.g. using `client:load` or `client:visible`).
+Astro supports **Island Architecture**, allowing us to compile pages to 100% static HTML by default. We will use the official Svelte integration to add interactivity to specific elements (e.g. using `client:visible` for the timeline).
 
-### Tech Stack Additions
+### Tech Stack
 * **Svelte Integration**: `@astrojs/svelte` for building interactive components (using clean HTML/JS/CSS syntax, compiled to lightweight JS).
-* **Transition Support**: Svelte's built-in `svelte/transition` library for smooth page transitions and micro-animations.
+* **Transition Support**: Svelte's built-in `svelte/transition` library for smooth component animations (fade, slide).
+* **CSS Scoping**: Standard Astro/Svelte scoped styles to keep the CSS modular.
 
 ---
 
@@ -26,63 +27,66 @@ We will upgrade your static Hugo shortcodes into dynamic, interactive Svelte com
 ### B. Interactive Projects Board (`src/components/ProjectsBoard.svelte`)
 * **Category Filters**: Filter projects by type (e.g., Games, Developer Tools, Converters).
 * **Live Search**: Quick filter projects by title or description keywords.
-* **Demo Embedding**: Inline preview or interactive sandbox container for live demos.
+* **Data Source**: Reads from `src/data/projects.json` (exported from Hugo's `projects.yaml`).
 
 ---
 
-## 3. Sarvam vs. Qwen Comparison Subsite (`/sarvam-comparison`)
+## 3. Core Component Parity Map
 
-We will build a rich, interactive subsite dedicated to visualizing the LLM benchmarks you ran for **Sarvam 30B** and **Qwen 30B**.
+We will port Hugo layouts and static shortcodes to native Astro components:
 
-### Structure & Routes
-* **`/sarvam-comparison`** (Landing Page): Overview of the hardware testbed, model architectures (Mixture of Experts), and key takeaways.
-* **`/sarvam-comparison/playground`** (Interactive Comparison Dashboard): A client-side Svelte application that lets readers interact with the raw benchmark outputs.
+### A. Layout Templates
 
-### Comparison Dashboard Features
-1. **Interactive Prompt Selector**:
-   - A dropdown categorized by evaluation criteria (e.g., Translation, Coding, Logical Reasoning, Indic Cultural Nuances).
-   - Shows the exact system prompt and user query fed to the models.
-2. **Side-by-Side Output Viewer**:
-   - Displays the raw output of **Sarvam 30B** and **Qwen 30B** in styled panels.
-   - Renders markdown formatting, code highlights, and thinking blocks natively.
-3. **Metrics Comparator**:
-   - A comparison panel showing metrics for each run:
-     - Response generation time.
-     - Token count and average generation speed (tokens/sec).
-     - Qualitative rating with expandable critique sections.
-4. **Search and Filter**:
-   - Filter prompts by difficulty or category.
-   - Search responses for specific keywords to see how each model handled them.
+| Hugo Layout | Astro Component | Description |
+| :--- | :--- | :--- |
+| `layouts/404.html` | `src/pages/404.astro` | 404 page |
+| `layouts/_default/single.html` | `src/layouts/PostLayout.astro` | Template for blog posts (metadata, tags, author) |
+| `layouts/_default/list.html` | `src/layouts/BaseLayout.astro` | Main wrapper layout (head, footer, canvas background) |
+| `layouts/partials/home/profile.html` | `src/components/ProfileCard.astro` | Homepage hero profile card |
+
+### B. Hugo Shortcodes to Astro/MDX Components
+
+| Hugo Shortcode | Target Astro Component | Conversion Strategy |
+| :--- | :--- | :--- |
+| `{{< review-callout >}}` | `src/components/ReviewCallout.astro` | Renders the review boxes with custom ratings and styling. |
+| `{{< notice >}}` | `src/components/Notice.astro` | Renders colored information alerts/notices. |
+| `{{< expandable >}}` | `src/components/Expandable.astro` | Renders collapsible HTML details summaries. |
+| `{{< gif >}}`, `{{< p5 >}}` | Local components / Native HTML | Render corresponding media structures. |
 
 ---
 
-## 4. Subsite Data Integration
+## 4. Directory & Code Architecture
 
-We will map the benchmark data into the Astro project:
-* The JSON files from your tests (containing timestamps, prompts, responses, and speed metrics) will be imported as structured data assets.
-* The analysis markdown files (`qwen3-30b-analysis.md`, `sarvam-30b-analysis.md`, `sarvam-vs-qwen3-comparison.md`) will be rendered into structured tabs in the subsite.
-
----
-
-## 5. Directory Mapping
-
-Here is how the new directories will be configured:
+Here is how the directories will be configured:
 
 ```
 src/
 ├── components/
 │   ├── Timeline.svelte       # Interactive Timeline [Hydrated Svelte]
 │   ├── ProjectsBoard.svelte  # Interactive Project Showcase [Hydrated Svelte]
-│   └── Comments.svelte       # D1 Comments form and list [Hydrated Svelte]
+│   ├── ProfileCard.astro     # Static Profile Card
+│   ├── ReviewCallout.astro   # Static Review Callout Component
+│   ├── Notice.astro          # Static Notice Box Component
+│   └── Expandable.astro      # Collapsible Section Component
 ├── pages/
 │   ├── index.astro           # Homepage
-│   ├── about.astro           # About page
-│   ├── projects.astro        # Projects grid
-│   ├── blog/                 # Blog post listing and routes
-│   └── sarvam-comparison/    # Subsite folder
-│       ├── index.astro       # Landing page (Static)
-│       └── playground.astro  # Interactive Dashboard (Svelte [Hydrated])
+│   ├── about.astro           # About page (renders about markdown)
+│   ├── projects.astro        # Projects grid (hydrates ProjectsBoard)
+│   └── blog/                 # Blog post listing and routes
+├── content/
+│   ├── blog/                 # Migrated blog posts (converted to MDX/Markdown)
+│   └── config.ts             # Schema validation for post metadata
+├── layouts/
+│   ├── BaseLayout.astro      # Core HTML template with global CSS
+│   └── PostLayout.astro      # Single post wrapper template
 └── data/
-    ├── projects.json         # Projects data
-    └── sarvam-benchmarks/    # Benchmark JSON files for dashboard loading
+    └── projects.json         # Migrated projects data
 ```
+
+---
+
+## 5. Future Extensibility (Sarvam Dashboard ready)
+
+To accommodate the future Sarvam vs. Qwen comparison subsite:
+* **Hybrid Server-Side Rendering (SSR)**: We will set up Astro with `@astrojs/cloudflare` in hybrid mode. Pages are prerendered static by default, but we can instantly add dynamic routes/API endpoints (for database querying or live comparisons) under `/src/pages/api/` or specific subfolders without refactoring the core project.
+* **Component Modularity**: Since all core components are Svelte, future dashboard elements (charts, tables, tab selectors) will easily mount and integrate with your existing design system.

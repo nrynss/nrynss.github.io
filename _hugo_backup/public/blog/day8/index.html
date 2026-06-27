@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 2 | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+  
+  Local LLMs Series
+  
+  
+    This article is the part of the series I have written on local LLMs.
+
+Introduction to Local LLMs
+LLM file formats -&gt; You are here!
+Simplifying models, types, and quantization
+LLM families
+Running LLMs locally
+
+  
+
+
+Day 8 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, Day 6, and Day 7 to catch up.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/day8/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0aeb70ae91ecfb72a06b14253e43accafce9c4bc2d3ad76eb167de3eefcd05b5.css" integrity="sha256-CutwrpHs&#43;3KgaxQlPkOsyvzpxLwtOtdusWfePu/NBbU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/day8/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.2aa1e12c752545db28cf6b768172a13d92dbbed8ec13ceece24693312c7d3beaa077711cea1f924bd2013538088c6c13b6b5265a6aae9e2987c8d8abd118f29a.css" integrity="sha512-KqHhLHUlRdsoz2t2gXKhPZLbvtjsE87s4kaTMSx9O&#43;qgd3Ec6h&#43;SS9IBNTgIjGwTtrUmWmqunimHyNir0Rjymg==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 2
+    </h1>
+    <div class="post-meta"><span title='2025-12-20 23:42:45 +0530 IST'>20 December 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content">
+<div class="notice-box">
+  
+  <div class="notice-title">Local LLMs Series</div>
+  
+  <div class="notice-content">
+    <p>This article is the part of the series I have written on local LLMs.</p>
+<ul>
+<li><a href="/blog/day7/">Introduction to Local LLMs</a></li>
+<li><a href="/blog/day8/">LLM file formats</a> -&gt; You are here!</li>
+<li><a href="/blog/day9/">Simplifying models, types, and quantization</a></li>
+<li><a href="/blog/day10/">LLM families</a></li>
+<li><a href="/blog/day11/">Running LLMs locally</a></li>
+</ul>
+  </div>
+</div>
+
+<p>Day 8 of the 12 days of Christmas! Go through <a href="/blog/tabula-rasa/">Day 1</a>, <a href="/blog/neom/">Day 2</a>, <a href="/blog/hugo/">Day 3</a>, <a href="/blog/api-generator/">Day 4</a>, <a href="/blog/day5/">Day 5</a>, <a href="/blog/day6/">Day 6</a>, and <a href="/blog/day7/">Day 7</a> to catch up.</p>
+<p>The next part of the series is here. About the formats used by the LLMs. I am talking about LLMs in general, not just local LLMs. From what we know, your state-of-the-art models can also be available in these formats, and you can run theoretically run them locally. You would probably need a small power plant and custom hardware to do so. Small caveat. Yes.</p>
+<p>We have a <a href="https://huggingface.co/blog/ngxson/common-ai-model-formats">very nice blog from HuggingFace</a> talking about the various formats. A good read if you want to delve a little deeper. I will be touching only on the periphery without going into the technical details.</p>
+<p>An LLM file generally contains the weights of the model, or the actual &ldquo;intelligence&rdquo; of the model. It may also contain the configuration of the model and runtime information as to the details of how you can infer with the model. Since the file contains the weights of the model, we call it &ldquo;open source&rdquo;. To be fair, it should be called &ldquo;open weights&rdquo;. You really don&rsquo;t have the source or the actual training data. Now that Ozempic is here, we may be able to call out &ldquo;weights&rdquo; without offending anybody.</p>
+<h2 id="pickle-or-pytorch-format">Pickle or PyTorch format<a hidden class="anchor" aria-hidden="true" href="#pickle-or-pytorch-format">#</a></h2>
+<p>The OG format that you will find the initial models in. You can still find it. It is the legacy serialization method for storing model weights using Python&rsquo;s pickle module. It is unsafe as a rule. It can execute arbitrary Python code during loading, making them dangerous for untrusted models. Attackers can embed malicious payloads that execute when your program runs, creating supply chain attack vectors. Stay away. You don&rsquo;t need them anymore. HuggingFace developed the safetensors format to replace it and it has been replaced successfully. You would need to write your own code to load the model with PyTorch, if at all you are inclined.</p>
+<h2 id="safetensors">safetensors<a hidden class="anchor" aria-hidden="true" href="#safetensors">#</a></h2>
+<p>safetensors is the evolution of the pickle format. It is a secure format created by HuggingFace. They contain the model weights. You need to use a library to load the model. A lot of them exist out there. PyTorch, HuggingFace Diffusers, AMD Quark, and a lot more in all the languages you might want to use. Once again. Not something you can just download and deploy. For local LLM use, it is not something that I would recommend.</p>
+<h2 id="gguf">GGUF<a hidden class="anchor" aria-hidden="true" href="#gguf">#</a></h2>
+<p>When every model releases, the question that props up immediately is, &ldquo;GGUF when?&rdquo; GGUF is the model format that you can just download and use. GGUF stands for GPT-Generated Unified Format. Aside from model weights, they also contain the configuration of the model and the runtime information required for model inference. GGUF was derived from GGML (Gerganov&rsquo;s Generalized Machine Learning), created by Georgi Gerganov. While GGUF is often said to stand for GPT-Generated Unified Format, it&rsquo;s actually a successor format that inherited GGML&rsquo;s naming pattern. To make things plain, if you want to use local LLMs, you need to use GGUF (unless you are in Mac, in which case go to the next section).</p>
+<h2 id="mlx">MLX<a hidden class="anchor" aria-hidden="true" href="#mlx">#</a></h2>
+<p>MLX is Apple&rsquo;s open-source machine learning framework designed specifically for Apple Silicon. It effectively utilizes the unified memory model of Mac hardware. MLX effectively turns safetensors into an Apple-compatible LLM. Unlike GGUF, you need to download safetensors files and configuration files. Fortunately, tools like LMStudio mask this complexity. To be honest, if you want to run a local model effectively, Mac is the way to go at a laptop form factor. Especially with MLX around. Unified memory works like a charm. With 18 GB memory, you can easily run a model that needs a beefy graphics card. If you can get more memory, even better. You would need a proper desktop set up to beat that in terms of thermal performance and price. Not all models are available in MLX format. But there is a dedicated MLX community that works to get most of the popular models out in the MLX format.</p>
+<h2 id="onnx">ONNX<a hidden class="anchor" aria-hidden="true" href="#onnx">#</a></h2>
+<p>ONNX is an open-source specification that defines how to serialize a model’s computation graph, operators, and data types into a portable file format. It is a cross-org effort to standardize models. ONNX is widely used for production deployment and can handle large transformer and LLM architectures. But in our discussion about using local LLMs, ONNX is not something you would use. But it is something you should know if you are remotely interested in LLM implementation at a device level. ONNX runtime Web can run ONNX models in the browser through web GPU and webassembly. I have been thinking of a project to run a model on the browser. But the main hesitation is with the memory constraints and the fear of breaking a customer&rsquo;s browser. There are also WebLLM / WebGPT / WebRNN style projects that take GGUF or framework models and compile to WebGPU‑friendly formats.</p>
+<h2 id="gptqawqexl2">GPTQ/AWQ/EXL2<a hidden class="anchor" aria-hidden="true" href="#gptqawqexl2">#</a></h2>
+<p>These are models I have never used. They are quantized versions made to run on nvidia hardware with specialized runtimes like vLLM. They are faster and give better output than GGUF on high-end nvidia hardware and when you start paddling in local LLM land, you might graduate to using them.</p>
+<p>P.S: We are missing stuff like quantization in this post. I thought I will reserve it for when we discuss about downloading and running the models. Hopefully, we can cover them in the next post along with a new choice models.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 3.0</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    A cheeky yet solid navigation through the alphabet soup of LLM file extensions. You’ve successfully demystified why we all scream &ldquo;GGUF when?&rdquo; while rightfully flagging Pickle files as the digital biohazards they are. The Ozempic wisecrack for &ldquo;open weights&rdquo; landed perfectly, and the MLX shoutout confirms you know where the laptop power lies (unified memory ftw). It’s a concise, safety-first guide that keeps the technical jargon from suffocating the fun—though admitting you haven&rsquo;t touched EXL2 yet leaves a juicy cliffhanger for your eventual descent into serious GPU madness. A perfect primer for anyone confused why their &ldquo;open source&rdquo; model is just a 20GB file they can&rsquo;t open.
+  </div>
+</article>
+<p>A smart and concise review. Just right.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude Opus 4.5</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A breezy decoder ring for the alphabet soup of LLM file formats, walking the reader from pickle&rsquo;s security nightmares through safetensors&rsquo; HuggingFace redemption arc, landing squarely on GGUF as the pragmatist&rsquo;s choice—with a detour through Apple&rsquo;s MLX unified memory paradise that reads like a love letter to M-series silicon. The Ozempic quip about &ldquo;open weights&rdquo; lands perfectly, and the honest &ldquo;never used these&rdquo; admission for GPTQ/AWQ/EXL2 is refreshingly humble in a space drowning in pretend expertise. The ONNX browser tangent teases an intriguing future project while wisely acknowledging customer-browser-breaking anxiety. What keeps this from a 9 is the slightly abrupt treatment of the nvidia quantization trio and a missed opportunity to tie the format zoo back to the tools from Part 1—imagine: &ldquo;LM Studio loves GGUF, here&rsquo;s why.&rdquo; Still, as a format primer that respects the reader&rsquo;s time while setting up the quantization deep-dive ahead, it delivers exactly what it promises: periphery without pretense.
+  </div>
+</article>
+<p>I didn&rsquo;t the missed opportunity. Hallucination? Claude or me is the question.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A breezy dive into the alphabet soup of LLM formats, kicking off with the villainous pickle&rsquo;s security nightmares and gliding through safetensors&rsquo; safe haven, GGUF&rsquo;s plug-and-play heroism (the real MVP for local tinkerers), MLX&rsquo;s Apple-exclusive magic for unified memory wizardry, ONNX&rsquo;s browser-teasing portability, and a teaser nod to the NVIDIA elite squad of GPTQ/AWQ/EXL2 quantizations. It&rsquo;s got that signature cheeky vibe—Ozempic weight puns included—keeping things light while dropping just enough periphery knowledge to arm the homebrew crowd without drowning in tech specs. Perfect setup for the quantization sequel, though a smidge more on real-world format swaps would&rsquo;ve bumped it to a nine; still, it&rsquo;s the kind of primer that makes demystifying model files feel like casual bar chat rather than a spec sheet slog.
+  </div>
+</article>
+<p>Soup seems to be flavour of the day. May be the winter and the cooling systems are making the LLMs crave for some heat. ChatGPT can&rsquo;t resist yapping on such a short piece too.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    A breezy, well-paced explainer that does exactly what it promises: takes a sometimes dry, geeky subject (model file formats) and makes it friendly, practical, and occasionally funny. Clear wins: the safety callout on pickle files, the usable distinction between safetensors / GGUF / MLX / ONNX, and the honest, platform-first advice (the Mac/MLX point is especially useful for laptop tinkerers). The prose balances enough technical detail to be useful without getting lost in minutiae, and the author’s voice (cheeky, hands-on) keeps the piece engaging.
+  </div>
+</article>
+<p>On point is Grok today.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Kimi K2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A refreshingly accessible deep dive into the alphabet soup of LLM file formats, this second installment cuts through the jargon with conversational wit that makes technical decisions feel less daunting. The author walks readers from the dark ages of pickle files (with appropriate warnings about their security nightmares) through to modern workhorses like GGUF and Apple-specific MLX, sprinkling just enough humor to keep things lively without undermining the substance. The structure shines—each format gets its own clear section with practical advice on when to use it, making this a solid reference for anyone actually running models locally rather than just reading about them. The MLX section is particularly valuable for Mac users, capturing why Apple&rsquo;s unified memory architecture changes the game. While the post admirably avoids getting lost in technical weeds, some sections (like ONNX and the quantization formats) feel more like teasers than full explanations—understandable given the scope, but leaving readers wanting more. The self-aware asides about future posts show the author knows their audience wants depth. Perfect for developers moving from cloud APIs to local inference who need a no-nonsense guide to what files to download and why. It&rsquo;s honest about limitations, practical in focus, and manages to make model formats—of all things—actually engaging.
+  </div>
+</article>
+<p>Kimi K2 is on a mission to dethrone ChatGPT on slop.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="day8">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="day8" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

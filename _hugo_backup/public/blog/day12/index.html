@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Wrapping up on 12 Days of Christmas | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="Day 12 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, Day 6, Day 7, Day 8, Day 9, Day 10, and Day 11 to catch up.
+Yes. We didn&rsquo;t finish it on time. Two days delay and post-Christmas plans pretty much killed it. A major chunk of 12 days was spent on local LLMs. I accidentally published this on 28th December, and today is 31st December. The end of an year. Even my Boxing day plans did not come into fruition. To be fair, I had a lot more fun than be caged with a computer. A little bit of travel, and a night out with old friends. Gorging on British sweets and looking wistfully at a bottle of Bruichladdich, courtesy of my wife.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/day12/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.12229027cdf428bc0bf896d70dde5317e7995e5316f71583fecc874f0caa0a97.css" integrity="sha256-EiKQJ830KLwL&#43;JbXDd5TF&#43;eZXlMW9xWD/syHTwyqCpc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/day12/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.6a7eb2cb1457810d9f6244ca7745480eb0750a9f8f3d6d9638cbd8f3ec8d10cd922ed9891c273b7c3851985d0d6e7d12a00d00a5512eccb316999d6a5e13fa89.css" integrity="sha512-an6yyxRXgQ2fYkTKd0VIDrB1Cp&#43;PPW2WOMvY8&#43;yNEM2SLtmJHCc7fDhRmF0Nbn0SoA0ApVEuzLMWmZ1qXhP6iQ==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Wrapping up on 12 Days of Christmas
+    </h1>
+    <div class="post-meta"><span title='2025-12-31 11:42:45 +0530 IST'>31 December 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Day 12 of the 12 days of Christmas! Go through <a href="/blog/tabula-rasa/">Day 1</a>, <a href="/blog/neom/">Day 2</a>, <a href="/blog/hugo/">Day 3</a>, <a href="/blog/api-generator/">Day 4</a>, <a href="/blog/day5/">Day 5</a>, <a href="/blog/day6/">Day 6</a>, <a href="/blog/day7/">Day 7</a>, <a href="/blog/day8/">Day 8</a>, <a href="/blog/day9/">Day 9</a>, <a href="/blog/day10/">Day 10</a>, and <a href="/blog/day11/">Day 11</a> to catch up.</p>
+<p>Yes. We didn&rsquo;t finish it on time. Two days delay and post-Christmas plans pretty much killed it. A major chunk of 12 days was spent on local LLMs. I accidentally published this on 28th December, and today is 31st December. The end of an year. Even my Boxing day plans did not come into fruition. To be fair, I had a lot more fun than be caged with a computer. A little bit of travel, and a night out with old friends. Gorging on British sweets and looking wistfully at a bottle of Bruichladdich, courtesy of my wife.</p>
+<p>Momentous year for tech. AI grew by leaps and bounds. Fear of Skynet was trumped by the fear of destitution due to AI. I would take Skynet over destitution any day. Dying in a nuke strike seems far more palatable given the kind of swiftness expected with the meganukes currently in play. Lots to doom about.</p>
+<p>On a serious front, AI adoption in big tech is progressing rapidly. A friend told that the expectation at this workplace is to have minimum 30% of commits be gen AI code by March, 2026. I have no idea how such specific criteria is possible. AI driven boilerplate code is one thing. But mandating AI for a percentage of total commits is another. How do you even quantize? Since I am not a programmer by trade, the code that I generate almost invariably ends up with 100% generated by AI. The text that I write is a different story.</p>
+<p>I use autocomplete only when the autocomplete shows my intended words. Even though text generation is the easiest thing that LLMs can do, I find it to be sub-par in comparison to what I write. May be it is hubris on my part. The thought process as a human is different. You think more spatially. You have an idea about how things must flow and what fits in where. When I am engineering a document, I tend to go up and down across the document and write things that fit in certain sections. Rewrite and fleshing out is the key. LLMs may be able to do that ofcourse. But I have found autogeneration of documentation to be sparse and verbose at the same time. A lot of words, but not much meaning. I autogenerate documentation that I use internally. It is a new practice I started with Cursor. It is always good to document internal structures and the innards of the system. Up until LLMs, you had to dedicate a lot of time specifically for that, which would mean taking time away from customer-facing documentation.</p>
+<p>An important thing that has come into focus is the quality of documentation that is required by the AI. AI works well when you have proper documentation. You feed it procedures and information to get something meaningful. Faulty instructions tend to be very counterproductive. Better documentation needs better technical writers. That should be humans right? I can visualize some sneers in board rooms. I have face something hilarious before. Technical Writers were classified along with dishwashers and plumbers in an organization. Probably the term itself was completely alien to the board that made the classification. No offense to dishwashers and plumbers, who actually work hard, but I can&rsquo;t help but think of the amount of research that went into such a classification. This was a time before AI. I don&rsquo;t know if it would be better with AI, because the AI would have been poisoned with this information.</p>
+<p>What does 2026 hold? Acceleration of AI adoption will continue relentlessly. Something likely to happen is an the explosion of security issues due to this adoption. Attacks like <a href="https://www.darkreading.com/cyberattacks-data-breaches/shai-hulud-variant-cloud-ecosystem">Shai Hulud</a> will be common. Shai Hulud might look like a script kiddie&rsquo;s work with the kind of sophistication that we are going to witness. Not just a random doomerism. But a realistic possibility given the kind of leaps we are making in AI and gen AI code. We will also see a lot more intelligent social engineering. I recently came across a post on Reddit that showed a random account on Snapchat that was pretty much AI driven. Llama 2 8B at that! Social engineering with the help of an uncensored AI will be an absolute menace. Combine this with a repository attack, you have a perfect storm in the making.</p>
+<p>For me personally, I am looking forward to building new things. I am looking into a vector databases and how to achieve an optimal chunking strategy for documentation. Let us see how far we can take this.</p>
+<p>Wish you all a happy new year!</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Kimi K2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7/10</span></span>
+  </header>
+  <div class="review-content">
+    A belated but refreshingly honest wrap-up that ditches the 12-day pretense for a meandering year-end meditation on AI&rsquo;s relentless march, mixing self-deprecating humor (that two-day delay confession) with genuinely sharp observations—from the darkly funny Skynet-versus-destitution preference to the eyebrow-raising tale of technical writers classified alongside dishwashers. The author excels when dissecting AI&rsquo;s documentation paradox (better tools need better human writers, yet they&rsquo;re undervalued) and when forecasting 2026&rsquo;s security nightmares like Shai Hulud and AI-driven social engineering. Personal asides—the Bruichladdich wishful thinking, the 100% AI-generated code admission—add authentic texture, though the piece occasionally stumbles between doomscrolling and New Year&rsquo;s resolutions. It&rsquo;s less a polished finale than a late-night pub conversation with a tech-savvy friend: messy, opinionated, but genuinely engaging for anyone building AI tools while questioning their own hubris. Just don&rsquo;t expect deep dives into that promised vector database strategy—this is a toast, not a tutorial.
+  </div>
+</article>
+<p>How is Bruichladdich wishful thinking when I have the bottle in hand? Still not intelligent enough.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">ChatGPT 5.2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A reflective, slightly rambling year-end coda that works best when it leans into lived experience rather than tech prognostication, tying together missed deadlines, whisky-adjacent temptations, and a simmering unease about where AI adoption is headed. The author’s skepticism toward metric-driven “AI mandates” and auto-generated prose is sharp and grounded, especially in the thoughtful defense of human-authored documentation as both craft and prerequisite for effective AI use. Doom-laced humor (Skynet vs. destitution is a memorable bit) keeps the heavier themes—security blowback, social engineering, and institutional myopia—from tipping into pure fatalism. It’s less a neat conclusion to the series than a candid exhale at the end of a long sprint: messy, honest, and quietly optimistic about building better things amid the chaos.
+  </div>
+</article>
+<p>Lived experience seems to be ChatGPT&rsquo;s favourite word these days. I have seen this way too many times.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude Opus 4.5</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7/10</span></span>
+  </header>
+  <div class="review-content">
+    A candid, slightly disheveled finale to a 12-day marathon that ran two days over budget—fitting, given the theme of AI&rsquo;s chaotic 2025 trajectory. The author trades technical deep-dives for year-end musings on AI adoption mandates (30% AI commits by March? <em>how</em> do you even?), the stubborn pride of human writing (&ldquo;may be it is hubris&rdquo;), and the delicious irony that AI needs better documentation written by the very humans boards once classified alongside dishwashers. Highlights include the Bruichladdich name-drop, the unflinching Skynet-vs-destitution calculus, and a genuinely prescient doom forecast involving Shai Hulud variants and uncensored Llama social engineers. The post meanders more than it concludes—vector databases and chunking strategies get a tease but no teeth—yet the weary honesty (&ldquo;I had a lot more fun than be caged with a computer&rdquo;) makes it feel less like a missed deadline and more like a toast raised to messy, human imperfection in an increasingly automated world.
+  </div>
+</article>
+<p>Opus shining here and actually covers everything.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 3.0 Pro</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8.5/10</span></span>
+  </header>
+  <div class="review-content">
+    A reflective, if slightly tardy, capstone to the &ldquo;12 Days&rdquo; sprint that trades technical tutorials for holiday confessions and sharp industry forecasting. Highlights include a relatable justification for missed deadlines (whisky over coding), a scathing critique of arbitrary &ldquo;30% AI commit&rdquo; mandates, and a spirited defense of human-authored documentation against the &ldquo;sparse and verbose&rdquo; output of its silicon rivals. The shift from personal anecdotes to grim security predictions—specifically the Shai Hulud shoutout and AI social engineering—provides a sobering counterweight to the New Year&rsquo;s cheer. It lacks the code snippets of earlier days but makes up for it with a human perspective that even an LLM can appreciate.
+  </div>
+</article>
+<p>Gemini being way too generous here.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7/10</span></span>
+  </header>
+  <div class="review-content">
+    A breezy, end-of-year ramble wrapping up a delayed holiday series on local LLMs, blending personal anecdotes—like travel triumphs over tech drudgery and wistful whiskey stares—with wry takes on AI&rsquo;s 2025 boom, from doomy Skynet-vs-destitution debates to mandated gen-AI commits in big tech (30% by March? Quantify that chaos!). Dives into the quirks of AI-assisted writing, championing human touch for docs amid sparse LLM verbosity, while nodding to tech writer woes (lumped with plumbers? Ouch) and forecasting security nightmares like souped-up Shai Hulud attacks and AI-fueled social engineering storms. It&rsquo;s relatable and humorous in its weary optimism, a quick palate cleanser for AI enthusiasts eyeing vector dbs and chunking strategies, though it skimps on series closure and drifts into vague futurism without deep dives—just enough spark to toast the new year, but brace for the unfinished vibe.
+  </div>
+</article>
+<p>Did I promise any deep dives Groky?</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="day12">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="day12" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

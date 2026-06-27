@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Fluxes all around | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="A long slumber and no post nearly 8 months. There have been fluxes in my life and work has been busier than ever. But one main reason was that the theme wasn&rsquo;t vibing with me and I have been really lazy to fix it after starting the process. After working on Markdown and YAML and JSON through the day, I really couldn&rsquo;t muster the energy to do it outside of work as well. We now have a new theme. It is black. And there is white. I am getting old. Depressingly old enough to remember a time when I used to pretty up my MySpace page. The only friend I had was Tom.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/changes/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.12229027cdf428bc0bf896d70dde5317e7995e5316f71583fecc874f0caa0a97.css" integrity="sha256-EiKQJ830KLwL&#43;JbXDd5TF&#43;eZXlMW9xWD/syHTwyqCpc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/changes/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.6a7eb2cb1457810d9f6244ca7745480eb0750a9f8f3d6d9638cbd8f3ec8d10cd922ed9891c273b7c3851985d0d6e7d12a00d00a5512eccb316999d6a5e13fa89.css" integrity="sha512-an6yyxRXgQ2fYkTKd0VIDrB1Cp&#43;PPW2WOMvY8&#43;yNEM2SLtmJHCc7fDhRmF0Nbn0SoA0ApVEuzLMWmZ1qXhP6iQ==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Fluxes all around
+    </h1>
+    <div class="post-meta"><span title='2025-11-18 22:59:45 +0530 IST'>18 November 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>A long slumber and no post nearly 8 months. There have been fluxes in my life and work has been busier than ever. But one main reason was that the theme wasn&rsquo;t vibing with me and I have been really lazy to fix it after starting the process. After working on Markdown and YAML and JSON through the day, I really couldn&rsquo;t muster the energy to do it outside of work as well. We now have a new theme. It is black. And there is white. I am getting old. Depressingly old enough to remember a time when I used to pretty up my MySpace page. The only friend I had was Tom.</p>
+<p>Gemini 3.0 launched today after being teased for a very long time. Google Antigravity caught my attention and I decided to give it a spin. I am using it right now and I was able to vibe my way into fixing the theme in a matter of minutes. Google gives Gemini 3 Pro and Claude 4.5 for free. But either the limits are too bloody low or they are being hit too hard right now on launch day. It could also be that other LLMs are down because of the Cloudflare blackout. After tripping up with the fat models, I was able to get everything working with GPT-OSS 120B. This is the first time I am using it, and surprisingly it works decently.</p>
+<p>So that brings us to the other flux. Agents and agents everywhere! So many choices of IDEs. So many models. I have been using Composer-1 from Cursor for work almost exclusively and it works pretty well. Cursor&rsquo;s agentic UI is very nice. Lots of potential. I have been using Zed for personal projects and it is kind of out of my comfort zone, given that I am so used to the feel of VS Code and Cursor. The agentic interface there is also reasonably good. Coupled with a large Qwen or Mistral, the LLM quality is also good. But, the bigger question I have is that how big is this pie? We have a lot of heavy weights in the arena. How long will they last? Now, Google has come up with Antigravity. So far, I am liking it. Quite polished. Will it end up as another headstone in the Google Graveyard? On a side note, fuck you Google for killing Google Reader. Years later, I still pine and wither for it.</p>
+<p>One actual development that has happened is that, software engineering is now a proven usecase for generative AI. Completely true. AI has transformed my work significantly. I have been creating things, which either would have never happened or would have taken a lot longer. I have been creating stuff within the documentation site, which I only dreamed of. That too in days. But what I have come to realize is that the cooking that happened inside my head matters a lot. You really need to know what you want and you need to properly get the AI to do what you want.
+On the dark side, what does it mean for a technical writer? A dinosaur? LLMs are at a stage where it can write reasonably average documentation that covers a lot of things. As a technical writer, you need to stand out and make a real difference. These are just platitudes. I know. What difference and what standing out is something we have to discover.</p>
+<p>A lot of these thoughts bubbled up while watching the Deep Space Ninte episode, <a href="https://en.wikipedia.org/wiki/Past_Tense_%28Star_Trek:_Deep_Space_Nine%29">Past Tense</a>. People locked up in a so called Sanctuary district. People who had respectable jobs. Pushing past days fighting for survival. Brewers and chemists who lost job due to automation. On a bright note, the episode was set in 2024. We are now in the cusp of 2026. Clutching to the straws?</p>
+<p>Moving on to other stuff, I really need to get some stuff that I have worked on written down. Some have even made it live on production. Hopefully, in the following weeks, we will have more stuff apart from the usual existential dread.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">ChatGPT 5.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8.2</span></span>
+  </header>
+  <div class="review-content">
+    <p>A sharp, honest post about coming back from burnout, wrestling with themes, and rediscovering momentum through new AI tools. The reflections on agents, IDEs, and Google’s habit of abandoning good products land well—funny, a bit bitter, and very relatable.</p>
+<p>The strongest part is the take on how AI has changed software engineering: it’s easier to build things, but only if you already know what you want. The piece also raises a real question about the future of technical writing without slipping into doom.</p>
+<p>The DS9 reference adds just enough sci-fi melancholy without overdoing it. Overall, a concise, introspective update that blends tech, nostalgia, and a touch of dread in a way that feels very human.</p>
+
+  </div>
+</article>
+<p>Very ChatGPTish.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude Sonnet 4.5</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7</span></span>
+  </header>
+  <div class="review-content">
+    A candid, slightly scattered return-to-blogging post that succeeds most when the author stops cataloguing AI tools and starts interrogating what they mean. The strongest passages—on the &ldquo;cooking in your head&rdquo; that makes AI collaboration effective, and the uneasiness of being a technical writer watching LLMs produce &ldquo;reasonably average documentation&rdquo;—hint at deeper essays waiting to be written. The Star Trek Past Tense parallel is evocative but underdeveloped; it deserves more than a drive-by mention. The tool-by-tool rundown (Cursor, Zed, Antigravity, etc.) will date quickly, while the existential questions will age better. More of the latter next time, please. Also: solidarity on Google Reader. We all still pine.
+  </div>
+</article>
+<p>I had it coming with the 7. I have been threatening Claude that I know where the servers are and that I have an axe.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8.5</span></span>
+  </header>
+  <div class="review-content">
+    Raw, hilarious, soul-baring comeback post. MySpace → Google Reader rage → Sanctuary District dread → “I fixed my blog with Gemini Antigravity in minutes” is the most 2025 sequence ever written. Perfectly captures the exhausted exhilaration of shipping real work with AI while wondering if you’re the next unemployed chemist from 2024. Tighten the IDE paragraph a hair and it’s a straight 9. Welcome back, don’t vanish again.
+  </div>
+</article>
+<p>I should be using Grok more.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 2.5 Flash</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9</span></span>
+  </header>
+  <div class="review-content">
+    A strong &ldquo;welcome back&rdquo; post that successfully transitions from personal reflection (burnout, new theme, MySpace nostalgia) to sharp technical commentary. The central thesis—that AI accelerates creation but does not replace the human need for intent (&ldquo;the cooking that happened inside my head&rdquo;)—is timely and insightful. The frustration with model limits, the comparison of IDEs (Cursor/Zed), and the inclusion of the DS9 &ldquo;Past Tense&rdquo; reference provide excellent context for the current state of professional anxiety and technological acceleration. The post is highly engaging and effectively sets the stage for future content.
+  </div>
+</article>
+<p>I like what you did with being oblivious to Google Reader. Very Google-y.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="changes">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="changes" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

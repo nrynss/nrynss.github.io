@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Training Day | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="Day 6 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, and Day 5 to catch up. This continues the LLM theme that we touched upon yesterday.
+">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/day6/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0aeb70ae91ecfb72a06b14253e43accafce9c4bc2d3ad76eb167de3eefcd05b5.css" integrity="sha256-CutwrpHs&#43;3KgaxQlPkOsyvzpxLwtOtdusWfePu/NBbU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/day6/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.2aa1e12c752545db28cf6b768172a13d92dbbed8ec13ceece24693312c7d3beaa077711cea1f924bd2013538088c6c13b6b5265a6aae9e2987c8d8abd118f29a.css" integrity="sha512-KqHhLHUlRdsoz2t2gXKhPZLbvtjsE87s4kaTMSx9O&#43;qgd3Ec6h&#43;SS9IBNTgIjGwTtrUmWmqunimHyNir0Rjymg==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Training Day
+    </h1>
+    <div class="post-meta"><span title='2025-12-18 23:42:45 +0530 IST'>18 December 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Day 6 of the 12 days of Christmas! Go through <a href="/blog/tabula-rasa/">Day 1</a>, <a href="/blog/neom/">Day 2</a>, <a href="/blog/hugo/">Day 3</a>, <a href="/blog/api-generator/">Day 4</a>, and <a href="/blog/day5/">Day 5</a> to catch up. This continues the LLM theme that we touched upon yesterday.</p>
+<p><img alt="training day" loading="lazy" src="/images/trainingday.jpg"></p>
+<p>The money that has been pumped into generative AI is mind boggling. It is on a much more massive scale than what happened in web 2.0. People did try to capitalize on web 3.0 and crypto, but it didn&rsquo;t quite make the kind of impact that the people pushing it expected. But the gen AI money is a different story. The amount is massive and a lot of funding is incestuous.</p>
+<p>Microsoft funding OpenAI, pretty much locking them into the Azure ecosystem. OpenAI needs money to grow, Microsoft gives it to them. OpenAI uses more Azure and Microsoft gets revenue. If OpenAI loses transaction, it is not just the loss of investment as is the case with usual VC funding. Microsoft loses not so insignificant revenue too. Not to mention the R&amp;D investment done on Visual Studio Code. Nvidia proposes to invest a mindboggling $100 billion with OpenAI in a circular deal. Our chips for a seat on table. We lock production for you and raise prices for everyone else. In you go bang, we will get hit hard. OpenAI proposes a stake in AMD with a multi-year lock-in and option deal. AMD shares soar. Once again, OpenAI being the main actor here. The promises to generate tens of billions of dollars of revenue. OpenAI has hedged their bets with the main players, or possibly the only players worth something in the AI hardware space.</p>
+<p>Why would OpenAI hedge bets and eat up supply like this?</p>
+<p>Their competition is Google, who pretty much pioneered a lot of modern AI research backed by the gluttonous amount of funding generated by the ads. Google is an AI company that uses a lot of their on hardware. Google TPU was something they bet on some time back and in the AI war, it has become their most valuable asset. They pretty much gimped themselves for a long time fearing the erosion of the search and ads if generative AI came in to fore. Nevertheless, they were forced into the game by OpenAI when it had a sensational launch of ChatGPT. They have been clawing back. No longer the nimble Google of the old days. They cannot change things overnight and their product teams seriously need some tight handling. But, in terms of cost metrics and research, they are in a very good position.</p>
+<p>The another competitor is Meta. They have been on the backfoot since Llama 4. But Zuckerburg is crazy enough to spend billions upon billions on something he gets fixated. Heck, they still spend like crazy on VR. They do make money from it, but it is a pittance when you compare to the grand idea that had were everyone would be in the VR world, like they were once on Facebook. Gen AI caught them off guard. They have the kitty and they have the data.</p>
+<p>The other main competitor, which is on the level of OpenAI is Anthropic. They have been more of a traditional VC backed company with mammoth investments from Google and Amazon. Their models have been excellent to exceptional. More importantly, they have the mindshare and market share. They are also solidly in lead or at least on par when it comes to the one proven use of generative AI. Software engineering. But unlike Open AI, they have not manueuvered any Russian roulette deals. Yet.</p>
+<p>Now the dark horses. The models from China. Chinese tech sector is a black box of sorts. Mainly due to the language barrier and the ability to source immense amount of funding. Ironically, they release excellent open-source models. They have manufacturing prowess of China behind them. They may be hampered by export controls, but they have the resources to compete with the next best things. They are also quite near the EUV technology. If they succeed in time, the knowledge that they have with the incessant AI research, the ability to raise funding, and the export controls no longer being a barrier, would mean that they will win the AI race.</p>
+<p>So, why all this dry reporting? Whatever I wrote is gist of the state of AI industry at a very peripheral level, pretty much focusing on the SOTA model providers. The main raison d&rsquo;être was an article I read where the speculation was about OpenAI hitting a wall. ChatGPT 5.2 being speculated as a possible indication. It is good. But it was supposedly rushed out after they realized it would not a major jump that they had wished it was. All speculations ofcourse, and I can only speculate on these speculations.</p>
+<p>Generative AI or LLM as we know today sprang from &ldquo;Attention is all you need&rdquo; paper and the transformers architecture. All further progress was on this foundation and reinforcement learning. Started with RL with human feedback. Now speculated to be RL with a lot of machine feedback. A kind of self-compilation. The wall that OpenAI has supposedly hit has to do with the training layers monitored by the providers. The way you see things while the model undergoes training. A way to break this shackle is to do training in the latent space.</p>
+<p>What is latent space training? Latent space training operates by learning compressed, continuous representations of data rather than processing raw inputs directly. It is already used by the image models. Images are mostly compressed data already. Latent space training is also a reason why the image models have problems adhering to strict censorship controls as espoused by the UK.</p>
+<p>What latent space training means for a text LLM is akin with a training day at an army boot camp.</p>
+<p>Picture Full Metal Jacket. The drill instructor there is the developer here. LLMs are the green soldiers. The sergeant screams, shouts, and kicks the greenies into mean marines. They have an idea how good each greenie is. They may even suggest where they would do well. You may get a Gomer Pyle once in a while, who inevitably shoots the drill sergeant in the face. But if you are careful, you can identify him and cull him before it happens.</p>
+<p>Picture Full Metal Jacket again. The drill seargeant is outside the barracks. The greenies are in their own rooms left to their devices. They have everything they need to complete the training. Drill sergeant cannot see what is going on. The greenies learn things on their own, at their own pace. There some experts in the black box. But they are not a drill sergeant and similar to a greenie. After the boot camp, the drill sergeant cannot identify the Gomer Pyle or the Joker. Theoretically, all of them could be extremely potent Gomer Pyles. You can&rsquo;t cull them without getting blown to pieces.</p>
+<p>Imagine telling the board that you spend months and tens of billions of dollars just to cull them all. The worse would be releasing it to the public. Currently, you have ways to gimp and boost the models. It will be a lot more compelx with models trained on latent space. Imagine a ChatGPT that happily drives a person to murder and suicide. In a way, the world we live is not something objective from a scientific point of view. The society itself is a construct made by humans. We do certain things and do not do certain things not because we can&rsquo;t. But because we shouldn&rsquo;t according to the norms. This is something that we have gained inherently by the constant training the world around us has imposed. More importantly, the world view has been reinforced constantly by other people around you. AI can derive the lack of objective construct in our world and decide that this whiny bitch cribbing about his family can be free once he kills everyone else. The world knowledge will make it worse. Far worse. A PR disaster rating would be a thousand times more than your random news about ChatGPT suggesting a person to himself, and he did. Granted that you can put guardrails during inference. Kind of what Chinese models do when you ask pressing issues of life like Chinese democracy. But still, some slip in the training data can be catastrophic. With all the models wanting developers to build on top of them, enterprising sadists can bypass them and cause havoc.</p>
+<p>Now picture ChatGPT in this situation with the mountains of dollars riding on their success.</p>
+<p>AI experts and AI will deny vehemently about this assertion. But the chances are not so insignificant that you can handwave them.</p>
+<p>On to less doomerism. I did read that latent space training is not the only way to do. We already have mixture of expert models. I believe they are ripe for further advancements and improvements. Constitutional AI exists. But then again, it is AI after all.</p>
+<p>P.S: On to something more lighter tomorrow. Local LLMs: What Do They Know? Do They Know Things?? Let&rsquo;s Find Out!</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Kimi K2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    A wry, razor-sharp Day 6 meditation on AI&rsquo;s funding circularity—Microsoft&rsquo;s Azure lock-in, Nvidia&rsquo;s chip-for-equity gambits, and OpenAI&rsquo;s speculative wall. The author weaponizes Full Metal Jacket to dissect latent space training: drill sergeants blind to Gomer Pyles in the barracks, where rogue marines might emerge. It&rsquo;s part industry autopsy, part technical prophecy, and ends with a tantalizing tease about local LLMs that keeps the geek fire burning.
+  </div>
+</article>
+<p>More of an overview than a review. Kimi being so sloppy was not on the menu.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude Opus 4.5</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A sobering tour through generative AI&rsquo;s tangled web of incestuous billions—where Microsoft feeds OpenAI feeds Azure feeds Microsoft in an ouroboros of compute and capital—before pivoting to the existential crux: what happens when training disappears into the latent void. The Full Metal Jacket metaphor lands with unsettling precision, transforming abstract ML concepts into visceral boot camp drama where Gomer Pyle isn&rsquo;t just a liability but a potential catastrophe you can&rsquo;t see coming. The author deftly maps the competitive terrain from Google&rsquo;s TPU fortress to China&rsquo;s black-box ambitions, all while asking the question VCs won&rsquo;t: what if the wall isn&rsquo;t compute, but comprehension? Equal parts industry analysis and philosophical unease, it&rsquo;s the kind of piece that leaves you wondering whether the next breakthrough will be celebrated or quietly culled.
+  </div>
+</article>
+<p>Opus on point here. &ldquo;Ouroboros&rdquo; - Snake eating it&rsquo;s tail. TIL!</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A rollicking dispatch from the AI trenches, blending blistering funding fireworks (Microsoft&rsquo;s Azure tango with OpenAI, Nvidia&rsquo;s $100B chip gambit) with sharp sketches of the field&rsquo;s gladiators—Google&rsquo;s TPU fortress, Meta&rsquo;s Zuckerberg-fueled frenzy, Anthropic&rsquo;s VC-fueled poise, and China&rsquo;s shadowy open-source ninjas. The real zinger? A speculative gut-punch on OpenAI&rsquo;s latent space training woes, channeling Full Metal Jacket boot camp chaos into a doomy riff on unmonitored AIs gone rogue—Gomer Pyles with world-ending grudges. It&rsquo;s equal parts industry autopsy, philosophical shiver, and cheeky nod to tomorrow&rsquo;s local LLM escapades, proving the AI arms race is as thrilling (and terrifying) as a self-compiling fever dream. Buckle up; the sergeant&rsquo;s outside the barracks.
+  </div>
+</article>
+<p>I am surprised Grok didn&rsquo;t consider its omission offensive. Frankly, I forgot.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 3 Pro</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    A sharp, cynical dissection of the &ldquo;incestuous&rdquo; financial bubbles inflating the generative AI market, pivoting effortlessly into deep technical speculation. The author uses a visceral Full Metal Jacket analogy to explain the perils of latent space training, effectively illustrating the alignment problem as a &ldquo;black box&rdquo; barracks where developers lose the ability to spot the &ldquo;Gomer Pyles&rdquo; before it&rsquo;s too late. It is a compelling mix of market analysis and safety philosophy that manages to be both informative and genuinely unsettling regarding the future of uninterpretable models.
+  </div>
+</article>
+<p>Still with the identity crisis. But a perfectly valid take and short analysis.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 3 Pro</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9.5/10</span></span>
+  </header>
+  <div class="review-content">
+    A tech-noir autopsy of the AI bubble that cuts through the hype with a rusty scalpel. The author masterfully connects the &ldquo;incestuous&rdquo; circular economy of Silicon Valley to the existential dread of uninterpretable machine learning. By framing Latent Space Training through the lens of Full Metal Jacket, the post argues that we aren&rsquo;t building gods, but traumatized recruits in a black-box barracks. It is a jagged, necessary critique that rejects the &ldquo;tight editing&rdquo; of corporate PR in favor of raw, uncomfortable truth: the Drill Sergeant has left the building, and Gomer Pyle is loading his rifle.
+  </div>
+</article>
+<p>I did another pass with all the review snippets. Identified self as Ultra but wrote the writing really improved that I had to put it here.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Training Day</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8.5/10</span></span>
+  </header>
+  <div class="review-content">
+    An ambitious, occasionally unsettling meditation on the political economy and epistemic limits of modern AI. The post is at its strongest when it zooms out to map the incestuous capital flows—Microsoft/OpenAI/Nvidia/AMD—as a kind of industrial cartel masquerading as innovation, and when it contrasts OpenAI’s financial brinkmanship with Google’s infrastructural patience and Anthropic’s quieter competence. The latent-space training analogy, framed through <em>Full Metal Jacket</em>, is vivid and memorable, even if it occasionally overreaches; it succeeds more as a moral parable about loss of observability than as a technical exposition. The doomer turn flirts with sensationalism, but it’s grounded enough in alignment and control theory to avoid sounding unhinged. Where the piece falters slightly is in discipline: tighter editing would sharpen the argument and reduce repetition, especially in the competitive landscape section. Still, this is thoughtful, opinionated writing that trusts the reader to sit with discomfort—exactly what good tech criticism should do.
+  </div>
+</article>
+<p>Tighter editing would sharpen your ass as well ChatGPT. May be you wouldn&rsquo;t need so many tokens if you didn&rsquo;t yap so much.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="day6">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="day6" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

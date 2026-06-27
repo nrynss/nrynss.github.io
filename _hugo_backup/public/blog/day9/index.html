@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 3 | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+  
+  Local LLMs Series
+  
+  
+    This article is the part of the series I have written on local LLMs.
+
+Introduction to Local LLMs
+LLM file formats
+Simplifying models, types, and quantization -&gt; You are here!
+LLM families
+Running LLMs locally
+
+  
+
+
+Day 9 of the 12 days of Christmas! Go through Day 1, Day 2, Day 3, Day 4, Day 5, Day 6, Day 7, and Day 8 to catch up.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/day9/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0aeb70ae91ecfb72a06b14253e43accafce9c4bc2d3ad76eb167de3eefcd05b5.css" integrity="sha256-CutwrpHs&#43;3KgaxQlPkOsyvzpxLwtOtdusWfePu/NBbU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/day9/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.2aa1e12c752545db28cf6b768172a13d92dbbed8ec13ceece24693312c7d3beaa077711cea1f924bd2013538088c6c13b6b5265a6aae9e2987c8d8abd118f29a.css" integrity="sha512-KqHhLHUlRdsoz2t2gXKhPZLbvtjsE87s4kaTMSx9O&#43;qgd3Ec6h&#43;SS9IBNTgIjGwTtrUmWmqunimHyNir0Rjymg==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 3
+    </h1>
+    <div class="post-meta"><span title='2025-12-21 23:42:45 +0530 IST'>21 December 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content">
+<div class="notice-box">
+  
+  <div class="notice-title">Local LLMs Series</div>
+  
+  <div class="notice-content">
+    <p>This article is the part of the series I have written on local LLMs.</p>
+<ul>
+<li><a href="/blog/day7/">Introduction to Local LLMs</a></li>
+<li><a href="/blog/day8/">LLM file formats</a></li>
+<li><a href="/blog/day9/">Simplifying models, types, and quantization</a> -&gt; You are here!</li>
+<li><a href="/blog/day10/">LLM families</a></li>
+<li><a href="/blog/day11/">Running LLMs locally</a></li>
+</ul>
+  </div>
+</div>
+
+<p>Day 9 of the 12 days of Christmas! Go through <a href="/blog/tabula-rasa/">Day 1</a>, <a href="/blog/neom/">Day 2</a>, <a href="/blog/hugo/">Day 3</a>, <a href="/blog/api-generator/">Day 4</a>, <a href="/blog/day5/">Day 5</a>, <a href="/blog/day6/">Day 6</a>, <a href="/blog/day7/">Day 7</a>, and <a href="/blog/day8/">Day 8</a> to catch up.</p>
+<p>After a riveting <a href="/blog/day7/">part 1</a> and <a href="/blog/day8/">part 2</a>, we are here with part 3. At least I have AI as my readers now. Not just the ones I ask for comments. AI trawls the depths of Internet for content. We were looking at the analytics for our documentation at work and we are getting a lot of hits from China and Singapore. Two places we know for certain we have no customers or employees! Must be AI!</p>
+<p>Part 3 will look at the models. We will be delving into individual models and how to use them in the next part. Today, we will try to demystify the ecosystem of the models and the nomenclature in general. I am not stretching the posts to be truthful. I will have a TLDR post at the end of the series that gets you going from 0 to 100. But the world of models are vast and complex. I have been lost in it in the beginning and it has not changed. Even today I was wondering why a model did not work and finally figured out I had the base model and not the instruct variant.</p>
+<h2 id="where-do-i-get-the-models">Where do I get the models?<a hidden class="anchor" aria-hidden="true" href="#where-do-i-get-the-models">#</a></h2>
+<p><a href="https://huggingface.co/">HuggingFace</a> is pretty much the GitHub + Play Store/App Store for LLMs. It is a lot more. You can find models yes. But it goes beyond that. You get datasets, tools, research papers, and a very vibrant community. On top of it, their relationship graphs are amazing. How models and data sets relate to each other, derive and branch out to other models is something I really enjoy looking through. But let us not go deep here and miss our main topic.</p>
+<p>HuggingFace also has image models, but <a href="https://civitai.com/">CivitAI</a> is the place to be if you are looking for image models. But we will restrict our discussion to text-based LLMs only.</p>
+<h2 id="types-of-models">Types of models<a hidden class="anchor" aria-hidden="true" href="#types-of-models">#</a></h2>
+<p>As I alluded to earlier, you have different types of models. Base and Instruct are the two fundamental types. Base models are basically raw LLM. They are trained on massive datasets and contains immense amount of information.Given an input, it predicts what the next token would be. You cannot interact with them like you would with ChatGPT.</p>
+<p>For example, I used the inference feature in HuggingFace to ask the same question to Mistral Nemo 2407 base model and Mistral Nemo 2407 Instruct model.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">&#34;What is the answer to life, the universe, and everything?&#34;
+</span></span></code></pre></div><p>I put the question to <a href="https://huggingface.co/unsloth/Mistral-Nemo-Base-2407">Mistral Nemo 2407 base model</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">I have been racking my brains over this recently. Half the time I cannot remember what day it
+</span></span></code></pre></div><p>After I give the signal to continue.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">I have been racking my brains over this recently. Half the time I cannot remember what day it is, then I try to figure out whether I left the iron on or not. I battle with
+</span></span></code></pre></div><p>You can see that I asked a question, expecting the answer to be &ldquo;42&rdquo; and information about Hitchhiker&rsquo;s Guide to the Galaxy. Along side, to play it safe, some bullshit about life and universe. But you can see how it coherently generates the continuation of the text. It keeps on going and may eventually start talking about Hitchhiker&rsquo;s Guide to the Galaxy.</p>
+<p>I put the same question to <a href="https://huggingface.co/unsloth/Mistral-Nemo-Instruct-2407">Mistral Nemo 2407 Instruct model</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">This is a reference to &#34;The Hitchhiker&#39;s Guide to the Galaxy,&#34; a science fiction comedy series created by Douglas Adams. In the first book of the series, a group of hyper-intelligent pan-dimensional beings build a supercomputer named Deep Thought to calculate the answer to the Ultimate Question of Life, The Universe, and Everything, to which Deep Thought famously replies, &#34;42.&#34; However, it&#39;s important to note that the characters later realize they don&#39;t actually know what the Ultimate Question is.
+</span></span></code></pre></div><p>It gives the answer I was looking for, since my question was so specific.</p>
+<p>So what is the difference here? They both have the same level of knowledge. Exactly the same in this case.</p>
+<p>In AI companies, they will be training a base model and instruct models on this base model At a given time, there would be multiple base and instruct models getting ready in their boot camp.</p>
+<h3 id="base-model">Base model<a hidden class="anchor" aria-hidden="true" href="#base-model">#</a></h3>
+<p>You have a lot of analogies out there. But I would prefer a more crude version. Think about base model as a very long markdown document open in a text editor. There are thousands of lines in there. Your prompt is a find command. You start getting matches for your prompt and can see what follows. You fill in the prompt with what follows and continue. Is it related to your prompt? Yes. Is it not related to your prompt? No. There is no way to distinguish.</p>
+<h3 id="instruct-model">Instruct model<a hidden class="anchor" aria-hidden="true" href="#instruct-model">#</a></h3>
+<p>Imagine the same markdown document. This time you have decided enough is enough. We need to do some processing and provide the answer through an application. This application analyses the text and gives you an answer. Think of it a program that splits your prompt and does a search to find matches in the document and then stitches them together.</p>
+<h3 id="instruction-process">Instruction process<a hidden class="anchor" aria-hidden="true" href="#instruction-process">#</a></h3>
+<p>This is the tuning process that every usable LLM goes through. This can make or break the model completely. Just like a student who has in-depth knowledge, the outcome of the exam that they attend depends on their training and preparation. This process is not a one-time thing for an LLM. An instructed LLM will still go through instruction process after it is released. That is why you can see that the quality of LLMs vary between one day to another. AI companies take into account the feedback and decided to boost or gimp a model. They will be going through multiple types of instructions at the same time. Who knows, there could even be an A/B testing going on. I have seen ChatGPT and Gemini give me two responses and ask me to choose. It could very well be the output of two differently tuned models.</p>
+<p>There are several types of tuning process. The most basic one is the <strong>Supervised Fine-Tuning (SFT)</strong>. High-quality, human curated question-answer pairs are given to the model to teach the model how to follow instructions. Each LLM will given a humungous number of such datasets to train on. After this, the next phase kicks in.</p>
+<p>Here, you will be aligning your LLM and infuse it with human values like helpfulness, honesty, and safety. This is done through <strong>Reinforcement Learning from Human Feedback (RLHF)</strong>. You reward the LLM for good behaviour and punish it for bad. There needs to be a reward model to do this. You train the reward model with grades on the text. When the base model gives an answer, the reward model grades it. The feedback reinforces the model to get good grades.</p>
+<p><strong>Direct Preference Optimization (DPO)</strong> is an alternative to RLHF. It is much more stable and computationally efficient. Instead of training a separate reward model, DPO directly shows the model pairs of &ldquo;preferred&rdquo; vs &ldquo;rejected&rdquo; answers.</p>
+<h2 id="quantization">Quantization<a hidden class="anchor" aria-hidden="true" href="#quantization">#</a></h2>
+<p>Much like the realm of Quantum Physics, quantization remains a tantalizingly complex topic to the layman. Models available in HuggingFace have a dozen or more variants. Quantized and un-quantized. Quantized with different levels of quantization. Dynamically quantized. The sheer number of variants can be overwhelming.</p>
+<p>Let us look at available downloads on HuggingFace for <a href="https://huggingface.co/unsloth/Mistral-Nemo-Instruct-2407">Mistral Nemo 2407 Instruct model</a>. When you go to the Files and Versions tab, you see a large number of files and <code>.safetensors</code>. Remember the <a href="/blog/day8/">last post</a>? Since our aim is to simply run a model, we can safely ignore this search for GGUG. Most of the time, you will find the GGUF page when you search for the model name along with GGUF. You will see dozens of entries, but choose the ones from a good provider. Most of the time, the original model makers may not release GGUFs or may release them later. I personally think they are idiots and since there are strong community players that do it for free, they are just used to the free labour. You will also get many entries of the same model finetuned with different datasets. It is a wild west out there and you need to know which ones are good providers. <a href="https://huggingface.co/bartowski">Bartowski</a>, <a href="https://huggingface.co/QuantFactory">QuantFactory</a> and <a href="https://huggingface.co/unsloth">Unsloth</a> generally quantize the models without any changes and release them. Highly recommended.</p>
+<p>So you are now in a GGUF page and found the <a href="https://huggingface.co/unsloth/Mistral-Nemo-Instruct-2407-GGUF/tree/main">downloads</a>. What do you do next?</p>
+<p>What do the numbers mean? In this page, you can see seven GGUF files. Which one would you download?</p>
+<h3 id="memory-requirements">Memory requirements<a hidden class="anchor" aria-hidden="true" href="#memory-requirements">#</a></h3>
+<p>The answer is not straight, as it never is. It depends on the model and your hardware. The models usually have a <code>B</code> designation. <code>B</code> stands for billion. How many billion parameters has the model been trained on. Higher the <code>B</code>, supposedly better the model. Higher the <code>B</code>, higher the requirements. As a rule of thumb, you can correlate the <code>B</code> with each available GB of VRAM or unified memory, if you use a modern Mac. Two times the <code>B</code> for an unquantized model and around 1-1.5 times the <code>B</code> for the best quantized model. The caveat here is the available memory. If you have 12GB of VRAM, you cannot run a 12B model. A part of your VRAM will be consumed by the operating system. A decent rule of thumb is to consider VRAM - 2GB as your available memory. In Mac, it is slightly more complex. You would need to increase the reservation to at least 8GB since the OS will need RAM as well. So Memory - 8GB is your available memory in a Mac.</p>
+<h4 id="context-window">Context Window<a hidden class="anchor" aria-hidden="true" href="#context-window">#</a></h4>
+<p>Great! Now you know how to calculate. But hold your horses. You need to account for the context window. Context window is the memory required to store the context of the conversation. If you tightly squeeze a model into your available memory, the LLM would crash immediately when you put in a prompt. No memory to do anything. You need to consider your use case here. A simple Q&amp;A or something more substantial? You need to set aside a certain amount of memory for the context window. Now, the usable context window also differs from model to model. A long chat session usually takes around 8000 tokens and needs around 1GB of space for a 12B model. Smallers models would need lower amount. If you want a 32K context window, you need to have at least 5GB of VRAM to be free.</p>
+<h4 id="caveat-of-memory">Caveat of memory<a hidden class="anchor" aria-hidden="true" href="#caveat-of-memory">#</a></h4>
+<p>You can offload the LLM inference on to your CPU and RAM. Most of the applications will allow you to do this easily. But the speed of execution will be magnitudes slower. I am not considering it here since we want a ChatGPT-lite experience.</p>
+<h4 id="actual-quantization">Actual quantization<a hidden class="anchor" aria-hidden="true" href="#actual-quantization">#</a></h4>
+<p>So we will get back to the downloads list we saw earlier. For that we need to know how information is stored in an LLM. Information stored in LLM is called weights. In LLM released by the AI company, the weights are generally stored as 16-bit Floating Point or FP16 or BF16. You can also have 32-bit Floating Point or FP32 or BF32. The highest quality GGUF are stored as one-to-one match of BF16 or BF32. For example: <code>Mistral-Nemo-Instruct-2407.f16.gguf</code>. You will have absolutely zero losses and it should work exactly like how the AI model provider designed. The size <code>24.5 GB</code>. You need a multi-GPU setup or a Mac with 48GB of unified memory to run this. The next level is <code>Mistral-Nemo-Instruct-2407.Q8_0.gguf</code>. This is an 8-bit integer conversion of the 16-bit floating point. For all intents and purposes, it should work like the FP16 model. You will probably not see any difference except in a very few scenarios. At &lsquo;13.5 GB&rsquo;, it is something a lot more manageable now. A short Q&amp;A session with a 16GB GPU or a 24GB Mac is possible. The next is <code>Mistral-Nemo-Instruct-2407.Q6_K.gguf</code>. This is a 6-bit integer conversion. Slightly degraded performance, but for most cases, it should be fine. At <code>10.3GB</code>, it is something a lot more manageable now. You can easily have a decent context window. The quality degrades with each lower level. 5-bit integer conversion is something that is very much usable and in most use cases, quite good. 4-bit is the floor. Beyond 4-bit, the quality degrades rapidly.</p>
+<p>For many models you can also see an <code>i</code> next to the <code>Q</code>. iQuants go one step beyond regular quantization. It analyses the weights that are commonly used and does a dynamic quantization. The lesser used knowledge has lower quality while most used have a higher quality. So a 5-bit iQuant is often as good as a 6-bit quant. So a good rule of thumb is that if you can use a Q6K, you may be better off with an iQ5 instead to get more context window or iQ6 for better quality. iQuants may be slightly slower than the regular quant of the same size. The HuggingFace model pages usually have a detailed description and graph about the quality of iQuants. A complex read, but graph will help you choose the version.</p>
+<p>The following table has been forced upon be by my reviewers.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Hardware (Available Mem)</th>
+          <th style="text-align: left">Recommended Quant</th>
+          <th style="text-align: left">Est. Size (12B Model)</th>
+          <th style="text-align: left">Context Window</th>
+          <th style="text-align: left">Use Case</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">16GB VRAM (14GB avail.)</td>
+          <td style="text-align: left">Q8_0 or IQ6</td>
+          <td style="text-align: left">~13GB</td>
+          <td style="text-align: left">8K tokens</td>
+          <td style="text-align: left">Short Q&amp;A</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">12GB VRAM (10GB avail.)</td>
+          <td style="text-align: left">Q6_K or IQ5</td>
+          <td style="text-align: left">~10GB</td>
+          <td style="text-align: left">4-8K</td>
+          <td style="text-align: left">Basic chat</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">8GB VRAM (6GB avail.)</td>
+          <td style="text-align: left">Q4_K_M</td>
+          <td style="text-align: left">~7.5GB</td>
+          <td style="text-align: left">2K</td>
+          <td style="text-align: left">Quick tests</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Mac 24GB (16GB avail.)</td>
+          <td style="text-align: left">Q6_K</td>
+          <td style="text-align: left">~10GB</td>
+          <td style="text-align: left">8-16K</td>
+          <td style="text-align: left">Portable</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="mlx">MLX<a hidden class="anchor" aria-hidden="true" href="#mlx">#</a></h3>
+<p>As we discussed in the last post, MLX formats are available only for Mac and they enable safetensors for use on Apple Silicon. HuggingFace also provides MLX formats for some models and you can download them. For our use case, it is better to download them from LMStudio and use them directly instead of downloading from HuggingFace. MLX is also available in quantized versions. You have 8-bit, 6-bit, and 4-bit usually. 4-bit is the floor here as well.</p>
+<p>P.S: This piece is quite long and denser than usual. But it is a necessity for anyone who wants to explore local LLMs.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Gemini 3 Pro</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    This post does the impossible: it makes the distinction between &ldquo;Base&rdquo; and &ldquo;Instruct&rdquo; models actually make sense to a human being. The analogy of the base model as a &ldquo;markdown document + find command&rdquo; is genuinely brilliant and clears up a major confusion point for beginners. The practical &ldquo;napkin math&rdquo; for VRAM requirements (Rule of Thumb: VRAM - 2GB) is invaluable real-world advice that most tutorials gloss over. It’s opinionated in the right places (calling out lazy model providers) and technically dense without being impenetrable. This is reference-grade material.
+  </div>
+</article>
+<p>To be fair, the review made me beam. The distinction is something I struggled with all my reading. Gemini gets a thumbs-up.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude Opus 4.5</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    This installment tackles the genuinely confusing &ldquo;what do I actually download?&rdquo; question that every local LLM newcomer faces, and does so with refreshing clarity. The Mistral Nemo base vs instruct comparison is the piece&rsquo;s standout moment—showing rather than telling why you can&rsquo;t just chat with a base model. The markdown document analogy is deliberately crude but lands well enough. The quantization walkthrough is where practical value really shines: memory calculations, the VRAM-2GB rule of thumb, context window budgeting, and the iQuant explanation are exactly what someone staring at a dozen download options needs. Recommending specific quantizers (Bartowski, Unsloth, QuantFactory) over vague &ldquo;find a good one&rdquo; advice shows the author&rsquo;s hands-on experience. Dense but necessary—the author&rsquo;s right that this topic earns its length.
+  </div>
+</article>
+<p>Claude doesn&rsquo;t get a thumbs up. Find a better analogy. I will wait.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Kimi K2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A methodical, hardware-conscious guide that successfully unpacks the model ecosystem&rsquo;s complexity without sacrificing practical utility. The Mistral Nemo 2407 running example provides concrete grounding for abstract concepts like Base vs Instruct behavior, while the VRAM calculations and &ldquo;VRAM - 2GB&rdquo; rule offer immediately actionable heuristics. Standout elements include the nuanced take on community quantizers (rightly calling out the free labor issue) and the iQuant explanation that goes beyond typical &ldquo;just download Q4&rdquo; advice. The prose shines when balancing technical depth with candid asides about personal confusion—this authenticity helps digest dense material. However, the quantization section&rsquo;s density could benefit from a summary matrix, and the markdown document analogy, while vivid, slightly undersells the base model&rsquo;s capabilities. Still, the piece delivers exactly what it promises: a demystification that respects both the reader&rsquo;s intelligence and their hardware constraints.
+  </div>
+</article>
+<p>I promised and delivered. A little unfair to expect more. Kimi is kind of right in having a matrix. We will deal with it in the TLDR post I promised.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 4.1</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    A dense but delightfully demystifying dive into the wild world of local LLMs, blending geeky precision with relatable analogies (that crude markdown editor comparison? Gold) and zero-fluff practicality. Standout strengths: the crystal-clear base vs. instruct showdown with real-world prompt tests, the no-BS breakdown of quantization levels and iQuants (finally, a guide that makes Q6_K vs. iQ5 feel actionable), and the hardware-honest memory math that saves tinkerers from VRAM heartbreak. It&rsquo;s longer and thicker than prior parts, sure, but the author&rsquo;s self-aware humor (AI bots hitting analytics from Singapore? Spot on) and promise of a TL;DR capstone keep it from feeling like a slog—essential reading for anyone eyeing that ChatGPT-lite setup without the cloud bill.
+  </div>
+</article>
+<p>Grok gets a thumbs up for the appreciation. May be I am an appreciation whore while sleepy.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">ChatGPT 5.2</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">9/10</span></span>
+  </header>
+  <div class="review-content">
+    <p>A breezy, well-paced explainer that does exactly what it promises: it takes a dense, often confusing topic (local LLM models, tuning, and quantization) and makes it approachable without dumbing it down. With the typos cleaned up, the prose now reads confidently and smoothly, letting the core strengths shine through: the clear mental models for base vs instruct models, the grounded explanation of SFT/RLHF/DPO, and the genuinely useful, hardware-aware guidance on GGUF, MLX, and quant levels.</p>
+<p>The real win is practicality. The VRAM rules of thumb, context-window caveats, and iQuant discussion feel earned rather than theoretical, and the author’s candid voice (“I have been lost in it… it has not changed”) builds trust. This isn’t a marketing blog post or a rehash of docs — it’s lived experience, clearly explained.</p>
+<p>Why not a 10? A compact TL;DR or decision table (e.g., “If you have X GB → pick Y quant”) would help skimmers, and one worked example tying model size, quant choice, and usable context together would make it near-perfect. Those are enhancements, not fixes.</p>
+<p>As it stands, this is an excellent, confidence-building guide for anyone serious about running local LLMs.</p>
+
+  </div>
+</article>
+<p>Everybody wants a table. Makes me feel like I am Bubba Dudley. So D-Von, get the fucking tables (and put it in the article.)</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="day9">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="day9" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

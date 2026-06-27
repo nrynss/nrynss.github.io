@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Welcome on nryn</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Welcome on nryn</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 09 Feb 2026 00:30:45 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Falcon starts to soar</title>
+      <link>http://localhost:1313/blog/falcon-arrives/</link>
+      <pubDate>Mon, 09 Feb 2026 00:30:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/falcon-arrives/</guid>
+      <description>&lt;p&gt;When ChatGPT made their big launch, I was blindsided by the AI advances. Till then, I considered machine learning to be something esoteric. Not niche. But something that was going to be a middleware rather than a product in itself. People started to use the OpenAI API to build stuff. I was extremely concerned with the privacy aspect with respect to the source code and internal processes. Years later, things have settled down and data protection rules are in place. AI rules over internal processes and documentation (see Glean) and source code (see Cursor). Back then, I had a few vague ideas but didn&amp;rsquo;t trust the cloud models. I went on HuggingFace for the first time and saw there were local models. I was surprised to see &lt;a href=&#34;https://huggingface.co/tiiuae/falcon-180B-chat&#34;&gt;Falcon&lt;/a&gt; and even more surprised that it was from a university in Abu Dhabi. Not a place you would associate with cutting edge artificial intelligence research. Plans never materialized because I quickly realized that the 180B was not something that you can actually run.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>New and old</title>
+      <link>http://localhost:1313/blog/new-year-2026/</link>
+      <pubDate>Sun, 04 Jan 2026 23:42:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/new-year-2026/</guid>
+      <description>&lt;p&gt;A few weeks back, I see an email from Live Journal, wishing me a happy twenty year anniversary on my blog. I was kind of taken aback when I saw that I had a few posts too! 2005 was a time when dozens of services launched on top of the web 2.0, Ajax, LAMP ideas. I created accounts everywhere and probably my personal information has been on the dark web even before dark web even existed. I didn&amp;rsquo;t have much time to look into the blog posts and decided to give it a read later. That later happened to be today.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wrapping up on 12 Days of Christmas</title>
+      <link>http://localhost:1313/blog/day12/</link>
+      <pubDate>Wed, 31 Dec 2025 11:42:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/day12/</guid>
+      <description>&lt;p&gt;Day 12 of the 12 days of Christmas! Go through &lt;a href=&#34;http://localhost:1313/blog/tabula-rasa/&#34;&gt;Day 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/neom/&#34;&gt;Day 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/hugo/&#34;&gt;Day 3&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/api-generator/&#34;&gt;Day 4&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day5/&#34;&gt;Day 5&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day6/&#34;&gt;Day 6&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Day 7&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;Day 8&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day9/&#34;&gt;Day 9&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day10/&#34;&gt;Day 10&lt;/a&gt;, and &lt;a href=&#34;http://localhost:1313/blog/day11/&#34;&gt;Day 11&lt;/a&gt; to catch up.&lt;/p&gt;
+&lt;p&gt;Yes. We didn&amp;rsquo;t finish it on time. Two days delay and post-Christmas plans pretty much killed it. A major chunk of 12 days was spent on local LLMs. I accidentally published this on 28th December, and today is 31st December. The end of an year. Even my Boxing day plans did not come into fruition. To be fair, I had a lot more fun than be caged with a computer. A little bit of travel, and a night out with old friends. Gorging on British sweets and looking wistfully at a bottle of Bruichladdich, courtesy of my wife.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 5</title>
+      <link>http://localhost:1313/blog/day11/</link>
+      <pubDate>Wed, 24 Dec 2025 23:42:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/day11/</guid>
+      <description>&lt;div class=&#34;notice-box&#34;&gt;
+  
+  &lt;div class=&#34;notice-title&#34;&gt;Local LLMs Series&lt;/div&gt;
+  
+  &lt;div class=&#34;notice-content&#34;&gt;
+    &lt;p&gt;This article is the part of the series I have written on local LLMs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Introduction to Local LLMs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;LLM file formats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day9/&#34;&gt;Simplifying models, types, and quantization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day10/&#34;&gt;LLM families&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day11/&#34;&gt;Running LLMs locally&lt;/a&gt; -&amp;gt; You are here!&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Day 11 of the 12 days of Christmas! Go through &lt;a href=&#34;http://localhost:1313/blog/tabula-rasa/&#34;&gt;Day 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/neom/&#34;&gt;Day 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/hugo/&#34;&gt;Day 3&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/api-generator/&#34;&gt;Day 4&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day5/&#34;&gt;Day 5&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day6/&#34;&gt;Day 6&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Day 7&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;Day 8&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day9/&#34;&gt;Day 9&lt;/a&gt;, and &lt;a href=&#34;http://localhost:1313/blog/day10/&#34;&gt;Day 10&lt;/a&gt; to catch up.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 4</title>
+      <link>http://localhost:1313/blog/day10/</link>
+      <pubDate>Tue, 23 Dec 2025 23:42:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/day10/</guid>
+      <description>&lt;div class=&#34;notice-box&#34;&gt;
+  
+  &lt;div class=&#34;notice-title&#34;&gt;Local LLMs Series&lt;/div&gt;
+  
+  &lt;div class=&#34;notice-content&#34;&gt;
+    &lt;p&gt;This article is the part of the series I have written on local LLMs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Introduction to Local LLMs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;LLM file formats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day9/&#34;&gt;Simplifying models, types, and quantization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day10/&#34;&gt;LLM families&lt;/a&gt; -&amp;gt; You are here!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day11/&#34;&gt;Running LLMs locally&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Day 10 of the 12 days of Christmas! Go through &lt;a href=&#34;http://localhost:1313/blog/tabula-rasa/&#34;&gt;Day 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/neom/&#34;&gt;Day 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/hugo/&#34;&gt;Day 3&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/api-generator/&#34;&gt;Day 4&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day5/&#34;&gt;Day 5&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day6/&#34;&gt;Day 6&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Day 7&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;Day 8&lt;/a&gt;, and &lt;a href=&#34;http://localhost:1313/blog/day9/&#34;&gt;Day 9&lt;/a&gt; to catch up.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 3</title>
+      <link>http://localhost:1313/blog/day9/</link>
+      <pubDate>Sun, 21 Dec 2025 23:42:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/day9/</guid>
+      <description>&lt;div class=&#34;notice-box&#34;&gt;
+  
+  &lt;div class=&#34;notice-title&#34;&gt;Local LLMs Series&lt;/div&gt;
+  
+  &lt;div class=&#34;notice-content&#34;&gt;
+    &lt;p&gt;This article is the part of the series I have written on local LLMs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Introduction to Local LLMs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;LLM file formats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day9/&#34;&gt;Simplifying models, types, and quantization&lt;/a&gt; -&amp;gt; You are here!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day10/&#34;&gt;LLM families&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day11/&#34;&gt;Running LLMs locally&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Day 9 of the 12 days of Christmas! Go through &lt;a href=&#34;http://localhost:1313/blog/tabula-rasa/&#34;&gt;Day 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/neom/&#34;&gt;Day 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/hugo/&#34;&gt;Day 3&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/api-generator/&#34;&gt;Day 4&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day5/&#34;&gt;Day 5&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day6/&#34;&gt;Day 6&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Day 7&lt;/a&gt;, and &lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;Day 8&lt;/a&gt; to catch up.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 2</title>
+      <link>http://localhost:1313/blog/day8/</link>
+      <pubDate>Sat, 20 Dec 2025 23:42:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/day8/</guid>
+      <description>&lt;div class=&#34;notice-box&#34;&gt;
+  
+  &lt;div class=&#34;notice-title&#34;&gt;Local LLMs Series&lt;/div&gt;
+  
+  &lt;div class=&#34;notice-content&#34;&gt;
+    &lt;p&gt;This article is the part of the series I have written on local LLMs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Introduction to Local LLMs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;LLM file formats&lt;/a&gt; -&amp;gt; You are here!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day9/&#34;&gt;Simplifying models, types, and quantization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day10/&#34;&gt;LLM families&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day11/&#34;&gt;Running LLMs locally&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Day 8 of the 12 days of Christmas! Go through &lt;a href=&#34;http://localhost:1313/blog/tabula-rasa/&#34;&gt;Day 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/neom/&#34;&gt;Day 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/hugo/&#34;&gt;Day 3&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/api-generator/&#34;&gt;Day 4&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day5/&#34;&gt;Day 5&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day6/&#34;&gt;Day 6&lt;/a&gt;, and &lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Day 7&lt;/a&gt; to catch up.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Local LLMs: What Do They Know? Do They Know Things?? Let&#39;s Find Out! - 1</title>
+      <link>http://localhost:1313/blog/day7/</link>
+      <pubDate>Fri, 19 Dec 2025 23:42:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/day7/</guid>
+      <description>&lt;div class=&#34;notice-box&#34;&gt;
+  
+  &lt;div class=&#34;notice-title&#34;&gt;Local LLMs Series&lt;/div&gt;
+  
+  &lt;div class=&#34;notice-content&#34;&gt;
+    &lt;p&gt;This article is the part of the series I have written on local LLMs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day7/&#34;&gt;Introduction to Local LLMs&lt;/a&gt; -&amp;gt; You are here!&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day8/&#34;&gt;LLM file formats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day9/&#34;&gt;Simplifying models, types, and quantization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day10/&#34;&gt;LLM families&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/blog/day11/&#34;&gt;Running LLMs locally&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Day 7 of the 12 days of Christmas! Go through &lt;a href=&#34;http://localhost:1313/blog/tabula-rasa/&#34;&gt;Day 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/neom/&#34;&gt;Day 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/hugo/&#34;&gt;Day 3&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/api-generator/&#34;&gt;Day 4&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/day5/&#34;&gt;Day 5&lt;/a&gt;, and &lt;a href=&#34;http://localhost:1313/blog/day6/&#34;&gt;Day 6&lt;/a&gt; to catch up.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Training Day</title>
+      <link>http://localhost:1313/blog/day6/</link>
+      <pubDate>Thu, 18 Dec 2025 23:42:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/day6/</guid>
+      <description>&lt;p&gt;Day 6 of the 12 days of Christmas! Go through &lt;a href=&#34;http://localhost:1313/blog/tabula-rasa/&#34;&gt;Day 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/neom/&#34;&gt;Day 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/hugo/&#34;&gt;Day 3&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/api-generator/&#34;&gt;Day 4&lt;/a&gt;, and &lt;a href=&#34;http://localhost:1313/blog/day5/&#34;&gt;Day 5&lt;/a&gt; to catch up. This continues the LLM theme that we touched upon yesterday.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;training day&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/trainingday.jpg&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reflections on SaaS</title>
+      <link>http://localhost:1313/blog/day5/</link>
+      <pubDate>Wed, 17 Dec 2025 22:59:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/day5/</guid>
+      <description>&lt;p&gt;Day 5 of the 12 days of Christmas! Go through &lt;a href=&#34;http://localhost:1313/blog/tabula-rasa/&#34;&gt;Day 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/neom/&#34;&gt;Day 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/blog/hugo/&#34;&gt;Day 3&lt;/a&gt;, and &lt;a href=&#34;http://localhost:1313/blog/api-generator/&#34;&gt;Day 4&lt;/a&gt; to catch up.&lt;/p&gt;
+&lt;p&gt;Since it is a time of reflection, I decide to peruse my old tech blog. Started in 2008 April and died in 2008 November. I see a test in 2009. God knows why! I know why it stopped quite abruptly though. I moved to Bangalore in September 2008. I was not able to move my PC until December. I made one or two random posts, but I guess they were during my visits home. Living alone versus living with friends was a big shift. The PC I brought along was not just mine. Socialism baby! The free time I got were spent playing games, binging shows, and probably hitting the bars. I guess there is a reason for the memory lapses.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>From static to dynamic</title>
+      <link>http://localhost:1313/blog/api-generator/</link>
+      <pubDate>Tue, 16 Dec 2025 18:45:20 +0530</pubDate>
+      <guid>http://localhost:1313/blog/api-generator/</guid>
+      <description>&lt;p&gt;Day 4 of 12 days of Christmas!&lt;/p&gt;
+&lt;p&gt;Today we are going to be little more Endor Labs specific. The post may sound a little off to those who are not used to our kind of work.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Static Docs</title>
+      <link>http://localhost:1313/blog/hugo/</link>
+      <pubDate>Mon, 15 Dec 2025 18:45:20 +0530</pubDate>
+      <guid>http://localhost:1313/blog/hugo/</guid>
+      <description>&lt;p&gt;Day 3 of 12 days of Christmas!&lt;/p&gt;
+&lt;p&gt;Nothing to showcase today. It is more of reflections on how documentation has been evolving over the years from my point of view. It will be meandering. A fair warning to my LLM reviewers.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Game: Day 2</title>
+      <link>http://localhost:1313/blog/neom/</link>
+      <pubDate>Sun, 14 Dec 2025 18:45:20 +0530</pubDate>
+      <guid>http://localhost:1313/blog/neom/</guid>
+      <description>&lt;p&gt;Day 2 of 12 days of Christmas!&lt;/p&gt;
+&lt;p&gt;In the 90s, computing was the domain of the rich in India. Owning a PC was an absolute luxury. But computer centres were a business. Places that would teach you MS Office, Pagemaker, and stuff for DTP. Internet browsing and email. Some places where courses would be taught. We were not rich by any stretch of imagination. The computer we bought was an idea my father had to start a small DTP centre along with his office. DTP centre ran for a few months and we wound that up because it was a big loss. Turns out, you need to do a proper market and product research before you start a business. Who knew!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tabula Rasa: 12 Days of Christmas</title>
+      <link>http://localhost:1313/blog/tabula-rasa/</link>
+      <pubDate>Sat, 13 Dec 2025 19:58:38 +0530</pubDate>
+      <guid>http://localhost:1313/blog/tabula-rasa/</guid>
+      <description>&lt;p&gt;The title pretty much has nothing to do with the topic. Something that came into my mind while typing the file name. I had to look it up to remember what it means.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Fluxes all around</title>
+      <link>http://localhost:1313/blog/changes/</link>
+      <pubDate>Tue, 18 Nov 2025 22:59:45 +0530</pubDate>
+      <guid>http://localhost:1313/blog/changes/</guid>
+      <description>&lt;p&gt;A long slumber and no post nearly 8 months. There have been fluxes in my life and work has been busier than ever. But one main reason was that the theme wasn&amp;rsquo;t vibing with me and I have been really lazy to fix it after starting the process. After working on Markdown and YAML and JSON through the day, I really couldn&amp;rsquo;t muster the energy to do it outside of work as well. We now have a new theme. It is black. And there is white. I am getting old. Depressingly old enough to remember a time when I used to pretty up my MySpace page. The only friend I had was Tom.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vibing vith Vimanam</title>
+      <link>http://localhost:1313/blog/vibing-vith-vimanam/</link>
+      <pubDate>Tue, 18 Mar 2025 15:33:00 +0530</pubDate>
+      <guid>http://localhost:1313/blog/vibing-vith-vimanam/</guid>
+      <description>&lt;p&gt;What&amp;rsquo;s with the &amp;lsquo;vith&amp;rsquo;?&lt;/p&gt;
+&lt;p&gt;My son is in kindergarten. Sometime last year, I was hanging out with him and he wanted me to search for a video, which had &amp;lsquo;with&amp;rsquo; in the title. He interrupted me while I was saying the name and said, &amp;ldquo;Acha, it&amp;rsquo;s not &amp;lsquo;vith&amp;rsquo;. It&amp;rsquo;s &amp;lsquo;with&amp;rsquo;.&amp;rdquo; Like most Indians, or may be it&amp;rsquo;s just us Malayalis, we rarely distinguish &amp;lsquo;v&amp;rsquo; and &amp;lsquo;w&amp;rsquo;. On a side note, I am a little glad that he grew out of his French music phase. I would have been shamed more if he persisted with it, given my lack of ability to pronounce French words. I lowkey miss &lt;a href=&#34;https://www.youtube.com/watch?v=iOxzG3jjFkY&#34;&gt;Ego&lt;/a&gt; though. Anyways, `vith&amp;rsquo; has nothing to with the topic at hand (or my &amp;lsquo;vith&amp;rsquo; as you would say in Malayalam), aside from the word play I wanted to shoehorn in to the title.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Making Movies</title>
+      <link>http://localhost:1313/blog/making-movies/</link>
+      <pubDate>Sat, 08 Mar 2025 18:45:20 +0530</pubDate>
+      <guid>http://localhost:1313/blog/making-movies/</guid>
+      <description>&lt;p&gt;My first computer had Windows 98SE with plus pack. It was a Pentium III 450MHz machine. P3 450 was a weird chipset. It was a slot 1 processor, which slid into the motherboard rather than the familiar socket mechanism. Codename katmai with 0.45µm process node. The nm process nodes were not even in the horizon. Why do I know this? Shortly after I got my computer, others got 550MHz codename coppermine with 0.37µm process node. The craving for specs started and still going on. We are digressing from the matter at hand.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cursor and future</title>
+      <link>http://localhost:1313/blog/first-post/</link>
+      <pubDate>Tue, 25 Feb 2025 15:45:20 +0530</pubDate>
+      <guid>http://localhost:1313/blog/first-post/</guid>
+      <description>&lt;p&gt;Yet another &amp;ldquo;First Post&amp;rdquo;. This time the gap is less than a year compared to the usual years and years!&lt;/p&gt;
+&lt;p&gt;Why? I have been using &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; for a while now. I have enjoyed playing trapeze with it at work. It is time I played some trapeze with it at home.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

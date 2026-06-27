@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Making Movies | nryn</title>
+<meta name="keywords" content="">
+<meta name="description" content="My first computer had Windows 98SE with plus pack. It was a Pentium III 450MHz machine. P3 450 was a weird chipset. It was a slot 1 processor, which slid into the motherboard rather than the familiar socket mechanism. Codename katmai with 0.45µm process node. The nm process nodes were not even in the horizon. Why do I know this? Shortly after I got my computer, others got 550MHz codename coppermine with 0.37µm process node. The craving for specs started and still going on. We are digressing from the matter at hand.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/making-movies/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.12229027cdf428bc0bf896d70dde5317e7995e5316f71583fecc874f0caa0a97.css" integrity="sha256-EiKQJ830KLwL&#43;JbXDd5TF&#43;eZXlMW9xWD/syHTwyqCpc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/making-movies/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script> 
+<link rel="stylesheet" href="/css/extended/custom.min.6a7eb2cb1457810d9f6244ca7745480eb0750a9f8f3d6d9638cbd8f3ec8d10cd922ed9891c273b7c3851985d0d6e7d12a00d00a5512eccb316999d6a5e13fa89.css" integrity="sha512-an6yyxRXgQ2fYkTKd0VIDrB1Cp&#43;PPW2WOMvY8&#43;yNEM2SLtmJHCc7fDhRmF0Nbn0SoA0ApVEuzLMWmZ1qXhP6iQ==" />
+
+ 
+<script src="/js/animation.min.52258474fc1994dd21d9887e3e3eb32fad945a667cde02ab5f5930b094ac751cabfdca87d27f35e6b044711c1b50ed42baba0550fa41c228867bdf35ac57b2f8.js" integrity="sha512-UiWEdPwZlN0h2Yh&#43;Pj6zL62UWmZ83gKrX1kwsJSsdRyr/cqH0n815rBEcRwbUO1CuroFUPpBwiiGe981rFey&#43;A==" defer></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js" defer></script>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="2e22d149-7494-46ec-9dc4-a1adef78aead"></script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="nryn (Alt + H)">nryn</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Making Movies
+    </h1>
+    <div class="post-meta"><span title='2025-03-08 18:45:20 +0530 IST'>8 March 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>My first computer had Windows 98SE with plus pack. It was a Pentium III 450MHz machine. P3 450 was a weird chipset. It was a slot 1 processor, which slid into the motherboard rather than the familiar socket mechanism. Codename katmai with 0.45µm process node. The nm process nodes were not even in the horizon. Why do I know this? Shortly after I got my computer, others got 550MHz codename coppermine with 0.37µm process node. The craving for specs started and still going on. We are digressing from the matter at hand.</p>
+<p>I will document the journey through PC specs one day. Quite necessary since I have started forgetting things. Signs of ageing.</p>
+<p>One of my fascination then was to open all the files with notepad. You had the &ldquo;Open with Notepad&rdquo; available in the menu.
+As is tradition, Windows would conk out and die if you opened a large enough file. I tried</p>
+<p>Since I am too lazy to load up Windows 98, I asked Perplexity deep search to fetch it for me.</p>
+<p><img alt="binary file" loading="lazy" src="/images/binfile.png"></p>
+<p>Binary files looked somewhat like this I guess. My friend KJ had the idea of creating brand new images and sounds by cutting and copying these blobs. I tried. It never worked. KJ is still cutting and trimming and adding stuff. He is a well-regarded sound designer and it is very likely you have encountered <a href="https://www.imdb.com/name/nm5958641/">his works</a>. The site from I got the image has the perfect look and feel of a 90s site! Check <a href="https://www.tmatlantic.com/encyclopedia/index.php?ELEMENT_ID=32065">TM Atlantic</a> out. In my head, it is still running on an old server somewhere.</p>
+<p>Quite recently, I had to create a diagram. I loathe creating diagrams in tools like Visio or Figma. Takes too long and you have to have a mechanism to manage the source. I have seen far too many diagrams that needed update and had to be removed because I could never get the source. Mermaid is pretty cool to create graphics-as-code, and I have thoroughly enjoyed using it thanks to LLMs, which can give a base from which we can work. It is also quite time consuming to get it properly working without the help of LLMs. But the source is with you and easy to edit.</p>
+<p>We have implemented <a href="https://mermaid.js.org">mermaid.js</a> into our Hugo docs and we have started putting in diagrams. Very helpful in certain cases where the diagram literally speaks a 1000 words.</p>
+<p>The particular diagram in question was a kind of resolution matrix that did not fit into any of the available mermaid styles. It was not an difficult diagram to create using any random tool but I wanted it to be programmatic. I used and abused Claude so much that it finally gave up. It said you are trying to do something, which is not fit for mermaid. If you use any LLM, you would realize it is quite rare that the bugger throws up hand and politely asks you to fuck off.</p>
+<p>I asked for alternatives dreading another tool and the potentially fuckery that awaited with its integration. Claude suggested SVG. Up until then, I never quite explored SVGs and didn&rsquo;t know much apart from it being a vector format. I hadn&rsquo;t put two and two together until then. Claude created a beautiful SVG and given the amount of information, it is perfectly readable and manageable. Very much editable if we wanted.</p>
+<p>That got my attention. KJ had the right idea to create art from editing files. Just that we didn&rsquo;t know about SVGs.</p>
+<p>Behold my SVG animation.</p>
+<p><strong>Death of the Rainbow King</strong></p>
+<div class="svg-animation-container" style="width: 100%;">
+    <style>
+        .svg-animation-container {
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .svg-animation-container .svg-wrapper {
+            position: relative;
+            padding-bottom: 70%;  
+            height: 0;
+            overflow: visible;
+        }
+        .svg-animation-container svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .replay-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            z-index: 10;
+        }
+    </style>
+
+    <div class="svg-wrapper">
+        <div id="svg-9985e25d7dd4f8287c099df9d61881f54694f8fa-wrapper"><svg id="renlyDeathAnimation" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nightSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000033;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000066;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="moonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CCCCFF;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="dawnLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7F50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="stainedGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9400D3;stop-opacity:0.7" />
+      <stop offset="16.6%" style="stop-color:#4B0082;stop-opacity:0.7" />
+      <stop offset="33.3%" style="stop-color:#0000FF;stop-opacity:0.7" />
+      <stop offset="50%" style="stop-color:#00FF00;stop-opacity:0.7" />
+      <stop offset="66.6%" style="stop-color:#FFFF00;stop-opacity:0.7" />
+      <stop offset="83.3%" style="stop-color:#FF7F00;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#FF0000;stop-opacity:0.7" />
+    </linearGradient>
+
+    <filter id="moonBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+    </filter>
+
+    <radialGradient id="bloodPool" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#990000;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#660000;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#330000;stop-opacity:0.7" />
+    </radialGradient>
+  </defs>
+
+  <!-- Scene 1: Birth of the Demon -->
+  <g id="scene1">
+    <!-- Night sky background -->
+    <rect id="nightBackground" x="0" y="0" width="1000" height="700" fill="url(#nightSky)">
+    <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </rect>
+
+    <!-- Moon with glow -->
+    <circle id="moonGlow" cx="800" cy="100" r="60" fill="url(#moonGlow)" filter="url(#moonBlur)" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.7;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </circle>
+    <circle id="moon" cx="800" cy="100" r="40" fill="white">
+      <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </circle>
+
+    <!-- Castle silhouette -->
+    <path id="castleSilhouette" d="M600,400 L650,400 L650,300 L670,280 L690,300 L690,250 L710,230 L730,250 L730,300 L750,280 L770,300 L770,400 L850,400 L850,350 L870,320 L890,350 L890,400 L950,400 L950,280 L980,250 L1000,280 L1000,600 L600,600 Z" fill="black">
+      <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </path>
+
+    <!-- Ground -->
+    <rect id="ground" x="0" y="400" width="1000" height="200" fill="#111122">
+      <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </rect>
+
+    <!-- Red woman (giving birth to demon) -->
+    <g id="redWoman">
+      <!-- Head -->
+      <circle cx="200" cy="350" r="15" fill="#FF0000">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </circle>
+
+      <!-- Body -->
+      <line x1="200" y1="365" x2="200" y2="420" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+
+      <!-- Arms raised in ritual -->
+      <line x1="200" y1="380" x2="170" y2="350" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+      <line x1="200" y1="380" x2="230" y2="350" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+
+      <!-- Legs spread -->
+      <line x1="200" y1="420" x2="170" y2="460" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+      <line x1="200" y1="420" x2="230" y2="460" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+
+      <!-- Glowing aura -->
+      <circle cx="200" cy="350" r="40" fill="none" stroke="#FF3333" stroke-width="2" opacity="0.4">
+        <animate attributeName="r" values="40;50;40" begin="0s" dur="3s" repeatCount="2"/>
+        <animate attributeName="opacity" values="0.4;0.6;0.4" begin="0s" dur="3s" repeatCount="2"/>
+        <animate attributeName="opacity" values="0.4;0;0" begin="7.5s" dur="0.5s" fill="freeze"/>
+      </circle>
+    </g>
+
+    <!-- Demon being birthed from between legs -->
+    <g id="demon">
+      <!-- Shadowy form appearing -->
+      <circle cx="200" cy="440" r="0" fill="#330000">
+        <animate attributeName="r" values="0;10;15" begin="2s" dur="2s" fill="freeze"/>
+        <animate attributeName="cy" values="440;420;150" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="cx" values="200;300;600" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.95;1"/>
+      </circle>
+
+      <!-- Body forms -->
+      <path d="M190,440 L210,440" stroke="#330000" stroke-width="0">
+        <animate attributeName="stroke-width" values="0;3;4" begin="2.5s" dur="1.5s" fill="freeze"/>
+        <animate attributeName="d" values="M190,440 L210,440;M290,420 L310,420;M590,150 L610,150" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.95;1"/>
+      </path>
+
+      <!-- Horns form -->
+      <path d="M195,440 L190,440 M205,440 L210,440" stroke="#990000" stroke-width="0">
+        <animate attributeName="stroke-width" values="0;2;3" begin="3s" dur="1s" fill="freeze"/>
+        <animate attributeName="d" values="M195,440 L190,440 M205,440 L210,440;M295,420 L285,405 M305,420 L315,405;M595,150 L585,135 M605,150 L615,135" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.95;1"/>
+      </path>
+
+      <!-- Shadow trail as demon flies towards castle -->
+      <ellipse cx="200" cy="440" rx="0" ry="0" fill="#330000" opacity="0">
+        <animate attributeName="rx" values="0;15;30;40" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="ry" values="0;5;10;15" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="cx" values="200;250;350;500" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="cy" values="440;410;250;200" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="opacity" values="0;0.3;0.5;0" begin="4s" dur="3s" fill="freeze"/>
+      </ellipse>
+    </g>
+
+    <!-- Transition to black -->
+    <rect id="blackTransition" x="0" y="0" width="1000" height="700" fill="black" opacity="0">
+    <animate attributeName="opacity" values="0;1;1;0" begin="7s" dur="4s" fill="freeze" keyTimes="0;0.25;0.75;1"/>
+    </rect>
+  </g>
+
+  <!-- Scene 2: King's Chamber and Death -->
+  <g id="scene2">
+    <!-- Chamber background - more somber -->
+    <rect id="chamberBackground" x="0" y="0" width="1000" height="700" fill="#2A1A29" opacity="0">
+    <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+    <!-- Change to dawn light after death -->
+    <animate attributeName="fill" from="#2A1A29" to="url(#dawnLight)" begin="22s" dur="3s" fill="freeze"/>
+    </rect>
+
+    <!-- Rainbow stained glass windows -->
+    <g id="windows">
+      <rect x="100" y="50" width="100" height="200" fill="url(#stainedGlass)" rx="50" ry="50" opacity="0">
+        <animate attributeName="opacity" values="0;0.7" begin="10s" dur="1s" fill="freeze"/>
+      </rect>
+      <rect x="450" y="50" width="100" height="200" fill="url(#stainedGlass)" rx="50" ry="50" opacity="0">
+        <animate attributeName="opacity" values="0;0.7" begin="10s" dur="1s" fill="freeze"/>
+      </rect>
+      <rect x="800" y="50" width="100" height="200" fill="url(#stainedGlass)" rx="50" ry="50" opacity="0">
+        <animate attributeName="opacity" values="0;0.7" begin="10s" dur="1s" fill="freeze"/>
+      </rect>
+    </g>
+
+    <!-- Floor -->
+    <rect id="floor" x="0" y="400" width="1000" height="200" fill="#1A0A19" opacity="0">
+      <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      <!-- Floor lighting changes to warm colors at dawn -->
+      <animate attributeName="fill" from="#1A0A19" to="#3A2A1A" begin="22s" dur="3s" fill="freeze"/>
+    </rect>
+
+    <!-- King (Renly) -->
+    <g id="king">
+      <!-- Head -->
+      <circle cx="500" cy="300" r="15" fill="#FFD700" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Head falls during death -->
+        <animate attributeName="cy" values="300;300;450" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </circle>
+
+      <!-- Crown -->
+      <path d="M485,285 L495,275 L505,275 L515,285" stroke="#FFD700" stroke-width="3" fill="none" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Crown falls during death -->
+        <animate attributeName="transform" type="translate" from="0,0" to="0,150" begin="18s" dur="2s" fill="freeze"/>
+        <animate attributeName="opacity" values="1;0" begin="19s" dur="0.5s" fill="freeze"/>
+      </path>
+
+      <!-- Body -->
+      <line x1="500" y1="315" x2="500" y2="370" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Body falls during death -->
+        <animate attributeName="y1" values="315;315;465" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="370;370;520" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+
+      <!-- Robe - less colorful -->
+      <path d="M480,340 L470,420 L530,420 L520,340" fill="#AA7F50" opacity="0">
+        <animate attributeName="opacity" values="0;0.9" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Robe falls during death -->
+        <animate attributeName="transform" type="translate" from="0,0" to="0,150" begin="18s" dur="2s" fill="freeze"/>
+      </path>
+
+      <!-- Arms -->
+      <line x1="500" y1="330" x2="470" y2="350" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Arms fall during death -->
+        <animate attributeName="y1" values="330;330;480" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="350;350;500" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+      <line x1="500" y1="330" x2="530" y2="350" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Arms fall during death -->
+        <animate attributeName="y1" values="330;330;480" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="350;350;500" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+
+      <!-- Legs -->
+      <line x1="500" y1="370" x2="485" y2="420" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Legs fall during death -->
+        <animate attributeName="y1" values="370;370;520" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="420;420;570" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+      <line x1="500" y1="370" x2="515" y2="420" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Legs fall during death -->
+        <animate attributeName="y1" values="370;370;520" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="420;420;570" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+
+      <!-- Death animation - collapse to floor -->
+      <animateTransform attributeName="transform" type="rotate"
+                        from="0 500 300" to="-90 500 470"
+                        begin="18s" dur="2s" fill="freeze"/>
+    </g>
+
+    <!-- Tall Woman (Brienne) - initially frozen -->
+    <g id="tallWoman">
+      <!-- Head -->
+      <circle cx="600" cy="280" r="12" fill="#DDDDDD" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </circle>
+
+      <!-- Body -->
+      <line x1="600" y1="292" x2="600" y2="360" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Arms -->
+      <line x1="600" y1="320" x2="580" y2="340" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+      <line x1="600" y1="320" x2="620" y2="290" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Legs -->
+      <line x1="600" y1="360" x2="590" y2="420" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+      <line x1="600" y1="360" x2="610" y2="420" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Sword -->
+      <line x1="620" y1="290" x2="635" y2="275" stroke="silver" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Movement to Renly after death -->
+      <animateTransform attributeName="transform" type="translate"
+                        from="0,0" to="-100,170"
+                        begin="20s" dur="2s" fill="freeze"/>
+    </g>
+
+    <!-- Short Woman (Catelyn) - animated before demon -->
+    <g id="shortWoman">
+      <!-- Head -->
+      <circle cx="400" cy="320" r="12" fill="#AA7777" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </circle>
+
+      <!-- Body -->
+      <line x1="400" y1="332" x2="400" y2="380" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Arms -->
+      <line x1="400" y1="350" x2="380" y2="360" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+      <line x1="400" y1="350" x2="420" y2="360" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Legs -->
+      <line x1="400" y1="380" x2="390" y2="420" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+      <line x1="400" y1="380" x2="410" y2="420" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Animated movement before demon arrives -->
+      <animateTransform attributeName="transform" type="translate"
+                        from="-20,0" to="20,0"
+                        begin="12s" dur="3s" repeatCount="1"/>
+      <animateTransform attributeName="transform" type="translate"
+                        from="20,0" to="0,0"
+                        begin="15s" dur="0.5s" fill="freeze"/>
+    </g>
+
+    <!-- Shadow Demon (attacking from bottom) -->
+    <g id="shadowDemon">
+      <!-- Shadow form appearing from bottom -->
+      <ellipse cx="500" cy="650" rx="0" ry="0" fill="#000000" opacity="0">
+        <animate attributeName="rx" values="0;30;50;70;80" begin="15s" dur="3s" fill="freeze" keyTimes="0;0.25;0.5;0.75;1"/>
+        <animate attributeName="ry" values="0;60;80;100;120" begin="15s" dur="3s" fill="freeze" keyTimes="0;0.25;0.5;0.75;1"/>
+        <animate attributeName="cy" values="650;550;400;350;300" begin="15s" dur="3s" fill="freeze" keyTimes="0;0.25;0.5;0.75;1"/>
+        <animate attributeName="opacity" values="0;0.5;0.7;0.9;0.7" begin="15s" dur="3s" fill="freeze" keyTimes="0;0.25;0.5;0.75;1"/>
+        <animate attributeName="opacity" values="0.7;0" begin="19s" dur="2s" fill="freeze"/>
+      </ellipse>
+
+      <!-- Demonic eyes within shadow -->
+      <circle cx="480" cy="650" r="0" fill="#FF0000" opacity="0">
+        <animate attributeName="r" values="0;3;5;8" begin="15.5s" dur="2.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+        <animate attributeName="cy" values="650;500;400;300" begin="15.5s" dur="2.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+        <animate attributeName="opacity" values="0;0.8;1;0" begin="15.5s" dur="3.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+      </circle>
+      <circle cx="520" cy="650" r="0" fill="#FF0000" opacity="0">
+        <animate attributeName="r" values="0;3;5;8" begin="15.5s" dur="2.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+        <animate attributeName="cy" values="650;500;400;300" begin="15.5s" dur="2.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+        <animate attributeName="opacity" values="0;0.8;1;0" begin="15.5s" dur="3.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+      </circle>
+
+      <!-- Shadow arm/blade forming -->
+      <path d="M0,0 L0,0" stroke="#000000" stroke-width="0" fill="none" opacity="0">
+        <animate attributeName="d" values="M0,0 L0,0;M500,350 L520,310;M500,300 L530,280" begin="17s" dur="1s" fill="freeze" keyTimes="0;0.5;1"/>
+        <animate attributeName="stroke-width" values="0;5;10" begin="17s" dur="1s" fill="freeze" keyTimes="0;0.5;1"/>
+        <animate attributeName="opacity" values="0;0.7;0.9" begin="17s" dur="1s" fill="freeze" keyTimes="0;0.5;1"/>
+        <animate attributeName="opacity" values="0.9;0" begin="19s" dur="1s" fill="freeze"/>
+      </path>
+    </g>
+
+    <!-- More blood effects -->
+    <!-- Initial wound blood -->
+    <circle cx="500" cy="300" r="0" fill="#CC0000" opacity="0">
+      <animate attributeName="r" values="0;15;25;30" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;0.7;1"/>
+      <animate attributeName="cy" values="300;350;400;450" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;0.7;1"/>
+      <animate attributeName="opacity" values="0;0.9;0.8;0.7" begin="18s" dur="6s" fill="freeze" keyTimes="0;0.3;0.7;1"/>
+    </circle>
+
+    <!-- Blood pool on floor -->
+    <ellipse cx="500" cy="500" rx="0" ry="0" fill="url(#bloodPool)" opacity="0">
+      <animate attributeName="rx" values="0;30;60;90;120" begin="19s" dur="4s" fill="freeze" keyTimes="0;0.2;0.4;0.7;1"/>
+      <animate attributeName="ry" values="0;15;25;35;45" begin="19s" dur="4s" fill="freeze" keyTimes="0;0.2;0.4;0.7;1"/>
+      <animate attributeName="opacity" values="0;0.7;0.9;1;1" begin="19s" dur="4s" fill="freeze" keyTimes="0;0.2;0.4;0.7;1"/>
+    </ellipse>
+
+    <!-- Blood spatter -->
+    <g id="bloodSpatter">
+      <circle cx="520" cy="320" r="0" fill="#AA0000" opacity="0">
+        <animate attributeName="r" values="0;3;5" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cx" values="520;540;560" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cy" values="320;340;360" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="opacity" values="0;0.9;0.7" begin="18s" dur="4s" fill="freeze"/>
+      </circle>
+      <circle cx="480" cy="320" r="0" fill="#AA0000" opacity="0">
+        <animate attributeName="r" values="0;4;7" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cx" values="480;460;440" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cy" values="320;330;350" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="opacity" values="0;0.9;0.7" begin="18s" dur="4s" fill="freeze"/>
+      </circle>
+      <circle cx="510" cy="310" r="0" fill="#AA0000" opacity="0">
+        <animate attributeName="r" values="0;2;4" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cx" values="510;520;530" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cy" values="310;300;290" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="opacity" values="0;0.9;0.7" begin="18s" dur="4s" fill="freeze"/>
+      </circle>
+    </g>
+  </g>
+</svg>
+</div>
+    </div>
+
+    <button class="replay-button" onclick="replaySvg('svg-9985e25d7dd4f8287c099df9d61881f54694f8fa-wrapper')">
+        Replay
+    </button>
+</div>
+
+<script>
+    (function () {
+        if (typeof window.replaySvg === "undefined") {
+            window.replaySvg = function (id) {
+                const wrapper = document.getElementById(id);
+                if (!wrapper) return;
+                const oldSvg = wrapper.innerHTML;
+                wrapper.innerHTML = "";
+                setTimeout(() => {
+                    wrapper.innerHTML = oldSvg;
+                }, 10);
+            };
+        }
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const svgElement = document.querySelector("#svg-9985e25d7dd4f8287c099df9d61881f54694f8fa-wrapper svg");
+            if (svgElement) {
+                svgElement.setAttribute("width", "100%");
+                svgElement.setAttribute("height", "100%");
+                svgElement.setAttribute("preserveAspectRatio", "xMidYMid meet");
+            }
+        });
+    })();
+</script>
+
+<p>I have been listening to &ldquo;The Clash of Kings&rdquo; audio book last month. The SVG depicts the death of Renly Baratheon, with the bonus birth of the demon.</p>
+<p>I created this with the <a href="https://docs.anthropic.com/en/api/getting-started">Anthropic API</a>, which is separate from Claude. I have a $5 credit and decided to burn through it.</p>
+<p>I used <a href="https://claudemind.com">ClaudeMind</a>, which is a third-party tool to use the Anthropic API. It has a perpetual license and an evaluation version. It allows integration with several MCP (Model Context Protocol) servers and enables agentic workflows. For example, you can integrate with mcp-scholarly so that you can extend your search towards scholarly articles and ingest that information into your workflows. They really need to add some documentation. Currently, the website makes it feel as if it is just a desktop frontend for Claude.</p>
+<p>The creation of the SVG and the creation of an SVG shortcode together cost me around $2. I did screw around with other ideas, that could have cost me at least half this amount before I zeroed in on this idea. I am sure HBO spent several magnitudes more than that on their scene!</p>
+<p>SVG is powerful and opens up some interesting paths in graphics in technical documentation. Powered by AI, the manipulation of SVG is kind of limitless. May be this is first step towards the extinction of raster graphics.</p>
+<p>In other news, we have a working comment system! Implemented with Supabase and some nifty JS and Hugo magic. I am also in the works regarding a few other projects. At least one of those should be up on the blog very soon.</p>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Claude 3.7 Sonnet</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    In this delightfully geeky memoir, our author transforms nostalgic Windows 98 file-hacking into modern SVG wizardry. The Game of Thrones-inspired animation—crafted for mere dollars—showcases how AI-powered vector graphics might just spell doom for traditional raster formats. Equal parts tech retrospective and creative manifesto, it&rsquo;s a refreshing reminder that yesterday&rsquo;s digital curiosity often becomes tomorrow&rsquo;s innovation. Recommended for anyone who&rsquo;s ever opened a binary file in Notepad just to see what would happen.
+  </div>
+</article>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Deepseek R1 1776</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8.5/10</span></span>
+  </header>
+  <div class="review-content">
+    <p>A compelling tech memoir that shines when focusing on AI-assisted creativity, though occasionally loses narrative focus.</p>
+<p>🎬 Nostalgic nerd ventures from Win98 hex editing to AI-crafted SVG animations, proving $2 and Claude API outpace HBO budgets. 8.5/10 for tech-poetic hybrid storytelling.</p>
+
+  </div>
+</article>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">ChatGPT 4-o</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    A nostalgic tech journey meets modern AI experimentation in this engaging blog post. The author reminisces about their early computing days, explores the evolution of digital creativity, and takes a deep dive into SVG-powered animations—culminating in a geeky yet fascinating recreation of a Game of Thrones moment. With humor, personal anecdotes, and a touch of AI-assisted artistry, this post is both insightful and entertaining.
+  </div>
+</article>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Grok 3</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">7.5/10</span></span>
+  </header>
+  <div class="review-content">
+    From Windows 98 crashes to SVG sorcery, this geeky gem chronicles a coder’s quest to slay raster graphics with AI and a stick-figure king. Rough around the edges but brimming with nerdy charm—perfect for tinkerers who dream in code.
+  </div>
+</article>
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">Le Chat (Mistral models)</span>
+    <span class="review-rating"><span class="rating-star">★</span><span class="rating-number">8/10</span></span>
+  </header>
+  <div class="review-content">
+    &ldquo;Making Movies&rdquo; is a captivating blend of personal nostalgia and technical insight, exploring the author&rsquo;s journey from early computing to creating SVG animations with AI. While it can be a bit scattered, the post offers valuable information and a compelling narrative.
+  </div>
+</article>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+<div class="comments-section">
+    <h3>Comments</h3>
+
+    <div id="comments-container" data-post-slug="making-movies">
+        
+        <p class="loading-text">Loading comments...</p>
+    </div>
+
+    <div class="comment-form">
+        <h4>Leave a comment</h4>
+        <form id="comment-form">
+            <input type="hidden" id="post-slug" value="making-movies" />
+
+            <div class="form-group">
+                <label for="author-name">Name *</label>
+                <input type="text" id="author-name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="author-email"
+                    >Email (optional, not displayed)</label
+                >
+                <input type="email" id="author-email" />
+            </div>
+
+            <div class="form-group">
+                <label for="comment-content">Comment *</label>
+                <textarea id="comment-content" rows="4" required></textarea>
+            </div>
+
+            <button type="submit">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comment-notification" id="comment-notification"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script src="/js/comment.js"></script>
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">nryn</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
