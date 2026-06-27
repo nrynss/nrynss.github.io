@@ -1,0 +1,34 @@
+---
+// src/pages/index.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProfileCard from '../components/static/ProfileCard.astro';
+---
+
+<BaseLayout title="Welcome" description="Personal website of nrynss">
+  <div class="post-single">
+    <ProfileCard>
+      <h2>Namaskaram!</h2>
+      <p>
+        I am <a href="/about/">Narayan SS</a>. I write for a living. Tinker for fun. Lose self in many a train of thought.
+      </p>
+      <p>
+        This is my space. See my <a href="/blog/">blog</a> to glimpse things I think, build, and reflect. See my <a href="/projects/">projects</a> to take a peek into what I have built.
+      </p>
+    </ProfileCard>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Home specific enhancements */
+  .home-content h2 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  .home-content p {
+    font-size: 1.1rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+</style>

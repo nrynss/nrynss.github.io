@@ -1,0 +1,24 @@
+---
+// src/pages/projects.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectsBoard from '../components/interactive/ProjectsBoard.svelte';
+import { getCollection } from 'astro:content';
+
+// Query the projects collection using Content Layer API
+const projects = await getCollection('projects');
+const projectsData = projects.map(p => p.data);
+---
+
+<BaseLayout title="Projects" description="A list of projects I have worked on">
+  <article class="post-single">
+    <header class="post-header">
+      <h1 class="post-title">Projects</h1>
+      <div class="post-description">A list of projects I have worked on</div>
+    </header>
+
+    <div class="post-content">
+      <!-- Interactive Svelte Projects Board Island -->
+      <ProjectsBoard client:idle data={projectsData} />
+    </div>
+  </article>
+</BaseLayout>

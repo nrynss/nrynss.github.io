@@ -1,0 +1,114 @@
+---
+// src/pages/blog/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+
+// Filter out drafts and sort by date descending
+const publishedPosts = posts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function getSnippet(body: string, maxLen = 180) {
+  if (!body) return "";
+  let lines = body.split('\n');
+  lines = lines.filter(line => {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('import ') || trimmed.startsWith('export ')) return false;
+    if (trimmed.startsWith('---') || trimmed.startsWith('- ') || trimmed.startsWith('* ') || trimmed.startsWith('#')) return false;
+    if (trimmed.startsWith('<div') || trimmed.startsWith('</div')) return false;
+    return trimmed.length > 0;
+  });
+  
+  let cleanText = lines.join(' ');
+  cleanText = cleanText.replace(/<[^>]+>/g, '');
+  cleanText = cleanText.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+  cleanText = cleanText.replace(/[*_`~]/g, '');
+  cleanText = cleanText.replace(/\s+/g, ' ').trim();
+  
+  if (cleanText.length > maxLen) {
+    return cleanText.slice(0, maxLen).trim() + "...";
+  }
+  return cleanText;
+}
+---
+
+<BaseLayout title="Blog" description="Glimpse things I think, build, and reflect.">
+  <div class="post-single">
+    <header class="post-header">
+      <h1 class="post-title">Blog</h1>
+      <div class="post-description">Things I think, build, and reflect.</div>
+    </header>
+
+    <div class="post-content">
+      <div class="posts-list">
+        {publishedPosts.map((post) => {
+          const date = new Date(post.data.date);
+          const formattedDate = date.toLocaleDateString('en-US', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          });
+          
+          return (
+            <article class="post-item">
+              <header class="post-item-header">
+                <h2 class="post-item-title">
+                  <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                </h2>
+                <div class="post-item-meta">
+                  <time datetime={date.toISOString()}>{formattedDate}</time>
+                </div>
+              </header>
+              <p class="post-item-description">
+                {post.data.description || getSnippet(post.body)}
+              </p>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
+  .post-item {
+    border-bottom: 1px solid var(--border-color, #eee);
+    padding-bottom: 2rem;
+  }
+  .post-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .post-item-title {
+    margin: 0 0 0.5rem 0 !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .post-item-title a {
+    color: var(--accent-primary, #007acc);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .post-item-title a:hover {
+    color: var(--accent-secondary, #005999);
+  }
+  .post-item-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #666);
+    margin-bottom: 0.75rem;
+  }
+  .post-item-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--text-primary, #333);
+  }
+</style>

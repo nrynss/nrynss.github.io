@@ -1,0 +1,79 @@
+---
+// src/components/static/SvgAnimation.astro
+interface Props {
+  src: string;
+  width?: string;
+  id?: string;
+  aspectRatio?: string;
+}
+
+const { src, width = "100%", id = `svg-${Math.random().toString(36).substring(2, 9)}`, aspectRatio = "70" } = Astro.props;
+
+// Use Vite dynamic raw import to fetch the SVG content at compile-time
+let svgContent = "";
+try {
+  // Vite supports dynamic import with variables if the pattern starts with a relative path and ends with a static extension
+  const svgModule = await import(`../../assets/animations/${src}.svg?raw`);
+  svgContent = svgModule.default;
+} catch (err) {
+  console.error("Could not load SVG via Vite dynamic raw import:", src, err);
+  svgContent = `<div style="color: red; padding: 20px; border: 1px solid red">Error loading SVG: ${src}</div>`;
+}
+---
+
+<div class="svg-animation-container" style={`width: ${width};`} data-id={id}>
+  <div class="svg-wrapper" style={`padding-bottom: ${aspectRatio}%;`}>
+    <div id={`${id}-wrapper`} set:html={svgContent}></div>
+  </div>
+  <button class="replay-button" onclick={`replaySvg('${id}-wrapper')`}>Replay</button>
+</div>
+
+<script is:inline>
+  if (typeof window.replaySvg === "undefined") {
+    window.replaySvg = function (wrapperId) {
+      const wrapper = document.getElementById(wrapperId);
+      if (!wrapper) return;
+      const oldSvg = wrapper.innerHTML;
+      wrapper.innerHTML = "";
+      setTimeout(() => {
+        wrapper.innerHTML = oldSvg;
+      }, 10);
+    };
+  }
+</script>
+
+<style>
+  .svg-animation-container {
+    max-width: 100%;
+    margin: 1.5rem auto;
+    position: relative;
+  }
+  .svg-wrapper {
+    position: relative;
+    height: 0;
+    overflow: visible;
+  }
+  .svg-animation-container :global(svg) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .replay-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    z-index: 10;
+    font-size: 0.8rem;
+  }
+  .replay-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+</style>

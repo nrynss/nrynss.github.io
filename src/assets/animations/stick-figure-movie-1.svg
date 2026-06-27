@@ -1,0 +1,380 @@
+<svg id="renlyDeathAnimation" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nightSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000033;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000066;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="moonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CCCCFF;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="dawnLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7F50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="stainedGlass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9400D3;stop-opacity:0.7" />
+      <stop offset="16.6%" style="stop-color:#4B0082;stop-opacity:0.7" />
+      <stop offset="33.3%" style="stop-color:#0000FF;stop-opacity:0.7" />
+      <stop offset="50%" style="stop-color:#00FF00;stop-opacity:0.7" />
+      <stop offset="66.6%" style="stop-color:#FFFF00;stop-opacity:0.7" />
+      <stop offset="83.3%" style="stop-color:#FF7F00;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#FF0000;stop-opacity:0.7" />
+    </linearGradient>
+
+    <filter id="moonBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+    </filter>
+
+    <radialGradient id="bloodPool" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#990000;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#660000;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#330000;stop-opacity:0.7" />
+    </radialGradient>
+  </defs>
+
+  <!-- Scene 1: Birth of the Demon -->
+  <g id="scene1">
+    <!-- Night sky background -->
+    <rect id="nightBackground" x="0" y="0" width="1000" height="700" fill="url(#nightSky)">
+    <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </rect>
+
+    <!-- Moon with glow -->
+    <circle id="moonGlow" cx="800" cy="100" r="60" fill="url(#moonGlow)" filter="url(#moonBlur)" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.7;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </circle>
+    <circle id="moon" cx="800" cy="100" r="40" fill="white">
+      <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </circle>
+
+    <!-- Castle silhouette -->
+    <path id="castleSilhouette" d="M600,400 L650,400 L650,300 L670,280 L690,300 L690,250 L710,230 L730,250 L730,300 L750,280 L770,300 L770,400 L850,400 L850,350 L870,320 L890,350 L890,400 L950,400 L950,280 L980,250 L1000,280 L1000,600 L600,600 Z" fill="black">
+      <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </path>
+
+    <!-- Ground -->
+    <rect id="ground" x="0" y="400" width="1000" height="200" fill="#111122">
+      <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+    </rect>
+
+    <!-- Red woman (giving birth to demon) -->
+    <g id="redWoman">
+      <!-- Head -->
+      <circle cx="200" cy="350" r="15" fill="#FF0000">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </circle>
+
+      <!-- Body -->
+      <line x1="200" y1="365" x2="200" y2="420" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+
+      <!-- Arms raised in ritual -->
+      <line x1="200" y1="380" x2="170" y2="350" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+      <line x1="200" y1="380" x2="230" y2="350" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+
+      <!-- Legs spread -->
+      <line x1="200" y1="420" x2="170" y2="460" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+      <line x1="200" y1="420" x2="230" y2="460" stroke="#FF0000" stroke-width="4">
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.8;1"/>
+      </line>
+
+      <!-- Glowing aura -->
+      <circle cx="200" cy="350" r="40" fill="none" stroke="#FF3333" stroke-width="2" opacity="0.4">
+        <animate attributeName="r" values="40;50;40" begin="0s" dur="3s" repeatCount="2"/>
+        <animate attributeName="opacity" values="0.4;0.6;0.4" begin="0s" dur="3s" repeatCount="2"/>
+        <animate attributeName="opacity" values="0.4;0;0" begin="7.5s" dur="0.5s" fill="freeze"/>
+      </circle>
+    </g>
+
+    <!-- Demon being birthed from between legs -->
+    <g id="demon">
+      <!-- Shadowy form appearing -->
+      <circle cx="200" cy="440" r="0" fill="#330000">
+        <animate attributeName="r" values="0;10;15" begin="2s" dur="2s" fill="freeze"/>
+        <animate attributeName="cy" values="440;420;150" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="cx" values="200;300;600" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.95;1"/>
+      </circle>
+
+      <!-- Body forms -->
+      <path d="M190,440 L210,440" stroke="#330000" stroke-width="0">
+        <animate attributeName="stroke-width" values="0;3;4" begin="2.5s" dur="1.5s" fill="freeze"/>
+        <animate attributeName="d" values="M190,440 L210,440;M290,420 L310,420;M590,150 L610,150" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.95;1"/>
+      </path>
+
+      <!-- Horns form -->
+      <path d="M195,440 L190,440 M205,440 L210,440" stroke="#990000" stroke-width="0">
+        <animate attributeName="stroke-width" values="0;2;3" begin="3s" dur="1s" fill="freeze"/>
+        <animate attributeName="d" values="M195,440 L190,440 M205,440 L210,440;M295,420 L285,405 M305,420 L315,405;M595,150 L585,135 M605,150 L615,135" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="opacity" values="1;1;0" begin="0s" dur="8s" fill="freeze" keyTimes="0;0.95;1"/>
+      </path>
+
+      <!-- Shadow trail as demon flies towards castle -->
+      <ellipse cx="200" cy="440" rx="0" ry="0" fill="#330000" opacity="0">
+        <animate attributeName="rx" values="0;15;30;40" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="ry" values="0;5;10;15" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="cx" values="200;250;350;500" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="cy" values="440;410;250;200" begin="4s" dur="3s" fill="freeze"/>
+        <animate attributeName="opacity" values="0;0.3;0.5;0" begin="4s" dur="3s" fill="freeze"/>
+      </ellipse>
+    </g>
+
+    <!-- Transition to black -->
+    <rect id="blackTransition" x="0" y="0" width="1000" height="700" fill="black" opacity="0">
+    <animate attributeName="opacity" values="0;1;1;0" begin="7s" dur="4s" fill="freeze" keyTimes="0;0.25;0.75;1"/>
+    </rect>
+  </g>
+
+  <!-- Scene 2: King's Chamber and Death -->
+  <g id="scene2">
+    <!-- Chamber background - more somber -->
+    <rect id="chamberBackground" x="0" y="0" width="1000" height="700" fill="#2A1A29" opacity="0">
+    <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+    <!-- Change to dawn light after death -->
+    <animate attributeName="fill" from="#2A1A29" to="url(#dawnLight)" begin="22s" dur="3s" fill="freeze"/>
+    </rect>
+
+    <!-- Rainbow stained glass windows -->
+    <g id="windows">
+      <rect x="100" y="50" width="100" height="200" fill="url(#stainedGlass)" rx="50" ry="50" opacity="0">
+        <animate attributeName="opacity" values="0;0.7" begin="10s" dur="1s" fill="freeze"/>
+      </rect>
+      <rect x="450" y="50" width="100" height="200" fill="url(#stainedGlass)" rx="50" ry="50" opacity="0">
+        <animate attributeName="opacity" values="0;0.7" begin="10s" dur="1s" fill="freeze"/>
+      </rect>
+      <rect x="800" y="50" width="100" height="200" fill="url(#stainedGlass)" rx="50" ry="50" opacity="0">
+        <animate attributeName="opacity" values="0;0.7" begin="10s" dur="1s" fill="freeze"/>
+      </rect>
+    </g>
+
+    <!-- Floor -->
+    <rect id="floor" x="0" y="400" width="1000" height="200" fill="#1A0A19" opacity="0">
+      <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      <!-- Floor lighting changes to warm colors at dawn -->
+      <animate attributeName="fill" from="#1A0A19" to="#3A2A1A" begin="22s" dur="3s" fill="freeze"/>
+    </rect>
+
+    <!-- King (Renly) -->
+    <g id="king">
+      <!-- Head -->
+      <circle cx="500" cy="300" r="15" fill="#FFD700" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Head falls during death -->
+        <animate attributeName="cy" values="300;300;450" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </circle>
+
+      <!-- Crown -->
+      <path d="M485,285 L495,275 L505,275 L515,285" stroke="#FFD700" stroke-width="3" fill="none" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Crown falls during death -->
+        <animate attributeName="transform" type="translate" from="0,0" to="0,150" begin="18s" dur="2s" fill="freeze"/>
+        <animate attributeName="opacity" values="1;0" begin="19s" dur="0.5s" fill="freeze"/>
+      </path>
+
+      <!-- Body -->
+      <line x1="500" y1="315" x2="500" y2="370" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Body falls during death -->
+        <animate attributeName="y1" values="315;315;465" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="370;370;520" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+
+      <!-- Robe - less colorful -->
+      <path d="M480,340 L470,420 L530,420 L520,340" fill="#AA7F50" opacity="0">
+        <animate attributeName="opacity" values="0;0.9" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Robe falls during death -->
+        <animate attributeName="transform" type="translate" from="0,0" to="0,150" begin="18s" dur="2s" fill="freeze"/>
+      </path>
+
+      <!-- Arms -->
+      <line x1="500" y1="330" x2="470" y2="350" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Arms fall during death -->
+        <animate attributeName="y1" values="330;330;480" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="350;350;500" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+      <line x1="500" y1="330" x2="530" y2="350" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Arms fall during death -->
+        <animate attributeName="y1" values="330;330;480" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="350;350;500" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+
+      <!-- Legs -->
+      <line x1="500" y1="370" x2="485" y2="420" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Legs fall during death -->
+        <animate attributeName="y1" values="370;370;520" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="420;420;570" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+      <line x1="500" y1="370" x2="515" y2="420" stroke="#FFD700" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+        <!-- Legs fall during death -->
+        <animate attributeName="y1" values="370;370;520" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+        <animate attributeName="y2" values="420;420;570" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;1"/>
+      </line>
+
+      <!-- Death animation - collapse to floor -->
+      <animateTransform attributeName="transform" type="rotate"
+                        from="0 500 300" to="-90 500 470"
+                        begin="18s" dur="2s" fill="freeze"/>
+    </g>
+
+    <!-- Tall Woman (Brienne) - initially frozen -->
+    <g id="tallWoman">
+      <!-- Head -->
+      <circle cx="600" cy="280" r="12" fill="#DDDDDD" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </circle>
+
+      <!-- Body -->
+      <line x1="600" y1="292" x2="600" y2="360" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Arms -->
+      <line x1="600" y1="320" x2="580" y2="340" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+      <line x1="600" y1="320" x2="620" y2="290" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Legs -->
+      <line x1="600" y1="360" x2="590" y2="420" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+      <line x1="600" y1="360" x2="610" y2="420" stroke="#DDDDDD" stroke-width="4" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Sword -->
+      <line x1="620" y1="290" x2="635" y2="275" stroke="silver" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Movement to Renly after death -->
+      <animateTransform attributeName="transform" type="translate"
+                        from="0,0" to="-100,170"
+                        begin="20s" dur="2s" fill="freeze"/>
+    </g>
+
+    <!-- Short Woman (Catelyn) - animated before demon -->
+    <g id="shortWoman">
+      <!-- Head -->
+      <circle cx="400" cy="320" r="12" fill="#AA7777" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </circle>
+
+      <!-- Body -->
+      <line x1="400" y1="332" x2="400" y2="380" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Arms -->
+      <line x1="400" y1="350" x2="380" y2="360" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+      <line x1="400" y1="350" x2="420" y2="360" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Legs -->
+      <line x1="400" y1="380" x2="390" y2="420" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+      <line x1="400" y1="380" x2="410" y2="420" stroke="#AA7777" stroke-width="3" opacity="0">
+        <animate attributeName="opacity" values="0;1" begin="10s" dur="1s" fill="freeze"/>
+      </line>
+
+      <!-- Animated movement before demon arrives -->
+      <animateTransform attributeName="transform" type="translate"
+                        from="-20,0" to="20,0"
+                        begin="12s" dur="3s" repeatCount="1"/>
+      <animateTransform attributeName="transform" type="translate"
+                        from="20,0" to="0,0"
+                        begin="15s" dur="0.5s" fill="freeze"/>
+    </g>
+
+    <!-- Shadow Demon (attacking from bottom) -->
+    <g id="shadowDemon">
+      <!-- Shadow form appearing from bottom -->
+      <ellipse cx="500" cy="650" rx="0" ry="0" fill="#000000" opacity="0">
+        <animate attributeName="rx" values="0;30;50;70;80" begin="15s" dur="3s" fill="freeze" keyTimes="0;0.25;0.5;0.75;1"/>
+        <animate attributeName="ry" values="0;60;80;100;120" begin="15s" dur="3s" fill="freeze" keyTimes="0;0.25;0.5;0.75;1"/>
+        <animate attributeName="cy" values="650;550;400;350;300" begin="15s" dur="3s" fill="freeze" keyTimes="0;0.25;0.5;0.75;1"/>
+        <animate attributeName="opacity" values="0;0.5;0.7;0.9;0.7" begin="15s" dur="3s" fill="freeze" keyTimes="0;0.25;0.5;0.75;1"/>
+        <animate attributeName="opacity" values="0.7;0" begin="19s" dur="2s" fill="freeze"/>
+      </ellipse>
+
+      <!-- Demonic eyes within shadow -->
+      <circle cx="480" cy="650" r="0" fill="#FF0000" opacity="0">
+        <animate attributeName="r" values="0;3;5;8" begin="15.5s" dur="2.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+        <animate attributeName="cy" values="650;500;400;300" begin="15.5s" dur="2.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+        <animate attributeName="opacity" values="0;0.8;1;0" begin="15.5s" dur="3.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+      </circle>
+      <circle cx="520" cy="650" r="0" fill="#FF0000" opacity="0">
+        <animate attributeName="r" values="0;3;5;8" begin="15.5s" dur="2.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+        <animate attributeName="cy" values="650;500;400;300" begin="15.5s" dur="2.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+        <animate attributeName="opacity" values="0;0.8;1;0" begin="15.5s" dur="3.5s" fill="freeze" keyTimes="0;0.3;0.6;1"/>
+      </circle>
+
+      <!-- Shadow arm/blade forming -->
+      <path d="M0,0 L0,0" stroke="#000000" stroke-width="0" fill="none" opacity="0">
+        <animate attributeName="d" values="M0,0 L0,0;M500,350 L520,310;M500,300 L530,280" begin="17s" dur="1s" fill="freeze" keyTimes="0;0.5;1"/>
+        <animate attributeName="stroke-width" values="0;5;10" begin="17s" dur="1s" fill="freeze" keyTimes="0;0.5;1"/>
+        <animate attributeName="opacity" values="0;0.7;0.9" begin="17s" dur="1s" fill="freeze" keyTimes="0;0.5;1"/>
+        <animate attributeName="opacity" values="0.9;0" begin="19s" dur="1s" fill="freeze"/>
+      </path>
+    </g>
+
+    <!-- More blood effects -->
+    <!-- Initial wound blood -->
+    <circle cx="500" cy="300" r="0" fill="#CC0000" opacity="0">
+      <animate attributeName="r" values="0;15;25;30" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;0.7;1"/>
+      <animate attributeName="cy" values="300;350;400;450" begin="18s" dur="2s" fill="freeze" keyTimes="0;0.3;0.7;1"/>
+      <animate attributeName="opacity" values="0;0.9;0.8;0.7" begin="18s" dur="6s" fill="freeze" keyTimes="0;0.3;0.7;1"/>
+    </circle>
+
+    <!-- Blood pool on floor -->
+    <ellipse cx="500" cy="500" rx="0" ry="0" fill="url(#bloodPool)" opacity="0">
+      <animate attributeName="rx" values="0;30;60;90;120" begin="19s" dur="4s" fill="freeze" keyTimes="0;0.2;0.4;0.7;1"/>
+      <animate attributeName="ry" values="0;15;25;35;45" begin="19s" dur="4s" fill="freeze" keyTimes="0;0.2;0.4;0.7;1"/>
+      <animate attributeName="opacity" values="0;0.7;0.9;1;1" begin="19s" dur="4s" fill="freeze" keyTimes="0;0.2;0.4;0.7;1"/>
+    </ellipse>
+
+    <!-- Blood spatter -->
+    <g id="bloodSpatter">
+      <circle cx="520" cy="320" r="0" fill="#AA0000" opacity="0">
+        <animate attributeName="r" values="0;3;5" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cx" values="520;540;560" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cy" values="320;340;360" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="opacity" values="0;0.9;0.7" begin="18s" dur="4s" fill="freeze"/>
+      </circle>
+      <circle cx="480" cy="320" r="0" fill="#AA0000" opacity="0">
+        <animate attributeName="r" values="0;4;7" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cx" values="480;460;440" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cy" values="320;330;350" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="opacity" values="0;0.9;0.7" begin="18s" dur="4s" fill="freeze"/>
+      </circle>
+      <circle cx="510" cy="310" r="0" fill="#AA0000" opacity="0">
+        <animate attributeName="r" values="0;2;4" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cx" values="510;520;530" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="cy" values="310;300;290" begin="18s" dur="0.5s" fill="freeze"/>
+        <animate attributeName="opacity" values="0;0.9;0.7" begin="18s" dur="4s" fill="freeze"/>
+      </circle>
+    </g>
+  </g>
+</svg>

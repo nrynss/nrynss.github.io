@@ -1,0 +1,23 @@
+---
+// src/pages/blog/[...id].astro
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+import Notice from '../../components/static/Notice.astro';
+import ReviewCallout from '../../components/static/ReviewCallout.astro';
+import SvgAnimation from '../../components/static/SvgAnimation.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<PostLayout id={post.id} title={post.data.title} description={post.data.description} date={post.data.date} tags={post.data.tags}>
+  <Content components={{ ReviewCallout, Notice, SvgAnimation }} />
+</PostLayout>

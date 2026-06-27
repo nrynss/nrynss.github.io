@@ -1,0 +1,25 @@
+---
+// src/components/static/ReviewCallout.astro
+interface Props {
+  title: string;
+  rating: string;
+}
+
+const { title, rating } = Astro.props;
+
+// Replicate Hugo's name extraction
+const reviewerName = title.split(" says...")[0];
+---
+
+<article class="review-callout">
+  <header class="review-header">
+    <span class="reviewer-name">{reviewerName}</span>
+    <span class="review-rating">
+      <span class="rating-star">★</span>
+      <span class="rating-number">{rating}</span>
+    </span>
+  </header>
+  <div class="review-content">
+    <slot />
+  </div>
+</article>

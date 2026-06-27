@@ -1,0 +1,19 @@
+{
+  "name": "neom-mathventure",
+  "type": "module",
+  "collaborators": [
+    "Your Name <your.email@example.com>"
+  ],
+  "description": "A mathematical adventure game built with Rust and WebAssembly",
+  "version": "0.1.0",
+  "files": [
+    "neom_mathventure_bg.wasm",
+    "neom_mathventure.js",
+    "neom_mathventure.d.ts"
+  ],
+  "main": "neom_mathventure.js",
+  "types": "neom_mathventure.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

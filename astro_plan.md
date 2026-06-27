@@ -1,92 +1,264 @@
-# Astro Migration & Interactivity Plan (Svelte & Existing Features)
+# nryn.dev — Astro 7 Migration & Interactivity Plan
 
-This plan outlines the Hugo-to-Astro transition using **Svelte** as our primary framework for building rich, interactive components. While the project is architected to support future dynamic subsites (such as a Sarvam vs. Qwen benchmark playground), the current focus is entirely on migrating and enhancing your existing Hugo content, layouts, and components.
-
----
-
-## 1. UI Framework Integration (Svelte)
-
-Astro supports **Island Architecture**, allowing us to compile pages to 100% static HTML by default. We will use the official Svelte integration to add interactivity to specific elements (e.g. using `client:visible` for the timeline).
-
-### Tech Stack
-* **Svelte Integration**: `@astrojs/svelte` for building interactive components (using clean HTML/JS/CSS syntax, compiled to lightweight JS).
-* **Transition Support**: Svelte's built-in `svelte/transition` library for smooth component animations (fade, slide).
-* **CSS Scoping**: Standard Astro/Svelte scoped styles to keep the CSS modular.
+This plan details the technical transition of the [nryn.dev](https://nryn.dev) site code from Hugo to **Astro 7.0.x** and Svelte, utilizing Cloudflare Pages and a native Cloudflare D1 database for comments.
 
 ---
 
-## 2. Interactive Components (Svelte Upgrades)
+## 0. Deltas from the previous plan
 
-We will upgrade your static Hugo shortcodes into dynamic, interactive Svelte components:
-
-### A. Dynamic Timeline (`src/components/Timeline.svelte`)
-* **Interactive Filtering**: Filter career history by tags (e.g., "AI", "Docs-as-code", "Hugo", "Writing").
-* **Smooth Transitions**: Use Svelte's native `slide` or `fade` transitions to expand and collapse detailed roles smoothly.
-* **View Toggle**: Switch between a classic vertical timeline and a simplified, scannable resume list view.
-
-### B. Interactive Projects Board (`src/components/ProjectsBoard.svelte`)
-* **Category Filters**: Filter projects by type (e.g., Games, Developer Tools, Converters).
-* **Live Search**: Quick filter projects by title or description keywords.
-* **Data Source**: Reads from `src/data/projects.json` (exported from Hugo's `projects.yaml`).
-
----
-
-## 3. Core Component Parity Map
-
-We will port Hugo layouts and static shortcodes to native Astro components:
-
-### A. Layout Templates
-
-| Hugo Layout | Astro Component | Description |
-| :--- | :--- | :--- |
-| `layouts/404.html` | `src/pages/404.astro` | 404 page |
-| `layouts/_default/single.html` | `src/layouts/PostLayout.astro` | Template for blog posts (metadata, tags, author) |
-| `layouts/_default/list.html` | `src/layouts/BaseLayout.astro` | Main wrapper layout (head, footer, canvas background) |
-| `layouts/partials/home/profile.html` | `src/components/ProfileCard.astro` | Homepage hero profile card |
-
-### B. Hugo Shortcodes to Astro/MDX Components
-
-| Hugo Shortcode | Target Astro Component | Conversion Strategy |
-| :--- | :--- | :--- |
-| `{{< review-callout >}}` | `src/components/ReviewCallout.astro` | Renders the review boxes with custom ratings and styling. |
-| `{{< notice >}}` | `src/components/Notice.astro` | Renders colored information alerts/notices. |
-| `{{< expandable >}}` | `src/components/Expandable.astro` | Renders collapsible HTML details summaries. |
-| `{{< gif >}}`, `{{< p5 >}}` | Local components / Native HTML | Render corresponding media structures. |
+| Area | Old plan | This plan |
+|---|---|---|
+| Astro version | 6 | **7.0.x** (Requires Node.js 22+) |
+| Collections API | `type: 'content'`, `src/content/config.ts` | **Content Layer** — `loader: glob()`, `src/content.config.ts` |
+| Zod import | `z` from `astro:content` | **`z` from `astro/zod`** |
+| Entry key | `slug` | **`id`** |
+| Rendering | `output: 'hybrid'` | **`static` (default) + adapter + per-route `prerender = false`** |
+| `ModelComparison` | `client:load` | **`client:visible`** |
+| `ProjectsBoard` | `client:load` | **`client:idle`** |
+| Projects data | collection **and** `projects.json` | **one typed collection** (via `file()` loader) |
+| `dataRef` schema field | present | **removed** (import JSON directly in MDX) |
+| Comments | one big client island, no abuse controls | **server island (list) + client island (form)** + Turnstile + rate limit + moderation state |
+| Search | — | **Pagefind** |
+| Missing pieces | — | dark-mode FOUC guard, RSS, sitemap, OG images |
 
 ---
 
-## 4. Directory & Code Architecture
-
-Here is how the directories will be configured:
+## 1. Directory Structure
 
 ```
 src/
+├── content.config.ts          # Config for Content Layer (Astro 7)
 ├── components/
-│   ├── Timeline.svelte       # Interactive Timeline [Hydrated Svelte]
-│   ├── ProjectsBoard.svelte  # Interactive Project Showcase [Hydrated Svelte]
-│   ├── ProfileCard.astro     # Static Profile Card
-│   ├── ReviewCallout.astro   # Static Review Callout Component
-│   ├── Notice.astro          # Static Notice Box Component
-│   └── Expandable.astro      # Collapsible Section Component
-├── pages/
-│   ├── index.astro           # Homepage
-│   ├── about.astro           # About page (renders about markdown)
-│   ├── projects.astro        # Projects grid (hydrates ProjectsBoard)
-│   └── blog/                 # Blog post listing and routes
+│   ├── static/                # Astro-only, zero hydration
+│   │   ├── ProfileCard.astro
+│   │   ├── Notice.astro
+│   │   ├── ReviewCallout.astro
+│   │   └── CommentList.astro  # server-rendered comment list (server:defer)
+│   └── interactive/           # Svelte islands
+│       ├── Timeline.svelte
+│       ├── ProjectsBoard.svelte
+│       ├── ModelComparison.svelte
+│       └── CommentForm.svelte # form only — the read path is now CommentList.astro
 ├── content/
-│   ├── blog/                 # Migrated blog posts (converted to MDX/Markdown)
-│   └── config.ts             # Schema validation for post metadata
+│   ├── blog/
+│   ├── projects/              # projects array loaded via file() loader
+│   ├── benchmarks/            # MDX embedding <ModelComparison />
+│   ├── notes/
+│   └── reviews/
+├── lib/
+│   ├── markdown/
+│   ├── utils/
+│   ├── benchmarks/
+│   └── theme/
+├── pages/
+│   ├── index.astro
+│   ├── about.astro            # native <details>
+│   ├── projects.astro
+│   ├── blog/
+│   └── api/
+│       └── comments.ts        # prerender = false
 ├── layouts/
-│   ├── BaseLayout.astro      # Core HTML template with global CSS
-│   └── PostLayout.astro      # Single post wrapper template
-└── data/
-    └── projects.json         # Migrated projects data
+│   ├── BaseLayout.astro       # global CSS, space canvas, inline theme script
+│   └── PostLayout.astro
+├── data/
+│   └── benchmarks/            # raw run JSON (qwen, gemma, sarvam) — consumed by the widget
+└── styles/
+    └── global.css
 ```
 
 ---
 
-## 5. Future Extensibility (Sarvam Dashboard ready)
+## 2. Framework & Rendering Strategy
 
-To accommodate the future Sarvam vs. Qwen comparison subsite:
-* **Hybrid Server-Side Rendering (SSR)**: We will set up Astro with `@astrojs/cloudflare` in hybrid mode. Pages are prerendered static by default, but we can instantly add dynamic routes/API endpoints (for database querying or live comparisons) under `/src/pages/api/` or specific subfolders without refactoring the core project.
-* **Component Modularity**: Since all core components are Svelte, future dashboard elements (charts, tables, tab selectors) will easily mount and integrate with your existing design system.
+**Static by default.** Cloudflare adapter is added to enable dynamic server routes via `export const prerender = false`. All other pages remain static prerendered HTML.
+
+```js
+// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
+import svelte from '@astrojs/svelte';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+
+export default defineConfig({
+  site: 'https://nryn.dev',
+  adapter: cloudflare(),               // enables prerender=false routes + server islands
+  integrations: [svelte(), mdx(), sitemap()],
+});
+```
+
+### Hydration Directives
+
+| Component | Directive | Why |
+|---|---|---|
+| `Timeline` | `client:visible` | below fold; hydrate on scroll |
+| `ProjectsBoard` | `client:idle` | main content, but defer to idle — not blocking page load |
+| `ModelComparison` | `client:visible` | embedded mid-article; loaded when visible |
+| `CommentForm` | `client:visible` | bottom of post |
+| `CommentList` | n/a | server island, zero client JS (runs server-side) |
+
+---
+
+## 3. Content Collections (Content Layer API)
+
+```ts
+// src/content.config.ts
+import { defineCollection } from 'astro:content';
+import { glob, file } from 'astro/loaders';
+import { z } from 'astro/zod';               // z from astro/zod in Astro 7
+
+const postSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  date: z.coerce.date(),
+  draft: z.boolean().default(false),
+  tags: z.array(z.string()).default([]),
+});
+
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
+  schema: postSchema,
+});
+
+const notes = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/notes' }),
+  schema: postSchema,
+});
+
+const reviews = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/reviews' }),
+  schema: postSchema.extend({
+    rating: z.number().min(0).max(10).optional(),
+    subject: z.string().optional(),
+  }),
+});
+
+const benchmarks = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/benchmarks' }),
+  schema: postSchema.extend({
+    models: z.array(z.string()),
+  }),
+});
+
+const projects = defineCollection({
+  loader: file('./src/content/projects/projects.json'),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    status: z.enum(['active', 'wip', 'archived']).default('active'),
+    stack: z.array(z.string()).default([]),
+    repo: z.string().url().optional(),
+    demo: z.string().url().optional(),
+    blog: z.string().optional(),
+    featured: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, notes, reviews, benchmarks, projects };
+```
+
+---
+
+## 4. Core Components
+
+### A. Native HTML `<details>` (replacing a JS Expandable)
+* **Accessibility**: 0 KB JS, accessible, indexed, keyboard-friendly.
+* **Height Animation**: Native layout interpolation:
+```css
+.custom-expandable::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.25s ease, content-visibility 0.25s allow-discrete;
+}
+.custom-expandable[open]::details-content {
+  block-size: auto;
+}
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+}
+```
+
+### B. Notice.astro & ReviewCallout.astro
+* Static Astro components, build-time props, compile to plain HTML.
+
+### C. ModelComparison.svelte (benchmark playground)
+* Embedded in benchmark MDX, hydrated `client:visible`.
+* Reads JSON data passed directly as an MDX import.
+* Features: category tabs, side-by-side output panels, tokens/sec + qualitative metrics, copy buttons.
+
+### D. ProjectsBoard.svelte & Timeline.svelte
+* Dynamic Svelte list controls (filtering, search, tag selecting) rendering the content collections passed to them.
+
+---
+
+## 5. Comments (Cloudflare D1) — Hardened
+
+We decompose comments into a Server Island for reading and a Client Island for writing.
+
+### Read Path: CommentList.astro (Server Island)
+```astro
+<!-- PostLayout.astro -->
+<CommentList post={post.id} server:defer>
+  <p slot="fallback">Loading comments…</p>
+</CommentList>
+
+<CommentForm post={post.id} client:visible />
+```
+
+```astro
+---
+// src/components/static/CommentList.astro
+const { post } = Astro.props;
+const db = Astro.locals.runtime.env.DB;
+const { results } = await db
+  .prepare('SELECT author, body, created_at FROM comments WHERE post = ? AND status = ? ORDER BY created_at DESC')
+  .bind(post, 'approved')
+  .all();
+---
+<ul class="comments">
+  {results.map((c) => (
+    <li><strong>{c.author}</strong><p>{c.body}</p></li>
+  ))}
+</ul>
+```
+
+### Write Path: API Endpoint (`src/pages/api/comments.ts`)
+```ts
+export const prerender = false;
+
+import type { APIRoute } from 'astro';
+
+export const POST: APIRoute = async ({ locals, request, clientAddress }) => {
+  const db = locals.runtime.env.DB;
+  const body = await request.json();
+
+  // 1. Verify Cloudflare Turnstile token (body.token) against the siteverify API.
+  // 2. Rate-limit by clientAddress + time window (KV or D1 table).
+  // 3. Insert with status = 'pending'.
+  await db.prepare(
+    'INSERT INTO comments (post, author, body, status, created_at) VALUES (?, ?, ?, ?, ?)'
+  ).bind(body.post, body.author, body.text, 'pending', Date.now()).run();
+
+  return new Response(JSON.stringify({ ok: true }), { status: 202 });
+};
+```
+
+---
+
+## 6. Cross-cutting Concerns
+
+* **Dark-mode FOUC Guard**: Inline script inside `<head>` of `BaseLayout.astro` to immediately read/set the dataset attribute before first paint.
+* **Pagefind Search**: Setup client-side Pagefind search integration for static content search without server load.
+* **RSS & Sitemap**: Deploy `@astrojs/sitemap` and `@astrojs/rss` to preserve discovery.
+
+---
+
+## 7. Build Order
+
+1. Scaffold Astro 7 + Cloudflare adapter + Svelte/MDX; verify hello-world.
+2. Configure Content Layer schemas (`src/content.config.ts`) and migrate content files (blog/notes/reviews/projects).
+3. Build static components (Notice, ReviewCallout, ProfileCard) and native `<details>` styling.
+4. Set up dark-mode script, Pagefind search configuration, RSS, sitemap.
+5. Create Svelte interactive lists (Timeline, ProjectsBoard).
+6. Build `ModelComparison` Svelte playground widget.
+7. Configure Cloudflare D1 comments (schema, API endpoint, Svelte form, Server Island list).
