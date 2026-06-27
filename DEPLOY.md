@@ -98,26 +98,66 @@ on Cloudflare (it already is, via the Pages custom domain).
 
 ```bash
 cd comments-worker
-npm run dev                # wrangler dev, with a local D1 instance
+pnpm dev                   # wrangler dev, with a local D1 instance
 ```
 
-For the site itself:
+For the site itself (from repo root):
 
 ```bash
-npm run dev                # astro dev at http://localhost:4321
+pnpm dev                   # astro dev at http://localhost:4321
 ```
 
 Note: in plain `astro dev` the comments API is not running, so the list shows
-"Failed to load comments" and submissions error — run the Worker (`wrangler dev`) and
-point at it, or test comments against the deployed Worker.
+"Failed to load comments" and submissions error — run the Worker (`pnpm dev` in
+`comments-worker/`) and point at it, or test comments against the deployed Worker.
 
 ### Moderation
 
 New comments are inserted with `is_approved = 0` (pending). Only `is_approved = 1` rows
-are returned by the GET endpoint. Approve a comment by flipping the flag:
+are returned by the GET endpoint.
 
 ```bash
 cd comments-worker
-wrangler d1 execute nryn-dev-comments-db --remote \
+pnpm comments:pending      # list comments awaiting moderation (get the id)
+
+# approve one
+wrangler d1 execute nryn-dev-comments-db --remote -c wrangler.toml \
   --command "UPDATE comments SET is_approved = 1 WHERE id = <comment-id>"
 ```
+
+Or use the Cloudflare dashboard: **Storage & Databases → D1 → `nryn-dev-comments-db` →
+Console** and run the SQL there.
+
+---
+
+## 3. Automatic deploys (Workers Builds)
+
+By default the comments Worker is deployed manually (`pnpm deploy`). To deploy it on every
+push (like the Pages site), connect it to Git via **Workers Builds**. This is a
+dashboard-only setup — wrangler cannot create the Git connection.
+
+**Connect the existing Worker (avoids a duplicate):**
+1. **Workers & Pages → `nryn-comments` → Settings → Build → Connect to Git**.
+2. Select the `nrynss/nrynss.github.io` repo, branch `main`.
+3. Set:
+   - **Root directory:** `comments-worker`
+   - **Build command:** `pnpm install`
+   - **Deploy command:** `pnpm deploy`  (= `wrangler deploy -c wrangler.toml`)
+4. **Build watch paths → Include paths:** `comments-worker/*` — so the Worker only
+   rebuilds when its own code changes, not on every site-only commit.
+
+Cloudflare installs with pnpm automatically (detects `comments-worker/pnpm-lock.yaml`).
+The root `.wrangler/deploy/config.json` redirect is **not** a problem here: that file only
+exists after an Astro build, which Workers Builds does not run for this Worker.
+
+> The Pages project and this Worker are independent. Connecting Workers Builds does **not**
+> require any change to the Pages project. See the note below on optionally scoping the
+> Pages build so it likewise skips Worker-only commits.
+
+### Pages build settings (optional tweaks)
+
+The Pages project keeps working as-is. Two optional consistency tweaks:
+- **Build command** → `pnpm build` (currently `npm run build`; install is already pnpm, so
+  this is cosmetic). Dashboard: **(Pages project) → Settings → Build → Build configuration**.
+- **Build watch paths** → exclude `comments-worker/` (e.g. include `!comments-worker/*`) so
+  the site doesn't rebuild when only the Worker changes. Harmless if left as `*`.
