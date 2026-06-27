@@ -28,3 +28,4 @@ pnpm-debug.log*
 .wrangler/
 .system_generated/
 .gemini/
+.gcourer/
