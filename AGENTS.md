@@ -106,7 +106,7 @@ Deployed independently (not via the Pages push):
 ```bash
 cd comments-worker
 pnpm install
-pnpm deploy                 # wrangler deploy -c wrangler.toml
+pnpm run deploy             # wrangler deploy -c wrangler.toml  (NOT `pnpm deploy` — reserved word)
 pnpm comments:pending       # list comments awaiting moderation
 ```
 * DB: `nryn-dev-comments-db` (D1), id set in `comments-worker/wrangler.toml`. Schema is

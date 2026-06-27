@@ -17,7 +17,7 @@ Backed by the D1 database `nryn-dev-comments-db` (schema: [`../schema.sql`](../s
 ```bash
 pnpm install
 pnpm dev               # local wrangler dev
-pnpm deploy            # deploy (also runs automatically via Workers Builds on push to main)
+pnpm run deploy        # deploy (also runs automatically via Workers Builds on push to main)
 pnpm comments:pending  # list comments awaiting moderation
 ```
 

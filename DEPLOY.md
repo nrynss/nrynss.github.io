@@ -86,7 +86,7 @@ already set in `comments-worker/wrangler.toml`.
 
 ```bash
 cd comments-worker
-npm run deploy             # = wrangler deploy -c wrangler.toml
+pnpm run deploy            # = wrangler deploy -c wrangler.toml  (NOT `pnpm deploy` — reserved word)
 ```
 
 The route `nryn.dev/api/*` in `wrangler.toml` attaches the Worker to the live domain.
@@ -132,7 +132,7 @@ Console** and run the SQL there.
 
 ## 3. Automatic deploys (Workers Builds)
 
-By default the comments Worker is deployed manually (`pnpm deploy`). To deploy it on every
+By default the comments Worker is deployed manually (`pnpm run deploy`). To deploy it on every
 push (like the Pages site), connect it to Git via **Workers Builds**. This is a
 dashboard-only setup — wrangler cannot create the Git connection.
 
@@ -142,7 +142,10 @@ dashboard-only setup — wrangler cannot create the Git connection.
 3. Set:
    - **Root directory:** `comments-worker`
    - **Build command:** `pnpm install`
-   - **Deploy command:** `pnpm deploy`  (= `wrangler deploy -c wrangler.toml`)
+   - **Deploy command:** `pnpm run deploy`  (= `wrangler deploy -c wrangler.toml`)
+     - ⚠️ Must be `pnpm run deploy`, **not** `pnpm deploy` — `deploy` is a built-in pnpm
+       command (workspace deploy) that shadows the script and fails with
+       `ERR_PNPM_CANNOT_DEPLOY`.
 4. **Build watch paths → Include paths:** `comments-worker/*` — so the Worker only
    rebuilds when its own code changes, not on every site-only commit.
 
