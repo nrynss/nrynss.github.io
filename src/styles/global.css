@@ -2,6 +2,10 @@
  * CSS Variable Definitions
  ***************************************/
 :root {
+    /* Match browser-painted UI (canvas background, scrollbars, form controls)
+       to the theme so there is no white flash before CSS applies on refresh. */
+    color-scheme: light;
+
     /* Layout */
     --max-width: 1400px;
     --content-padding: 2rem;
@@ -30,6 +34,8 @@
 
 /* Dark Mode Overrides */
 [data-theme='dark'] {
+    color-scheme: dark;
+
     /* Colors - Main Theme */
     --bg-main: rgb(17, 24, 39);
     --bg-card: rgb(31, 41, 55);
@@ -52,6 +58,8 @@
 
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) {
+        color-scheme: dark;
+
         /* Same as [data-theme='dark'] */
         --bg-main: rgb(17, 24, 39);
         --bg-card: rgb(31, 41, 55);

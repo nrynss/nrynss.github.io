@@ -10,7 +10,10 @@ function initSpaceAnimation() {
     width: '100%',
     height: '100%',
     zIndex: -1,
-    pointerEvents: 'none'
+    pointerEvents: 'none',
+    // Start hidden and fade in so the starfield eases in instead of popping
+    opacity: 0,
+    transition: 'opacity 0.8s ease'
   });
 
   document.body.insertBefore(canvas, document.body.firstChild);
@@ -387,6 +390,12 @@ function initSpaceAnimation() {
 
   init();
   animate();
+
+  // Fade the starfield in on the next frame (canvas is painted at opacity 0
+  // first, so the transition runs) to avoid an abrupt pop on load.
+  requestAnimationFrame(() => {
+    canvas.style.opacity = '1';
+  });
 
   // Reinitialize on resize
   window.addEventListener('resize', () => {
