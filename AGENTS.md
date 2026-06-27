@@ -23,9 +23,10 @@ pnpm build
 ```
 
 ### Initialize Local Comments Database (Cloudflare D1)
-If the local sqlite mock database needs to be initialized or reset:
+The comments DB belongs to the `comments-worker/` Worker. To init/reset a local copy:
 ```bash
-pnpm wrangler d1 execute nryn-dev-comments-db --local --file=schema.sql
+cd comments-worker
+pnpm wrangler d1 execute nryn-dev-comments-db --local --file=../schema.sql -c wrangler.toml
 ```
 
 ---
@@ -55,19 +56,16 @@ This codebase uses Svelte 5 runes syntax for interactive components:
 * Use `$props()` for component inputs.
 * Re reactivity with Sets: Svelte 5 state updates on `Set` or `Map` variables require re-assignment (e.g. `expandedItems = new Set(expandedItems)`) to trigger updates.
 
-### Cloudflare Environment & D1 Bindings
-In Astro v6+ and v7+, environment bindings are no longer accessed via `Astro.locals.runtime.env` in production.
-To resolve Cloudflare environment variables securely without breaking local Node build-time compilation, use dynamic imports:
-```typescript
-let db;
-try {
-  const cf = await import('cloudflare:workers');
-  db = cf.env.DB;
-} catch {
-  db = locals.runtime?.env?.DB; // local fallback
-}
-```
-This pattern is implemented in `CommentList.astro` and `src/pages/api/comments.ts`.
+### Comments architecture (D1)
+The Astro site is **fully static** (served by Cloudflare Pages, which cannot run SSR), so
+comments are handled by a **separate standalone Worker** in `comments-worker/`, not by Astro:
+* `comments-worker/src/index.ts` exposes `GET /api/comments?post=<slug>` (approved comments)
+  and `POST /api/comments` (submit, stored as `is_approved=0`), reading `env.DB` directly.
+* The frontend reads comments client-side via `src/components/interactive/CommentList.svelte`
+  (`client:visible`) and submits via `CommentForm.svelte` — both call `/api/comments`
+  same-origin, routed to the Worker (see [Deployment](#-deployment)).
+
+See `DEPLOY.md` for the full deployment + moderation workflow.
 
 ---
 
@@ -75,3 +73,49 @@ This pattern is implemented in `CommentList.astro` and `src/pages/api/comments.t
 * **Blog / Notes / Reviews / Benchmarks**: Configured using Astro's Content Layer in `src/content.config.ts`.
 * **Projects**: Defined as a local JSON data source under `src/content/projects/projects.json`.
 * **Timeline**: Career experiences data is stored under `src/data/timeline.json` and rendered interactively by `Timeline.svelte`.
+
+---
+
+## 🚢 Deployment
+
+`nryn.dev` is served as **two pieces** (full details + moderation steps in `DEPLOY.md`):
+
+```
+Browser ── nryn.dev/...      → Cloudflare Pages (static Astro build)
+        └─ nryn.dev/api/*    → comments Worker (D1)   ← Worker route takes precedence
+```
+
+### 1. Static site — Cloudflare Pages
+Git-connected Pages project (`nrynss/nrynss.github.io`, branch `main`). Pushing to `main`
+triggers a rebuild.
+
+| Setting              | Value                                  |
+| -------------------- | -------------------------------------- |
+| Build command        | `pnpm build`                           |
+| Build output dir     | **`dist/client`** (NOT `dist`)         |
+| Production branch    | `main`                                 |
+
+* **Output dir must be `dist/client`** — the `@astrojs/cloudflare` adapter nests the site
+  there. Setting it to `dist` serves pages at `/client/...` and 404s everything.
+* Package manager is pinned via `"packageManager": "pnpm@9.1.1"` in `package.json`, so
+  Cloudflare installs with pnpm. The build command is a dashboard-only setting (wrangler
+  cannot edit a connected project's build config).
+
+### 2. Comments — standalone Worker (`comments-worker/`)
+Deployed independently (not via the Pages push):
+```bash
+cd comments-worker
+pnpm install
+pnpm deploy                 # wrangler deploy -c wrangler.toml
+pnpm comments:pending       # list comments awaiting moderation
+```
+* DB: `nryn-dev-comments-db` (D1), id set in `comments-worker/wrangler.toml`. Schema is
+  `schema.sql` (repo root).
+* The route `nryn.dev/api/*` in `wrangler.toml` attaches the Worker to the live domain.
+* **Always pass `-c wrangler.toml`** for any wrangler command in `comments-worker/`. The
+  Astro build writes `.wrangler/deploy/config.json` at the repo root, which wrangler finds
+  by searching up the tree and follows — hijacking commands onto the wrong Worker/config
+  unless `-c` pins them. The npm/pnpm scripts already include `-c`.
+* Moderation: comments are stored `is_approved=0`; only `is_approved=1` are returned.
+  Approve via the Cloudflare D1 **Console**, or:
+  `wrangler d1 execute nryn-dev-comments-db --remote -c wrangler.toml --command "UPDATE comments SET is_approved = 1 WHERE id = <id>"`
