@@ -19,7 +19,9 @@ const { title = "nryn", description = "Personal blog and portfolio" } = Astro.pr
     <meta name="description" content={description} />
     
     <!-- Dark Mode FOUC Guard -->
-    <script is:inline>
+    <!-- data-cfasync="false" stops Cloudflare Rocket Loader from deferring this;
+         it MUST run synchronously before paint or the theme flashes light→dark. -->
+    <script is:inline data-cfasync="false">
       const getTheme = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
