@@ -15,7 +15,7 @@
     "title": "Vimanam",
     "description": "Generate Markdown documentation from OpenAPI specifications. Supports both OpenAPI v2 and v3 json files.",
     "blog": "/blog/vibing-vith-vimanam/",
-    "repo": "https://github.com/nrynss/vimanam/",
+    "repo": "https://github.com/noemaforge/vimanam/",
     "status": "active",
     "featured": true,
     "stack": ["Python", "OpenAPI", "Markdown"]

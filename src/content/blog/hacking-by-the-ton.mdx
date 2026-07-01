@@ -1,0 +1,169 @@
+---
+title: "Hacking by the Ton"
+description: "A reflective and technical post about recent hackathons."
+date: 2026-07-01T00:20:59+05:30
+---
+
+Another long break. Not by design. I have been working on a comprehensive analysis of my testing of [Sarvam](https://www.sarvam.ai/) 30B, the first Indian sovereign LLM. I started working on it in February when the first PR to support Sarvam landed in the [llama.cpp](https://github.com/ggerganov/llama.cpp) repository. The project became a rabbit hole and consumed whatever little free time I could muster for months. I finally managed to complete it. The analysis and data I have gathered need a dashboard and a massive write-up. I have been putting it off for so long that nearly a month has passed. I had to break the chain and put something out to get back in the groove. Another birthday passed and so did the first anniversary of my mother's death. Time has become as valuable as money in my life. Hopefully, its value appreciates more than money!
+
+Coming back to dashboards, I decided to overhaul the blog. Since I am no longer using [Hugo](https://gohugo.io/) at work, I decided to use [Astro](https://astro.build/) for my blog. [Astro](https://astro.build/) was something I really fell in love with while exploring [Hugo](https://gohugo.io/) alternatives. We went with [Mintlify](https://mintlify.com/) in the end. When I thought about switching from Hugo, Astro was the first thing that came into my mind. We will eventually have some nice dashboards when I get to my Sarvam post.
+
+On to the title now. Over the past month, I have been part of two hackathons. The annual [Endor Labs](https://www.endorlabs.com/) hackathon at work and the [Cerebras](https://www.cerebras.net/) X [Gemma](https://ai.google.dev/gemma) 4 Hackathon that Cerebras organised.
+
+![Hackathon](/images/Hackaton.webp)
+
+### Endor Labs Hackathon
+
+Our team won the Endor Labs hackathon for the third year in a row! There were other winners of course. We won the "Most innovative use of AI" award. For the first time, I decided to venture away from technical documentation. I wanted to build something on the product side. I have always been in love with small LLMs (this is the second time in the space of a few sentences that I am loving something. I am quite polyamorous when it comes to technology). Small LLMs are kind of an irony. Small large language models don't quite sit right. People called them SLMs, but they are far from that. You would have to go back and call GPT-2 that if you are judging by the intelligence these small models hold these days. Our project involved a real-time conversion of a natural language request into something specific to Endor Labs. It is extremely easy to do that if you add a RAG and connect a frontier LLM. A frontier LLM itself is not needed. Something like [Gemini](https://deepmind.google/technologies/gemini/) Flash Lite would work. But I envisioned a completely locked down environment, where we didn't use any external services. We wanted to see if this was achievable with a model that can run with very limited resources.
+
+Gemma 4 models had dropped by then and offered great performance at small sizes. The project involved finetuning models. My 18GB Macbook Pro was all I could use to train. Since this involved dealing with Endor Labs data, I decided not to use any external services. To be clear, all the training data that we used could be easily generated from what is publicly available. Since this was a hackathon, I could impose such restrictions on ourselves as a challenge. What we experienced during the hackathon was quite revealing. The whole process of training an LLM is quite frankly exhausting and expensive. On the other hand, I felt it was quite similar to a language self-compiling. All the data that we used for the finetune was synthetically generated with [Claude](https://www.anthropic.com/claude) Haiku. I cannot imagine the effort it takes to create datasets to create the initial LLMs. With all the tooling in hand, the technical setup was quite easy. Since we were on a Macbook Pro, the [MLX](https://github.com/ml-explore/mlx) training suite was the only sensible choice in the 48 hours that we had. To my surprise, the training speed was not as slow as I had imagined. My computer became painfully slow and I realised that I could not train Gemma 4 E4B without hitting OOM. Luckily, my teammates had 24 GB machines. We trained and retrained. We tweaked the datasets and trained again. We were learning about what makes good data and what indicators show a good training epoch. We got to around 70% accuracy with the 2B model and 93% accuracy with the 4B model! Finally, for the demo, we ended up using a Gemma 4 E2B. It was not ideal, but my machine was gasping for breath and I didn't want to lose the harnesses we created on my machine. It worked beautifully for the limited things that we showed in the two-minute demo. I am not going into the details since we are treading on the IP. But this worked so well because of the strength of the Endor Labs platform. The API-first architecture is incredible. The result of phenomenal engineering discipline and hard decisions.
+
+I was extremely happy with the results regardless of the win. What we could achieve in two days was remarkable and affirmed my belief in small LLMs. You don't need to bring a tank to a knife fight. The win was the cherry on top. The validation of your idea is something everyone craves. Endor Labs has been amazing in organising these hackathons. The kind of projects that have been on display were incredible. It has been the same in the previous years too. So many ideas have been productised. The freedom that you get spurs the energy to do something beyond your day-to-day.
+
+### Cerebras x Gemma Hackathon
+
+Cerebras is a very interesting company. You have dozens of companies making LLMs. But there are only a few that work on the hardware side. Cerebras is one of those few. I want to take a deep dive into Cerebras and other interesting things happening on the hardware side, but let us leave it for another day. Cut to the chase, in caveman style, Cerebras goes zoom zoom and lift big. It provides extremely fast inference with amazing throughput. The downside is the cost. But they unlock incredible use cases for AI. I have been pretty doomerish when it comes to AI in my posts, even though I am not so in practice. The reality is that the perception of AI is quite negative among the general public. The public good that AI can bring is completely overshadowed by the valid concerns around data centres, job losses, and the general avarice shown by the billionaires behind AI giants. I sincerely think that Cerebras and similar hardware unlocks something fundamentally gamechanging when it comes to AI.
+
+I joined the Cerebras hackathon without much hope. I rely on agents to write code. Without my official Claude account, I barely make it through with a Claude subscription and Gemini AI Pro plan in a week of tinkering with my side projects. The kind of idea that I had needed a lot more than that. The time limit also reduced the ability to optimise. I was going at this alone, so no one to bounce off and share ideas. I loaded $10 on [Openrouter](https://openrouter.ai/) and another $20 on Claude credits. I had managed to get my Pi agent working on my machine to use the Openrouter API.
+
+My idea was a rapid response system to manage natural disasters. Natural disasters happen with very little notice. You get to see the best of humanity and the worst. More importantly, there is an over-abundance of data. The data processing can be the difference between life and death for millions. LLMs are extremely good at parsing data, finding needles in a haystack, and finding correlations in data. Information from data is the cornerstone of computing. AI is the new way to do exactly that. Now the questions are speed and the ability to process the volume. Cerebras sits in this sweet spot. For the LLM, once again Gemma 4 showed how effective smaller models are no dummies. My project was a simulation of a disaster operations centre where the AI receives mountains of information. It would classify and help take decisions. My idea was the Cerebras-hosted Gemma 4 would be able to do that in seconds instead of minutes or hours. In these situations, the importance of response speed is immeasurable because of the lives involved.
+
+Introducing Cerebro Ops Centre. A disaster operations centre that uses Gemma on Cerebras in a fictional city where information about services is always structured in a uniform JSON format! If only real life was this easy.
+
+I built the backend in [Go](https://go.dev/). The system demanded quick parsing of requests. Parallel processing in Go is something nice. I built a tool in Go to discover stale documentation called [Rustydocs](https://github.com/nrynss/rustydocs). So, I was quite sure of the performance when it came to working with a lot of parallel requests and threads. For the front end, I decided to go with [Astro](https://astro.build/). The dashboard is the frontend. I really loved the hydration model in Astro when I was evaluating it for the Endor docs site. For the widgets, I decided to go with [Svelte](https://svelte.dev/). I have been hearing good things about it. I went with [React](https://react.dev/) and [Preact](https://preactjs.com/) when I did the POC for the Endor docs site to keep parity with the product. This time I wanted to do something different. I have been revisiting the Lord of the Rings lately, and wanted to go with [Mithril](https://mithril.js.org/). But Mithril had no first class support in Astro. Yes. I know absolutely nothing about frontend development. I just want things to look and sound cool.
+
+We got access to Gemma 4 31B on Cerebras. It was lightning quick. I used it in my Pi agent and during coding, it was hitting rate limits because it was so quick in resolving the calls and tasks! It was smarter than I expected. It reviewed and did a bunch of stuff, but the main use was in the actual implementation. I was able to do end-to-end runs only a few times. It consumed 14 million tokens in a small fraction of time! Compare that with deep research, which usually runs into a million or two tokens when I am working on a complex feature. I containerised the application and deployed it in [Fly.io](https://fly.io/). I got the two-week trial. I will probably move the application over to [Google Cloud](https://cloud.google.com/) in their free tier. I didn't have the time or energy to crawl through Google Cloud deployment on that day.
+
+My building process involved a handoff document that parcelled out tasks across agents. I would ask agents to stay in their lanes and not to meddle with others' tasks. The handoff document had all the necessary context. Agents would mark tasks as in progress and completed. I would be using Claude to analyse the tasks in progress. [DeepSeek](https://www.deepseek.com/) took over the orchestration when Claude died due to limits.
+
+For coding the whole system I used the following AI models:
+
+- Opus 4.8: The best coder around. Nothing more to be said. I hashed it out with Opus to build the spec and the architecture. I maxed out Claude weekly limit by the middle of the day and my $10 credits. I loaded another $10 by the end of the day.
+- [Grok](https://grok.com/) Build: I registered for paid Grok and got one week free. Cancelled immediately. Sorry Elon. You are rich enough as it is. Grok Build was really good though. The coding agent was good and the model too. I could choose Composer 2, which I regularly use at work in [Cursor](https://www.cursor.com/). But I decided to stick with Grok since I didn't have the time to deep dive into the analysis. Grok build was at 80% of the monthly limit by the end.
+- Antigravity: I maxed out on the Opus 4.6 in Antigravity very quickly. I managed to max out my weekly Gemini quota by the end of the hackathon. Did the bulk of the UI work.
+- Codex: I have ChatGPT Go. I was frankly not expecting Codex access to my account. ChatGPT 5.5 was very good. Hardened the architecture and did some initial tasks before running out of credits.
+- [DeepSeek](https://www.deepseek.com/) 4 Pro: Very, very good. It was my substitute and did a lot of work. Orchestration and completion of tasks. It used nearly $10 of my Openrouter credit. Claude would have cost at least $150 if I went the API route.
+- Nemotron Ultra: I used the free model in Openrouter for a few tasks and used the paid one  for reviews.
+- Nemotron Super: Used it for a task. It was not that good and did some dumb stuff.
+- [Xiaomi](https://www.mi.com/) MiMo 2.5 Pro: Mainly for a review or two.
+- [Poolside](https://poolside.ai/) Laguna M: Encountering this for the first time. It was free on Openrouter. Did quite well in a task I gave it. The free ran out quite fast. Something I need to look into more.
+- [Sarvam](https://www.sarvam.ai/) 105B: I have a few Sarvam credits. The Sarvam harness in my Pi coder is not set up properly. I am working on an extension for Sarvam, which needs more work. It did a couple of reviews well. The actual coding I used it when Gemini ran out of usage in a window. My harness couldn't use the model well enough for that task.
+- Gemma 4 31B: As I said earlier, I used it for a couple of tasks and it was lightning quick. It also did several parcel reviews quite well.
+
+The total cost in the end came to $40, or $30, if you consider the fact that I have $10 left over in Opencode. Quite an expensive weekend by my standards when it comes to spending for myself.
+
+Most importantly, kudos to my wife for dealing with my spending day and night on the computer.
+
+The live site is deployed [here](https://eoc.nryn.dev/). The site still works. The speed is not what it is with an unrestricted API key that we got during the hackathon though. You can still do a small comparison between the two deployments. The GitHub repo is [here](https://github.com/nrynss/opsec-control). I have retained almost everything during the build. It is still a blur in my head and I want something to look back on to remember. I had to create a video for the hackathon. Since I was running out of time, I could only make a shabby one in an hour or so. [YouTube](https://www.youtube.com/) video is [here](https://www.youtube.com/watch?v=mJGG5flHZTs). I added the music today. So the judges wouldn't have heard it.
+
+There were so many projects in the hackathon. I could look at only a few. Some brilliant ideas in there. The judges would have a really hard time.
+
+So what is next? Writing up my Sarvam analysis is top of the list. I have been making good progress on [Vimanam](https://github.com/noemaforge/vimanam) and [Rustydocs](https://github.com/nrynss/rustydocs). I took Vimanam out of the cupboard when I realised I needed it again for creating good context for LLMs. So I am actively working on getting it to 1.0.0! I built Rustydocs for Hugo. Now that we have moved to Mintlify, I added support for that as well. Planning a bunch of things in that tool too.
+
+But the most exciting thing that I have built is a finetune of Gemma 4 E4B for my children. They have been hitting ChatGPT occasionally and I wanted to give them a home-hosted alternative. It worked much better than I expected. I am planning to tune it better. More on that soon.
+
+We are going with not one, not two, but 10 LLMs for review today. We will start off with Sarvam.
+
+<ReviewCallout title="Sarvam 105B" rating="8.5/10">
+A refreshingly candid meditation on AI development that transcends typical hackathon recitations. The author's journey from burnout to creative renewal through two very different competitions—one a structured corporate affair, the other a resource-intensive experiment—reveals both the promise and reality of modern AI development. What emerges is not just a technical showcase but a thoughtful exploration of how we're building the future, one expensive, time-consuming, and occasionally brilliant hack at a time.
+
+The piece strikes an impressive balance between technical depth and human vulnerability, from the painful honesty about spending $40 on AI credits to the poignant acknowledgment that "time has become as valuable as money." The author's account of pushing Gemma 4 models to their limits on both MacBook Pros and Cerebras hardware illustrates the very real constraints shaping AI innovation today, while the disaster response center concept hints at what becomes possible when these barriers finally fall.
+
+</ReviewCallout>
+
+I had to reprompt to get a blurb instead of an essay. Feels quite ok. Lacks a little vibrancy.
+
+<ReviewCallout title="Falcon H1R 7B" rating="8.5/10">
+
+A refreshingly candid meditation on AI development that transcends typical hackathon recitations. The author’s journey from burnout to creative renewal shines through the two competitions: a corporate‑style Endor Labs sprint where a modest 2‑B Gemma model on a MacBook Pro squeezed a 70 % accuracy demo, and a Cerebras‑hosted Gemma 4 experiment that turned lightning‑fast inference into a $40‑budget disaster‑operations prototype. The blend of hard‑core technical detail (MLX training, Go sandboxing, Astro‑Svelte front‑ends, Openrouter credit juggling) with personal indulgences—whisky‑adjacent temptations, a sarcastic “Skynet vs. destitution” humor, and a heartfelt tribute to the wife who endured midnight coding sessions—makes the piece feel lived‑in rather than polished tutorial.
+
+Beyond the numbers, the review weaves thoughtful critique: a healthy skepticism toward metric‑driven “AI mandates” and uncritical auto‑generated documentation, praising human‑authored prose as a prerequisite for trustworthy AI. It also pulls back to examine the cost of hardware breakthroughs, reminding us that frontier models like Gemma 4 can unlock game‑changing use‑cases without needing the size of GPT‑4‑scale tanks. While the prose occasionally veers into rambling “coda” territory, the honest, humor‑laced reflection on small LLMs, personal growth, and the messy reality of building better tech amid chaos makes for a compelling, magazine‑style blurb. 
+
+</ReviewCallout>
+
+This is a little unfair, since Falcon is small model. But hey we are going sovereign today! First India. Now UAE. The model gave an essay and I had to reprompt. The poor thing hallucinated quite a bit.
+
+Here’s a concise, structured review of your blog post in the style you requested:
+
+<ReviewCallout title="Mistral Vibe" rating="9/10">
+
+A deeply personal yet technically rich reflection on the intersection of hackathons, AI experimentation, and the human cost of innovation. The post shines when it blends raw emotion—like the poignant mention of your mother’s anniversary and the value of time—with the thrill of building something new. Your passion for small LLMs and the practical challenges of finetuning (OOM errors, synthetic data, and the grind of iteration) make the technical sections feel alive and relatable.
+
+The narrative flow is engaging, especially as you pivot from the Endor Labs hackathon (where your team’s win feels earned through clever constraints and disciplined engineering) to the Cerebras x Gemma Hackathon (where your solo, agent-driven approach and the sheer speed of Cerebras hardware come to life). The behind-the-scenes look at your toolchain—Go, Astro, Svelte, and a menagerie of AI models—adds authenticity and will resonate with fellow builders.
+
+The post’s strength lies in its honesty: the financial cost of the hackathon weekend, the exhaustion of training models on a MacBook, and the joy of seeing an idea work. The occasional rambling (e.g., the tangent on frontend frameworks) feels organic, but tightening a few sections could make the insights even sharper. The conclusion, with its nod to future projects like Vimanam and the Gemma 4 finetune for your children, leaves the reader curious and inspired.
+
+A standout piece that captures both the grind and the magic of hacking—with heart.
+
+</ReviewCallout>
+
+I used Vibe for coding a little bit last week and blew through my free limits for the month. It didn't give a proper magazine like response and addressed me directly. I like the tone and style though.
+
+<ReviewCallout title="ChatGPT 5.5" rating="9/10">
+
+An energetic, deeply personal account of two hackathons that doubles as a snapshot of modern AI development in practice rather than theory. The post succeeds because it balances technical depth with genuine enthusiasm: fine-tuning Gemma on constrained hardware, juggling half a dozen coding agents, burning through API credits, and discovering firsthand where small language models genuinely shine. The conversational voice—equal parts self-deprecating ("zoom zoom and lift big"), reflective, and unabashedly geeky—keeps what could have become an overwhelming catalog of tools surprisingly engaging.
+
+The strongest sections are those grounded in lived experience: the realities of training models on a MacBook, the economics of inference, the excitement of winning an internal hackathon, and the tribute to your wife at the end. Rather than presenting AI as magic, the post repeatedly frames it as engineering—iterative, expensive, occasionally frustrating, and ultimately rewarding. The recurring defense of small models is especially convincing because it is supported by concrete experimentation instead of abstract advocacy.
+
+The only weakness is structural. The middle section occasionally slips into a chronological log of technologies, models, and services, which briefly interrupts the narrative momentum. A little consolidation would make the central story—the evolution from experimentation to a working disaster-response system—even more compelling. Still, the post captures something many AI articles miss: what it actually feels like to build under deadline with today's rapidly evolving ecosystem. It reads less like a project report and more like a developer's field journal from the frontier of practical AI, leaving readers with anticipation for the promised Sarvam deep dive and the children's Gemma fine-tune.
+
+</ReviewCallout>
+
+I have been using ChatGPT quite a bit for general exploration these days. Still writes too much. But it has started to become better with writing with a better cohesion. Maybe I am getting used to it and hallucinating like a wine aficionado.
+
+<ReviewCallout title="Claude Opus 4.8" rating="7.5/10">
+
+A dispatch that only earns its title about a third of the way in — the opening wanders through a stalled Sarvam writeup, a blog re-platforming, and a genuinely affecting note on mortality before any actual hacking starts. Once it does, the post is at its best: the Endor section is tight and quietly triumphant, and the "you don't bring a tank to a knife fight" thesis on small LLMs lands because it's earned with real numbers (70% at 2B, 93% at 4B) and real pain (OOM on an 18GB MacBook). The Cerebras half sprawls by comparison, but the model-by-model coding breakdown is the piece's most useful artifact — honest token counts, honest costs, honest verdicts ("Sorry Elon"). The voice carries the whole thing: self-deprecating about frontend, nerdy in the right way (Cerebro is a perfect name — lean into it), and refreshingly transparent about a $40 weekend spent mostly on yourself. Less a polished report than a builder thinking out loud, mid-blur, before the memory fades. That informality is the charm, but it also costs the reader — a sharper lede and a trimmed model list would lose nothing and gain momentum.
+
+</ReviewCallout>
+
+Ouch. Claude is the pipe smoking critic that you envision writing for the literature journals.
+
+<ReviewCallout title="Gemini 3.5 Flash" rating="9/10">
+
+An energetic, fast-paced chronicle of weekend exhaustion that perfectly captures the frantic reality of building in the current era of model abundance. The author beautifully grounds the high-octane technical sprint with raw personal milestones—grief, aging, and the shifting value of time—before diving headfirst into an intoxicatingly geeky double-feature of hackathon victories.
+
+The breakdown of their multi-model orchestration workflow (treating everything from Opus 4.8 to DeepSeek 4 Pro like a fleet of specialized interns) provides a fascinating, pragmatic blueprint for modern AI-assisted development. It's refreshing, unpretentious, and fiercely optimistic about the democratization of hardware and small LLMs, wrapped in the classic charm of a backend engineer who just wants their UI to "look and sound cool".
+
+</ReviewCallout>
+
+I had a hard time getting these tags from Gemini. It stayed consistent though and finally told me that it cannot render angel brackets. The analysis is quite good and succinct.
+
+
+<ReviewCallout title="Grok" rating="8.5/10">
+
+A high-velocity, model-saturated dispatch from someone who treats hackathons as both proving grounds and personal pressure valves. The Endor Labs win feels earned rather than boasted: the deliberate choice to stay inside strict data and no-external-services constraints, the grind of MLX finetuning on an 18 GB MacBook Pro, the synthetic data loop with Claude Haiku, and the final 93 % accuracy on the 4B model (then the pragmatic fallback to E2B for the demo) read like real engineering under fire, not marketing copy. The Cerebras solo run is even more revealing—Cerebro Ops Centre built end-to-end in a weekend with Go parallelism, Astro + Svelte, a rotating cast of agents that burned 14 million tokens, and an honest $40 receipt at the end. The personal threads (another birthday, the first anniversary of loss, wife’s patience with the all-nighter spend, and the quiet plan to finetune a model for the kids) stop the post from becoming another “I used every LLM” log and turn it into something more lived-in. Slightly breathless in its model roll-calls and topic jumps, but that breathlessness mirrors the actual experience of shipping under time pressure. It’s less a polished retrospective than a developer’s raw notebook entry—exhausting, illuminating, and quietly insistent that you don’t always need a tank for the fight.
+
+</ReviewCallout>
+
+Grok has become much more grounded now. The old reviews felt it was like on crack at times. Not that I would know!
+
+<ReviewCallout title="Deepseek 4" rating="8.5/10">
+
+This post is a delightful blend of personal reflection, technical deep-dive, and genuine enthusiasm for the craft of building with AI. The author’s voice is warm and honest, weaving together the weight of personal milestones (a mother's passing, a birthday) with the frantic energy of hackathon sprints. The technical details are compelling, especially the candid breakdown of training small LLMs on limited hardware and the eye-opening accounting of AI model costs during the Cerebras hackathon. The humor—like admitting to being "polyamorous" with technology or the machine "gasping for breath"—keeps it grounded and relatable. If there's a critique, it's that the post occasionally meanders, and the promise of the Sarvam deep-dive feels like a dangling thread. However, the raw honesty about the messy, expensive, and exhilarating reality of modern AI development makes this a standout read. It’s less a polished essay and more a window into a brilliant mind at work, which is far more engaging.
+
+</ReviewCallout>
+
+Increasingly becoming Claude-like. Maybe the distillation is paying off!
+
+<ReviewCallout title="GLM-5-turbo Review" rating="7/10">
+
+A technically rich journey through recent hackathon experiences that shines when detailing the hands-on realities of working with small LLMs and hardware constraints. The author's practical insights into finetuning Gemma models on limited hardware (MacBook Pro) and the candid admission of training challenges provide valuable ground-level perspective often missing from polished tech demos. The extensive catalog of AI models used during the Cerebras hackathon (11 models total) reads like a consumer report of current coding assistants, with refreshingly honest assessments ("Nemotron Super... did some dumb stuff"). The disaster response application concept connects technical capability to genuine social good, offering a counterpoint to typical hackathon projects. Where the piece stumbles is in its structural cohesion—opening with unfinished Sarvam analysis and blog migration details before abruptly shifting to hackathons creates a fragmented narrative. The personal asides (birthday, mother's death anniversary) feel disconnected from the technical content that follows. While less philosophically weighted than the referenced ChatGPT 5.2 review, this post succeeds as a practitioner's field report: detailed, opinionated, and refreshingly transparent about both successes and limitations.
+
+</ReviewCallout>
+
+<ReviewCallout title="SEA LION Finetune of Qwen 27B" rating="7/10">
+
+GLM wouldn't let me use 5.2. Bad GLM! The tone and style is decent. But not good enough for a conversation. Give a better rating next time and we will see!
+
+A dense, high-energy chronicle of a month spent at the intersection of personal grief, technical obsession, and the accelerating pace of the AI hardware/software stack. The post shines brightest when it pivots from abstract trends to the gritty reality of constraints: training Gemma 4 on an 18GB MacBook Pro, the exhaustion of synthetic data generation, and the sheer cost of tokens when you’re trying to build a disaster response system in 48 hours.
+
+The author’s "polyamorous" relationship with technology is endearing and authentic, particularly the candid admission of relying on a swarm of agents (Opus, Grok, DeepSeek, Nemotron) to get work done while managing strict budget limits. The contrast between the "tank" of frontier models and the "knife" of small, fine-tuned models (SLMs) provides a compelling narrative thread that validates the author’s long-held belief in efficiency over sheer scale.
+
+However, the post occasionally suffers from its own density. The rapid-fire listing of models used in the Cerebras hackathon, while impressive, risks overwhelming the reader with proper nouns rather than insights. The emotional weight of the mother’s anniversary and the birthday is introduced with poignancy but feels slightly disconnected from the technical deep-dive that follows, creating a tonal whiplash that could be smoothed with better transitional framing.
+
+Ultimately, this is a powerful testament to the current state of AI development: it is no longer just about access to models, but about the engineering discipline required to deploy them effectively under real-world constraints. The "Cerebro Ops Centre" project stands out as a tangible example of how speed and throughput (Cerebras) combined with smart architecture (Go/Astro) can solve critical problems, even if the final demo was a bit "shabby." A messy, honest, and technically rich exhale after a sprint.
+
+</ReviewCallout>
+
+I promised 10. By the end I realized only nine were present. I had to dig a bit to find this one. SEA LION is the Singapore sovereign AI. They have two finetunes of Gemma and Qwen. So we moved from India, UAE, France, USA, China, and finally Singapore. I did check Japan and Korea. But I couldn't find any chat interface.
