@@ -26,7 +26,7 @@ Cerebras is a very interesting company. You have dozens of companies making LLMs
 
 I joined the Cerebras hackathon without much hope. I rely on agents to write code. Without my official Claude account, I barely make it through with a Claude subscription and Gemini AI Pro plan in a week of tinkering with my side projects. The kind of idea that I had needed a lot more than that. The time limit also reduced the ability to optimise. I was going at this alone, so no one to bounce off and share ideas. I loaded $10 on [Openrouter](https://openrouter.ai/) and another $20 on Claude credits. I had managed to get my Pi agent working on my machine to use the Openrouter API.
 
-My idea was a rapid response system to manage natural disasters. Natural disasters happen with very little notice. You get to see the best of humanity and the worst. More importantly, there is an over-abundance of data. The data processing can be the difference between life and death for millions. LLMs are extremely good at parsing data, finding needles in a haystack, and finding correlations in data. Information from data is the cornerstone of computing. AI is the new way to do exactly that. Now the questions are speed and the ability to process the volume. Cerebras sits in this sweet spot. For the LLM, once again Gemma 4 showed how effective smaller models are no dummies. My project was a simulation of a disaster operations centre where the AI receives mountains of information. It would classify and help take decisions. My idea was the Cerebras-hosted Gemma 4 would be able to do that in seconds instead of minutes or hours. In these situations, the importance of response speed is immeasurable because of the lives involved.
+My idea was a rapid response system to manage natural disasters. Natural disasters happen with very little notice. You get to see the best of humanity and the worst. More importantly, there is an over-abundance of data. The data processing can be the difference between life and death for millions. LLMs are extremely good at parsing data, finding needles in a haystack, and finding correlations in data. Information from data is the cornerstone of computing. AI is the new way to do exactly that. Now the questions are speed and the ability to process the volume. Cerebras sits in this sweet spot. For the LLM, once again Gemma 4 showed how smaller models are no dummies. My project was a simulation of a disaster operations centre where the AI receives mountains of information. It would classify and help take decisions. My idea was the Cerebras-hosted Gemma 4 would be able to do that in seconds instead of minutes or hours. In these situations, the importance of response speed is immeasurable because of the lives involved.
 
 Introducing Cerebro Ops Centre. A disaster operations centre that uses Gemma on Cerebras in a fictional city where information about services is always structured in a uniform JSON format! If only real life was this easy.
 
@@ -39,7 +39,7 @@ My building process involved a handoff document that parcelled out tasks across 
 For coding the whole system I used the following AI models:
 
 - Opus 4.8: The best coder around. Nothing more to be said. I hashed it out with Opus to build the spec and the architecture. I maxed out Claude weekly limit by the middle of the day and my $10 credits. I loaded another $10 by the end of the day.
-- [Grok](https://grok.com/) Build: I registered for paid Grok and got one week free. Cancelled immediately. Sorry Elon. You are rich enough as it is. Grok Build was really good though. The coding agent was good and the model too. I could choose Composer 2, which I regularly use at work in [Cursor](https://www.cursor.com/). But I decided to stick with Grok since I didn't have the time to deep dive into the analysis. Grok build was at 80% of the monthly limit by the end.
+- [Grok](https://grok.com/) Build: I registered for paid Grok and got one week free. Cancelled immediately. Sorry Elon. You are rich enough as it is. Grok Build was really good though. The coding agent was good and the model too. I could choose Composer 2.5, which I regularly use at work in [Cursor](https://www.cursor.com/). But I decided to stick with Grok since I didn't have the time to deep dive into the comparison between the two. Grok build was at 80% of the monthly limit by the end.
 - Antigravity: I maxed out on the Opus 4.6 in Antigravity very quickly. I managed to max out my weekly Gemini quota by the end of the hackathon. Did the bulk of the UI work.
 - Codex: I have ChatGPT Go. I was frankly not expecting Codex access to my account. ChatGPT 5.5 was very good. Hardened the architecture and did some initial tasks before running out of credits.
 - [DeepSeek](https://www.deepseek.com/) 4 Pro: Very, very good. It was my substitute and did a lot of work. Orchestration and completion of tasks. It used nearly $10 of my Openrouter credit. Claude would have cost at least $150 if I went the API route.
@@ -50,7 +50,7 @@ For coding the whole system I used the following AI models:
 - [Sarvam](https://www.sarvam.ai/) 105B: I have a few Sarvam credits. The Sarvam harness in my Pi coder is not set up properly. I am working on an extension for Sarvam, which needs more work. It did a couple of reviews well. The actual coding I used it when Gemini ran out of usage in a window. My harness couldn't use the model well enough for that task.
 - Gemma 4 31B: As I said earlier, I used it for a couple of tasks and it was lightning quick. It also did several parcel reviews quite well.
 
-The total cost in the end came to $40, or $30, if you consider the fact that I have $10 left over in Opencode. Quite an expensive weekend by my standards when it comes to spending for myself.
+The total cost in the end came to $40, or $30, if you consider the fact that I have $10 left over in Openrouter. Quite an expensive weekend by my standards when it comes to spending for myself.
 
 Most importantly, kudos to my wife for dealing with my spending day and night on the computer.
 
@@ -127,7 +127,7 @@ The breakdown of their multi-model orchestration workflow (treating everything f
 
 </ReviewCallout>
 
-I had a hard time getting these tags from Gemini. It stayed consistent though and finally told me that it cannot render angel brackets. The analysis is quite good and succinct.
+I had a hard time getting these tags from Gemini. It stayed consistent though and finally told me that it cannot render ~~angel~~ angle brackets. The analysis is quite good and succinct.
 
 
 <ReviewCallout title="Grok" rating="8.5/10">
@@ -152,9 +152,9 @@ A technically rich journey through recent hackathon experiences that shines when
 
 </ReviewCallout>
 
-<ReviewCallout title="SEA LION Finetune of Qwen 27B" rating="7/10">
-
 GLM wouldn't let me use 5.2. Bad GLM! The tone and style is decent. But not good enough for a conversation. Give a better rating next time and we will see!
+
+<ReviewCallout title="SEA LION Finetune of Qwen 27B" rating="9/10">
 
 A dense, high-energy chronicle of a month spent at the intersection of personal grief, technical obsession, and the accelerating pace of the AI hardware/software stack. The post shines brightest when it pivots from abstract trends to the gritty reality of constraints: training Gemma 4 on an 18GB MacBook Pro, the exhaustion of synthetic data generation, and the sheer cost of tokens when you’re trying to build a disaster response system in 48 hours.
 
