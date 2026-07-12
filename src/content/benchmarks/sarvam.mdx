@@ -1,0 +1,26 @@
+---
+title: "Sarvam vs Qwen Benchmark Comparison"
+description: "A 37-test suite evaluating multilingual (Indic) capabilities, code generation, reasoning, and agency across local and cloud environments."
+date: 2026-06-15
+models:
+  - "Sarvam-30B"
+  - "Qwen3-30B-A3B"
+  - "Sarvam-105B"
+tags:
+  - "llm"
+  - "benchmarks"
+  - "indic"
+---
+
+This benchmark evaluates **Sarvam-30B** and **Qwen3-30B-A3B** across 37 diverse test scenarios covering multilingual translation, reasoning, code synthesis, tool-selection agency, and safety guidelines. 
+
+The evaluation was performed across two main conditions:
+1. **Local Quantization (Q4_K_M)** using `llama.cpp` on consumer-grade hardware.
+2. **Cloud Full Precision (BF16)** run via Modal and `vLLM` backends.
+3. **Sarvam-105B (BF16)** serving as an upper-bound baseline run on dual-B200 GPU instances.
+
+### Key Insights
+
+* **Quantization Artifacts**: Under local Q4 quantization, Sarvam-30B experiences a notable identity alignment failure, claiming to be "Google Gemini" (Test 32). In full BF16 precision, it correctly identifies itself as "Sarvam AI". This suggests that minor-precision alignment properties are heavily degraded by 4-bit quantization.
+* **Speed vs. Model Scale**: Local quantization limits output throughput to 5–18 tokens/sec, whereas cloud BF16 instances deliver sub-second startup times and average speeds around 270 tokens/sec.
+* **Multilingual Accuracy**: While Qwen matches or exceeds Sarvam in raw translation accuracy, both models demonstrate strong capability in native script selection, with minor discrepancies in specific Indic scripts under local quantization constraints.

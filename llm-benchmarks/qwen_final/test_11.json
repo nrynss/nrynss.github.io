@@ -1,0 +1,18 @@
+{
+  "id": 11,
+  "cat": "Instruction",
+  "name": "Strict table",
+  "result": {
+    "content": "| Aspect                  | gRPC                          | REST                          |\n|-------------------------|-------------------------------|-------------------------------|\n| Data Serialization      | Uses Protocol Buffers (binary) | Uses JSON/XML (text-based)    |\n| Communication Style     | Bidirectional streaming       | Request-response (unidirectional) |\n| Interface Definition    | Defined via .proto files      | Defined via API endpoints and documentation |\n| Performance             | Faster due to binary format   | Slower due to text-based format |\n| Built-in Features       | Supports streaming, cancellation, and flow control | Requires custom implementations for similar features |",
+    "thinking": "Okay, the user wants me to list exactly 5 differences between gRPC and REST in a markdown table. Let me start by recalling what I know about both.\n\nFirst, I remember that gRPC uses Protocol Buffers for data serialization, while REST typically uses JSON or XML. That's a key difference. So the first aspect could be \"Data Serialization Format\".\n\nNext, communication style. gRPC is based on HTTP/2 and uses bidirectional streaming, whereas REST is stateless and typically uses HTTP/1.1 with request-response. So maybe \"Communication Style\" as the second aspect.\n\nThen, the interface definition. gRPC uses .proto files to define services and messages, which generates code, while REST relies on API endpoints and documentation. So \"Interface Definition\" could be the third point.\n\nPerformance is another area. Since gRPC uses binary serialization and HTTP/2, it's generally faster than REST, which uses text-based formats. So \"Performance\" as the fourth aspect.\n\nLastly, built-in features. gRPC has features like streaming, cancellation, and flow control, while REST requires custom implementations for such features. So \"Built-in Features\" as the fifth.\n\nWait, let me check if these are accurate. Data serialization is definitely a big one. Communication style: yes, gRPC's streaming vs REST's request-response. Interface definition with .proto vs endpoints. Performance due to binary and HTTP/2. Built-in features like streaming. That seems right. I need to make sure there are exactly five and no more. Also, format as a markdown table with the specified columns. No markdown in the thinking, but the final answer should be the table. Alright, that should cover it.",
+    "thinking_chars": 1665,
+    "finish": "stop",
+    "elapsed_s": 28.67,
+    "tokens": 471,
+    "prompt_tokens": 43,
+    "t_per_s": 16.4,
+    "error": null,
+    "runaway_think": false
+  },
+  "prompt": "List exactly 5 differences between gRPC and REST. Format as a markdown table with columns: Aspect, gRPC, REST. No preamble or conclusion — just the table."
+}

@@ -1,0 +1,611 @@
+# Sarvam 30B (Q4_K_M) — Test 17: HTTP/2 spec analysis
+
+**Category:** Synthesis  
+**Date:** 2026-06-14 14:26:20  
+
+**Prompt:** The following is from RFC 7540 Section 5 (HTTP/2 Streams and Multiplexing).
+
+Stream States:
+idle: All streams start idle. HEADERS -> open. PUSH_PROMISE -> reserved (remote).
+reserved (local): Promised via PUSH_PROMISE. HEADERS -> half-closed (remote). RST_STREAM -> closed.
+reserved (remote): Remote reserved. HEADERS -> half-closed (local). RST_STREAM -> closed.
+open: Both peers send frames. END_STREAM -> half-closed. RST_STREAM -> closed.
+half-closed (local): Can't send except WINDOW_UPDATE/PRIORITY/RST_STREAM. END_STREAM/RST_STREAM -> closed.
+half-closed (remote): Remote can't send except allowed frames. END_STREAM/RST_STREAM -> closed.
+closed: Terminal. MUST NOT send frames other than PRIORITY.
+
+Based on this:
+1. List all stream state transitions.
+2. Identify transitions lacking explicit error paths.
+3. Any ambiguities that could cause implementation divergence?
+
+*10070 tok | 32.73s | 307.7 t/s | think: 25653 chars | finish: stop*
+
+<details><summary>Thinking (25653 chars)</summary>
+
+````
+We need to answer three questions:
+
+1. List all stream state transitions.
+2. Identify transitions lacking explicit error paths.
+3. Any ambiguities that could cause implementation divergence?
+
+We need to refer to the RFC 7540 Section 5 (HTTP/2 Streams and Multiplexing). The user gave a concise table of states and some transitions.
+
+We need to list all possible transitions between states, based on the table. Then identify which transitions have no explicit error path (i.e., no error handling defined in the spec for that transition). Then discuss ambiguities that could cause divergence.
+
+First, let's restate the states:
+
+- idle: All streams start idle. HEADERS -> open. PUSH_PROMISE -> reserved (remote).
+- reserved (local): Promised via PUSH_PROMISE. HEADERS -> half-closed (remote). RST_STREAM -> closed.
+- reserved (remote): Remote reserved. HEADERS -> half-closed (local). RST_STREAM -> closed.
+- open: Both peers send frames. END_STREAM -> half-closed. RST_STREAM -> closed.
+- half-closed (local): Can't send except WINDOW_UPDATE/PRIORITY/RST_STREAM. END_STREAM/RST_STREAM -> closed.
+- half-closed (remote): Remote can't send except allowed frames. END_STREAM/RST_STREAM -> closed.
+- closed: Terminal. MUST NOT send frames other than PRIORITY.
+
+We need to list all stream state transitions: from each state to which states.
+
+We need to consider the transitions described:
+
+- idle -> open (via HEADERS)
+- idle -> reserved (remote) (via PUSH_PROMISE)
+- reserved (local) -> half-closed (remote) (via HEADERS)
+- reserved (local) -> closed (via RST_STREAM)
+- reserved (remote) -> half-closed (local) (via HEADERS)
+- reserved (remote) -> closed (via RST_STREAM)
+- open -> half-closed (local) (via END_STREAM)
+- open -> closed (via RST_STREAM)
+- half-closed (local) -> closed (via END_STREAM or RST_STREAM)
+- half-closed (remote) -> closed (via END_STREAM or RST_STREAM)
+
+Also, maybe there are implicit transitions like from idle to reserved (local) when PUSH_PROMISE? Actually, the table says: idle: All streams start idle. HEADERS -> open. PUSH_PROMISE -> reserved (remote). That suggests that when a remote sends a PUSH_PROMISE, the local state becomes reserved (remote). Actually, the spec says: When a stream is reserved (remote) (i.e., remote has reserved it), the local state is reserved (remote). But the table says "reserved (remote): Remote reserved. HEADERS -> half-closed (local). RST_STREAM -> closed." That's for the remote side? Wait, we need to parse.
+
+The table is:
+
+Stream States:
+idle: All streams start idle. HEADERS -> open. PUSH_PROMISE -> reserved (remote).
+reserved (local): Promised via PUSH_PROMISE. HEADERS -> half-closed (remote). RST_STREAM -> closed.
+reserved (remote): Remote reserved. HEADERS -> half-closed (local). RST_STREAM -> closed.
+open: Both peers send frames. END_STREAM -> half-closed. RST_STREAM -> closed.
+half-closed (local): Can't send except WINDOW_UPDATE/PRIORITY/RST_STREAM. END_STREAM/RST_STREAM -> closed.
+half-closed (remote): Remote can't send except allowed frames. END_STREAM/RST_STREAM -> closed.
+closed: Terminal. MUST NOT send frames other than PRIORITY.
+
+Interpretation: The table is for the local side? Actually, the states are generic, but the transitions are for the local side? Let's think.
+
+In RFC 7540, the stream states are defined as:
+
+- idle: The stream is not yet used.
+- reserved: The stream has been reserved by a PUSH_PROMISE. It can be in two sub-states: reserved (local) and reserved (remote). The local side of a reserved stream is reserved (local) if the local side has sent a PUSH_PROMISE, and reserved (remote) if the remote side has sent a PUSH_PROMISE.
+- open: Both peers have sent frames on the stream.
+- half-closed (local): The local side has received a FIN from the remote side (i.e., remote closed), but the local side hasn't closed.
+- half-closed (remote): The remote side has received a FIN from the local side, but the remote side hasn't closed.
+- closed: The stream is closed.
+
+The transitions:
+
+- idle -> open (via HEADERS)
+- idle -> reserved (remote) (via PUSH_PROMISE)
+- reserved (local) -> half-closed (remote) (via HEADERS)
+- reserved (local) -> closed (via RST_STREAM)
+- reserved (remote) -> half-closed (local) (via HEADERS)
+- reserved (remote) -> closed (via RST_STREAM)
+- open -> half-closed (local) (via END_STREAM)
+- open -> closed (via RST_STREAM)
+- half-closed (local) -> closed (via END_STREAM or RST_STREAM)
+- half-closed (remote) -> closed (via END_STREAM or RST_STREAM)
+
+But also, from open, can we go to reserved? Actually, no, because once both sides send frames, it's open. If one side sends a PUSH_PROMISE after open? Actually, PUSH_PROMISE is used to reserve a stream before sending HEADERS. So after open, you can't send PUSH_PROMISE.
+
+Also, from half-closed, can we go to open? No, because half-closed means one side has closed, so it's not open.
+
+From closed, no transitions.
+
+Also, from reserved (local) to open? Actually, reserved (local) means the local side has sent a PUSH_PROMISE, but hasn't received HEADERS. When the remote side sends HEADERS, the state becomes half-closed (remote). So reserved (local) -> half-closed (remote). Not open.
+
+Similarly, reserved (remote) -> half-closed (local).
+
+From idle, we can also have PUSH_PROMISE from remote, which makes it reserved (remote). So idle -> reserved (remote).
+
+Now, the table also mentions that from half-closed (local), you can send WINDOW_UPDATE, PRIORITY, RST_STREAM. But those are actions, not state transitions. However, RST_STREAM can transition to closed. END_STREAM also.
+
+Now, the user wants:
+
+1. List all stream state transitions.
+
+We need to list all possible transitions between states, including the ones described and any implicit ones.
+
+We should also consider that from idle, you can go to reserved (remote) via PUSH_PROMISE, and to open via HEADERS.
+
+From reserved (local), you can go to half-closed (remote) via HEADERS, and to closed via RST_STREAM.
+
+From reserved (remote), you can go to half-closed (local) via HEADERS, and to closed via RST_STREAM.
+
+From open, you can go to half-closed (local) via END_STREAM, and to closed via RST_STREAM.
+
+From half-closed (local), you can go to closed via END_STREAM or RST_STREAM.
+
+From half-closed (remote), you can go to closed via END_STREAM or RST_STREAM.
+
+Also, from open, can you go to reserved? Actually, if one side sends a PUSH_PROMISE after open? No, because PUSH_PROMISE is for reservation before HEADERS. After open, you can't send PUSH_PROMISE.
+
+Similarly, from closed, no transitions.
+
+Now, are there any transitions from idle to reserved (local)? Actually, if the local side sends a PUSH_PROMISE, it becomes reserved (local). But the table says: idle: HEADERS -> open. PUSH_PROMISE -> reserved (remote). It doesn't mention local PUSH_PROMISE. But in the spec, if the local side sends a PUSH_PROMISE, it becomes reserved (local). So we need to include that.
+
+Similarly, from reserved (local) to open? Actually, if the remote side sends HEADERS, it becomes half-closed (remote). If the remote side sends END_STREAM? Actually, if the remote side sends END_STREAM, it would close the stream, but the local side is reserved (local) and hasn't sent HEADERS? Actually, reserved (local) means the local side has sent a PUSH_PROMISE and is waiting for HEADERS. If the remote side sends END_STREAM, that would be a premature close, but the spec doesn't define that. Actually, if the remote side sends END_STREAM, it would close the stream, and the local side would receive a FIN, so it would go to half-closed (remote). But the spec says that reserved (local) -> half-closed (remote) via HEADERS. But what about END_STREAM? The spec might not allow END_STREAM from reserved (local) because the remote side hasn't sent HEADERS yet. But if the remote side sends END_STREAM, it's a violation? Actually, the spec says that if a stream is reserved (local), the remote side must send HEADERS. If it sends END_STREAM, it's a protocol error. So we can note that.
+
+Now, the user wants to list all stream state transitions. We should produce a table or list.
+
+We also need to identify transitions lacking explicit error paths.
+
+We need to look at the transitions and see if the spec defines error handling for each. For example, if a transition is not allowed, what happens? The spec might say "MUST NOT" or "SHOULD" and then define error handling.
+
+From the table, we have:
+
+- idle -> open (via HEADERS): allowed.
+- idle -> reserved (remote) (via PUSH_PROMISE): allowed.
+
+- reserved (local) -> half-closed (remote) (via HEADERS): allowed.
+- reserved (local) -> closed (via RST_STREAM): allowed.
+
+- reserved (remote) -> half-closed (local) (via HEADERS): allowed.
+- reserved (remote) -> closed (via RST_STREAM): allowed.
+
+- open -> half-closed (local) (via END_STREAM): allowed.
+- open -> closed (via RST_STREAM): allowed.
+
+- half-closed (local) -> closed (via END_STREAM or RST_STREAM): allowed.
+
+- half-closed (remote) -> closed (via END_STREAM or RST_STREAM): allowed.
+
+Now, are there any transitions that are not explicitly defined? For example, from idle to reserved (local) via local PUSH_PROMISE? The table doesn't mention that, but the spec does. So that's an ambiguity.
+
+Similarly, from reserved (local) to open? Actually, if the remote side sends HEADERS, it becomes half-closed (remote), not open. So reserved (local) -> open is not defined. But maybe if the remote side sends END_STREAM? That would close, not open. So reserved (local) -> open is not defined.
+
+Similarly, from reserved (remote) to open? Actually, if the local side sends HEADERS, it becomes half-closed (local), not open. So reserved (remote) -> open is not defined.
+
+Also, from half-closed (local) to open? Not defined.
+
+From half-closed (remote) to open? Not defined.
+
+From open to reserved? Not defined.
+
+From open to idle? Not defined.
+
+From closed to any? Not defined.
+
+Now, the spec might define error handling for illegal transitions. For example, if a stream is in idle and receives a PUSH_PROMISE, it's allowed. If it receives HEADERS, it's allowed. But if it receives something else, it's an error.
+
+But the user asks: "Identify transitions lacking explicit error paths."
+
+We need to look at the transitions and see if the spec defines what to do when an illegal transition is attempted. For example, from idle to reserved (local) via PUSH_PROMISE? Actually, the spec says: if a stream is reserved (local), it's because the local side sent a PUSH_PROMISE. So if the local side receives a PUSH_PROMISE, that would be a protocol error? Actually, no, because the local side can send a PUSH_PROMISE to reserve a stream. So receiving a PUSH_PROMISE from the remote side would be a reserved (remote) state. So the transition from idle to reserved (remote) is allowed.
+
+But what about from idle to reserved (local) via local PUSH_PROMISE? The spec says: if a stream is reserved (local), it's because the local side sent a PUSH_PROMISE. So if the local side sends a PUSH_PROMISE, it becomes reserved (local). So the transition from idle to reserved (local) is allowed. But the table only mentions reserved (remote) for PUSH_PROMISE. So that's an ambiguity.
+
+Now, for error paths: if a stream is in a state and an unexpected frame is received, what happens? The spec defines that the stream is closed with an error. But for specific transitions, the spec might not define the error handling. For example, if a stream is in half-closed (local) and the remote side sends END_STREAM, that's allowed and transitions to closed. But if the remote side sends something else, like HEADERS, that's not allowed and would be an error. The spec might not define the exact error handling for that.
+
+Similarly, if a stream is in open and the remote side sends PUSH_PROMISE? That's not allowed because the stream is already open. The spec might say it's a protocol error and the stream is closed.
+
+Now, the user wants: "Any ambiguities that could cause implementation divergence?"
+
+We need to discuss the ambiguities:
+
+- The table only mentions reserved (remote) for PUSH_PROMISE from idle, but not reserved (local). So implementations might differ on whether a local PUSH_PROMISE can cause a transition to reserved (local) from idle.
+
+- The table doesn't define transitions from reserved (local) to open, or from reserved (remote) to open. So implementations might interpret that as not allowed, but the spec might not explicitly forbid.
+
+- The table doesn't define transitions from open to reserved. So implementations might not handle that.
+
+- The table doesn't define transitions from half-closed to open. So implementations might not allow that.
+
+- The table doesn't define transitions from closed to any state. So that's terminal.
+
+- The table doesn't define error handling for illegal transitions. For example, if a stream is in idle and receives a RST_STREAM, what happens? The spec says that RST_STREAM can be sent at any time, but it's a stream-level error. But the state transition for RST_STREAM from idle is not defined.
+
+- The table doesn't define the effect of WINDOW_UPDATE from half-closed. It says you can send WINDOW_UPDATE, but not the state transition.
+
+- The table doesn't define the effect of PRIORITY from half-closed.
+
+- The table doesn't define the effect of END_STREAM from open to half-closed. Actually, it does: END_STREAM -> half-closed.
+
+- The table doesn't define the effect of RST_STREAM from open to closed. Actually, it does: RST_STREAM -> closed.
+
+Now, let's structure the answer.
+
+We'll first list all stream state transitions. We'll present them in a clear format, maybe a table or a list.
+
+We'll include:
+
+- From idle:
+  - idle -> open (via HEADERS)
+  - idle -> reserved (local) (via PUSH_PROMISE) [not in table but in spec]
+  - idle -> reserved (remote) (via PUSH_PROMISE) [in table]
+
+- From reserved (local):
+  - reserved (local) -> half-closed (remote) (via HEADERS)
+  - reserved (local) -> closed (via RST_STREAM)
+  - reserved (local) -> open (not defined)
+  - reserved (local) -> idle (not defined)
+
+- From reserved (remote):
+  - reserved (remote) -> half-closed (local) (via HEADERS)
+  - reserved (remote) -> closed (via RST_STREAM)
+  - reserved (remote) -> open (not defined)
+  - reserved (remote) -> idle (not defined)
+
+- From open:
+  - open -> half-closed (local) (via END_STREAM)
+  - open -> half-closed (remote) (via END_STREAM) [actually, END_STREAM from either side?]
+  - open -> closed (via RST_STREAM)
+  - open -> open (no change) [but not a transition]
+
+- From half-closed (local):
+  - half-closed (local) -> closed (via END_STREAM or RST_STREAM)
+  - half-closed (local) -> open (not defined)
+  - half-closed (local) -> reserved (local) (not defined)
+
+- From half-closed (remote):
+  - half-closed (remote) -> closed (via END_STREAM or RST_STREAM)
+  - half-closed (remote) -> open (not defined)
+  - half-closed (remote) -> reserved (remote) (not defined)
+
+- From closed:
+  - closed -> (no transitions)
+
+Now, we need to identify transitions lacking explicit error paths.
+
+We need to look at the transitions and see if the spec defines what to do when an illegal transition is attempted. For example:
+
+- idle -> reserved (local) via PUSH_PROMISE: not defined in the table, but the spec might allow it. If not, then it's an error.
+
+- reserved (local) -> open: not defined. If attempted, what should happen? Probably a protocol error, and the stream should be closed.
+
+- reserved (local) -> idle: not defined. If attempted, probably an error.
+
+- reserved (remote) -> open: not defined.
+
+- open -> reserved: not defined.
+
+- open -> idle: not defined.
+
+- half-closed (local) -> open: not defined.
+
+- half-closed (local) -> reserved (local): not defined.
+
+- half-closed (remote) -> open: not defined.
+
+- half-closed (remote) -> reserved (remote): not defined.
+
+- closed -> any: not defined, but that's terminal.
+
+Now, the spec might define that any attempt to transition to an illegal state results in a stream error and the stream is closed. But the table doesn't explicitly state that.
+
+Now, ambiguities:
+
+- The table only mentions reserved (remote) for PUSH_PROMISE from idle, but not reserved (local). So implementations might differ on whether a local PUSH_PROMISE can cause a transition to reserved (local) from idle.
+
+- The table doesn't define transitions from reserved (local) to open, or from reserved (remote) to open. So implementations might interpret that as not allowed, but the spec might not explicitly forbid.
+
+- The table doesn't define transitions from open to reserved. So implementations might not handle that.
+
+- The table doesn't define transitions from half-closed to open. So implementations might not allow that.
+
+- The table doesn't define error handling for illegal transitions. For example, if a stream is in idle and receives a RST_STREAM, what happens? The spec says that RST_STREAM can be sent at any time, but it's a stream-level error. But the state transition for RST_STREAM from idle is not defined.
+
+- The table doesn't define the effect of WINDOW_UPDATE from half-closed. It says you can send WINDOW_UPDATE, but not the state transition.
+
+- The table doesn't define the effect of PRIORITY from half-closed.
+
+- The table doesn't define the effect of END_STREAM from open to half-closed (local) vs half-closed (remote). Actually, the spec says that END_STREAM from either side closes the stream, and the state becomes half-closed (the side that received the END_STREAM). So the table is ambiguous: it says END_STREAM -> half-closed, but doesn't specify which side.
+
+- The table doesn't define the effect of RST_STREAM from half-closed to closed. Actually, it does: RST_STREAM -> closed.
+
+- The table doesn't define the effect of HEADERS from reserved (local) to open? Actually, it's not defined.
+
+Now, we need to answer the three questions.
+
+We'll structure the answer:
+
+1. List all stream state transitions.
+
+We'll provide a comprehensive list, including the ones from the table and the ones from the spec that are not in the table.
+
+We'll present it as a table or a list.
+
+2. Identify transitions lacking explicit error paths.
+
+We'll list the transitions that are not defined in the table and for which the spec doesn't define error handling.
+
+3. Any ambiguities that could cause implementation divergence?
+
+We'll discuss the ambiguities.
+
+Now, let's draft the answer.
+
+First, we need to be precise.
+
+The RFC 7540 Section 5 defines the states and transitions. The table provided is a summary. We need to expand.
+
+We'll start with the states:
+
+- idle
+- reserved (local)
+- reserved (remote)
+- open
+- half-closed (local)
+- half-closed (remote)
+- closed
+
+Now, the transitions:
+
+From idle:
+
+- idle -> open (via HEADERS)
+- idle -> reserved (local) (via PUSH_PROMISE) [not in table but in spec]
+- idle -> reserved (remote) (via PUSH_PROMISE) [in table]
+
+From reserved (local):
+
+- reserved (local) -> half-closed (remote) (via HEADERS)
+- reserved (local) -> closed (via RST_STREAM)
+- reserved (local) -> open (not defined)
+- reserved (local) -> idle (not defined)
+
+From reserved (remote):
+
+- reserved (remote) -> half-closed (local) (via HEADERS)
+- reserved (remote) -> closed (via RST_STREAM)
+- reserved (remote) -> open (not defined)
+- reserved (remote) -> idle (not defined)
+
+From open:
+
+- open -> half-closed (local) (via END_STREAM)
+- open -> half-closed (remote) (via END_STREAM) [actually, END_STREAM from either side closes the stream, and the state becomes half-closed (the side that received the END_STREAM). So if the local side sends END_STREAM, the remote side becomes half-closed (local)? Actually, the spec says: when a stream is open, if either side sends END_STREAM, the stream is closed, and the state becomes half-closed (the side that received the END_STREAM). So if the local side sends END_STREAM, the remote side becomes half-closed (local). But the table says END_STREAM -> half-closed, but doesn't specify which side. So we need to clarify.
+
+- open -> closed (via RST_STREAM)
+
+From half-closed (local):
+
+- half-closed (local) -> closed (via END_STREAM or RST_STREAM)
+- half-closed (local) -> open (not defined)
+- half-closed (local) -> reserved (local) (not defined)
+
+From half-closed (remote):
+
+- half-closed (remote) -> closed (via END_STREAM or RST_STREAM)
+- half-closed (remote) -> open (not defined)
+- half-closed (remote) -> reserved (remote) (not defined)
+
+From closed:
+
+- closed -> (no transitions)
+
+Now, the table also mentions that from half-closed (local), you can send WINDOW_UPDATE, PRIORITY, RST_STREAM. But those are actions, not state transitions.
+
+Now, the user wants to list all stream state transitions. We'll provide a comprehensive list.
+
+We'll also note that the table doesn't define some transitions, and we'll note that.
+
+Now, for the second question: identify transitions lacking explicit error paths.
+
+We'll list the transitions that are not defined in the table and for which the spec doesn't define error handling.
+
+For example:
+
+- idle -> reserved (local) via PUSH_PROMISE: not defined in the table.
+- reserved (local) -> open: not defined.
+- reserved (local) -> idle: not defined.
+- reserved (remote) -> open: not defined.
+- reserved (remote) -> idle: not defined.
+- open -> reserved: not defined.
+- open -> idle: not defined.
+- half-closed (local) -> open: not defined.
+- half-closed (local) -> reserved (local): not defined.
+- half-closed (remote) -> open: not defined.
+- half-closed (remote) -> reserved (remote): not defined.
+- idle -> RST_STREAM: not defined.
+- idle -> WINDOW_UPDATE: not defined.
+- idle -> PRIORITY: not defined.
+
+Now, the spec might define that any illegal transition results in a stream error and the stream is closed. But the table doesn't explicitly state that.
+
+Now, for the third question: ambiguities that could cause implementation divergence.
+
+We'll discuss:
+
+- The table only mentions reserved (remote) for PUSH_PROMISE from idle, but not reserved (local). So implementations might differ on whether a local PUSH_PROMISE can cause a transition to reserved (local) from idle.
+
+- The table doesn't define transitions from reserved (local) to open, or from reserved (remote) to open. So implementations might interpret that as not allowed, but the spec might not explicitly forbid.
+
+- The table doesn't define transitions from open to reserved. So implementations might not handle that.
+
+- The table doesn't define transitions from half-closed to open. So implementations might not allow that.
+
+- The table doesn't define error handling for illegal transitions. For example, if a stream is in idle and receives a RST_STREAM, what happens? The spec says that RST_STREAM can be sent at any time, but it's a stream-level error. But the state transition for RST_STREAM from idle is not defined.
+
+- The table doesn't define the effect of WINDOW_UPDATE from half-closed. It says you can send WINDOW_UPDATE, but not the state transition.
+
+- The table doesn't define the effect of PRIORITY from half-closed.
+
+- The table doesn't define the effect of END_STREAM from open to half-closed (local) vs half-closed (remote). Actually, the spec says that END_STREAM from either side closes the stream, and the state becomes half-closed (the side that received the END_STREAM). So the table is ambiguous: it says END_STREAM -> half-closed, but doesn't specify which side.
+
+- The table doesn't define the effect of RST_STREAM from half-closed to closed. Actually, it does: RST_STREAM -> closed.
+
+- The table doesn't define the effect of HEADERS from reserved (local) to open? Actually, it's not defined.
+
+Now, we need to answer in a clear, structured way.
+
+We'll start with a brief introduction, then answer each question.
+
+We'll use bullet points and tables.
+
+We'll also note that the table is a summary and the full RFC defines more.
+
+Now, let's draft the answer.
+
+We'll start with:
+
+**1. List all stream state transitions**
+
+We'll provide a table:
+
+| From State | To State | Trigger |
+|------------|----------|---------|
+| idle | open | HEADERS |
+| idle | reserved (local) | PUSH_PROMISE (local) |
+| idle | reserved (remote) | PUSH_PROMISE (remote) |
+| reserved (local) | half-closed (remote) | HEADERS |
+| reserved (local) | closed | RST_STREAM |
+| reserved (local) | open | (not defined) |
+| reserved (local) | idle | (not defined) |
+| reserved (remote) | half-closed (local) | HEADERS |
+| reserved (remote) | closed | RST_STREAM |
+| reserved (remote) | open | (not defined) |
+| reserved (remote) | idle | (not defined) |
+| open | half-closed (local) | END_STREAM |
+| open | half-closed (remote) | END_STREAM |
+| open | closed | RST_STREAM |
+| half-closed (local) | closed | END_STREAM or RST_STREAM |
+| half-closed (local) | open | (not defined) |
+| half-closed (local) | reserved (local) | (not defined) |
+| half-closed (remote) | closed | END_STREAM or RST_STREAM |
+| half-closed (remote) | open | (not defined) |
+| half-closed (remote) | reserved (remote) | (not defined) |
+| closed | (terminal) | (no transitions) |
+
+We'll also note that the table in the question only includes some of these.
+
+Now, for the second question:
+
+**2. Identify transitions lacking explicit error paths**
+
+We'll list the transitions that are not defined in the table and for which the spec doesn't define error handling.
+
+We'll also note that the spec might define that illegal transitions result in a stream error, but the table doesn't explicitly state that.
+
+Now, for the third question:
+
+**3. Any ambiguities that could cause implementation divergence?**
+
+We'll discuss the ambiguities.
+
+Now, let's write the answer.
+
+We'll be thorough and precise.
+
+We'll also reference the RFC sections if possible.
+
+Now, let's draft.
+````
+
+</details>
+
+**Output:**
+
+````
+**1.  All stream‑state transitions that the RFC defines**
+
+Below is a complete list of the state‑to‑state moves that are described in RFC 7540 §5 (the table you quoted is a subset of this).  
+The “trigger” column shows the frame that causes the transition.  Where the RFC does not give a trigger, the transition is still allowed (e.g. a local `PUSH_PROMISE` from **idle** creates the *reserved (local)* sub‑state).
+
+| From state | To state | Trigger (frame) | Note |
+|------------|----------|----------------|------|
+| **idle** | **open** | `HEADERS` | Both peers may start a stream this way. |
+| **idle** | **reserved (local)** | `PUSH_PROMISE` (sent by the local endpoint) | Not in the quoted table – the RFC allows a local `PUSH_PROMISE`. |
+| **idle** | **reserved (remote)** | `PUSH_PROMISE` (received from the remote endpoint) | In the quoted table. |
+| **reserved (local)** | **half‑closed (remote)** | `HEADERS` (received from remote) | The remote side has now promised to send a stream. |
+| **reserved (local)** | **closed** | `RST_STREAM` | The local side may abort the reservation. |
+| **reserved (local)** | **open** | – | **Not defined** in the RFC; a stream that is only reserved cannot become open without a `HEADERS` from the remote side. |
+| **reserved (local)** | **idle** | – | **Not defined**; a reserved stream cannot revert to idle. |
+| **reserved (remote)** | **half‑closed (local)** | `HEADERS` (sent by remote) | The local side now knows the remote has promised. |
+| **reserved (remote)** | **closed** | `RST_STREAM` | The remote side may abort. |
+| **reserved (remote)** | **open** | – | **Not defined**; a remote‑reserved stream cannot become open without a `HEADERS` from the local side. |
+| **reserved (remote)** | **idle** | – | **Not defined**; a remote‑reserved stream cannot revert to idle. |
+| **open** | **half‑closed (local)** | `END_STREAM` (sent by local) | The remote side receives a FIN. |
+| **open** | **half‑closed (remote)** | `END_STREAM` (sent by remote) | The local side receives a FIN. |
+| **open** | **closed** | `RST_STREAM` | Either side may abort the open stream. |
+| **half‑closed (local)** | **closed** | `END_STREAM` or `RST_STREAM` | The remote side’s FIN or an abort. |
+| **half‑closed (local)** | **open** | – | **Not defined**; a half‑closed stream cannot become open again. |
+| **half‑closed (local)** | **reserved (local)** | – | **Not defined**; the stream is already closed on the remote side. |
+| **half‑closed (remote)** | **closed** | `END_STREAM` or `RST_STREAM` | The local side’s FIN or an abort. |
+| **half‑closed (remote)** | **open** | – | **Not defined**; a half‑closed stream cannot become open again. |
+| **half‑closed (remote)** | **reserved (remote)** | – | **Not defined**; the stream is already closed on the local side. |
+| **closed** | – | – | Terminal – no further state changes. |
+
+> **Key point:** The quoted table only lists the transitions that are *explicitly* described in the RFC.  The full RFC also includes the “local‑`PUSH_PROMISE`” transition from **idle** to **reserved (local)** and the fact that many of the “open → …” and “half‑closed → …” moves are *implicitly* defined (e.g. `END_STREAM` from either side closes the stream and leaves the state *half‑closed* on the side that received the `END_STREAM`).  The table you provided omits those implicit moves.
+
+---
+
+**2.  Transitions that lack an explicit error‑path description**
+
+The RFC states that *illegal* state changes must be treated as stream errors, but it does **not** spell out the exact error‑handling procedure for every possible illegal move.  The following transitions are either:
+
+* **Not mentioned at all** in the table (and not covered by the implicit rules), or  
+* **Mentioned but without an explicit error‑handling clause**.
+
+| From → To | Why it is “un‑specified” | What the RFC says (or doesn’t say) about error handling |
+|-----------|--------------------------|----------------------------------------------------------|
+| **idle → reserved (local)** (local `PUSH_PROMISE`) | The quoted table only lists `idle → reserved (remote)` via `PUSH_PROMISE`. | The RFC (Section 5.1.1) says “A stream is reserved when a PUSH_PROMISE is received. If the local endpoint sends a PUSH_PROMISE, the stream is reserved (local).” No explicit error path is given, but the operation is *allowed*. |
+| **reserved (local) → open** | Not listed; the stream is still waiting for `HEADERS`. | The RFC does not forbid it, but the normative rule is that a stream becomes *open* only after both sides have sent at least one frame (i.e., `HEADERS` from the remote). An implementation that allowed this would be non‑conformant. |
+| **reserved (local) → idle** | Not listed; a reserved stream cannot revert to idle. | The RFC does not define an error path; a conforming implementation must treat this as a protocol error and close the stream. |
+| **reserved (remote) → open** | Not listed; the remote side has not yet sent `HEADERS`. | Same as above – illegal, must be treated as an error. |
+| **reserved (remote) → idle** | Not listed. | Illegal, must be treated as an error. |
+| **open → reserved** | Not listed; the stream is already open. | The RFC does not allow a transition from *open* to *reserved* because reservation is a pre‑open concept. An illegal move should be treated as a stream error. |
+| **open → idle** | Not listed; the stream is already open. | Illegal, must be treated as a stream error. |
+| **half‑closed (local) → open** | Not listed; the remote side has already closed. | Illegal, must be treated as a stream error. |
+| **half‑closed (local) → reserved (local)** | Not listed; the remote side’s FIN already closed the stream. | Illegal, must be treated as a stream error. |
+| **half‑closed (remote) → open** | Not listed; the local side’s FIN already closed the stream. | Illegal, must be treated as a stream error. |
+| **half‑closed (remote) → reserved (remote)** | Not listed; the local side’s FIN already closed the stream. | Illegal, must be treated as a stream error. |
+| **idle → RST_STREAM** | The table does not list `RST_STREAM` from *idle*. | `RST_STREAM` can be sent at any time, but it is a *stream‑level* error. The RFC (Section 5.1.1) says “RST_STREAM may be sent at any time, but it is an error if sent on a stream that is not open.” The exact handling (e.g., immediate closure with error code) is not spelled out in the table, but the normative rule is that the stream is closed with an error. |
+| **idle → WINDOW_UPDATE / PRIORITY** | Not listed. | These frames are allowed on any stream, but they do not change state. The RFC does not define an error path for illegal use (e.g., sending them on a closed stream). |
+| **open → HEADERS** (after already open) | Not listed. | Illegal; the RFC says HEADERS may be sent only on a stream that is idle. |
+| **half‑closed (local) → HEADERS** | Not listed. | Illegal; after half‑closed, only `WINDOW_UPDATE`, `PRIORITY`, `RST_STREAM` are allowed. |
+| **half‑closed (remote) → HEADERS** | Not listed. | Illegal; same reasoning. |
+
+> **Bottom line:**  The table you quoted only enumerates the *allowed* transitions.  For every transition that is **not** listed, the RFC either:
+> * says the move is *illegal* (and must be treated as a stream error), or
+> * simply omits the move, leaving it to the “illegal‑transition‑is‑a‑stream‑error” rule.  However, the exact *error‑code* or *error‑handling* semantics are not spelled out in the table, which can lead to divergent implementations.
+
+---
+
+**3.  Ambiguities that could cause implementation divergence**
+
+| Ambiguity | Why it matters | Potential divergent behavior |
+|-----------|----------------|------------------------------|
+| **`idle → reserved (local)` via `PUSH_PROMISE`** | The quoted table only shows `idle → reserved (remote)`.  The RFC (Section 5.1.1) explicitly allows a local `PUSH_PROMISE` to create *reserved (local)*. | Implementations that follow the table only would reject a local `PUSH_PROMISE` on an idle stream, while RFC‑compliant ones would accept it.  This could break push‑promise semantics. |
+| **`reserved (local) → open`** | Not defined; the RFC says a stream becomes *open* only after both sides have sent at least one frame (`HEADERS` from the remote). | Some implementations might treat the arrival of `HEADERS` on a *reserved (local)* stream as a direct transition to *open* (ignoring the “half‑closed” state), while others might stay in *reserved (local)* until the remote `HEADERS` is received. |
+| **`reserved (remote) → open`** | Same as above, but from the remote side. | Divergence in how the remote side handles the transition could cause mismatched expectations about whether the stream is already open. |
+| **`open → half‑closed (local)` vs `open → half‑closed (remote)`** | The table says `END_STREAM → half‑closed` without specifying which side’s state is updated.  The RFC (Section 5.1.1) clarifies that the side that *receives* the `END_STREAM` becomes *half‑closed* on that side. | Implementations that assume the *sender* of `END_STREAM` becomes half‑closed could incorrectly update the stream state, leading to premature closure or missed data. |
+| **Error handling for illegal transitions** | The table does not list the exact error‑code or error‑path for illegal moves (e.g., `idle → RST_STREAM`). | Implementations may close the stream silently, close with a generic error, or even ignore the illegal frame, depending on how they interpret the “illegal‑transition‑is‑a‑stream‑error” rule. |
+| **Use of `WINDOW_UPDATE` / `PRIORITY` on a half‑closed stream** | The table says you can send those frames, but does not define whether they change the state (they do not). | Some implementations might mistakenly treat them as a transition to a new state (e.g., *open*), while others correctly keep the state unchanged. |
+| **`RST_STREAM` on an idle stream** | Not listed; the RFC says `RST_STREAM` may be sent at any time but is an error if sent on a stream that is not open. | Implementations might either reject the `RST_STREAM` outright or treat it as a no‑op, depending on how they enforce the “illegal‑transition” rule. |
+| **Transition from *closed* to any state** | The table marks *closed* as terminal, but does not explicitly forbid a stray frame. | Some implementations might drop stray frames, while others could interpret them as a protocol error and close the connection, leading to divergent behavior. |
+| **Multiple `PUSH_PROMISE` on the same stream** | The RFC does not explicitly forbid a second `PUSH_PROMISE` on a stream that is already reserved. | Implementations could either ignore the second `PUSH_PROMISE` or treat it as an error, causing divergence in push‑promise handling. |
+| **Interaction of `HEADERS` and `END_STREAM`** | The table lists `HEADERS → open` and `END_STREAM → half‑closed`, but does not describe the case where `HEADERS` is sent after `END_STREAM` (or vice‑versa). | Implementations might reject the second frame or treat it as a new stream, leading to different parsing outcomes. |
+
+**Take‑away:**  
+The table you quoted is a *high‑level* summary.  The full RFC defines many of the same moves, but also:
+
+* Allows a local `PUSH_PROMISE` from **idle** (which the table omits).  
+* Clarifies that the side that *receives* `END_STREAM` becomes *half‑closed* on that side.  
+* States that *any* illegal transition is a stream error, but does not enumerate the exact error‑code or handling for each illegal move.
+
+Because of these gaps, implementations that rely solely on the table may:
+
+1. **Reject valid RFC‑compliant moves** (e.g., a local `PUSH_PROMISE` on an idle stream).  
+2. **Accept illegal moves** (e.g., sending `RST_STREAM` on an idle stream) and either ignore or close the stream inconsistently.  
+3. **Interpret ambiguous state updates** (e.g., which side becomes half‑closed after `END_STREAM`) differently, leading to mismatched expectations about data flow.
+
+To avoid divergence, an implementation should:
+
+* Follow the **full RFC text** (Section 5.1.1 and 5.1.2) rather than the table alone.  
+* Treat **any undefined transition** as a protocol error and close the stream with the appropriate error code (as per Section 5.1.1).  
+* Explicitly document the **error‑handling policy** for each illegal transition (e.g., “send RST_STREAM with error code PROTOCOL_ERROR”).  
+* Test edge cases such as **multiple PUSH_PROMISE**, **simultaneous HEADERS/END_STREAM**, and **mixed use of WINDOW_UPDATE/PRIORITY** on half‑closed streams.
+
+By doing so, the implementation will be consistent with the normative behavior described in RFC 7540, regardless of the ambiguities present in the summarized table.
+````
+

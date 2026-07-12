@@ -1,0 +1,493 @@
+# Sarvam 30B (Q4_K_M) — Test 21: Encoding robustness stress test
+
+**Category:** Multilingual  
+**Date:** 2026-06-14 21:39:15  
+
+### Plain ASCII
+
+**Prompt:** Explain the difference between kanakkinakku and pattayam in Kerala land revenue records, in English. Also explain what a thandaper number is and how it relates to property identification in Kerala.
+
+*3057 tok | 24.3s | 125.8 t/s | think: 6783 chars | finish: stop*
+
+<details><summary>Thinking (6783 chars)</summary>
+
+````
+**1. Deconstruct the User's Request:**
+
+*   **Core Task:** Explain the difference between "kanakkinakku" and "pattayam" in Kerala land revenue records.
+*   **Secondary Task:** Explain what a "thandaper number" is.
+*   **Tertiary Task:** Explain how the "thandaper number" relates to property identification in Kerala.
+*   **Language:** The explanation must be in English.
+*   **Context:** Kerala, India. This is a very specific, location-based query. I need to draw on knowledge about Indian land records, specifically Kerala's system.
+
+**2. Initial Knowledge & Keyword Association:**
+
+*   **Kerala Land Records:** I know this is a complex, historically layered system. Key terms that come to mind are:
+    *   *Pattayam*: This is a very common term for a title deed or deed of ownership. It's often used colloquially to mean any property document.
+    *   *Kanakkinakku*: This term is less common than *pattayam* but is specific to the revenue system. The root "kanakku" relates to accounts or calculations. So, it's likely a revenue account document.
+    *   *Thandaper*: This sounds like a register or a record book. "Tanda" might relate to a bundle or a group, and "per" could be a suffix for a document or record. It's likely a summary or index document.
+    *   *Thandaper Number*: This is probably the unique identifier within that register.
+    *   *Village Office*, *Taluk Office*, *Revenue Department*: These are the government bodies that maintain these records.
+    *   *Mukhya*: A key or index document.
+    *   *Adangal*: A detailed account of cultivation/tenancy.
+
+**3. Structuring the Explanation:**
+
+I need a clear, logical flow. A good structure would be:
+
+*   **Introduction:** Briefly state that Kerala's land record system is unique and these terms refer to different aspects of land ownership and revenue.
+*   **Section 1: Pattayam (The Title Deed):**
+    *   Define it: It's the primary document proving ownership.
+    *   Explain its nature: It's a legal instrument, a deed of transfer.
+    *   Who issues it: The Sub-Registrar's Office (SRO) under the Registration Act.
+    *   What it contains: Details of the transaction, parties involved, property description, consideration amount.
+    *   Key takeaway: It's about *ownership transfer*. It's the "proof of title."
+*   **Section 2: Kanakkinakku (The Revenue Account):**
+    *   Define it: It's a revenue record maintained by the Village Office.
+    *   Explain its nature: It's an account of the land held by a person for the purpose of collecting land revenue. It's a fiscal record.
+    *   Who maintains it: The Village Officer/Revenue authorities.
+    *   What it contains: Survey number, extent of land, land classification (e.g., paddy field, garden), name of the *kanakkaran* (the person whose name is in the account), and details of tax paid.
+    *   Key takeaway: It's about *tax liability*. It links a person to a specific plot for revenue purposes. It's important to note that the name in the *kanakkinakku* might not always match the legal owner in the *pattayam* if the property is not mutated (name changed in revenue records).
+*   **Section 3: The Key Difference (Direct Comparison):**
+    *   Use a table or a clear bulleted list to summarize the contrast. This is crucial for clarity.
+    *   **Pattayam:** Legal proof of ownership, issued by SRO, for registration of transactions.
+    *   **Kanakkinakku:** Revenue account, maintained by Village Office, for payment of land tax.
+    *   Analogy: *Pattayam* is like the share certificate of a company (proves you own the shares). *Kanakkinakku* is like the company's register of members (shows who is registered as a shareholder for dividend purposes). This analogy helps clarify the distinction.
+*   **Section 4: Thandaper Number (The Identifier):**
+    *   Define it: It's a unique number assigned to a property in the *Thandaper*.
+    *   Explain what the *Thandaper* is: It's the main register or index book at the Village Office that consolidates all the revenue accounts (*kanakkinakku*) for a specific village or area. It's like the master ledger.
+    *   Explain its function: The *Thandaper number* is the primary key to look up a property's details in the revenue system. It's used to find the corresponding *kanakkinakku* entry.
+*   **Section 5: How Thandaper Number Relates to Property Identification:**
+    *   Connect the dots: The *Thandaper number* is the most crucial number for identifying a property *in the revenue records*.
+    *   Explain the process:
+        1.  A person wants to find details about a property.
+        2.  They go to the Village Office.
+        3.  They provide the *Thandaper number*.
+        4.  The Village Officer uses this number to find the entry in the *Thandaper* (the master register).
+        5.  From the *Thandaper* entry, they can then find the detailed *kanakkinakku* for that specific survey number and owner.
+    *   Mention other identifiers: It's often used alongside the *Survey Number* (or *Re-survey Number*) and the *Village/Block/District* name. The combination of these uniquely identifies a parcel of land in the government system.
+*   **Conclusion/Summary:** Briefly recap the roles: *Pattayam* for legal ownership, *Kanakkinakku* for revenue liability, and *Thandaper Number* as the key to accessing the revenue records (*kanakkinakku*). Mention the importance of "mutation" – the process of updating the *kanakkinakku* with the name of the new *pattayam* holder.
+
+**4. Refining the Language:**
+
+*   Use clear, simple English. Avoid overly technical jargon where possible, or explain it if necessary (e.g., "mutation").
+*   Maintain a neutral, informative tone.
+*   Use formatting (bolding, bullet points, tables) to make the information easy to digest.
+*   Double-check the facts. The issuing authorities (SRO vs. Village Office) and the purpose (legal title vs. revenue) are the most critical points of distinction. The *Thandaper* is the master index, and the *Thandaper number* is its identifier. This is the standard Kerala system.
+
+**(Self-Correction during the process):** Initially, I might just say "*Pattayam* is ownership, *Kanakkinakku* is tax." I need to be more precise. "*Pattayam* is the *legal document* that proves ownership and is registered. *Kanakkinakku* is the *revenue account* that records who is liable to pay tax for that land." This precision is key. Also, I must emphasize that the person in the *kanakkinakku* is not always the legal owner if mutation hasn't been done. This is a common source of confusion and disputes. The relationship between *Thandaper* and *Kanakkinakku* also needs to be crystal clear: *Thandaper* is the index, *Kanakkinakku* is the detailed entry found via that index. The *Thandaper number* is the key to the index.
+````
+
+</details>
+
+**Output:**
+
+````
+Of course. Here is a detailed explanation of these terms in the context of Kerala's land revenue system.
+
+---
+
+### Introduction
+
+In Kerala, land records are maintained through a unique system that separates the legal proof of ownership from the government's revenue records. The terms **Pattayam**, **Kanakkinakku**, and **Thandaper Number** refer to distinct documents and identifiers within this system. Understanding their difference is crucial for anyone dealing with property transactions or disputes in Kerala.
+
+---
+
+### 1. Pattayam (The Title Deed)
+
+A **Pattayam** is the primary legal document that serves as proof of ownership of a property. It is a deed of title that is executed and registered.
+
+*   **Nature:** It is a **legal instrument** that establishes and transfers ownership rights.
+*   **Issuing Authority:** Pattayams are issued and registered by the **Sub-Registrar's Office (SRO)** under the Registration Act, 1908. When a property is bought or sold, the sale deed is registered here to make the transaction legally valid.
+*   **Content:** A registered Pattayam contains details such as the names of the buyer and seller, a detailed description of the property (including survey number), the sale consideration, and the terms of the agreement. It is the ultimate evidence of who legally owns the property.
+*   **Purpose:** Its main purpose is to provide legal certainty and be admissible as evidence in a court of law to prove ownership.
+
+In simple terms, if you have a registered Pattayam in your name, you are the legal owner of that property.
+
+---
+
+### 2. Kanakkinakku (The Revenue Account)
+
+A **Kanakkinakku** is a revenue record maintained by the **Village Office** under the state's Revenue Department. It is an account book that details the land held by an individual for the purpose of collecting land revenue (tax).
+
+*   **Nature:** It is a **fiscal record** or an account, not a title deed. It records who is liable to pay land revenue for a particular piece of land.
+*   **Issuing Authority:** It is maintained by the **Village Officer** at the Village Office.
+*   **Content:** The Kanakkinakku entry for a property includes the **Survey Number**, the extent of land, the classification of land (e.g., paddy field, garden, building), and the name of the person (*kanakkaran*) in whose name the land is assessed for tax.
+*   **Purpose:** Its main purpose is to track land ownership for revenue collection. The name of the person in the Kanakkinakku is the one who receives the tax demand notice and is responsible for paying the land tax to the government.
+
+**Key Point:** The name in the Kanakkinakku may not always match the name of the legal owner in the Pattayam. This discrepancy occurs if the ownership has been transferred (through a Pattayam) but the revenue records have not been updated. The process of updating the Kanakkinakku with the new owner's name is called **mutation**.
+
+---
+
+### The Key Difference: Pattayam vs. Kanakkinakku
+
+| Feature | Pattayam (Title Deed) | Kanakkinakku (Revenue Account) |
+| :--- | :--- | :--- |
+| **Purpose** | Proves legal ownership of property. | Records who is liable to pay land revenue. |
+| **Nature** | A legal document / deed. | An account / fiscal record. |
+| **Issuing Authority** | Sub-Registrar's Office (SRO). | Village Office (Revenue Department). |
+| **Primary Use** | For property transactions, loans, and legal disputes. | For paying land tax and for official land identification. |
+| **Legal Status** | Supreme legal evidence of title. | Evidence of revenue liability, not necessarily title. |
+
+---
+
+### 3. Thandaper Number and its Role in Property Identification
+
+#### What is a Thandaper Number?
+
+A **Thandaper Number** is a unique identification number assigned to a property in the **Thandaper**.
+
+*   **Thandaper:** The Thandaper is the main, consolidated register or index book maintained at the Village Office. It contains all the revenue accounts (*kanakkinakku*) for the properties within its jurisdiction. Think of it as the master ledger for all land revenue in a village.
+*   **Thandaper Number:** This is the unique key or number given to each entry in the Thandaper. It is used to quickly locate a specific property's revenue records.
+
+#### How it Relates to Property Identification
+
+The Thandaper Number is the most important number for identifying a property **within the government's revenue records**. It acts as the primary key to access all official information about a land parcel.
+
+Here is how it works in practice:
+
+1.  **Finding a Property:** To get official details about a property (like ownership for tax purposes, land classification, etc.), you must approach the Village Office.
+2.  **Providing the Identifier:** You need to provide the **Thandaper Number** of the property. Sometimes, this is used along with the **Survey Number** for more precise identification.
+3.  **Accessing Records:** The Village Officer uses the Thandaper Number to find the corresponding entry in the master register (the Thandaper). From this entry, they can then retrieve the detailed **Kanakkinakku** for that specific property.
+
+In essence, the **Thandaper Number links a physical piece of land (identified by its Survey Number) to the person responsible for paying tax for it (as recorded in the Kanakkinakku).**
+
+### Summary
+
+*   **Pattayam:** Your **legal ownership certificate** from the Registration Department.
+*   **Kanakkinakku:** The government's **tax account** for your land, maintained by the Revenue Department.
+*   **Thandaper Number:** The **master key** used to find your property's tax account (Kanakkinakku) in the government's records.
+
+For a property transaction to be complete in Kerala, one must ensure that the name on the Pattayam is also correctly reflected in the Kanakkinakku through the process of mutation.
+````
+
+### IAST Diacritics
+
+**Prompt:** Explain the difference between kanakkiṇakku and paṭṭayam in Kerala land revenue records, in English. Also explain what a thandaper number is and how it relates to property identification in Kerala.
+
+*3817 tok | 30.16s | 126.6 t/s | think: 7300 chars | finish: stop*
+
+<details><summary>Thinking (7300 chars)</summary>
+
+````
+1.  **Deconstruct the User's Request:**
+    *   **Core Topic:** Kerala land revenue records.
+    *   **Specific Terms:**
+        *   `kanakkiṇakku` vs. `paṭṭayam`
+        *   `thandaper number`
+    *   **Required Actions:**
+        *   Explain the difference between `kanakkiṇakku` and `paṭṭayam`.
+        *   Explain what a `thandaper number` is.
+        *   Explain how the `thandaper number` relates to property identification.
+    *   **Language:** English.
+    *   **Context:** Kerala, India. This is crucial. I need to use Kerala-specific terminology and administrative context.
+
+2.  **Initial Knowledge & Keyword Association:**
+    *   **Kerala Land Records:** I know these are managed by the Revenue Department. The key documents are `Thandaper`, `Kanakkiṇakku`, `Paṭṭayam`, `Patta`, `Kanam`. The system has historical roots in the Travancore and Cochin kingdoms and was later integrated into the Madras Presidency system.
+    *   **`Kanakkiṇakku`:** The name itself gives clues. "Kanakk" relates to accounting/calculation. "Inakku" could relate to assessment. So, it's likely an *assessment* record. It probably contains details about the land, its owner, the type of cultivation, and the tax assessed. It's a *current* or *recent* record of assessment.
+    *   **`Paṭṭayam`:** "Paṭṭayam" sounds more like a title deed or a grant. It's likely the *original* document of ownership or tenure. It would be more permanent and historical. It probably contains details about the boundaries, the grant made by the ruler, and the rights of the holder.
+    *   **`Thandaper`:** This is the master record or the family register. "Thanda" could mean a group or a family, and "per" could mean book or record. So, it's the "family book" or "group book." It would contain details of all landholdings of a family, linked by a common ancestor or family head.
+    *   **`Thandaper Number`:** This must be the unique identifier within the `Thandaper` system. It's the key to looking up the entire family's property history.
+
+3.  **Structuring the Explanation:**
+
+    *   **Introduction:** Start with a clear, concise opening that sets the context. Mention that Kerala's land records are a complex but well-organized system, crucial for property transactions and legal matters. Briefly introduce the key documents.
+    *   **Section 1: Kanakkiṇakku vs. Paṭṭayam:**
+        *   Use a clear heading.
+        *   Create a sub-section for `Kanakkiṇakku`.
+            *   **Literal Meaning/Origin:** Explain the name. "Kanakku" = account, "Inakku" = assessment.
+            *   **Purpose:** It's an *assessment register*. Its primary function is to record the land's details for the purpose of calculating land revenue (tax).
+            *   **Contents:** What's inside? Survey number, area, soil type, type of land (wet/dry), ownership details, and the *assessed revenue*.
+            *   **Nature:** It's a *current, dynamic* record. It's updated periodically (e.g., during a re-assessment or `re-survey`). It's maintained by the Village Office/Taluk Office.
+            *   **Analogy:** Think of it as the "current tax bill" or the "annual property assessment statement" for a specific plot.
+        *   Create a sub-section for `Paṭṭayam`.
+            *   **Literal Meaning/Origin:** It's a grant or title deed. Historically, it was a grant issued by the King (e.g., in Travancore or Cochin).
+            *   **Purpose:** It's the primary document of *title and ownership*. It establishes the *right* of a person or family to hold and possess the land.
+            *   **Contents:** Details of the grant, boundaries of the property, the name of the grantee, and the conditions of the grant. It's more historical and legal in nature.
+            *   **Nature:** It's a *historical, foundational* document. While still important, in modern times, its role has been largely superseded by other documents like the `Patta` and `Title Deed`. However, for very old properties, it's the root of the title.
+            *   **Analogy:** Think of it as the "original title deed" or "grant of ownership" from the sovereign.
+        *   **Create a Summary Table:** A table is excellent for direct comparison. Columns: Feature, Kanakkiṇakku, Paṭṭayam. Rows: Primary Purpose, Nature, Key Information, Modern Relevance. This makes the distinction crystal clear.
+
+    *   **Section 2: The Thandaper and Thandaper Number:**
+        *   Use a clear heading.
+        *   **Explain `Thandaper`:**
+            *   Define it: It's the *family land record* or the *register of holdings*.
+            *   Explain its function: It consolidates all the landholdings of a family or a group of families descended from a common ancestor. It's a "master file" for a family's properties.
+            *   Mention where it's kept: The Village Office.
+            *   Analogy: It's like the "family's complete property portfolio" or a "joint family's property register."
+        *   **Explain the `Thandaper Number`:**
+            *   Define it: It's the *unique identification number* assigned to a family in the `Thandaper` system.
+            *   Explain its importance: It's the primary key to accessing all information about that family's properties. All individual land records (like the `Kanakkiṇakku` for a specific plot) are linked back to this family number.
+            *   How it's used: When you go to a Village Office to check a property, the first thing they ask for is the `Thandaper number` or the family name to pull up the `Thandaper`. From there, they can trace the history of each plot.
+        *   **Relate it to Property Identification:**
+            *   This is the core of the user's second question. I need to connect the dots.
+            *   Step 1: A property is identified by its *Survey Number*. This is the unique ID for the *physical plot of land*.
+            *   Step 2: That Survey Number is recorded within a specific `Thandaper` (the family record).
+            *   Step 3: The `Thandaper` itself is identified by its unique `Thandaper Number`.
+            *   **The Chain of Identification:** So, to uniquely identify a property, you need two pieces of information: the `Thandaper Number` (which identifies the *owner family*) and the `Survey Number` (which identifies the *specific plot*). The `Thandaper Number` provides the context of ownership and history, while the `Survey Number` pinpoints the exact location and dimensions on the ground.
+            *   Use an analogy: The `Thandaper Number` is like the "surname" of the property owner's family, and the `Survey Number` is like the "house number" on a specific street. You need both to find the exact house.
+
+4.  **Review and Refine:**
+    *   Read through the entire explanation. Is it clear? Is the language simple and accessible?
+    *   Check for accuracy. Are the definitions correct for the Kerala context? (Yes, `Kanakkiṇakku` as assessment and `Paṭṭayam` as title deed is the standard understanding).
+    *   Is the tone neutral and informative? (Yes).
+    *   Does it directly answer all parts of the user's question? (Yes: difference, definition of thandaper, and its relation to property ID).
+    *   Add a concluding paragraph to summarize the key takeaway: these documents work together as an integrated system for land administration.
+````
+
+</details>
+
+**Output:**
+
+````
+Of course. Here is a detailed explanation of the difference between `kanakkiṇakku` and `paṭṭayam` in Kerala land revenue records, along with an explanation of the `thandaper number`.
+
+### Introduction
+
+Kerala's land revenue and registration system is one of the most detailed and well-maintained in India. It evolved from the systems of the former Travancore and Cochin princely states and was later integrated into the broader Indian administrative framework. The core of this system involves several interconnected documents that establish ownership, assess revenue, and maintain historical records. The two most fundamental records for understanding a property's status are the `kanakkiṇakku` and the `paṭṭayam`.
+
+---
+
+### Difference Between Kanakkiṇakku and Paṭṭayam
+
+In simple terms, the `kanakkiṇakku` is a record of **assessment for revenue**, while the `paṭṭayam` is a record of **title and ownership**. They serve different purposes and represent different aspects of land rights.
+
+#### Kanakkiṇakku (കണക്കിക്കൊപ്പുക / കണക്കിൻനാക്ക്)
+
+*   **Meaning:** The term `kanakkiṇakku` is derived from `kanakku` (account/calculation) and `inakku` (assessment). It literally means an "account of assessment."
+*   **Purpose:** Its primary function is to record the details of a land parcel for the purpose of calculating and collecting land revenue (tax) from the government. It is an administrative document maintained by the Revenue Department.
+*   **Nature:** It is a **current and dynamic record**. It is updated whenever there is a change in ownership, a re-survey of the land, or a change in the land's classification (e.g., from wet land to dry land).
+*   **Contents:** A typical `kanakkiṇakku` contains:
+    *   Survey Number of the property.
+    *   Extent of land (in standard units like `cents` or `m` and `cents`).
+    *   Classification of land (e.g., `Punja`, `Kanam`, `Pattam`).
+    *   Soil type and nature of cultivation (wet land, garden land, etc.).
+    *   Name of the owner.
+    *   The land revenue assessed and payable.
+*   **Modern Relevance:** Today, the `kanakkiṇakku` is often replaced by the `Kanam Patta` or `Pattam Patta` issued by the government. However, the information from the `kanakkiṇakku` forms the basis for these modern titles. You can obtain a certified copy of the `kanakkiṇakku` from the Village Office or Taluk Office, which serves as proof of ownership and land details for many purposes.
+
+#### Paṭṭayam (പട്ടയം)
+
+*   **Meaning:** `Paṭṭayam` means a grant, charter, or title deed. Historically, it was a royal grant issued by the King of Travancore or Cochin to an individual or a family, conferring rights over a piece of land.
+*   **Purpose:** Its primary function is to establish the **legal right of ownership and possession** of the land. It is a foundational legal document.
+*   **Nature:** It is a **historical and foundational document**. While older properties still rely on their `paṭṭayam` as the root of their title, for most properties today, the original `paṭṭayam` may be lost, damaged, or superseded by a government-issued `Patta`.
+*   **Contents:** A `paṭṭayam` contains:
+    *   The name of the grantee (the person or family receiving the land).
+    *   A detailed description of the boundaries of the property.
+    *   The terms and conditions of the grant.
+    *   The name of the ruler or authority issuing the grant.
+*   **Modern Relevance:** For properties that pre-date the modern land reforms, the `paṭṭayam` is crucial for establishing the lineage of ownership. However, for any transaction or legal dispute, a government-issued `Patta` (like a `Kanam Patta` or `Pattam Patta`) is now the more important and legally robust document.
+
+#### Summary Table: Kanakkiṇakku vs. Paṭṭayam
+
+| Feature | Kanakkiṇakku | Paṭṭayam |
+| :--- | :--- | :--- |
+| **Primary Purpose** | Assessment of land revenue (tax). | Grant of title and ownership rights. |
+| **Nature** | Administrative and current record. | Legal and historical document. |
+| **Issuing Authority** | Revenue Department (Village/Taluk Office). | The King/Ruler (historically). |
+| **Key Information** | Survey number, area, land classification, revenue amount. | Boundaries, grantee's name, terms of the grant. |
+| **Modern Relevance** | Basis for modern title deeds; provides current ownership details. | Root of title for old properties; less common now. |
+
+---
+
+### What is a Thandaper Number and How it Relates to Property Identification?
+
+The `Thandaper` is a central document in Kerala's land record system, and the `Thandaper number` is the key to unlocking a family's entire property history.
+
+#### The Thandaper (തണ്ടപർ)
+
+*   **Meaning:** `Thandaper` can be understood as a "register of a family's holdings." It is the **master record of all landholdings belonging to a single family or a group of families descended from a common ancestor**.
+*   **Purpose:** Its function is to consolidate and maintain the history of a family's properties. It traces the succession of ownership from one generation to the next.
+*   **Contents:** The `Thandaper` contains:
+    *   The family's `Thandaper number`.
+    *   Details of all ancestral properties, including their survey numbers.
+    *   A family tree or genealogy showing the line of succession.
+    *   Records of partitions (division of property among heirs).
+    *   Details of any mortgages or encumbrances.
+*   **Location:** The `Thandaper` is maintained at the **Village Office**. It is the primary reference document for anyone researching the history of a property or a family in that village.
+
+#### The Thandaper Number (തണ്ടപർ നമ്പർ)
+
+*   **Definition:** The `Thandaper number` is the **unique identification number** assigned to a family in the `Thandaper` system.
+*   **Function:** It is the **primary key** for accessing the family's complete land record. All individual property records (like the `kanakkiṇakku` for a specific plot) are linked to this family number.
+
+#### How the Thandaper Number Relates to Property Identification
+
+In Kerala, a property is identified by a two-part code that links the physical plot to its owner family:
+
+1.  **Thandaper Number:** This identifies the **owner family**. It tells you *who* owns the property.
+2.  **Survey Number:** This identifies the **specific plot of land**. It tells you *what* the property is, where it is located, and its physical extent.
+
+**The Chain of Identification:**
+
+To uniquely identify any property in Kerala, you need both the `Thandaper number` and the `Survey number`.
+
+*   You start with the **`Thandaper number`** to pull up the family's master record (`Thandaper`).
+*   Within that `Thandaper`, you find the entry for a specific piece of land, which is identified by its **`Survey number`**.
+*   The `kanakkiṇakku` or `patta` for that specific `Survey number` will then provide the current details of ownership, area, and revenue.
+
+**Analogy:** Think of it like a library.
+*   The **`Thandaper number`** is the **book's call number** (e.g., "History of the Smith Family"). It tells you which section to go to.
+*   The **`Survey number`** is the **specific book's ISBN** (e.g., "The Smith Family Farm, 1950-2000"). It tells you the exact book you need within that section.
+
+Without the `Thandaper number`, you cannot trace the history of ownership for a property. Without the `Survey number`, you cannot pinpoint the exact physical plot of land. Together, they form the bedrock of property identification and verification in Kerala.
+````
+
+### Native Script
+
+**Prompt:** കേരളത്തിലെ ഭൂനികുതി രേഖകളിലെ കണക്കിണക്കും പട്ടയവും തമ്മിലുള്ള വ്യത്യാസം എന്താണെന്ന് ഇംഗ്ലീഷിൽ വിശദീകരിക്കുക. കൂടാതെ തണ്ടപ്പേര് നമ്പർ എന്നാൽ എന്താണെന്നും അത് വസ്തുവിവരങ്ങൾ തിരിച്ചറിയുന്നതിനെ എങ്ങനെ സഹായിക്കുന്നു എന്നും ഇംഗ്ലീഷിൽ വിശദീകരിക്കുക.
+
+*3352 tok | 26.58s | 126.1 t/s | think: 7458 chars | finish: stop*
+
+<details><summary>Thinking (7458 chars)</summary>
+
+````
+1.  **Deconstruct the User's Request:**
+    *   This Malayalam query asks for an explanation of land revenue records (ഭൂനികുതി രേഖകൾ). I need to clarify the difference between "Kanakku" (കണക്ക്) and "Patta" (പട്ടയം), as well as the role of the "Thandaper Number" (തണ്ടപ്പേര് നമ്പർ).
+    *   **Core Topic:** Land revenue records in Kerala.
+    *   **Specific Terms to Explain:**
+        *   "Kanakku" vs. "Patta"
+        *   "Thandaper Number"
+    *   **Required Context:** Kerala, India.
+    *   **Format:** Explanation in English.
+    *   **Implicit Goal:** The user wants a clear, practical understanding of these terms, likely for a land-related transaction, verification, or general knowledge. They need to know what each document/number is, what its purpose is, and how they relate to each other.
+
+2.  **Initial Knowledge & Keyword Association:**
+    *   **Kerala Land Records:** I know this system is digitized and managed by the Kerala Land Revenue Department. The portal is "Kerala Land Records (KLR) Portal" or "REKHA." This is a crucial piece of context.
+    *   **Patta:** This is a very common term across India. It's the primary document of ownership. It establishes the right to hold and use the land. It's like a title deed in many other systems. It contains the owner's name, survey number, extent of land, etc.
+    *   **Kanakku:** This term is more specific to Kerala and some other southern states. "Kanakku" in Malayalam means "account" or "calculation." In this context, it refers to the *record of rights* or the *account of land*. It's not the ownership document itself, but a detailed ledger entry that shows *who* is cultivating *what* land and *how much* land tax they are liable to pay. It's more about the *revenue* aspect than the *ownership* aspect. It's a crucial distinction. Patta is the *right to hold*, Kanakku is the *right to cultivate and pay tax*.
+    *   **Thandaper Number:** "Thandaper" (or "Thandaperu") literally means "account book" or "register." The number is the unique identifier for a specific land parcel within the revenue village. It's the primary key in the land revenue database. It links the physical land to all its associated records: Patta, Kanakku, Sketch, etc. It's the most important number for searching land records.
+
+3.  **Structuring the Explanation:**
+    *   **Introduction:** Start with a brief overview. Mention that Kerala has a well-organized, digitized land revenue system managed by the government. State that Patta, Kanakku, and Thandaper are key components of this system.
+    *   **Section 1: Patta:**
+        *   **Heading:** "Patta: The Document of Ownership"
+        *   **What it is:** Define it as the primary legal document that proves ownership of land. It's the state's recognition of an individual's or entity's title to the property.
+        *   **Key Information it Contains:** List the important details:
+            *   Name of the owner(s).
+            *   Extent of the land (in standard units like cents, acres, or square meters).
+            *   Location details (Survey Number, Village, Taluk, District).
+            *   Type of land (e.g., paddy land, garden land, commercial land).
+            *   Any encumbrances or liabilities (though this is now better tracked in other documents).
+        *   **Purpose/Analogy:** Use an analogy. "Think of the Patta as the 'Title Deed' or the official 'Birth Certificate' for your land in the government's eyes." This makes it relatable.
+        *   **How to get it:** Briefly mention it's issued by the Village Office after due verification and is now available online via the KLR portal.
+    *   **Section 2: Kanakku:**
+        *   **Heading:** "Kanakku: The Record of Rights and Liabilities"
+        *   **What it is:** Define it as the detailed *account* or *ledger* entry for a specific land parcel. Emphasize the distinction: It's not the ownership document itself, but a record linked to the land.
+        *   **Key Information it Contains:**
+            *   The same owner's name as in the Patta.
+            *   The Thandaper Number (this is a key link!).
+            *   Detailed measurement of the land (often broken down into sub-plots).
+            *   Land classification (e.g., wet land, dry land, garden land).
+            *   Assessment of land revenue (the tax payable).
+            *   Details of cultivation (what is being grown).
+            *   History of transactions (if any).
+        *   **Purpose/Analogy:** "If the Patta is the 'Title Deed,' the Kanakku is the 'Account Book' or the detailed 'Property Card' that shows the land's history, its productive use, and the owner's tax liability." This clarifies the relationship.
+        *   **Why it's important:** It's crucial for verifying cultivation status, land type, and tax payments.
+    *   **Section 3: Thandaper Number:**
+        *   **Heading:** "Thandaper Number: The Unique Identifier"
+        *   **What it is:** Define it as the unique, permanent identification number assigned to every parcel of land in a revenue village. It's the cornerstone of the land record system.
+        *   **How it helps in identification:** This is the core of the user's question.
+            *   **Single Source of Truth:** It's the primary key that links all documents related to a specific plot of land.
+            *   **Uniqueness:** No two different plots of land in the same village will have the same Thandaper number.
+            *   **Search and Verification:** Explain that on the Kerala Land Records (KLR) portal (or at the Village Office), you can search for land using the Thandaper number. This single search will pull up the Patta, Kanakku, Sketch (map), and other related documents for that specific plot.
+            *   **Example:** "Imagine you want to check the details of a piece of land. Instead of searching by owner's name (which might be common) or by survey number (which might be complex), you use the Thandaper number. It's like a social security number for that specific plot of land, leading you directly and unambiguously to its complete record."
+    *   **Section 4: Summary Table / Relationship:**
+        *   A simple table is a great way to summarize the differences.
+        *   Columns: Feature, Patta, Kanakku, Thandaper Number.
+        *   Rows: Primary Purpose, Nature, Key Information, Analogy.
+        *   This reinforces the concepts clearly.
+    *   **Conclusion:** Briefly recap the key roles: Patta (Ownership), Kanakku (Account/Cultivation), Thandaper (Unique ID). Mention that these are now accessible online through the official Kerala Land Records portal, making verification easier for citizens. This adds a practical, contemporary touch.
+
+4.  **Review and Refine:**
+    *   Read through the entire explanation. Is it clear? Is the language simple and neutral?
+    *   Is the distinction between Patta and Kanakku sharp enough? (Patta = Right to hold, Kanakku = Right to cultivate/pay tax).
+    *   Is the role of the Thandaper number explained as the central linking element?
+    *   Is the Kerala context maintained throughout? (Mentioning Village Offices, KLR portal, Malayalam terms like "cents").
+    *   Check for any potential biases. The explanation is factual and administrative, so it should be fine.
+    *   Ensure the tone is helpful and informative, as per the instructions. The analogies help achieve this. The final structure looks good and directly answers all parts of the user's query.
+````
+
+</details>
+
+**Output:**
+
+````
+തീർച്ചയായും. കേരളത്തിലെ ഭൂനികുതി രേഖകളിൽ (land revenue records) സാധാരണയായി കണ്ടുവരുന്ന പ്രധാനപ്പെട്ട ചില പദങ്ങളെക്കുറിച്ചുള്ള വിശദീകരണം താഴെ നൽകുന്നു.
+
+### 1. കണക്കും പട്ടയും തമ്മിലുള്ള വ്യത്യാസം
+
+കേരളത്തിലെ ഭൂനികുതി സമ്പ്രദായത്തിൽ, **പട്ടയും (Patta)** **കണക്കും (Kanakku)** വ്യത്യസ്ത ലക്ഷ്യങ്ങളുള്ളതും എന്നാൽ പരസ്പരബന്ധിതവുമായ രണ്ട് രേഖകളാണ്.
+
+---
+
+#### **പട്ട: ഉടമസ്ഥാവകാശ രേഖ**
+
+ഒരു ഭൂമിയുടെ ഉടമസ്ഥാവകാശം സ്ഥിരീകരിക്കുന്ന പ്രധാന നിയമപരമായ രേഖയാണ് **പട്ട**. സർക്കാരിന്റെ ഉടമസ്ഥതയിലുള്ള ഭൂമിയിൽ ഒരു പ്രത്യേക വ്യക്തിക്കോ സ്ഥാപനത്തിനോ ആ ഭൂമിയിൽ അവകാശമുണ്ടെന്ന ഔദ്യോഗിക പ്രഖ്യാപനമാണിത്.
+
+*   **പ്രധാന ലക്ഷ്യം:** ഭൂമിയുടെ ഉടമസ്ഥാവകാശം തെളിയിക്കുക.
+*   **സ്വഭാവം:** ഇതൊരു ഉടമസ്ഥാവകാശ രേഖയാണ് (title document). ഒരു വസ്തുവിന്റെ ഉടമസ്ഥാവകാശം സ്ഥാപിക്കുന്നതിനായി ഒരു വാങ്ങുന്നയാൾ സാധാരണയായി പരിശോധിക്കുന്ന രേഖയാണിത്.
+*   **ഇതിൽ ഉൾപ്പെടുന്ന പ്രധാന വിവരങ്ങൾ:**
+    *   ഭൂമിയുടെ ഉടമയുടെ പേര്.
+    *   ഭൂമിയുടെ വിസ്തൃതി (സെന്റ്, സെന്റ്, സെന്റ്, ഏക്കർ അല്ലെങ്കിൽ ചതുരശ്ര മീറ്റർ എന്നിവയിൽ).
+    *   വില്ലേജ്, താലൂക്ക്, ജില്ല എന്നിവയുടെ പേര്.
+    *   സർവ്വേ നമ്പർ (Survey Number).
+    *   ഭൂമിയുടെ തരം (ഉദാഹരണത്തിന്: നെൽവയൽ, തോട്ടം, വാണിജ്യ ആവശ്യങ്ങൾക്കുള്ള ഭൂമി).
+    *   പട്ട അനുവദിച്ച തീയതി.
+
+ചുരുക്കത്തിൽ, ഒരു പ്രത്യേക ഭൂമിയിൽ ഉടമസ്ഥാവകാശം സ്ഥാപിക്കുന്നതിനുള്ള സർക്കാരിന്റെ അംഗീകാരമാണ് **പട്ട**. ഇത് വസ്തുവിന്റെ ഉടമസ്ഥാവകാശത്തിന്റെ "ജനന സർട്ടിഫിക്കറ്റ്" (birth certificate) പോലെയാണ്.
+
+---
+
+#### **കണക്ക്: അവകാശങ്ങളുടെയും ബാധ്യതകളുടെയും രേഖ**
+
+ഒരു പ്രത്യേക ഭൂമിയുടെ വിശദമായ **കണക്ക് (account)** അല്ലെങ്കിൽ ലെഡ്ജർ എൻട്രിയാണ് **കണക്ക്**. ഉടമസ്ഥാവകാശം തെളിയിക്കുന്ന രേഖയല്ല ഇത്. മറിച്ച്, ഒരു പ്രത്യേക പാഴ്സലിലെ അവകാശങ്ങളുടെയും ബാധ്യതകളുടെയും സമഗ്രമായ രേഖയാണിത്.
+
+*   **പ്രധാന ലക്ഷ്യം:** ഭൂമിയുടെ നികുതി ബാധ്യതകളും കൃഷി സംബന്ധിച്ച വിവരങ്ങളും രേഖപ്പെടുത്തുക.
+*   **സ്വഭാവം:** ഇതൊരു അക്കൗണ്ടിംഗ് അല്ലെങ്കിൽ റെക്കോർഡ് കാർഡ് ആണ്. ഒരു പ്രത്യേക ഭൂമിയിൽ കൃഷി ചെയ്യാനും നികുതി അടയ്ക്കാനുമുള്ള അവകാശം ആർക്കാണെന്ന് ഇത് കാണിക്കുന്നു.
+*   **ഇതിൽ ഉൾപ്പെടുന്ന പ്രധാന വിവരങ്ങൾ:**
+    *   പട്ടയിലുള്ള അതേ ഉടമയുടെ പേര്.
+    *   **തണ്ടപ്പേര് നമ്പർ (Thandaper Number)**.
+    *   ഭൂമിയുടെ വിശദമായ അളവ്.
+    *   കൃഷി വിവരങ്ങൾ (ഏത് തരം കൃഷിയാണ് ചെയ്യുന്നത്).
+    *   ഭൂമിയുടെ തരംതിരിക്കൽ (ഉദാഹരണത്തിന്: പുഞ്ചഭൂമി, പാടം, തോട്ടം).
+    *   അടയ്ക്കേണ്ട ഭൂനികുതിയുടെ അളവ്.
+
+ചുരുക്കത്തിൽ, **കണക്ക്** എന്നത് ഭൂമിയുടെ "അക്കൗണ്ട് ബുക്ക്" ആണ്. ഇത് ഭൂമിയുടെ ഉപയോഗം, നികുതി ബാധ്യത, ചരിത്രപരമായ വിവരങ്ങൾ എന്നിവ കാണിക്കുന്നു. ഒരു പ്രത്യേക ഭൂമിയുടെ ഉടമസ്ഥാവകാശം കൈമാറ്റം ചെയ്യപ്പെടുമ്പോൾ, പുതിയ ഉടമയുടെ പേര് ഉൾപ്പെടുത്തി പുതിയൊരു കണക്ക് തയ്യാറാക്കുന്നു.
+
+---
+
+#### **ചുരുക്ക പട്ടിക: പട്ടയും കണക്കും**
+
+| സവിശേഷത | പട്ട | കണക്ക് |
+| :--- | :--- | :--- |
+| **പ്രധാന ലക്ഷ്യം** | ഉടമസ്ഥാവകാശം തെളിയിക്കുക | അവകാശങ്ങളുടെയും നികുതി ബാധ്യതയുടെയും രേഖ |
+| **സ്വഭാവം** | ഉടമസ്ഥാവകാശ രേഖ (Title Deed) | വിശദമായ അക്കൗണ്ട് / റെക്കോർഡ് കാർഡ് |
+| **പ്രധാന വിവരങ്ങൾ** | ഉടമയുടെ പേര്, വിസ്തൃതി, ഭൂമി തരം | ഉടമയുടെ പേര്, നികുതി, കൃഷി വിവരങ്ങൾ, അളവ് |
+| **ഉദാഹരണം** | വസ്തുവിന്റെ "ജനന സർട്ടിഫിക്കറ്റ്" | വസ്തുവിന്റെ "അക്കൗണ്ട് ബുക്ക്" |
+
+---
+
+### 2. തണ്ടപ്പേര് നമ്പർ എന്നാൽ എന്ത്?
+
+കേരളത്തിലെ ഭൂനികുതി ഡാറ്റാബേസിലെ ഓരോ ഭൂമിയുടെയും **അദ്വിതീയവും ശാശ്വതവുമായ തിരിച്ചറിയൽ നമ്പറാണ് (Unique Identifier) തണ്ടപ്പേര് നമ്പർ**.
+
+*   **പ്രധാന ലക്ഷ്യം:** ഒരു പ്രത്യേക ഭൂമിയെ തിരിച്ചറിയുക.
+*   **സ്വഭാവം:** ഇതൊരു തിരിച്ചറിയൽ നമ്പറാണ്, രേഖയല്ല.
+*   **തിരിച്ചറിയലിന് ഇത് എങ്ങനെ സഹായിക്കുന്നു:**
+    1.  **ഏകീകൃത തിരിച്ചറിയൽ:** ഒരു റവന്യൂ വില്ലേജിലെ ഓരോ ഭൂമിക്കും തണ്ടപ്പേര് നമ്പർ നൽകിയിട്ടുണ്ട്. ഒരേ വില്ലേജിലെ രണ്ട് വ്യത്യസ്ത ഭൂമികൾക്ക് ഒരേ തണ്ടപ്പേര് നമ്പർ ഉണ്ടാകില്ല.
+    2.  **എല്ലാ രേഖകളുമായുള്ള ബന്ധം:** ഒരു പ്രത്യേക ഭൂമിയുമായി ബന്ധപ്പെട്ട എല്ലാ വിവരങ്ങളും ബന്ധിപ്പിക്കുന്ന പ്രധാന കണ്ണിയാണ് ഈ നമ്പർ. **പട്ട, കണക്ക്, മാപ്പ് (sketch)** എന്നിവയെല്ലാം ഈ നമ്പർ ഉപയോഗിച്ച് ബന്ധിപ്പിച്ചിരിക്കുന്നു.
+    3.  **കൃത്യമായ പരിശോധന:** കേരള ലാൻഡ് റെവന്യൂ (KLR) പോർട്ടലിലോ വില്ലേജ് ഓഫീസിലോ ഭൂമി പരിശോധിക്കുമ്പോൾ, ഉടമയുടെ പേര് അല്ലെങ്കിൽ സർവ്വേ നമ്പർ എന്നിവയേക്കാൾ കൃത്യവും വിശ്വസനീയവും തണ്ടപ്പേര് നമ്പറാണ്.
+    4.  **ഉദാഹരണം:** ഒരു പ്രത്യേക ഭൂമിയുടെ "സോഷ്യൽ സെക്യൂരിറ്റി നമ്പർ" പോലെയാണ് തണ്ടപ്പേര് നമ്പർ. നിങ്ങൾ ഈ നമ്പർ നൽകുമ്പോൾ, ആ ഭൂമിയുടെ ഉടമസ്ഥാവകാശം (പട്ട), നികുതി വിവരങ്ങൾ (കണക്ക്), വില്ലേജ് മാപ്പിലെ സ്ഥാനം (sketch) എന്നിവയെല്ലാം ഉടൻ ലഭ്യമാകും.
+
+**പ്രായോഗികമായി:** നിങ്ങൾ ഒരു വസ്തു വാങ്ങാൻ പോകുമ്പോൾ, ആ ഭൂമിയുടെ **തണ്ടപ്പേര് നമ്പർ** വാങ്ങാൻ നിർദ്ദേശിക്കാറുണ്ട്. ഈ നമ്പർ ഉപയോഗിച്ച് നിങ്ങൾക്ക് വസ്തുവിന്റെ പൂർണ്ണമായ ചരിത്രം ഓൺലൈനായി പരിശോധിക്കാവുന്നതാണ്.
+
+### ഇവ തമ്മിലുള്ള ബന്ധം
+
+1.  ഒരു ഭൂമിയുടെ **തണ്ടപ്പേര് നമ്പർ** വഴി നിങ്ങൾക്ക് അതിന്റെ **പട്ടയും** **കണക്കും** കണ്ടെത്താം.
+2.  **പട്ട** ആ ഭൂമിയുടെ ഉടമസ്ഥാവകാശം സ്ഥിരീകരിക്കുന്നു.
+3.  **കണക്ക്** ആ ഉടമസ്ഥന്റെ നികുതി ബാധ്യതകളും കൃഷി വിവരങ്ങളും കാണിക്കുന്നു.
+
+ചുരുക്കത്തിൽ, **പട്ട** ഉടമസ്ഥാവകാശം തെളിയിക്കുമ്പോൾ, **കണക്ക്** നികുതി, കൃഷി വിവരങ്ങൾ നൽകുന്നു. ഇവ രണ്ടും കണ്ടെത്താൻ സഹായിക്കുന്ന പ്രധാന താക്കോലാണ് **തണ്ടപ്പേര് നമ്പർ**.
+````
+

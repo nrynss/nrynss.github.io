@@ -29,3 +29,12 @@ pnpm-debug.log*
 .system_generated/
 .gemini/
 .gcourer/
+
+# Raw benchmark data
+llm-benchmarks/*
+!llm-benchmarks/sarvam_final/
+!llm-benchmarks/qwen_final/
+!llm-benchmarks/sarvam_cloud_20260614_141508/
+!llm-benchmarks/qwen_cloud_20260614_141515/
+!llm-benchmarks/sarvam-105b_cloud_20260614_210900/
+!llm-benchmarks/*.md

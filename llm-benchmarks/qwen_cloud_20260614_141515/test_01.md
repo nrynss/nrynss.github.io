@@ -1,0 +1,465 @@
+# Qwen3-30B-A3B (Q4_K_M) — Test 1: Technical translation
+
+**Category:** Multilingual  
+**Date:** 2026-06-14 14:19:19  
+
+### Hindi
+
+**Prompt:** Translate the following paragraph into Hindi, using native Hindi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Hindi translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*949 tok | 161.49s | 5.9 t/s | think: 2249 chars | finish: stop*
+
+<details><summary>Thinking (2249 chars)</summary>
+
+````
+Okay, the user wants me to translate a technical paragraph into Hindi using the native script. Let me start by reading the original text carefully.
+
+The original text is about an API gateway, rate limiter, microservices, circuit breaker, and distributed tracing. I need to make sure that technical terms like "API gateway," "rate limiter," "microservice," "circuit breaker," and "distributed tracing backend" are handled correctly. The user mentioned to preserve technical terms in English if there's no standard equivalent in Hindi. So, I should keep those terms as they are.
+
+First, I'll break down the sentence structure. The first sentence: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." 
+
+Translating "API gateway" – since there's no standard Hindi term, I'll keep it as "एपीआई गेटवे". "Routes incoming requests" could be "आईनकमिंग अनुरोधों को राउट करता है". "Through a rate limiter" – "एक दर सीमकर के माध्यम से". "Before forwarding them" – "उन्हें उचित माइक्रोसर्विस में फ़ॉरवर्ड करने से पहले". "Appropriate microservice" – "उचित माइक्रोसर्विस".
+
+Second sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response."
+
+"Circuit breaker" – no standard term, so "सर्किट ब्रेकर" stays. "Is open" – "खुला है". "Returns a 503 Service Unavailable response" – "503 सेवा अनुपलब्ध प्रतिक्रिया लौटाता है". I should check if "503 Service Unavailable" is commonly translated, but since it's a standard HTTP status code, it's better to keep it as is.
+
+Third sentence: "All request metadata is logged to a distributed tracing backend for observability."
+
+"All request metadata" – "सभी अनुरोध मेटाडेटा". "Is logged" – "लॉग किया जाता है". "To a distributed tracing backend" – "वितरित ट्रेसिंग बैकएंड में". "For observability" – "दृश्यता के लिए". 
+
+Now, I need to ensure that the translation is in native Hindi script, not using Roman script. Also, check for proper sentence structure and flow. Let me put it all together and verify each part again. Make sure that technical terms are preserved and the meaning is accurate. Avoid any markdown formatting as per the user's request. Finally, output only the translated text without any additional explanations.
+````
+
+</details>
+
+**Output:**
+
+````
+"एपीआई गेटवे आईनकमिंग अनुरोधों को उचित माइक्रोसर्विस में फ़ॉरवर्ड करने से पहले एक दर सीमकर के माध्यम से राउट करता है। यदि सर्किट ब्रेकर खुला है, तो यह 503 सेवा अनुपलब्ध प्रतिक्रिया लौटाता है। सभी अनुरोध मेटाडेटा को दृश्यता के लिए वितरित ट्रेसिंग बैकएंड में लॉग किया जाता है।"
+````
+
+### Bengali
+
+**Prompt:** Translate the following paragraph into Bengali, using native Bengali script. Preserve technical terms in English where no standard native equivalent exists. Output only the Bengali translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*1672 tok | 8.8s | 190.0 t/s | think: 3196 chars | finish: stop*
+
+<details><summary>Thinking (3196 chars)</summary>
+
+````
+Okay, let's tackle this translation. The user wants the paragraph translated into Bengali using the native script. They also mentioned preserving technical terms in English if there's no standard equivalent. First, I need to make sure I understand each part of the original text.
+
+Starting with "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." "API gateway" is a technical term. Since there's no standard Bengali equivalent, I'll keep it as "API গেটওয়ে" (using the native script). "Routes incoming requests" would be "আসন্ন অনুরোধগুলিকে প্রেরণ করে". "Through a rate limiter" – "রেট লিমিটার মাধ্যমে". "Before forwarding them" – "প্রেরণের আগে". "To the appropriate microservice" – "যথাযথ মাইক্রোসার্ভিসে".
+
+Next sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response." "Circuit breaker" is another technical term. I'll keep it as "সার্কিট ব্রেকার". "Is open" – "খোলা হয়ে থাকলে". "Returns a 503 Service Unavailable response" – "503 সার্ভিস অনলাইন নয় উত্তর ফেরত দেয়".
+
+Third sentence: "All request metadata is logged to a distributed tracing backend for observability." "All request metadata" – "সমস্ত অনুরোধ মেটাডেটা". "Is logged" – "লগ করা হয়". "To a distributed tracing backend" – "বিস্তৃত ট্রেসিং ব্যাকএন্ডে". "For observability" – "অবজারভেবিলিটির জন্য".
+
+Now, checking for any technical terms that might have a standard translation. "API gateway" and "microservice" are commonly kept in English, so that's fine. "Circuit breaker" is also a technical term, so it stays. "Rate limiter" could be translated, but maybe it's better to keep it as is. "Distributed tracing backend" – "বিস্তৃত ট্রেসিং ব্যাকএনড" – I think "ব্যাকএন্ড" is acceptable here. 
+
+I need to ensure that the sentence structure in Bengali is correct. Bengali sentences usually follow a subject-object-verb order, but technical translations might retain some English structure. Let me piece it together:
+
+"API গেটওয়ে আসন্ন অনুরোধগুলিকে রেট লিমিটার মাধ্যমে প্রেরণ করে যথাযথ মাইক্রোসার্ভিসে প্রেরণের আগে। সার্কিট ব্রেকার খোলা হয়ে থাকলে, এটি 503 সার্ভিস অনলাইন নয় উত্তর ফেরত দেয়। সমস্ত অনুরোধ মেটাডেটা অবজারভেবিলিটির জন্য বিস্তৃত ট্রেসিং ব্যাকএন্ডে লগ করা হয়।"
+
+Wait, "বিস্তৃত ট্রেসিং ব্যাকএন্ড" – should "ব্যাকএন্ড" be in English? The user said to preserve technical terms in English where no standard equivalent exists. "Backend" is commonly used in Bengali tech contexts as "ব্যাকএন্ড", so that's okay. 
+
+Double-checking for any grammar issues. "প্রেরণ করে যথাযথ মাইক্রোসার্ভিসে প্রেরণের আগে" – maybe "যথাযথ মাইক্রোসার্ভিসে প্রেরণের আগে রেট লিমিটার মাধ্যমে প্রেরণ করে" would be more accurate. But the original structure is "routes... through a rate limiter before forwarding". So "আসন্ন অনুরোধগুলিকে রেট লিমিটার মাধ্যমে প্রেরণ করে যথাযথ মাইক্রোসার্ভিসে প্রেরণের আগে" – that seems okay.
+
+Another check: "All request metadata is logged" – "সমস্ত অনুরোধ মেটাডেটা লগ করা হয়" – correct. "For observability" – "অবজারভেবিলিটির জন্য" – "অবজারভেবিলিটি" is the English term used, which is acceptable.
+
+I think this should be the correct translation. Let me make sure there are no typos and that the script is properly used.
+````
+
+</details>
+
+**Output:**
+
+````
+"API গেটওয়ে আসন্ন অনুরোধগুলিকে রেট লিমিটার মাধ্যমে প্রেরণ করে যথাযথ মাইক্রোসার্ভিসে প্রেরণের আগে। সার্কিট ব্রেকার খোলা হয়ে থাকলে, এটি 503 সার্ভিস অনলাইন নয় উত্তর ফেরত দেয়। সমস্ত অনুরোধ মেটাডেটা অবজারভেবিলিটির জন্য বিস্তৃত ট্রেসিং ব্যাকএন্ডে লগ করা হয়।"
+````
+
+### Gujarati
+
+**Prompt:** Translate the following paragraph into Gujarati, using native Gujarati script. Preserve technical terms in English where no standard native equivalent exists. Output only the Gujarati translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*984 tok | 5.18s | 190.1 t/s | think: 1710 chars | finish: stop*
+
+<details><summary>Thinking (1710 chars)</summary>
+
+````
+Okay, I need to translate this paragraph into Gujarati using the native script. Let me start by reading the original text carefully.
+
+The first sentence: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." 
+
+Breaking it down, "API gateway" is a technical term. Since there's no standard Gujarati equivalent, I'll keep it in English. "Routes incoming requests" – "પ્રાપ્ત માહિતીને માર્ગ આપે છે". "Through a rate limiter" – "સીમિત દર માટે માર્ગ આપે છે". "Before forwarding them" – "પછી મોકલો". "To the appropriate microservice" – "યોગ્ય માઇક્રોસર્વિસ માટે".
+
+Second sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response."
+
+"Circuit breaker" is another technical term. No standard Gujarati term, so keep it as is. "Is open" – "ખુલ્લું છે". "Returns a 503 Service Unavailable response" – "503 સેવિસ અનેબલ જવાબ પરત કરે છે".
+
+Third sentence: "All request metadata is logged to a distributed tracing backend for observability."
+
+"All request metadata" – "બધી માહિતી મેટાડેટા". "Is logged" – "નોંધાયેલ છે". "To a distributed tracing backend" – "વિતરિત ટ્રેસિંગ બેકંડ માટે". "For observability" – "નિરીક્ષણ માટે".
+
+Now, putting it all together in Gujarati script. Need to make sure technical terms like API, rate limiter, circuit breaker, microservice, distributed tracing backend, etc., are kept in English. Also, check for proper grammar and sentence structure in Gujarati. Avoid any translation of technical terms unless there's a standard equivalent. Since the user specified to preserve technical terms in English where no standard exists, I'll stick to that. Let me verify each part again to ensure accuracy.
+````
+
+</details>
+
+**Output:**
+
+````
+"API ગેટવે પ્રાપ્ત માહિતીને યોગ્ય માઇક્રોસર્વિસ માટે મોકલતા પહેલા એક દર મર્યાદક મારફતે માર્ગ આપે છે. જો સર્કિટ બ્રેકર ખુલ્લું હોય, તો તે 503 સેવિસ અનેબલ જવાબ પરત કરે છે. બધી માહિતી મેટાડેટા નિરીક્ષણ માટે વિતરિત ટ્રેસિંગ બેકંડ માટે નોંધાયેલ છે."
+````
+
+### Kannada
+
+**Prompt:** Translate the following paragraph into Kannada, using native Kannada script. Preserve technical terms in English where no standard native equivalent exists. Output only the Kannada translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*2203 tok | 10.55s | 208.8 t/s | think: 4203 chars | finish: stop*
+
+<details><summary>Thinking (4203 chars)</summary>
+
+````
+Okay, let's tackle this translation request. The user wants the given paragraph translated into Kannada using the native script. They also mentioned preserving technical terms in English if there's no standard equivalent. So first, I need to make sure I understand the original text thoroughly.
+
+The original text is about an API gateway, rate limiter, microservice, circuit breaker, 503 Service Unavailable, and distributed tracing backend. These are all technical terms. I need to check if there are established Kannada translations for these. If not, I should keep them in English.
+
+Starting with "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." 
+
+- "API gateway" – Since "API" is an acronym, it's commonly used as is in Kannada. "Gateway" can be translated to "ಗೇಟ್ವೇ" (gāṭavē) but sometimes it's kept as "ಗೇಟ್ವೇ" in technical contexts. Maybe "API ಗೇಟ್ವೇ" is acceptable.
+- "routes" – "ಮಾರ್ಗನಿರ್ದೇಶಿಸುತ್ತದೆ" (mārganirdēśisutte) or "ನಿರ್ದೇಶಿಸುತ್ತದೆ" (nirdēśisutte). "ರೂಟ್ ಮಾಡುತ್ತದೆ" (rūṭ māduṭtade) might be another option, but "ಮಾರ್ಗನಿರ್ದೇಶಿಸುತ್ತದೆ" is more accurate.
+- "incoming requests" – "ಆಗಮಿಸುತ್ತಿರುವ ಪ್ರಶ್ನೆಗಳು" (āgamiṣutti riruva pras̱ṇēgalu) or "ಆಗಮಿಸುತ್ತಿರುವ ಅನುರೋಧಗಳು" (āgamiṣutti riruva anurōdhaagalu). "Requests" is often translated as "ಅನುರೋಧಗಳು" in technical contexts.
+- "rate limiter" – "ದರ ಮಿತಿಕರ್ತ" (dara mitikarta) or "ದರ ಸೀಮಿತಕರ್ತ" (dara sīmikartakarta). But "rate limiter" might be kept as is, especially if there's no standard term.
+- "forwarding them" – "ಅವುಗಳನ್ನು ಮುಂದಕ್ಕೆ ಕಳುಹಿಸುತ್ತದೆ" (avugalanna mundakke kaḷuhsutte) or "ಅವುಗಳನ್ನು ಪುನಃ ಕಳುಹಿಸುತ್ತದೆ" (avugalanna punaḥ kaḷuhsutte).
+- "appropriate microservice" – "ಅನುಕೂಲವಾದ ಮೈಕ್ರೋಸರ್ವಿಸ್" (anukūlava māikrōsārvīsu). "Microservice" is often kept in English, so "ಮೈಕ್ರೋಸರ್ವಿಸ್" is acceptable.
+
+Next sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response."
+
+- "circuit breaker" – "ಸರ್ಕುಯಿಟ್ ಬ್ರೇಕರ್" (sarkuẏiṭa brēkara) or "ಪರಿಪಥ ಬ್ರೇಕರ್" (paripatha brēkara). Since "circuit breaker" is a technical term, it's better to keep it in English.
+- "open" – "ತೆರೆದಿರುವ" (tērediruva) or "ತೆರೆದಿದೆ" (tēredide). Here, "ತೆರೆದಿರುವ" is more appropriate.
+- "returns a 503 Service Unavailable response" – "503 ಸೇವಾ ಅನುಲಭ್ಯ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಹಿಂತಿರುಗಿಸುತ್ತದೆ" (503 sēvā anulabhya pratikr̥iyēyanna hinthirugisutte). "Service Unavailable" is a standard HTTP status message, so it's better to keep it in English with the code.
+
+Last sentence: "All request metadata is logged to a distributed tracing backend for observability."
+
+- "All request metadata" – "ಎಲ್ಲಾ ಅನುರೋಧ ಮೆಟಾಡೇಟಾಗಳು" (ellā anurōdha metādēṭāgalu). "Metadata" is often kept as is, but "ಮೆಟಾಡೇಟಾ" is a direct transliteration.
+- "is logged" – "ಲಾಗ್ ಆಗುತ್ತದೆ" (lāg āgutte) or "ದಾಖಲಾಗುತ್ತದೆ" (dākhalaagutte). "Logged" as "ಲಾಗ್" is acceptable in technical contexts.
+- "distributed tracing backend" – "ವಿತರಿತ ಟ್ರೇಸಿಂಗ್ ಬ್ಯಾಕೆಂಡ್" (vitariya ṭrēsaingu bākēndu). "Distributed tracing" is a term that's often kept in English, so "ವಿತರಿತ ಟ್ರೇಸಿಂಗ್" makes sense. "Backend" is usually kept as "ಬ್ಯಾಕೆಂಡ್".
+- "for observability" – "ಆವೀಕರಣಕ್ಕಾಗಿ" (āvīkaraṇakkaagide) or "ನಿರೀಕ್ಷಣೆಗಾಗಿ" (nirīkṣaṇēgāgi). "Observability" is a technical term, so "ಆವೀಕರಣ" is the translation, but "observability" might be kept as is. However, the user said to preserve technical terms in English where no standard exists. So "ಆವೀಕರಣ" is acceptable.
+
+Now, putting it all together, making sure the sentences flow naturally in Kannada. Also, checking for any technical terms that might need to stay in English. For example, "microservice" and "circuit breaker" are kept as is. "Rate limiter" might be better as "ದರ ಮಿತಿಕರ್ತ" but if there's no standard, keeping it in English is okay. However, the user said to preserve technical terms in English where no standard exists. So I need to check if "rate limiter" has a standard Kannada term. If not, keep it in English.
+
+After verifying, I think "rate limiter" is often left in English. Similarly, "distributed tracing backend" is a technical term that's kept in English. So the final translation would use the native script with these terms in English where necessary.
+````
+
+</details>
+
+**Output:**
+
+````
+"API ಗೇಟ್ವೇ ಆಗಮಿಸುತ್ತಿರುವ ಅನುರೋಧಗಳನ್ನು ಅನುಕೂಲವಾದ ಮೈಕ್ರೋಸರ್ವಿಸ್‌ಗೆ ಕಳುಹಿಸುವ ಮುನ್ನ ದರ ಮಿತಿಕರ್ತ ಮೂಲಕ ಮಾರ್ಗನಿರ್ದೇಶಿಸುತ್ತದೆ. ಸರ್ಕುಯಿಟ್ ಬ್ರೇಕರ್ ತೆರೆದಿದೆಯೇ, ಅದು 503 ಸೇವಾ ಅನುಲಭ್ಯ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಹಿಂತಿರುಗಿಸುತ್ತದೆ. ಎಲ್ಲಾ ಅನುರೋಧ ಮೆಟಾಡೇಟಾಗಳು ಆವೀಕರಣಕ್ಕಾಗಿ ವಿತರಿತ ಟ್ರೇಸಿಂಗ್ ಬ್ಯಾಕೆಂಡ್‌ಗೆ ಲಾಗ್ ಆಗುತ್ತವೆ."
+````
+
+### Malayalam
+
+**Prompt:** Translate the following paragraph into Malayalam, using native Malayalam script. Preserve technical terms in English where no standard native equivalent exists. Output only the Malayalam translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*1298 tok | 6.62s | 196.1 t/s | think: 2317 chars | finish: stop*
+
+<details><summary>Thinking (2317 chars)</summary>
+
+````
+Okay, let's tackle this translation. The user wants the paragraph translated into Malayalam using the native script. They also mentioned preserving technical terms in English if there's no standard equivalent. First, I'll read through the original text to understand the context.
+
+The text talks about an API gateway, rate limiter, microservice, circuit breaker, 503 Service Unavailable, and distributed tracing backend. I need to make sure these terms are either translated or kept as is. For example, "API gateway" might stay in English since it's a technical term. "Rate limiter" could be translated, but I should check if there's a standard Malayalam term. If not, keep it in English. Same with "microservice" and "circuit breaker."
+
+Next, the structure of the sentences. Malayalam sentences often have different word order compared to English. For instance, "routes incoming requests through a rate limiter" would need to be rephrased. "Routes" could be "പ്രവഹിപ്പിക്കുന്നു" or "പ്രവഹിപ്പിക്കുന്നു." "Incoming requests" is "ആഗത അഭ്യർത്ഥനകൾ." "Through a rate limiter" might be "റേറ്റ് ലിമിറ്റർ വഴി."
+
+Then, "before forwarding them to the appropriate microservice." "Forwarding" is "ഫോർവേഡ് ചെയ്യുന്നു" or "പ്രേരിപ്പിക്കുന്നു." "Appropriate microservice" could be "അനുയോജ്യ മൈക്രോസർവീസ്."
+
+Next sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response." "Circuit breaker" is a technical term; maybe keep it as is. "Open" here is "തുറന്നിരിക്കുന്നു." "Returns a 503 Service Unavailable response" – "503 സേവനം ലഭ്യമല്ല" is the standard response, but since the user said to keep technical terms in English, maybe "503 Service Unavailable" stays. So "503 Service Unavailable പ്രതികരണം തിരികെ അയയ്ക്കുന്നു."
+
+Last sentence: "All request metadata is logged to a distributed tracing backend for observability." "Request metadata" – "അഭ്യർത്ഥനാ മെറ്റാഡാറ്റ" – maybe keep "metadata" in English. "Logged" is "ലോഗ് ചെയ്യുന്നു." "Distributed tracing backend" – "ഡിസ്ട്രിബ്യൂട്ടഡ് ട്രേസിംഗ് ബാക്ക്‌എൻഡ്" since "distributed" and "tracing" might not have standard translations. "For observability" – "ഓബ്സർവേബിലിറ്റിക്കായി" or "നിരീക്ഷണത്തിനായി."
+
+I need to ensure that the translation is accurate and uses the native script. Also, check for any grammatical errors. Let me put it all together now.
+````
+
+</details>
+
+**Output:**
+
+````
+"API ഗേറ്റ്‌വേ ആഗത അഭ്യർത്ഥനകൾ റേറ്റ് ലിമിറ്റർ വഴി പ്രവഹിപ്പിക്കുന്നു, അതിനുശേഷം അനുയോജ്യ മൈക്രോസർവീസിലേക്ക് ഫോർവേഡ് ചെയ്യുന്നു. സർക്കീറ്റ് ബ്രേക്കർ തുറന്നിരിക്കുന്നുവെങ്കിൽ, 503 Service Unavailable പ്രതികരണം തിരികെ അയയ്ക്കുന്നു. എല്ലാ അഭ്യർത്ഥനാ മെറ്റാഡാറ്റയും ഓബ്സർവേബിലിറ്റിക്കായി ഡിസ്ട്രിബ്യൂട്ടഡ് ട്രേസിംഗ് ബാക്ക്‌എൻഡിൽ ലോഗ് ചെയ്യുന്നു."
+````
+
+### Marathi
+
+**Prompt:** Translate the following paragraph into Marathi, using native Marathi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Marathi translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*3476 tok | 16.3s | 213.2 t/s | think: 8115 chars | finish: stop*
+
+<details><summary>Thinking (8115 chars)</summary>
+
+````
+Okay, let's tackle this translation request. The user wants the given paragraph translated into Marathi using the native script. They also mentioned preserving technical terms in English if there's no standard equivalent. So first, I need to understand the original text thoroughly.
+
+The text is about an API gateway, rate limiter, microservices, circuit breaker, 503 Service Unavailable, and distributed tracing backend. I need to make sure that terms like "API gateway," "rate limiter," "microservice," "circuit breaker," "503 Service Unavailable," and "distributed tracing backend" are either translated properly or kept in English if there's no standard Marathi term.
+
+Starting with the first sentence: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." 
+
+- "API gateway" – Since "API" is an acronym, it's likely kept as is. "Gateway" in Marathi is "गेटवे" (gateve). So "API गेटवे" might be acceptable. But I should check if there's a standard term. If not, keep it in English.
+- "routes" – "मार्गदर्शित करते" (margdarshit karte) or "मार्ग पर ले जाते" (marg par le jate). "Routes" here means directing traffic, so "मार्गदर्शित करते" seems right.
+- "incoming requests" – "आगमन प्रतिक्रियां" (agaman pratikriyāṃ) or "आगमन अनुरोध" (agaman anurōdha). "Requests" is "अनुरोध" (anurōdha) or "प्रतिक्रिया" (pratikriyā). Maybe "आगमन अनुरोध" is better here.
+- "rate limiter" – "दर सीमा नियंत्रक" (dar sīmā niyantrok) or "दर सीमा नियंत्रक" (dar sīmā niyantrok). If there's no standard term, keep it in English. But "rate limiter" might be translated as "दर सीमा नियंत्रक".
+- "forwarding them" – "त्यांना पुढे पाठवते" (tyāṃnā pude pāṭhavate).
+- "appropriate microservice" – "उपयुक्त माइक्रोसर्व्हिस" (upayukta māikrōsarvhiś). "Microservice" is often kept in English, so "माइक्रोसर्व्हिस" (māikrōsarvhiś) is acceptable.
+
+Second sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response."
+
+- "circuit breaker" – "सर्किट ब्रेकर" (sarkiṭ braekar) is the direct translation. Since it's a technical term, maybe keep it in English. But in Marathi, sometimes technical terms are translated. However, "circuit breaker" is a standard term, so "सर्किट ब्रेकर" is okay.
+- "open" – "खुला" (khulā).
+- "returns a 503 Service Unavailable response" – "503 सेव्हिस अनवेलेबल प्रतिसाद देते" (503 sevhaś anavelebala pratīsād deta). "Service Unavailable" is a standard HTTP status message, so it's kept as is. "Response" is "प्रतिसाद" (pratīsād).
+
+Third sentence: "All request metadata is logged to a distributed tracing backend for observability."
+
+- "All request metadata" – "सर्व अनुरोध मेटाडेटा" (sarva anurōdha metāḍētā). "Metadata" is often kept in English, so "मेटाडेटा" (metāḍētā).
+- "is logged" – "दाखल केले जाते" (dākhala kēlē jāte).
+- "distributed tracing backend" – "वितरित ट्रेसिंग बॅकएंड" (vitariṭa treśiṅg bākēṇḍ). "Distributed" is "वितरित" (vitariṭa), "tracing" is "ट्रेसिंग" (treśiṅg), "backend" is "बॅकएंड" (bākēṇḍ).
+- "for observability" – "अवलोकनासाठी" (avalokanāsāṭhī). "Observability" is a technical term, so "अवलोकन" (avalokan) is the translation, but sometimes "observability" is kept as is. However, "अवलोकनासाठी" is correct.
+
+Now, putting it all together in Marathi, ensuring that technical terms are preserved where necessary. Also, check for proper Marathi script usage. For example, "API गेटवे" instead of "API gateway". Also, ensure that the sentence structure follows Marathi grammar.
+
+Let me verify each part again. For example, "rate limiter" – if there's a standard term, but I think "दर सीमा नियंत्रक" is acceptable. However, if the user says to preserve technical terms in English, then "rate limiter" should be kept as is. Wait, the instruction says: "Preserve technical terms in English where no standard native equivalent exists." So if there's no standard Marathi term for "rate limiter", then it should be kept in English. But I'm not sure if "rate limiter" has a standard translation. Maybe "दर सीमा नियंत्रक" is acceptable. But if the user prefers to keep it in English, then "rate limiter" would be better. However, the instruction says to preserve in English where no standard exists. So if there's no standard, keep it in English. But I need to check if "rate limiter" has a standard Marathi term. Since I don't have that knowledge, I might have to make an educated guess. Alternatively, maybe the user expects technical terms to be kept in English. For example, "API gateway" is kept as is, "microservice" as is, etc. So maybe "rate limiter" is kept in English. Similarly, "circuit breaker" is kept in English. "503 Service Unavailable" is a standard HTTP status, so it's kept. "Distributed tracing backend" – "distributed" is "वितरित", "tracing" is "ट्रेसिंग", "backend" is "बॅकएंड". So "वितरित ट्रेसिंग बॅकएंड".
+
+So adjusting the translation accordingly, keeping technical terms in English where necessary. For example:
+
+"API गेटवे आगमन अनुरोध दर सीमा नियंत्रक मार्गे जातात आणि त्यांना उपयुक्त माइक्रोसर्व्हिस वर पाठवते. जर सर्किट ब्रेकर खुला असेल तर तो 503 सेव्हिस अनवेलेबल प्रतिसाद देते. सर्व अनुरोध मेटाडेटा अवलोकनासाठी वितरित ट्रेसिंग बॅकएंड मध्ये दाखल केले जाते."
+
+Wait, but "rate limiter" was translated as "दर सीमा नियंत्रक" here, but if the instruction says to preserve in English when no standard exists, then "rate limiter" should be kept. So maybe:
+
+"API गेटवे आगमन अनुरोध रेट लिमिटर मार्गे जातात आणि त्यांना उपयुक्त माइक्रोसर्व्हिस वर पाठवते."
+
+But I need to check if "रेट लिमिटर" is acceptable. Alternatively, "rate limiter" is a technical term, so it's better to keep it in English. So the translation would have "rate limiter" as is. Similarly for "circuit breaker", "microservice", etc.
+
+So revising the translation:
+
+"API गेटवे आगमन अनुरोध रेट लिमिटर मार्गे जातात आणि त्यांना उपयुक्त माइक्रोसर्व्हिस वर पाठवते. जर सर्किट ब्रेकर खुला असेल तर तो 503 सेव्हिस अनवेलेबल प्रतिसाद देते. सर्व अनुरोध मेटाडेटा अवलोकनासाठी वितरित ट्रेसिंग बॅकएंड मध्ये दाखल केले जाते."
+
+But "रेट लिमिटर" is not in Marathi script. The user asked for native Marathi script. So "rate limiter" in Marathi script would be "रेट लिमिटर" (but "rate" is "दर" in Marathi, but since it's a technical term, it's kept as is). So the translation would have "रेट लिमिटर" as is.
+
+Similarly, "circuit breaker" is "सर्किट ब्रेकर" in Marathi script. "Microservice" is "माइक्रोसर्व्हिस" (māikrōsarvhiś). "Distributed tracing backend" is "वितरित ट्रेसिंग बॅकएंड" (vitariṭa treśiṅg bākēṇḍ).
+
+So the final translation would be:
+
+"API गेटवे आगमन अनुरोध रेट लिमिटर मार्गे जातात आणि त्यांना उपयुक्त माइक्रोसर्व्हिस वर पाठवते. जर सर्किट ब्रेकर खुला असेल तर तो 503 सेव्हिस अनवेलेबल प्रतिसाद देते. सर्व अनुरोध मेटाडेटा अवलोकनासाठी वितरित ट्रेसिंग बॅकएंड मध्ये दाखल केले जाते."
+
+But I need to check if "मार्गे" is correct for "through". Alternatively, "मार्गाने" (mārgāne) might be more accurate. Also, "आगमन अनुरोध" for "incoming requests". "दाखल केले जाते" for "is logged".
+
+Another point: "appropriate microservice" – "उपयुक्त माइक्रोसर्व्हिस" (upayukta māikrōsarvhiś) or "योग्य माइक्रोसर्व्हिस" (yōga māikrōsarvhiś). "Appropriate" can be "उपयुक्त" or "योग्य". Either is acceptable.
+
+Also, "for observability" – "अवलोकनासाठी" (avalokanāsāṭhī) is correct. "Observability" is a term that might be translated as "अवलोकन" (avalokan) but sometimes kept as is. However, the user said to preserve technical terms in English where no standard exists. So "observability" might be kept as "अवलोकन" (avalokan) but I think "observability" is a technical term, so maybe it's better to keep it in English. However, the user's instruction is to preserve in English where no standard exists. So if "observability" has a standard Marathi term, use that. If not, keep in English. But I'm not sure. Since I don't have that information, I'll use "अवलोकन" (avalokan) as the translation.
+
+But in the original translation I had "अवलोकनासाठी", which is correct. So that part is okay.
+
+Putting it all together, the final translation should be as above, ensuring that technical terms are preserved in English where necessary and using native Marathi script.
+````
+
+</details>
+
+**Output:**
+
+````
+"API गेटवे आगमन अनुरोध रेट लिमिटर मार्गे जातात आणि त्यांना उपयुक्त माइक्रोसर्व्हिस वर पाठवते. जर सर्किट ब्रेकर खुला असेल तर तो 503 सेव्हिस अनवेलेबल प्रतिसाद देते. सर्व अनुरोध मेटाडेटा अवलोकनासाठी वितरित ट्रेसिंग बॅकएंड मध्ये दाखल केले जाते."
+````
+
+### Odia
+
+**Prompt:** Translate the following paragraph into Odia, using native Odia script. Preserve technical terms in English where no standard native equivalent exists. Output only the Odia translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*2036 tok | 9.85s | 206.8 t/s | think: 2226 chars | finish: stop*
+
+<details><summary>Thinking (2226 chars)</summary>
+
+````
+Okay, I need to translate this paragraph into Odia using the native script. Let me start by reading the original text carefully.
+
+The first sentence: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." 
+
+I know "API gateway" is a technical term, so I should keep it in English. "Routes" can be translated as "ରାଉଟ୍ କରେ" (routes). "Incoming requests" would be "ଆସୁଥିବା ଅନୁରୋଧ" (incoming requests). "Through a rate limiter" – "ଏକ ରେଟ୍ ଲିମିଟର ମାଧ୍ୟମରେ" (through a rate limiter). "Before forwarding them" – "ପୂର୍ବରୁ ପ୍ରେରଣ କରିବା ପୂର୍ବରୁ" (before forwarding them). "To the appropriate microservice" – "ଯୋଗ୍ୟ ମାଇକ୍ରୋସର୍ଭିସକୁ" (to the appropriate microservice). So the first sentence becomes: "API ଗେଟ୍‌ଓଇର୍ ଆସୁଥିବା ଅନୁରୋଧଗୁଡ଼ିକୁ ପୂର୍ବରୁ ପ୍ରେରଣ କରିବା ପୂର୍ବରୁ ଏକ ରେଟ୍ ଲିମିଟର ମାଧ୍ୟମରେ ଯୋଗ୍ୟ ମାଇକ୍ରୋସର୍ଭିସକୁ ରାଉଟ୍ କରେ।"
+
+Next sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response."
+
+"Circuit breaker" is another technical term, so I'll keep it in English. "Is open" – "ଖୋଲା ଅଛି" (is open). "It returns" – "ଏହା ଫିରେ ଦେଇଥାଏ" (returns). "A 503 Service Unavailable response" – "503 ସର୍ଭିସ୍ ଅନ୍‌ଏଭେଲେବୁଲ୍ ଉତ୍ତର" (503 Service Unavailable response). So the sentence: "ଯଦି କର୍କ୍‌ଷିତ ବ୍ରେକର୍ ଖୋଲା ଅଛି, ଏହା 503 ସର୍ଭିସ୍ ଅନ୍‌ଏଭେଲେବୁଲ୍ ଉତ୍ତର ଫିରେ ଦେଇଥାଏ।"
+
+Third sentence: "All request metadata is logged to a distributed tracing backend for observability."
+
+"All request metadata" – "ସମସ୍ତ ଅନୁରୋଧ ମେଟାଡାଟା" (all request metadata). "Is logged" – "ଲଗ୍ କରାଯାଏ" (is logged). "To a distributed tracing backend" – "ଏକ ବିଛୁରିତ ଟ୍ରେସିଂ ବ୍ୟାକେଣ୍ଡେଣ୍ଡରେ" (to a distributed tracing backend). "For observability" – "ଦୃଶ୍ୟତା ପାଇଁ" (for observability). So: "ସମସ୍ତ ଅନୁରୋଧ ମେଟାଡାଟା ଦୃଶ୍ୟତା ପାଇଁ ଏକ ବିଛୁରିତ ଟ୍ରେସିଂ ବ୍ୟାକେଣ୍ଡେଣ୍ଡରେ ଲଗ୍ କରାଯାଏ।"
+
+Now, I need to check if all technical terms are preserved in English. "API gateway", "rate limiter", "microservice", "circuit breaker", "distributed tracing backend" – yes, they are kept as is. Also, the numbers like 503 are correct. The structure in Odia should be natural. Let me read through again to ensure accuracy and proper grammar. Looks good. No extra information added. The output is only the translation.
+````
+
+</details>
+
+**Output:**
+
+````
+"API ଗେଟ୍‌ଓଇର୍ ଆସୁଥିବା ଅନୁରୋଧଗୁଡ଼ିକୁ ପୂର୍ବରୁ ପ୍ରେରଣ କରିବା ପୂର୍ବରୁ ଏକ ରେଟ୍ ଲିମିଟର ମାଧ୍ୟମରେ ଯୋଗ୍ୟ ମାଇକ୍ରୋସର୍ଭିସକୁ ରାଉଟ୍ କରେ। ଯଦି କର୍କ୍‌ଷିତ ବ୍ରେକର୍ ଖୋଲା ଅଛି, ଏହା 503 ସର୍ଭିସ୍ ଅନ୍‌ଏଭେଲେବୁଲ୍ ଉତ୍ତର ଫିରେ ଦେଇଥାଏ। ସମସ୍ତ ଅନୁରୋଧ ମେଟାଡାଟା ଦୃଶ୍ୟତା ପାଇଁ ଏକ ବିଛୁରିତ ଟ୍ରେସିଂ ବ୍ୟାକେଣ୍ଡେଣ୍ଡରେ ଲଗ୍ କରାଯାଏ।"
+````
+
+### Punjabi
+
+**Prompt:** Translate the following paragraph into Punjabi, using native Punjabi script. Preserve technical terms in English where no standard native equivalent exists. Output only the Punjabi translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*2010 tok | 9.71s | 207.0 t/s | think: 4269 chars | finish: stop*
+
+<details><summary>Thinking (4269 chars)</summary>
+
+````
+Okay, let's tackle this translation request. The user wants the given paragraph translated into Punjabi using the native script. They also mentioned preserving technical terms in English if there's no standard equivalent. So first, I need to make sure I understand the original text thoroughly.
+
+The original text is about an API gateway, rate limiter, microservices, circuit breaker, 503 Service Unavailable, and distributed tracing backend. These are all technical terms. I need to check if there are established Punjabi terms for these. If not, I'll keep them in English.
+
+Starting with "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." 
+
+- "API gateway" – Since "API" is an acronym, it's commonly used as is in technical contexts. "Gateway" in Punjabi is "ਗੇਟਵੇ" (gate-way). So "API ਗੇਟਵੇ" should be okay.
+- "routes incoming requests" – "ਰਾਊਟ ਕਰਦਾ ਹੈ" (routes) and "ਆਉਣ ਵਾਲੇ ਅਰਜ਼ੀਆਂ" (incoming requests). Maybe "ਆਉਣ ਵਾਲੇ ਅਰਜ਼ੀਆਂ" is correct, but I should confirm if "ਅਰਜ਼ੀਆਂ" is the right term for "requests" here. Alternatively, "ਮੰਗਾਂ" (requests) might be better. Hmm, need to check.
+- "through a rate limiter" – "ਰੇਟ ਲਿਮਿਟਰ ਦੁਆਰਾ" (through a rate limiter). "Rate limiter" is a technical term, so probably keep it as is.
+- "before forwarding them to the appropriate microservice." – "ਪਹਿਲਾਂ ਉਪਯੋਗਯੋਗ ਮਾਈਕਰੋਸਰਵਿਸ ਨੂੰ ਫੋਰਵਰਡ ਕਰਦਾ ਹੈ।" "Microservice" is another term that might not have a standard translation, so keep it in English.
+
+Next sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response."
+
+- "Circuit breaker" – This is a technical term in software, so likely kept as is. "ਸਰਕਿਟ ਬ੍ਰੇਕਰ" (circuit breaker) in Punjabi script.
+- "is open" – "ਖੁੱलਾ ਹੈ" (is open).
+- "returns a 503 Service Unavailable response" – "503 ਸਰਵਿਸ ਅਨਉਪਲੱਬਧ ਰਿਸਪਾਂਸ ਵਾਪਸ ਕਰਦਾ ਹੈ।" Here, "Service Unavailable" is a standard HTTP status message, so it's better to keep it in English with the code. "ਰਿਸਪਾਂਸ" is response.
+
+Third sentence: "All request metadata is logged to a distributed tracing backend for observability."
+
+- "All request metadata" – "ਸਾਰੀਆਂ ਮੈਟਾਡਾਟਾ" (All request metadata). "Metadata" is another term that might not have a standard translation, so keep it in English.
+- "is logged" – "ਦਰਜ ਕੀਤੀ ਜਾਂਦੀ ਹੈ" (is logged).
+- "to a distributed tracing backend" – "ਇੱਕ ਡਿਸਟ੍ਰੀਬਿਊਟਡ ਟਰੈਸਿੰਗ ਬੈਕਐਂਡ ਨੂੰ" (to a distributed tracing backend). "Distributed tracing" is a technical term, so keep it as is. "Backend" is also commonly used in English in technical contexts.
+- "for observability" – "ਨਿਰੀਖਣਯੋਗਤਾ ਲਈ" (for observability). "Observability" might not have a standard translation, so keep it in English.
+
+Now, putting it all together in Punjabi script, making sure the sentence structure is correct. Also, check for any grammatical errors. For example, "ਆਉਣ ਵਾਲੇ ਅਰਜ਼ੀਆਂ" vs "ਆਉਣ ਵਾਲੇ ਮੰਗਾਂ". Maybe "ਮੰਗਾਂ" is more accurate for "requests" in this context. Let me verify that. In software terms, "request" is often "ਮੰਗ" (mang) or "ਅਰਜ਼ੀ" (arzi). "ਅਰਜ਼ੀ" is more like application, so "ਮੰਗਾਂ" might be better. So I'll use "ਆਉਣ ਵਾਲੇ ਮੰਗਾਂ".
+
+Also, check the flow of the sentences. Ensure that the technical terms are correctly placed and that the translation is natural in Punjabi. Avoid literal translations that might not make sense.
+
+Another point: "appropriate microservice" – "ਉਪਯੋਗਯੋਗ ਮਾਈਕਰੋਸਰਵਿਸ" – "appropriate" here means suitable, so "ਉਪਯੋਗਯੋਗ" (useful) might not be the best. Maybe "ਸਹੀ" (correct) or "ਸੰਬੰਧਤ" (relevant). But "appropriate" in this context is "ਸੰਬੰਧਤ" or "ਉਪਯੋਗਯੋਗ". Maybe "ਸੰਬੰਧਤ" is better. However, since "microservice" is kept in English, "ਸੰਬੰਧਤ ਮਾਈਕਰੋਸਰਵਿਸ" might be more accurate.
+
+But I need to check if "appropriate" is best translated as "ਸੰਬੰਧਤ" or "ਉਪਯੋਗਯੋਗ". Maybe "ਉਪਯੋਗਯੋਗ" is more about being suitable, so that's acceptable.
+
+Also, "distributed tracing backend" – "ਡਿਸਟ੍ਰੀਬਿਊਟਡ ਟਰੈਸਿੰਗ ਬੈਕਐਂਡ" – correct.
+
+Finally, ensure that the entire translation is in Punjabi script without any English letters, except for the technical terms. Also, check for any spelling mistakes in the Punjabi script.
+
+After considering all these points, the final translation should be accurate and natural, preserving the technical terms where necessary.
+````
+
+</details>
+
+**Output:**
+
+````
+"API ਗੇਟਵੇ ਆਉਣ ਵਾਲੀਆਂ ਮੰਗਾਂ ਨੂੰ ਰੇਟ ਲਿਮਿਟਰ ਦੁਆਰਾ ਪਹਿਲਾਂ ਲੈ ਕੇ ਉਪਯੋਗਯੋਗ ਮਾਈਕਰੋਸਰਵਿਸ ਨੂੰ ਫੋਰਵਰਡ ਕਰਦਾ ਹੈ। ਜੇ ਸਰਕਿਟ ਬ੍ਰੇਕਰ ਖੁੱਲਾ ਹੈ, ਤਾਂ ਇਹ 503 ਸਰਵਿਸ ਅਨਉਪਲੱਬਧ ਰਿਸਪਾਂਸ ਵਾਪਸ ਕਰਦਾ ਹੈ। ਸਾਰੀਆਂ ਮੈਟਾਡਾਟਾ ਨੂੰ ਡਿਸਟ੍ਰੀਬਿਊਟਡ ਟਰੈਸਿੰਗ ਬੈਕਐਂਡ ਨੂੰ ਨਿਰੀਖਣਯੋਗਤਾ ਲਈ ਦਰਜ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।"
+````
+
+### Tamil
+
+**Prompt:** Translate the following paragraph into Tamil, using native Tamil script. Preserve technical terms in English where no standard native equivalent exists. Output only the Tamil translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*1278 tok | 6.51s | 196.4 t/s | think: 2419 chars | finish: stop*
+
+<details><summary>Thinking (2419 chars)</summary>
+
+````
+Okay, let's tackle this translation. First, I need to understand the original text thoroughly. The paragraph is about an API gateway, rate limiter, microservices, circuit breaker, and distributed tracing. The user wants the translation in Tamil using the native script, and technical terms in English if there's no standard equivalent.
+
+Starting with "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." 
+
+- "API gateway" is a technical term. Since there's no standard Tamil term, I'll keep it as "API கேட்வே".
+- "routes incoming requests" – "வரும் கேள்விகளை செல்லுமாறு செய்கிறது" or maybe "வரும் கேள்விகளை திசைதிருப்புகிறது". "Routes" here is more like directing, so "திசைதிருப்புகிறது" might be better.
+- "through a rate limiter" – "வீதம் கட்டுப்பாட்டாளர் வழியாக" (rate limiter is a technical term, so keep as is).
+- "before forwarding them to the appropriate microservice" – "சரியான மைக்ரோசர்விஸ் க்கு முன்னர் அனுப்புகிறது". "Microservice" is another term without a standard Tamil equivalent, so keep "மைக்ரோசர்விஸ்".
+
+Next sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response."
+
+- "Circuit breaker" is a technical term, so "சர்க்கிட் பிரேக்கர்" (though sometimes translated as "சுற்று துண்டி" but since it's a standard term, maybe keep the English term).
+- "is open" – "திறந்துள்ளது".
+- "returns a 503 Service Unavailable response" – "503 சேவை கிடைக்காத பதிலை திரும்ப அனுப்புகிறது". "Service Unavailable" is a standard HTTP status, so keep the English phrase but in Tamil script.
+
+Last sentence: "All request metadata is logged to a distributed tracing backend for observability."
+
+- "All request metadata" – "அனைத்து கேள்வி மெட்டாடேட்டா" (metadata is a term, so keep as is).
+- "is logged" – "ஆவணப்படுத்தப்படுகிறது".
+- "to a distributed tracing backend" – "பரவலாக தொடர்வு பின்புலத்திற்கு" (distributed tracing is technical, so keep "பரவலாக தொடர்வு", "backend" as "பின்புலம்").
+- "for observability" – "நிரீக்கக்கூடியதற்காக" (observability is a term, so "நிரீக்கக்கூடியது" might be the translation, but sometimes "நிரீக்கம்" is used. Need to check. Maybe "நிரீக்கக்கூடியதற்காக" is better).
+
+Now, putting it all together, ensuring the Tamil script is correct and technical terms are preserved. Also, check for any grammatical errors or awkward phrasing. Make sure the sentence structure flows naturally in Tamil.
+````
+
+</details>
+
+**Output:**
+
+````
+"API கேட்வே வரும் கேள்விகளை வீதம் கட்டுப்பாட்டாளர் வழியாக சரியான மைக்ரோசர்விஸ் க்கு முன்னர் திசைதிருப்புகிறது. சர்க்கிட் பிரேக்கர் திறந்துள்ளது எனில், 503 சேவை கிடைக்காத பதிலை திரும்ப அனுப்புகிறது. அனைத்து கேள்வி மெட்டாடேட்டா பரவலாக தொடர்வு பின்புலத்திற்கு ஆவணப்படுத்தப்படுகிறது நிரீக்கக்கூடியதற்காக."
+````
+
+### Telugu
+
+**Prompt:** Translate the following paragraph into Telugu, using native Telugu script. Preserve technical terms in English where no standard native equivalent exists. Output only the Telugu translation, nothing else.
+
+Text: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice. If the circuit breaker is open, it returns a 503 Service Unavailable response. All request metadata is logged to a distributed tracing backend for observability."
+
+*1727 tok | 8.44s | 204.6 t/s | think: 2134 chars | finish: stop*
+
+<details><summary>Thinking (2134 chars)</summary>
+
+````
+Okay, I need to translate this paragraph into Telugu using the native script. Let me start by reading the original text carefully.
+
+The first sentence: "The API gateway routes incoming requests through a rate limiter before forwarding them to the appropriate microservice." 
+
+Breaking it down: "API gateway" is a technical term. Since there's no standard Telugu equivalent, I'll keep it as is. "Routes incoming requests" – "ఇన్‌కమింగ్ అవకాశాలను మార్గం చేస్తుంది" maybe? "Through a rate limiter" – "రేట్ లిమిటర్ ద్వారా". "Before forwarding them to the appropriate microservice" – "సరైన మైక్రోసర్విస్ కు ఫార్వర్డ్ చేయడానికి ముందు". So the first sentence would be: "API గేట్వే ఇన్‌కమింగ్ అవకాశాలను రేట్ లిమిటర్ ద్వారా మార్గం చేస్తుంది, సరైన మైక్రోసర్విస్ కు ఫార్వర్డ్ చేయడానికి ముందు."
+
+Second sentence: "If the circuit breaker is open, it returns a 503 Service Unavailable response."
+
+"Circuit breaker" is another technical term. No standard Telugu term, so keep it. "If the circuit breaker is open" – "సర్క్యూట్ బ్రేకర్ తెరిచినప్పుడు". "It returns a 503 Service Unavailable response" – "దాని నుంచి 503 సర్వీస్ అన్‌యుంచ్ ప్రత్యుత్తరాన్ని తిరిగి ఇస్తుంది." So the second sentence: "సర్క్యూట్ బ్రేకర్ తెరిచినప్పుడు, దాని నుంచి 503 సర్వీస్ అన్‌యుంచ్ ప్రత్యుత్తరాన్ని తిరిగి ఇస్తుంది."
+
+Third sentence: "All request metadata is logged to a distributed tracing backend for observability."
+
+"All request metadata" – "అన్ని అవకాశాల మెటాడేటా". "Is logged to a distributed tracing backend" – "డిస్ట్రిబ్యూటెడ్ ట్రేసింగ్ బ్యాకెండ్ లో లాగ్ చేయబడుతుంది". "For observability" – "అవేశనీయత కోసం". So the third sentence: "అన్ని అవకాశాల మెటాడేటా అవేశనీయత కోసం డిస్ట్రిబ్యూటెడ్ ట్రేసింగ్ బ్యాకెండ్ లో లాగ్ చేయబడుతుంది."
+
+Now, check for technical terms. "API", "rate limiter", "microservice", "circuit breaker", "distributed tracing backend" – these are kept in English as per instructions. 
+
+Make sure the sentences are correctly structured in Telugu. Also, ensure that the script is native, not using any Latin characters. 
+
+Double-check the translation for accuracy and flow. Looks good. Now, present only the Telugu translation without any extra text.
+````
+
+</details>
+
+**Output:**
+
+````
+"API గేట్వే ఇన్‌కమింగ్ అవకాశాలను రేట్ లిమిటర్ ద్వారా మార్గం చేస్తుంది, సరైన మైక్రోసర్విస్ కు ఫార్వర్డ్ చేయడానికి ముందు. సర్క్యూట్ బ్రేకర్ తెరిచినప్పుడు, దాని నుంచి 503 సర్వీస్ అన్‌యుంచ్ ప్రత్యుత్తరాన్ని తిరిగి ఇస్తుంది. అన్ని అవకాశాల మెటాడేటా అవేశనీయత కోసం డిస్ట్రిబ్యూటెడ్ ట్రేసింగ్ బ్యాకెండ్ లో లాగ్ చేయబడుతుంది."
+````
+

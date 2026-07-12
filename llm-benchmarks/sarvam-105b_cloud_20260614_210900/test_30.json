@@ -1,0 +1,23 @@
+{
+  "id": 30,
+  "cat": "Extraction",
+  "name": "Structured field extraction",
+  "result": {
+    "content": "{\n  \"name\": \"Rajesh Kumar\",\n  \"phone\": \"9845012345\",\n  \"pincode\": \"560038\",\n  \"order_id\": \"IND-48823\",\n  \"amount_inr\": 2499,\n  \"issue_type\": \"damage\"\n}",
+    "thinking": "Let me extract the information from the customer message:\n\n1. `name`: \"Rajesh Kumar\"\n2. `phone`: \"9845012345\" (digits only, removing the hyphen)\n3. `pincode`: \"560038\"\n4. `order_id`: \"IND-48823\"\n5. `amount_inr`: 2499 (number, removing the Rs. and comma)\n6. `issue_type`: \"damage\" (since the item was broken)\n\nNow I'll create the JSON object with these fields:\n\n```json\n{\n  \"name\": \"Rajesh Kumar\",\n  \"phone\": \"9845012345\",\n  \"pincode\": \"560038\",\n  \"order_id\": \"IND-48823\",\n  \"amount_inr\": 2499,\n  \"issue_type\": \"damage\"\n}\n```\n\nLet me double-check:\n- All required keys are present\n- `phone` contains only digits\n- `amount_inr` is a number\n- `issue_type` is one of the allowed values ('delivery', 'refund', 'damage', 'other')\n- The values match what was in the message\n\nEverything looks correct. I'll provide this JSON object as my response, without any markdown fencing or explanation.",
+    "thinking_chars": 883,
+    "finish": "stop",
+    "elapsed_s": 4.1,
+    "tokens": 406,
+    "prompt_tokens": 194,
+    "t_per_s": 99.1,
+    "error": null,
+    "runaway_think": false,
+    "forced_conclusion": false,
+    "schema_validation": {
+      "status": "SUCCESS",
+      "message": "Valid extraction object: all keys present, correct types/enum, no fencing."
+    }
+  },
+  "prompt": "Extract information from the customer message below into a single JSON object with EXACTLY these keys: `name` (string), `phone` (string, digits only), `pincode` (string), `order_id` (string), `amount_inr` (number), `issue_type` (one of: 'delivery', 'refund', 'damage', 'other'). If a field is not present, use null. Respond with only the raw JSON object — no markdown fencing, no explanation.\n\nMessage:\nNamaste, this is Rajesh Kumar. My order #IND-48823 worth Rs. 2,499 was supposed to reach Indiranagar 560038 but the courier delivered a broken item yesterday. Please reach me on 98450-12345. I want a replacement or my money back."
+}

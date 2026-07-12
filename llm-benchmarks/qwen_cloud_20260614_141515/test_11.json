@@ -1,0 +1,19 @@
+{
+  "id": 11,
+  "cat": "Instruction",
+  "name": "Strict table",
+  "result": {
+    "content": "| Aspect              | gRPC                          | REST                          |\n|---------------------|-------------------------------|-------------------------------|\n| Data Format         | Uses Protocol Buffers (binary) | Uses JSON/XML (text-based)    |\n| Communication Style | Bidirectional streaming       | Request-response (stateless)  |\n| Performance         | Higher (binary serialization) | Lower (text-based, less efficient) |\n| HTTP Methods        | No standard HTTP methods      | Uses standard HTTP methods    |\n| Interface Definition| Defined via .proto files      | Defined via OpenAPI/Swagger   |",
+    "thinking": "Okay, the user wants me to list exactly 5 differences between gRPC and REST in a markdown table. Let me start by recalling what I know about these two technologies.\n\nFirst, I remember that gRPC uses Protocol Buffers (Protobuf) for defining the API, while REST typically uses JSON or XML. That's a key difference in data formats. So for the first row, Aspect could be \"Data Format\", gRPC has Protobuf, and REST uses JSON/XML.\n\nNext, communication style. gRPC is based on HTTP/2 and uses bidirectional streaming, whereas REST is stateless and typically uses HTTP/1.1 with request-response cycles. So the second aspect might be \"Communication Style\", with gRPC as \"Bidirectional Streaming\" and REST as \"Request-Response\".\n\nThen, performance. Since Protobuf is more efficient than JSON, gRPC might have better performance in terms of speed and bandwidth. So \"Performance\" as an aspect, with gRPC being \"Higher\" and REST \"Lower\".\n\nAnother difference could be the use of HTTP methods. REST relies heavily on standard HTTP methods like GET, POST, PUT, DELETE. gRPC doesn't use these; instead, it uses method calls defined in the .proto files. So \"HTTP Methods\" as the aspect, with gRPC having \"No Standard Methods\" and REST using \"Standard HTTP Methods\".\n\nLastly, tooling and ecosystem. REST has a more mature and widespread ecosystem with tools like Postman, Swagger, etc. gRPC might have different tools, but maybe the ecosystem is less established. However, I should check if that's accurate. Alternatively, maybe the aspect is \"Tooling and Ecosystem\", with gRPC having \"Limited\" and REST \"Mature\".\n\nWait, I need to make sure each row is a distinct aspect. Let me verify each point:\n\n1. Data Format: Correct.\n2. Communication Style: Correct.\n3. Performance: Yes.\n4. HTTP Methods: Yes.\n5. Tooling/Ecosystem: Maybe. Alternatively, maybe \"Interface Definition\" – gRPC uses .proto files, REST uses OpenAPI. But the user asked for exactly 5, so I need to pick the most significant ones.\n\nAlternatively, another aspect could be \"State Management\". REST is stateless, while gRPC can be stateful if needed. But I think the previous points are more critical. Let me confirm the 5 aspects again.\n\nI think the five I have are solid. Let me structure the markdown table accordingly, ensuring no markdown in the answer except the table. Also, no preamble or conclusion. Just the table. Alright, that should cover it.",
+    "thinking_chars": 2399,
+    "finish": "stop",
+    "elapsed_s": 3.75,
+    "tokens": 660,
+    "prompt_tokens": 43,
+    "t_per_s": 176.0,
+    "error": null,
+    "runaway_think": false,
+    "forced_conclusion": false
+  },
+  "prompt": "List exactly 5 differences between gRPC and REST. Format as a markdown table with columns: Aspect, gRPC, REST. No preamble or conclusion — just the table."
+}

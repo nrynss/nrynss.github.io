@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist/client",
+    "build": "node scripts/build-benchmark-data.mjs && astro build && pagefind --site dist/client",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types"

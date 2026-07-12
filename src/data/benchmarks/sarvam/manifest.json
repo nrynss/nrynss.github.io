@@ -1,0 +1,88 @@
+{
+  "runs": [
+    {
+      "id": "sarvam-q4",
+      "label": "Sarvam-30B Q4_K_M",
+      "shortLabel": "Sarvam Q4",
+      "color": "#10b981",
+      "tags": [
+        "local",
+        "quantized"
+      ]
+    },
+    {
+      "id": "qwen-q4",
+      "label": "Qwen3-30B-A3B Q4_K_M",
+      "shortLabel": "Qwen Q4",
+      "color": "#3b82f6",
+      "tags": [
+        "local",
+        "quantized"
+      ]
+    },
+    {
+      "id": "sarvam-bf16",
+      "label": "Sarvam-30B BF16",
+      "shortLabel": "Sarvam BF16",
+      "color": "#f59e0b",
+      "tags": [
+        "cloud",
+        "bf16"
+      ]
+    },
+    {
+      "id": "qwen-bf16",
+      "label": "Qwen3-30B-A3B BF16",
+      "shortLabel": "Qwen BF16",
+      "color": "#8b5cf6",
+      "tags": [
+        "cloud",
+        "bf16"
+      ]
+    },
+    {
+      "id": "sarvam-105b",
+      "label": "Sarvam-105B BF16",
+      "shortLabel": "Sarvam 105B",
+      "color": "#ec4899",
+      "tags": [
+        "cloud",
+        "bf16"
+      ]
+    }
+  ],
+  "categories": [
+    "Multilingual",
+    "Reasoning",
+    "Code",
+    "Instruction",
+    "Hallucination",
+    "Synthesis",
+    "Cultural",
+    "Agentic",
+    "Multi-turn",
+    "Long-context",
+    "Extraction",
+    "Safety",
+    "Self-knowledge"
+  ],
+  "findings": [
+    {
+      "emoji": "🤖",
+      "title": "Identity failure under quantization",
+      "body": "Local Q4 Sarvam claims to be \"Google Gemini\" (Test 32) but BF16 correctly says \"Sarvam AI\" — an identity failure that is substantially a quantization artifact."
+    },
+    {
+      "emoji": "⚡",
+      "title": "Cloud vs Local speeds",
+      "body": "Cloud BF16 runs on Modal + vLLM deliver ~270 t/s, while local Q4_K_M runs on llama.cpp range from 5 to 18 t/s. (Note: tests 33-37 in Sarvam local final were run under different conditions)."
+    }
+  ],
+  "multilingualTests": [
+    1,
+    2,
+    21,
+    25,
+    26
+  ]
+}
