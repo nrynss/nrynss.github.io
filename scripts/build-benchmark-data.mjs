@@ -244,10 +244,17 @@ async function main() {
   // Populate categories list in manifest
   manifest.categories = Array.from(categoriesSet);
 
-  // Write files
+  // Write files to src/data (META_DIR)
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
   fs.writeFileSync(
     path.join(META_DIR, 'metrics.json'),
+    JSON.stringify(metrics, null, 2)
+  );
+
+  // Also write to public/data (OUT_DIR) for client-side fetching
+  fs.writeFileSync(path.join(OUT_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
+  fs.writeFileSync(
+    path.join(OUT_DIR, 'metrics.json'),
     JSON.stringify(metrics, null, 2)
   );
 
