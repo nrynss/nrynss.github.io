@@ -7,11 +7,11 @@ const OUT_DIR = path.join('public', 'data', 'benchmarks', SUITE_SLUG);
 const META_DIR = path.join('src', 'data', 'benchmarks', SUITE_SLUG);
 
 const RUN_CONFIGS = [
-  { id: 'sarvam-q4', dir: 'sarvam_final', label: 'Sarvam-30B Q4_K_M', shortLabel: 'Sarvam Q4', color: '#10b981', tags: ['local', 'quantized'] },
-  { id: 'qwen-q4', dir: 'qwen_final', label: 'Qwen3-30B-A3B Q4_K_M', shortLabel: 'Qwen Q4', color: '#3b82f6', tags: ['local', 'quantized'] },
   { id: 'sarvam-bf16', dir: 'sarvam_cloud_20260614_141508', label: 'Sarvam-30B BF16', shortLabel: 'Sarvam BF16', color: '#f59e0b', tags: ['cloud', 'bf16'] },
   { id: 'qwen-bf16', dir: 'qwen_cloud_20260614_141515', label: 'Qwen3-30B-A3B BF16', shortLabel: 'Qwen BF16', color: '#8b5cf6', tags: ['cloud', 'bf16'] },
-  { id: 'sarvam-105b', dir: 'sarvam-105b_cloud_20260614_210900', label: 'Sarvam-105B BF16', shortLabel: 'Sarvam 105B', color: '#ec4899', tags: ['cloud', 'bf16'] }
+  { id: 'sarvam-105b', dir: 'sarvam-105b_cloud_20260614_210900', label: 'Sarvam-105B BF16', shortLabel: 'Sarvam 105B', color: '#ec4899', tags: ['cloud', 'bf16'] },
+  { id: 'sarvam-q4', dir: 'sarvam_final', label: 'Sarvam-30B Q4_K_M', shortLabel: 'Sarvam Q4', color: '#10b981', tags: ['local', 'quantized'] },
+  { id: 'qwen-q4', dir: 'qwen_final', label: 'Qwen3-30B-A3B Q4_K_M', shortLabel: 'Qwen Q4', color: '#3b82f6', tags: ['local', 'quantized'] }
 ];
 
 const MULTILINGUAL_TESTS = [1, 2, 21, 25, 26];

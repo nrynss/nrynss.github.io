@@ -50,7 +50,7 @@
 
   let manifest = $state<Manifest | null>(null);
   let metrics = $state<MetricRow[]>([]);
-  let activeTab = $state('speed');
+  let activeTab = $state('explorer');
   let isLoading = $state(true);
   let errorMsg = $state('');
 
@@ -167,12 +167,12 @@
       <button 
         type="button" 
         class="nav-tab" 
-        class:active={activeTab === 'speed'} 
-        onclick={() => activeTab = 'speed'}
+        class:active={activeTab === 'explorer'} 
+        onclick={() => activeTab = 'explorer'}
       >
-        📊 Speed Comparisons
+        🔎 Detailed Test Explorer
       </button>
-      
+
       <button 
         type="button" 
         class="nav-tab" 
@@ -196,10 +196,10 @@
       <button 
         type="button" 
         class="nav-tab" 
-        class:active={activeTab === 'explorer'} 
-        onclick={() => activeTab = 'explorer'}
+        class:active={activeTab === 'speed'} 
+        onclick={() => activeTab = 'speed'}
       >
-        🔎 Detailed Test Explorer
+        📊 Speed Comparisons
       </button>
     </div>
 

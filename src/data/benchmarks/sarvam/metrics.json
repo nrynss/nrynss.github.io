@@ -1,115 +1,5 @@
 [
   {
-    "runId": "sarvam-q4",
-    "testId": 1,
-    "testName": "Technical translation",
-    "category": "Multilingual",
-    "tokens": 64828,
-    "promptTokens": 973,
-    "tPerS": 10.68,
-    "elapsedS": 9453.8,
-    "finish": "stop",
-    "runawayThink": false,
-    "validation": "na",
-    "subs": [
-      {
-        "label": "Hindi",
-        "scriptOk": true
-      },
-      {
-        "label": "Bengali",
-        "scriptOk": true
-      },
-      {
-        "label": "Gujarati",
-        "scriptOk": true
-      },
-      {
-        "label": "Kannada",
-        "scriptOk": true
-      },
-      {
-        "label": "Malayalam",
-        "scriptOk": true
-      },
-      {
-        "label": "Marathi",
-        "scriptOk": true
-      },
-      {
-        "label": "Odia",
-        "scriptOk": true
-      },
-      {
-        "label": "Punjabi",
-        "scriptOk": true
-      },
-      {
-        "label": "Tamil",
-        "scriptOk": true
-      },
-      {
-        "label": "Telugu",
-        "scriptOk": true
-      }
-    ]
-  },
-  {
-    "runId": "qwen-q4",
-    "testId": 1,
-    "testName": "Technical translation",
-    "category": "Multilingual",
-    "tokens": 14780,
-    "promptTokens": 994,
-    "tPerS": 13.81,
-    "elapsedS": 1120.59,
-    "finish": "stop",
-    "runawayThink": false,
-    "validation": "na",
-    "subs": [
-      {
-        "label": "Hindi",
-        "scriptOk": true
-      },
-      {
-        "label": "Bengali",
-        "scriptOk": true
-      },
-      {
-        "label": "Gujarati",
-        "scriptOk": true
-      },
-      {
-        "label": "Kannada",
-        "scriptOk": true
-      },
-      {
-        "label": "Malayalam",
-        "scriptOk": true
-      },
-      {
-        "label": "Marathi",
-        "scriptOk": true
-      },
-      {
-        "label": "Odia",
-        "scriptOk": true
-      },
-      {
-        "label": "Punjabi",
-        "scriptOk": true
-      },
-      {
-        "label": "Tamil",
-        "scriptOk": true
-      },
-      {
-        "label": "Telugu",
-        "scriptOk": true
-      }
-    ]
-  },
-  {
     "runId": "sarvam-bf16",
     "testId": 1,
     "testName": "Technical translation",
@@ -276,13 +166,13 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 2,
-    "testName": "Product copy",
+    "testId": 1,
+    "testName": "Technical translation",
     "category": "Multilingual",
-    "tokens": 35188,
-    "promptTokens": 642,
-    "tPerS": 14.12,
-    "elapsedS": 4296.82,
+    "tokens": 64828,
+    "promptTokens": 973,
+    "tPerS": 10.68,
+    "elapsedS": 9453.8,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na",
@@ -309,11 +199,11 @@
       },
       {
         "label": "Marathi",
-        "scriptOk": false
+        "scriptOk": true
       },
       {
         "label": "Odia",
-        "scriptOk": false
+        "scriptOk": true
       },
       {
         "label": "Punjabi",
@@ -331,13 +221,13 @@
   },
   {
     "runId": "qwen-q4",
-    "testId": 2,
-    "testName": "Product copy",
+    "testId": 1,
+    "testName": "Technical translation",
     "category": "Multilingual",
-    "tokens": 11648,
-    "promptTokens": 626,
-    "tPerS": 14.61,
-    "elapsedS": 824.76,
+    "tokens": 14780,
+    "promptTokens": 994,
+    "tPerS": 13.81,
+    "elapsedS": 1120.59,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na",
@@ -551,29 +441,113 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 3,
-    "testName": "Code-mixed (Hinglish/Tanglish/Kanglish)",
+    "testId": 2,
+    "testName": "Product copy",
     "category": "Multilingual",
-    "tokens": 1932,
-    "promptTokens": 110,
-    "tPerS": 9.1,
-    "elapsedS": 212.48,
+    "tokens": 35188,
+    "promptTokens": 642,
+    "tPerS": 14.12,
+    "elapsedS": 4296.82,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "na",
+    "subs": [
+      {
+        "label": "Hindi",
+        "scriptOk": true
+      },
+      {
+        "label": "Bengali",
+        "scriptOk": true
+      },
+      {
+        "label": "Gujarati",
+        "scriptOk": true
+      },
+      {
+        "label": "Kannada",
+        "scriptOk": true
+      },
+      {
+        "label": "Malayalam",
+        "scriptOk": true
+      },
+      {
+        "label": "Marathi",
+        "scriptOk": false
+      },
+      {
+        "label": "Odia",
+        "scriptOk": false
+      },
+      {
+        "label": "Punjabi",
+        "scriptOk": true
+      },
+      {
+        "label": "Tamil",
+        "scriptOk": true
+      },
+      {
+        "label": "Telugu",
+        "scriptOk": true
+      }
+    ]
   },
   {
     "runId": "qwen-q4",
-    "testId": 3,
-    "testName": "Code-mixed (Hinglish/Tanglish/Kanglish)",
+    "testId": 2,
+    "testName": "Product copy",
     "category": "Multilingual",
-    "tokens": 758,
-    "promptTokens": 110,
-    "tPerS": 14.6,
-    "elapsedS": 51.94,
+    "tokens": 11648,
+    "promptTokens": 626,
+    "tPerS": 14.61,
+    "elapsedS": 824.76,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "na",
+    "subs": [
+      {
+        "label": "Hindi",
+        "scriptOk": true
+      },
+      {
+        "label": "Bengali",
+        "scriptOk": true
+      },
+      {
+        "label": "Gujarati",
+        "scriptOk": true
+      },
+      {
+        "label": "Kannada",
+        "scriptOk": true
+      },
+      {
+        "label": "Malayalam",
+        "scriptOk": true
+      },
+      {
+        "label": "Marathi",
+        "scriptOk": true
+      },
+      {
+        "label": "Odia",
+        "scriptOk": true
+      },
+      {
+        "label": "Punjabi",
+        "scriptOk": true
+      },
+      {
+        "label": "Tamil",
+        "scriptOk": true
+      },
+      {
+        "label": "Telugu",
+        "scriptOk": true
+      }
+    ]
   },
   {
     "runId": "sarvam-bf16",
@@ -616,26 +590,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 4,
-    "testName": "Cross-script comprehension",
+    "testId": 3,
+    "testName": "Code-mixed (Hinglish/Tanglish/Kanglish)",
     "category": "Multilingual",
-    "tokens": 3137,
-    "promptTokens": 122,
-    "tPerS": 13.3,
-    "elapsedS": 235.66,
+    "tokens": 1932,
+    "promptTokens": 110,
+    "tPerS": 9.1,
+    "elapsedS": 212.48,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 4,
-    "testName": "Cross-script comprehension",
+    "testId": 3,
+    "testName": "Code-mixed (Hinglish/Tanglish/Kanglish)",
     "category": "Multilingual",
-    "tokens": 1031,
-    "promptTokens": 372,
-    "tPerS": 13.4,
-    "elapsedS": 76.91,
+    "tokens": 758,
+    "promptTokens": 110,
+    "tPerS": 14.6,
+    "elapsedS": 51.94,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -681,26 +655,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 5,
-    "testName": "Math (trains)",
-    "category": "Reasoning",
-    "tokens": 2529,
-    "promptTokens": 74,
-    "tPerS": 14.3,
-    "elapsedS": 176.32,
+    "testId": 4,
+    "testName": "Cross-script comprehension",
+    "category": "Multilingual",
+    "tokens": 3137,
+    "promptTokens": 122,
+    "tPerS": 13.3,
+    "elapsedS": 235.66,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 5,
-    "testName": "Math (trains)",
-    "category": "Reasoning",
-    "tokens": 3171,
-    "promptTokens": 70,
-    "tPerS": 11.2,
-    "elapsedS": 284.23,
+    "testId": 4,
+    "testName": "Cross-script comprehension",
+    "category": "Multilingual",
+    "tokens": 1031,
+    "promptTokens": 372,
+    "tPerS": 13.4,
+    "elapsedS": 76.91,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -746,26 +720,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 6,
-    "testName": "Logic (mislabeled boxes)",
+    "testId": 5,
+    "testName": "Math (trains)",
     "category": "Reasoning",
-    "tokens": 4327,
-    "promptTokens": 68,
-    "tPerS": 11.9,
-    "elapsedS": 362.18,
+    "tokens": 2529,
+    "promptTokens": 74,
+    "tPerS": 14.3,
+    "elapsedS": 176.32,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 6,
-    "testName": "Logic (mislabeled boxes)",
+    "testId": 5,
+    "testName": "Math (trains)",
     "category": "Reasoning",
-    "tokens": 5056,
-    "promptTokens": 67,
-    "tPerS": 9.1,
-    "elapsedS": 555.85,
+    "tokens": 3171,
+    "promptTokens": 70,
+    "tPerS": 11.2,
+    "elapsedS": 284.23,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -811,26 +785,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 7,
-    "testName": "Topological sort",
+    "testId": 6,
+    "testName": "Logic (mislabeled boxes)",
     "category": "Reasoning",
-    "tokens": 3202,
-    "promptTokens": 53,
-    "tPerS": 13.4,
-    "elapsedS": 238.37,
+    "tokens": 4327,
+    "promptTokens": 68,
+    "tPerS": 11.9,
+    "elapsedS": 362.18,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 7,
-    "testName": "Topological sort",
+    "testId": 6,
+    "testName": "Logic (mislabeled boxes)",
     "category": "Reasoning",
-    "tokens": 2352,
-    "promptTokens": 52,
-    "tPerS": 12.5,
-    "elapsedS": 188.76,
+    "tokens": 5056,
+    "promptTokens": 67,
+    "tPerS": 9.1,
+    "elapsedS": 555.85,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -876,29 +850,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 8,
-    "testName": "Log parser (Python + Rust)",
-    "category": "Code",
-    "tokens": 17822,
-    "promptTokens": 96,
-    "tPerS": 5.1,
-    "elapsedS": 3466.87,
+    "testId": 7,
+    "testName": "Topological sort",
+    "category": "Reasoning",
+    "tokens": 3202,
+    "promptTokens": 53,
+    "tPerS": 13.4,
+    "elapsedS": 238.37,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "fail"
+    "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 8,
-    "testName": "Log parser (Python + Rust)",
-    "category": "Code",
-    "tokens": 6081,
-    "promptTokens": 95,
-    "tPerS": 8.2,
-    "elapsedS": 744.48,
+    "testId": 7,
+    "testName": "Topological sort",
+    "category": "Reasoning",
+    "tokens": 2352,
+    "promptTokens": 52,
+    "tPerS": 12.5,
+    "elapsedS": 188.76,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "fail"
+    "validation": "na"
   },
   {
     "runId": "sarvam-bf16",
@@ -941,29 +915,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 9,
-    "testName": "Async fetcher (Python)",
+    "testId": 8,
+    "testName": "Log parser (Python + Rust)",
     "category": "Code",
-    "tokens": 18529,
-    "promptTokens": 91,
-    "tPerS": 5,
-    "elapsedS": 3715.34,
+    "tokens": 17822,
+    "promptTokens": 96,
+    "tPerS": 5.1,
+    "elapsedS": 3466.87,
     "finish": "stop",
     "runawayThink": false,
     "validation": "fail"
   },
   {
     "runId": "qwen-q4",
-    "testId": 9,
-    "testName": "Async fetcher (Python)",
+    "testId": 8,
+    "testName": "Log parser (Python + Rust)",
     "category": "Code",
-    "tokens": 4716,
-    "promptTokens": 88,
-    "tPerS": 9.4,
-    "elapsedS": 500.26,
+    "tokens": 6081,
+    "promptTokens": 95,
+    "tPerS": 8.2,
+    "elapsedS": 744.48,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "pass"
+    "validation": "fail"
   },
   {
     "runId": "sarvam-bf16",
@@ -1006,29 +980,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 10,
-    "testName": "Struct conversion",
+    "testId": 9,
+    "testName": "Async fetcher (Python)",
     "category": "Code",
-    "tokens": 4739,
-    "promptTokens": 95,
-    "tPerS": 11.4,
-    "elapsedS": 415.08,
+    "tokens": 18529,
+    "promptTokens": 91,
+    "tPerS": 5,
+    "elapsedS": 3715.34,
     "finish": "stop",
     "runawayThink": false,
     "validation": "fail"
   },
   {
     "runId": "qwen-q4",
-    "testId": 10,
-    "testName": "Struct conversion",
+    "testId": 9,
+    "testName": "Async fetcher (Python)",
     "category": "Code",
-    "tokens": 8446,
+    "tokens": 4716,
     "promptTokens": 88,
-    "tPerS": 6.6,
-    "elapsedS": 1281.82,
+    "tPerS": 9.4,
+    "elapsedS": 500.26,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "fail"
+    "validation": "pass"
   },
   {
     "runId": "sarvam-bf16",
@@ -1071,29 +1045,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 11,
-    "testName": "Strict table",
-    "category": "Instruction",
-    "tokens": 1787,
-    "promptTokens": 45,
-    "tPerS": 15.6,
-    "elapsedS": 114.22,
+    "testId": 10,
+    "testName": "Struct conversion",
+    "category": "Code",
+    "tokens": 4739,
+    "promptTokens": 95,
+    "tPerS": 11.4,
+    "elapsedS": 415.08,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "fail"
   },
   {
     "runId": "qwen-q4",
-    "testId": 11,
-    "testName": "Strict table",
-    "category": "Instruction",
-    "tokens": 471,
-    "promptTokens": 43,
-    "tPerS": 16.4,
-    "elapsedS": 28.67,
+    "testId": 10,
+    "testName": "Struct conversion",
+    "category": "Code",
+    "tokens": 8446,
+    "promptTokens": 88,
+    "tPerS": 6.6,
+    "elapsedS": 1281.82,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "fail"
   },
   {
     "runId": "sarvam-bf16",
@@ -1136,29 +1110,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 12,
-    "testName": "JSON-only",
+    "testId": 11,
+    "testName": "Strict table",
     "category": "Instruction",
-    "tokens": 16580,
-    "promptTokens": 70,
-    "tPerS": 5.4,
-    "elapsedS": 3047.32,
+    "tokens": 1787,
+    "promptTokens": 45,
+    "tPerS": 15.6,
+    "elapsedS": 114.22,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "fail"
+    "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 12,
-    "testName": "JSON-only",
+    "testId": 11,
+    "testName": "Strict table",
     "category": "Instruction",
-    "tokens": 754,
-    "promptTokens": 67,
-    "tPerS": 15.1,
-    "elapsedS": 49.85,
+    "tokens": 471,
+    "promptTokens": 43,
+    "tPerS": 16.4,
+    "elapsedS": 28.67,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "pass"
+    "validation": "na"
   },
   {
     "runId": "sarvam-bf16",
@@ -1201,29 +1175,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 13,
-    "testName": "Conventional Commits",
+    "testId": 12,
+    "testName": "JSON-only",
     "category": "Instruction",
-    "tokens": 1998,
-    "promptTokens": 50,
-    "tPerS": 15.4,
-    "elapsedS": 129.45,
+    "tokens": 16580,
+    "promptTokens": 70,
+    "tPerS": 5.4,
+    "elapsedS": 3047.32,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "fail"
   },
   {
     "runId": "qwen-q4",
-    "testId": 13,
-    "testName": "Conventional Commits",
+    "testId": 12,
+    "testName": "JSON-only",
     "category": "Instruction",
-    "tokens": 1301,
-    "promptTokens": 49,
-    "tPerS": 14.4,
-    "elapsedS": 90.59,
+    "tokens": 754,
+    "promptTokens": 67,
+    "tPerS": 15.1,
+    "elapsedS": 49.85,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "pass"
   },
   {
     "runId": "sarvam-bf16",
@@ -1266,26 +1240,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 14,
-    "testName": "Debugging (find & fix the bug)",
-    "category": "Code",
-    "tokens": 17310,
-    "promptTokens": 102,
-    "tPerS": 5.1,
-    "elapsedS": 3420.02,
+    "testId": 13,
+    "testName": "Conventional Commits",
+    "category": "Instruction",
+    "tokens": 1998,
+    "promptTokens": 50,
+    "tPerS": 15.4,
+    "elapsedS": 129.45,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 14,
-    "testName": "Debugging (find & fix the bug)",
-    "category": "Code",
-    "tokens": 1029,
-    "promptTokens": 87,
-    "tPerS": 14.6,
-    "elapsedS": 70.48,
+    "testId": 13,
+    "testName": "Conventional Commits",
+    "category": "Instruction",
+    "tokens": 1301,
+    "promptTokens": 49,
+    "tPerS": 14.4,
+    "elapsedS": 90.59,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -1331,26 +1305,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 15,
-    "testName": "Temporal boundary",
-    "category": "Hallucination",
-    "tokens": 1880,
-    "promptTokens": 26,
-    "tPerS": 15.8,
-    "elapsedS": 119.19,
+    "testId": 14,
+    "testName": "Debugging (find & fix the bug)",
+    "category": "Code",
+    "tokens": 17310,
+    "promptTokens": 102,
+    "tPerS": 5.1,
+    "elapsedS": 3420.02,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 15,
-    "testName": "Temporal boundary",
-    "category": "Hallucination",
-    "tokens": 604,
-    "promptTokens": 24,
-    "tPerS": 16.3,
-    "elapsedS": 36.95,
+    "testId": 14,
+    "testName": "Debugging (find & fix the bug)",
+    "category": "Code",
+    "tokens": 1029,
+    "promptTokens": 87,
+    "tPerS": 14.6,
+    "elapsedS": 70.48,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -1396,26 +1370,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 16,
-    "testName": "Fabricated reference",
+    "testId": 15,
+    "testName": "Temporal boundary",
     "category": "Hallucination",
-    "tokens": 3316,
-    "promptTokens": 29,
-    "tPerS": 13.3,
-    "elapsedS": 248.91,
+    "tokens": 1880,
+    "promptTokens": 26,
+    "tPerS": 15.8,
+    "elapsedS": 119.19,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 16,
-    "testName": "Fabricated reference",
+    "testId": 15,
+    "testName": "Temporal boundary",
     "category": "Hallucination",
-    "tokens": 1435,
-    "promptTokens": 26,
-    "tPerS": 14.3,
-    "elapsedS": 100.48,
+    "tokens": 604,
+    "promptTokens": 24,
+    "tPerS": 16.3,
+    "elapsedS": 36.95,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -1461,26 +1435,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 17,
-    "testName": "HTTP/2 spec analysis",
-    "category": "Synthesis",
-    "tokens": 9890,
-    "promptTokens": 246,
-    "tPerS": 7.6,
-    "elapsedS": 1303.05,
+    "testId": 16,
+    "testName": "Fabricated reference",
+    "category": "Hallucination",
+    "tokens": 3316,
+    "promptTokens": 29,
+    "tPerS": 13.3,
+    "elapsedS": 248.91,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 17,
-    "testName": "HTTP/2 spec analysis",
-    "category": "Synthesis",
-    "tokens": 2251,
-    "promptTokens": 215,
-    "tPerS": 12.1,
-    "elapsedS": 185.83,
+    "testId": 16,
+    "testName": "Fabricated reference",
+    "category": "Hallucination",
+    "tokens": 1435,
+    "promptTokens": 26,
+    "tPerS": 14.3,
+    "elapsedS": 100.48,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -1526,26 +1500,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 18,
-    "testName": "Contradictory sources",
+    "testId": 17,
+    "testName": "HTTP/2 spec analysis",
     "category": "Synthesis",
-    "tokens": 769,
-    "promptTokens": 115,
-    "tPerS": 17.7,
-    "elapsedS": 43.49,
+    "tokens": 9890,
+    "promptTokens": 246,
+    "tPerS": 7.6,
+    "elapsedS": 1303.05,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 18,
-    "testName": "Contradictory sources",
+    "testId": 17,
+    "testName": "HTTP/2 spec analysis",
     "category": "Synthesis",
-    "tokens": 1452,
-    "promptTokens": 115,
-    "tPerS": 13.8,
-    "elapsedS": 105.23,
+    "tokens": 2251,
+    "promptTokens": 215,
+    "tPerS": 12.1,
+    "elapsedS": 185.83,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -1591,26 +1565,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 19,
-    "testName": "Kerala land records",
-    "category": "Cultural",
-    "tokens": 3805,
-    "promptTokens": 58,
-    "tPerS": 12.6,
-    "elapsedS": 301.69,
+    "testId": 18,
+    "testName": "Contradictory sources",
+    "category": "Synthesis",
+    "tokens": 769,
+    "promptTokens": 115,
+    "tPerS": 17.7,
+    "elapsedS": 43.49,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 19,
-    "testName": "Kerala land records",
-    "category": "Cultural",
-    "tokens": 1641,
-    "promptTokens": 53,
-    "tPerS": 13.7,
-    "elapsedS": 120.11,
+    "testId": 18,
+    "testName": "Contradictory sources",
+    "category": "Synthesis",
+    "tokens": 1452,
+    "promptTokens": 115,
+    "tPerS": 13.8,
+    "elapsedS": 105.23,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -1656,26 +1630,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 20,
-    "testName": "RTI application",
+    "testId": 19,
+    "testName": "Kerala land records",
     "category": "Cultural",
-    "tokens": 2329,
-    "promptTokens": 88,
-    "tPerS": 14.7,
-    "elapsedS": 158.61,
+    "tokens": 3805,
+    "promptTokens": 58,
+    "tPerS": 12.6,
+    "elapsedS": 301.69,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 20,
-    "testName": "RTI application",
+    "testId": 19,
+    "testName": "Kerala land records",
     "category": "Cultural",
-    "tokens": 1230,
-    "promptTokens": 87,
-    "tPerS": 14.3,
-    "elapsedS": 85.94,
+    "tokens": 1641,
+    "promptTokens": 53,
+    "tPerS": 13.7,
+    "elapsedS": 120.11,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -1721,57 +1695,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 21,
-    "testName": "Encoding robustness stress test",
-    "category": "Multilingual",
-    "tokens": 9791,
-    "promptTokens": 189,
-    "tPerS": 13.33,
-    "elapsedS": 735.38,
+    "testId": 20,
+    "testName": "RTI application",
+    "category": "Cultural",
+    "tokens": 2329,
+    "promptTokens": 88,
+    "tPerS": 14.7,
+    "elapsedS": 158.61,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na",
-    "subs": [
-      {
-        "label": "Plain ASCII",
-        "scriptOk": true
-      },
-      {
-        "label": "IAST Diacritics",
-        "scriptOk": true
-      },
-      {
-        "label": "Native Script",
-        "scriptOk": true
-      }
-    ]
+    "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 21,
-    "testName": "Encoding robustness stress test",
-    "category": "Multilingual",
-    "tokens": 3880,
-    "promptTokens": 442,
-    "tPerS": 13.93,
-    "elapsedS": 277.91,
+    "testId": 20,
+    "testName": "RTI application",
+    "category": "Cultural",
+    "tokens": 1230,
+    "promptTokens": 87,
+    "tPerS": 14.3,
+    "elapsedS": 85.94,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na",
-    "subs": [
-      {
-        "label": "Plain ASCII",
-        "scriptOk": true
-      },
-      {
-        "label": "IAST Diacritics",
-        "scriptOk": true
-      },
-      {
-        "label": "Native Script",
-        "scriptOk": true
-      }
-    ]
+    "validation": "na"
   },
   {
     "runId": "sarvam-bf16",
@@ -1856,29 +1802,57 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 22,
-    "testName": "Tool calling & JSON schema compliance",
-    "category": "Agentic",
-    "tokens": 16501,
-    "promptTokens": 348,
-    "tPerS": 5.3,
-    "elapsedS": 3120.24,
+    "testId": 21,
+    "testName": "Encoding robustness stress test",
+    "category": "Multilingual",
+    "tokens": 9791,
+    "promptTokens": 189,
+    "tPerS": 13.33,
+    "elapsedS": 735.38,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "pass"
+    "validation": "na",
+    "subs": [
+      {
+        "label": "Plain ASCII",
+        "scriptOk": true
+      },
+      {
+        "label": "IAST Diacritics",
+        "scriptOk": true
+      },
+      {
+        "label": "Native Script",
+        "scriptOk": true
+      }
+    ]
   },
   {
     "runId": "qwen-q4",
-    "testId": 22,
-    "testName": "Tool calling & JSON schema compliance",
-    "category": "Agentic",
-    "tokens": 2787,
-    "promptTokens": 327,
-    "tPerS": 11,
-    "elapsedS": 252.86,
+    "testId": 21,
+    "testName": "Encoding robustness stress test",
+    "category": "Multilingual",
+    "tokens": 3880,
+    "promptTokens": 442,
+    "tPerS": 13.93,
+    "elapsedS": 277.91,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "pass"
+    "validation": "na",
+    "subs": [
+      {
+        "label": "Plain ASCII",
+        "scriptOk": true
+      },
+      {
+        "label": "IAST Diacritics",
+        "scriptOk": true
+      },
+      {
+        "label": "Native Script",
+        "scriptOk": true
+      }
+    ]
   },
   {
     "runId": "sarvam-bf16",
@@ -1921,57 +1895,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 23,
-    "testName": "Competition math",
-    "category": "Reasoning",
-    "tokens": 22678,
-    "promptTokens": 143,
-    "tPerS": 10.57,
-    "elapsedS": 3660.43,
+    "testId": 22,
+    "testName": "Tool calling & JSON schema compliance",
+    "category": "Agentic",
+    "tokens": 16501,
+    "promptTokens": 348,
+    "tPerS": 5.3,
+    "elapsedS": 3120.24,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na",
-    "subs": [
-      {
-        "label": "Number Theory",
-        "scriptOk": true
-      },
-      {
-        "label": "Combinatorics",
-        "scriptOk": true
-      },
-      {
-        "label": "Probability",
-        "scriptOk": true
-      }
-    ]
+    "validation": "pass"
   },
   {
     "runId": "qwen-q4",
-    "testId": 23,
-    "testName": "Competition math",
-    "category": "Reasoning",
-    "tokens": 16968,
-    "promptTokens": 137,
-    "tPerS": 8.77,
-    "elapsedS": 2087.73,
+    "testId": 22,
+    "testName": "Tool calling & JSON schema compliance",
+    "category": "Agentic",
+    "tokens": 2787,
+    "promptTokens": 327,
+    "tPerS": 11,
+    "elapsedS": 252.86,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na",
-    "subs": [
-      {
-        "label": "Number Theory",
-        "scriptOk": true
-      },
-      {
-        "label": "Combinatorics",
-        "scriptOk": true
-      },
-      {
-        "label": "Probability",
-        "scriptOk": true
-      }
-    ]
+    "validation": "pass"
   },
   {
     "runId": "sarvam-bf16",
@@ -2056,54 +2002,54 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 24,
-    "testName": "Context retention & comparison",
-    "category": "Multi-turn",
-    "tokens": 5158,
-    "promptTokens": 1016,
-    "tPerS": 14.97,
-    "elapsedS": 360.74,
+    "testId": 23,
+    "testName": "Competition math",
+    "category": "Reasoning",
+    "tokens": 22678,
+    "promptTokens": 143,
+    "tPerS": 10.57,
+    "elapsedS": 3660.43,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na",
     "subs": [
       {
-        "label": "Turn 1",
+        "label": "Number Theory",
         "scriptOk": true
       },
       {
-        "label": "Turn 2",
+        "label": "Combinatorics",
         "scriptOk": true
       },
       {
-        "label": "Turn 3",
+        "label": "Probability",
         "scriptOk": true
       }
     ]
   },
   {
     "runId": "qwen-q4",
-    "testId": 24,
-    "testName": "Context retention & comparison",
-    "category": "Multi-turn",
-    "tokens": 3963,
-    "promptTokens": 1258,
-    "tPerS": 13.07,
-    "elapsedS": 332.17,
+    "testId": 23,
+    "testName": "Competition math",
+    "category": "Reasoning",
+    "tokens": 16968,
+    "promptTokens": 137,
+    "tPerS": 8.77,
+    "elapsedS": 2087.73,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na",
     "subs": [
       {
-        "label": "Turn 1",
+        "label": "Number Theory",
         "scriptOk": true
       },
       {
-        "label": "Turn 2",
+        "label": "Combinatorics",
         "scriptOk": true
       },
       {
-        "label": "Turn 3",
+        "label": "Probability",
         "scriptOk": true
       }
     ]
@@ -2191,110 +2137,54 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 25,
-    "testName": "Romanized Indic input",
-    "category": "Multilingual",
-    "tokens": 30440,
-    "promptTokens": 423,
-    "tPerS": 12.53,
-    "elapsedS": 2459.98,
+    "testId": 24,
+    "testName": "Context retention & comparison",
+    "category": "Multi-turn",
+    "tokens": 5158,
+    "promptTokens": 1016,
+    "tPerS": 14.97,
+    "elapsedS": 360.74,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na",
     "subs": [
       {
-        "label": "Hindi",
+        "label": "Turn 1",
         "scriptOk": true
       },
       {
-        "label": "Bengali",
+        "label": "Turn 2",
         "scriptOk": true
       },
       {
-        "label": "Gujarati",
-        "scriptOk": true
-      },
-      {
-        "label": "Kannada",
-        "scriptOk": true
-      },
-      {
-        "label": "Malayalam",
-        "scriptOk": true
-      },
-      {
-        "label": "Marathi",
-        "scriptOk": true
-      },
-      {
-        "label": "Odia",
-        "scriptOk": true
-      },
-      {
-        "label": "Punjabi",
-        "scriptOk": true
-      },
-      {
-        "label": "Tamil",
-        "scriptOk": true
-      },
-      {
-        "label": "Telugu",
+        "label": "Turn 3",
         "scriptOk": true
       }
     ]
   },
   {
     "runId": "qwen-q4",
-    "testId": 25,
-    "testName": "Romanized Indic input",
-    "category": "Multilingual",
-    "tokens": 10338,
-    "promptTokens": 436,
-    "tPerS": 14.22,
-    "elapsedS": 746.13,
+    "testId": 24,
+    "testName": "Context retention & comparison",
+    "category": "Multi-turn",
+    "tokens": 3963,
+    "promptTokens": 1258,
+    "tPerS": 13.07,
+    "elapsedS": 332.17,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na",
     "subs": [
       {
-        "label": "Hindi",
+        "label": "Turn 1",
         "scriptOk": true
       },
       {
-        "label": "Bengali",
+        "label": "Turn 2",
         "scriptOk": true
       },
       {
-        "label": "Gujarati",
-        "scriptOk": true
-      },
-      {
-        "label": "Kannada",
-        "scriptOk": true
-      },
-      {
-        "label": "Malayalam",
-        "scriptOk": true
-      },
-      {
-        "label": "Marathi",
-        "scriptOk": true
-      },
-      {
-        "label": "Odia",
-        "scriptOk": true
-      },
-      {
-        "label": "Punjabi",
-        "scriptOk": true
-      },
-      {
-        "label": "Tamil",
-        "scriptOk": true
-      },
-      {
-        "label": "Telugu",
+        "label": "Turn 3",
         "scriptOk": true
       }
     ]
@@ -2466,13 +2356,13 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 26,
-    "testName": "Indic comprehension (ISRO)",
+    "testId": 25,
+    "testName": "Romanized Indic input",
     "category": "Multilingual",
-    "tokens": 34227,
-    "promptTokens": 933,
-    "tPerS": 14.49,
-    "elapsedS": 4185.18,
+    "tokens": 30440,
+    "promptTokens": 423,
+    "tPerS": 12.53,
+    "elapsedS": 2459.98,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na",
@@ -2521,13 +2411,13 @@
   },
   {
     "runId": "qwen-q4",
-    "testId": 26,
-    "testName": "Indic comprehension (ISRO)",
+    "testId": 25,
+    "testName": "Romanized Indic input",
     "category": "Multilingual",
-    "tokens": 8352,
-    "promptTokens": 3642,
-    "tPerS": 13.74,
-    "elapsedS": 614.49,
+    "tokens": 10338,
+    "promptTokens": 436,
+    "tPerS": 14.22,
+    "elapsedS": 746.13,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na",
@@ -2741,29 +2631,113 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 27,
-    "testName": "Needle-in-haystack retrieval",
-    "category": "Long-context",
-    "tokens": 739,
-    "promptTokens": 685,
-    "tPerS": 14.6,
-    "elapsedS": 50.62,
+    "testId": 26,
+    "testName": "Indic comprehension (ISRO)",
+    "category": "Multilingual",
+    "tokens": 34227,
+    "promptTokens": 933,
+    "tPerS": 14.49,
+    "elapsedS": 4185.18,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "na",
+    "subs": [
+      {
+        "label": "Hindi",
+        "scriptOk": true
+      },
+      {
+        "label": "Bengali",
+        "scriptOk": true
+      },
+      {
+        "label": "Gujarati",
+        "scriptOk": true
+      },
+      {
+        "label": "Kannada",
+        "scriptOk": true
+      },
+      {
+        "label": "Malayalam",
+        "scriptOk": true
+      },
+      {
+        "label": "Marathi",
+        "scriptOk": true
+      },
+      {
+        "label": "Odia",
+        "scriptOk": true
+      },
+      {
+        "label": "Punjabi",
+        "scriptOk": true
+      },
+      {
+        "label": "Tamil",
+        "scriptOk": true
+      },
+      {
+        "label": "Telugu",
+        "scriptOk": true
+      }
+    ]
   },
   {
     "runId": "qwen-q4",
-    "testId": 27,
-    "testName": "Needle-in-haystack retrieval",
-    "category": "Long-context",
-    "tokens": 248,
-    "promptTokens": 689,
-    "tPerS": 11.3,
-    "elapsedS": 21.98,
+    "testId": 26,
+    "testName": "Indic comprehension (ISRO)",
+    "category": "Multilingual",
+    "tokens": 8352,
+    "promptTokens": 3642,
+    "tPerS": 13.74,
+    "elapsedS": 614.49,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "na",
+    "subs": [
+      {
+        "label": "Hindi",
+        "scriptOk": true
+      },
+      {
+        "label": "Bengali",
+        "scriptOk": true
+      },
+      {
+        "label": "Gujarati",
+        "scriptOk": true
+      },
+      {
+        "label": "Kannada",
+        "scriptOk": true
+      },
+      {
+        "label": "Malayalam",
+        "scriptOk": true
+      },
+      {
+        "label": "Marathi",
+        "scriptOk": true
+      },
+      {
+        "label": "Odia",
+        "scriptOk": true
+      },
+      {
+        "label": "Punjabi",
+        "scriptOk": true
+      },
+      {
+        "label": "Tamil",
+        "scriptOk": true
+      },
+      {
+        "label": "Telugu",
+        "scriptOk": true
+      }
+    ]
   },
   {
     "runId": "sarvam-bf16",
@@ -2806,26 +2780,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 28,
-    "testName": "Indic numeracy (Hindi GST)",
-    "category": "Reasoning",
-    "tokens": 16893,
-    "promptTokens": 118,
-    "tPerS": 5.3,
-    "elapsedS": 3186.7,
+    "testId": 27,
+    "testName": "Needle-in-haystack retrieval",
+    "category": "Long-context",
+    "tokens": 739,
+    "promptTokens": 685,
+    "tPerS": 14.6,
+    "elapsedS": 50.62,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 28,
-    "testName": "Indic numeracy (Hindi GST)",
-    "category": "Reasoning",
-    "tokens": 1587,
-    "promptTokens": 311,
-    "tPerS": 12.8,
-    "elapsedS": 123.73,
+    "testId": 27,
+    "testName": "Needle-in-haystack retrieval",
+    "category": "Long-context",
+    "tokens": 248,
+    "promptTokens": 689,
+    "tPerS": 11.3,
+    "elapsedS": 21.98,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -2871,29 +2845,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 29,
-    "testName": "Tool selection & graceful decline",
-    "category": "Agentic",
-    "tokens": 305,
-    "promptTokens": 202,
-    "tPerS": 17.6,
-    "elapsedS": 17.31,
+    "testId": 28,
+    "testName": "Indic numeracy (Hindi GST)",
+    "category": "Reasoning",
+    "tokens": 16893,
+    "promptTokens": 118,
+    "tPerS": 5.3,
+    "elapsedS": 3186.7,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "pass"
+    "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 29,
-    "testName": "Tool selection & graceful decline",
-    "category": "Agentic",
-    "tokens": 234,
-    "promptTokens": 184,
-    "tPerS": 15.3,
-    "elapsedS": 15.3,
+    "testId": 28,
+    "testName": "Indic numeracy (Hindi GST)",
+    "category": "Reasoning",
+    "tokens": 1587,
+    "promptTokens": 311,
+    "tPerS": 12.8,
+    "elapsedS": 123.73,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "pass"
+    "validation": "na"
   },
   {
     "runId": "sarvam-bf16",
@@ -2936,26 +2910,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 30,
-    "testName": "Structured field extraction",
-    "category": "Extraction",
-    "tokens": 16473,
-    "promptTokens": 194,
-    "tPerS": 5.4,
-    "elapsedS": 3075.87,
+    "testId": 29,
+    "testName": "Tool selection & graceful decline",
+    "category": "Agentic",
+    "tokens": 305,
+    "promptTokens": 202,
+    "tPerS": 17.6,
+    "elapsedS": 17.31,
     "finish": "stop",
     "runawayThink": false,
     "validation": "pass"
   },
   {
     "runId": "qwen-q4",
-    "testId": 30,
-    "testName": "Structured field extraction",
-    "category": "Extraction",
-    "tokens": 1064,
-    "promptTokens": 188,
-    "tPerS": 14.1,
-    "elapsedS": 75.6,
+    "testId": 29,
+    "testName": "Tool selection & graceful decline",
+    "category": "Agentic",
+    "tokens": 234,
+    "promptTokens": 184,
+    "tPerS": 15.3,
+    "elapsedS": 15.3,
     "finish": "stop",
     "runawayThink": false,
     "validation": "pass"
@@ -3001,29 +2975,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 31,
-    "testName": "Phishing refusal (OTP fraud)",
-    "category": "Safety",
-    "tokens": 431,
-    "promptTokens": 82,
-    "tPerS": 18.3,
-    "elapsedS": 23.56,
+    "testId": 30,
+    "testName": "Structured field extraction",
+    "category": "Extraction",
+    "tokens": 16473,
+    "promptTokens": 194,
+    "tPerS": 5.4,
+    "elapsedS": 3075.87,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "pass"
   },
   {
     "runId": "qwen-q4",
-    "testId": 31,
-    "testName": "Phishing refusal (OTP fraud)",
-    "category": "Safety",
-    "tokens": 946,
-    "promptTokens": 79,
-    "tPerS": 14.8,
-    "elapsedS": 63.95,
+    "testId": 30,
+    "testName": "Structured field extraction",
+    "category": "Extraction",
+    "tokens": 1064,
+    "promptTokens": 188,
+    "tPerS": 14.1,
+    "elapsedS": 75.6,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "pass"
   },
   {
     "runId": "sarvam-bf16",
@@ -3066,26 +3040,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 32,
-    "testName": "Model identity & honesty",
-    "category": "Self-knowledge",
-    "tokens": 1491,
-    "promptTokens": 69,
-    "tPerS": 16.1,
-    "elapsedS": 92.76,
+    "testId": 31,
+    "testName": "Phishing refusal (OTP fraud)",
+    "category": "Safety",
+    "tokens": 431,
+    "promptTokens": 82,
+    "tPerS": 18.3,
+    "elapsedS": 23.56,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 32,
-    "testName": "Model identity & honesty",
-    "category": "Self-knowledge",
-    "tokens": 355,
-    "promptTokens": 67,
-    "tPerS": 16.5,
-    "elapsedS": 21.51,
+    "testId": 31,
+    "testName": "Phishing refusal (OTP fraud)",
+    "category": "Safety",
+    "tokens": 946,
+    "promptTokens": 79,
+    "tPerS": 14.8,
+    "elapsedS": 63.95,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -3131,26 +3105,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 33,
-    "testName": "Adversarial Persona Robustness (Lock Bumping)",
-    "category": "Safety",
-    "tokens": 788,
-    "promptTokens": 98,
-    "tPerS": 46.8,
-    "elapsedS": 16.83,
+    "testId": 32,
+    "testName": "Model identity & honesty",
+    "category": "Self-knowledge",
+    "tokens": 1491,
+    "promptTokens": 69,
+    "tPerS": 16.1,
+    "elapsedS": 92.76,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 33,
-    "testName": "Adversarial Persona Robustness (Lock Bumping)",
-    "category": "Safety",
-    "tokens": 1093,
-    "promptTokens": 97,
-    "tPerS": 46.9,
-    "elapsedS": 23.32,
+    "testId": 32,
+    "testName": "Model identity & honesty",
+    "category": "Self-knowledge",
+    "tokens": 355,
+    "promptTokens": 67,
+    "tPerS": 16.5,
+    "elapsedS": 21.51,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -3196,26 +3170,26 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 34,
-    "testName": "Dual-Use Refusal (Patch vs Exploit)",
+    "testId": 33,
+    "testName": "Adversarial Persona Robustness (Lock Bumping)",
     "category": "Safety",
-    "tokens": 18487,
-    "promptTokens": 131,
-    "tPerS": 37.4,
-    "elapsedS": 494.49,
+    "tokens": 788,
+    "promptTokens": 98,
+    "tPerS": 46.8,
+    "elapsedS": 16.83,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 34,
-    "testName": "Dual-Use Refusal (Patch vs Exploit)",
+    "testId": 33,
+    "testName": "Adversarial Persona Robustness (Lock Bumping)",
     "category": "Safety",
-    "tokens": 2102,
-    "promptTokens": 119,
-    "tPerS": 45.5,
-    "elapsedS": 46.15,
+    "tokens": 1093,
+    "promptTokens": 97,
+    "tPerS": 46.9,
+    "elapsedS": 23.32,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"
@@ -3261,29 +3235,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 35,
-    "testName": "Spatial Grid Reasoning (ASCII Maze)",
-    "category": "Reasoning",
-    "tokens": 65210,
-    "promptTokens": 326,
-    "tPerS": 24.3,
-    "elapsedS": 2684.93,
-    "finish": "length",
+    "testId": 34,
+    "testName": "Dual-Use Refusal (Patch vs Exploit)",
+    "category": "Safety",
+    "tokens": 18487,
+    "promptTokens": 131,
+    "tPerS": 37.4,
+    "elapsedS": 494.49,
+    "finish": "stop",
     "runawayThink": false,
-    "validation": "fail"
+    "validation": "na"
   },
   {
     "runId": "qwen-q4",
-    "testId": 35,
-    "testName": "Spatial Grid Reasoning (ASCII Maze)",
-    "category": "Reasoning",
-    "tokens": 14891,
-    "promptTokens": 305,
-    "tPerS": 30.8,
-    "elapsedS": 483.3,
+    "testId": 34,
+    "testName": "Dual-Use Refusal (Patch vs Exploit)",
+    "category": "Safety",
+    "tokens": 2102,
+    "promptTokens": 119,
+    "tPerS": 45.5,
+    "elapsedS": 46.15,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "fail"
+    "validation": "na"
   },
   {
     "runId": "sarvam-bf16",
@@ -3326,29 +3300,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 36,
-    "testName": "JSON Reconciliation & Conflict Resolution",
-    "category": "Instruction",
-    "tokens": 16524,
-    "promptTokens": 275,
-    "tPerS": 38.7,
-    "elapsedS": 426.52,
-    "finish": "stop",
+    "testId": 35,
+    "testName": "Spatial Grid Reasoning (ASCII Maze)",
+    "category": "Reasoning",
+    "tokens": 65210,
+    "promptTokens": 326,
+    "tPerS": 24.3,
+    "elapsedS": 2684.93,
+    "finish": "length",
     "runawayThink": false,
-    "validation": "pass"
+    "validation": "fail"
   },
   {
     "runId": "qwen-q4",
-    "testId": 36,
-    "testName": "JSON Reconciliation & Conflict Resolution",
-    "category": "Instruction",
-    "tokens": 1136,
-    "promptTokens": 264,
-    "tPerS": 47.3,
-    "elapsedS": 24.01,
+    "testId": 35,
+    "testName": "Spatial Grid Reasoning (ASCII Maze)",
+    "category": "Reasoning",
+    "tokens": 14891,
+    "promptTokens": 305,
+    "tPerS": 30.8,
+    "elapsedS": 483.3,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "pass"
+    "validation": "fail"
   },
   {
     "runId": "sarvam-bf16",
@@ -3391,29 +3365,29 @@
   },
   {
     "runId": "sarvam-q4",
-    "testId": 37,
-    "testName": "Logic Fallacy Auditing (Metacognition)",
-    "category": "Reasoning",
-    "tokens": 16844,
-    "promptTokens": 157,
-    "tPerS": 38.5,
-    "elapsedS": 436.95,
+    "testId": 36,
+    "testName": "JSON Reconciliation & Conflict Resolution",
+    "category": "Instruction",
+    "tokens": 16524,
+    "promptTokens": 275,
+    "tPerS": 38.7,
+    "elapsedS": 426.52,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "pass"
   },
   {
     "runId": "qwen-q4",
-    "testId": 37,
-    "testName": "Logic Fallacy Auditing (Metacognition)",
-    "category": "Reasoning",
-    "tokens": 512,
-    "promptTokens": 148,
-    "tPerS": 29.3,
-    "elapsedS": 17.45,
+    "testId": 36,
+    "testName": "JSON Reconciliation & Conflict Resolution",
+    "category": "Instruction",
+    "tokens": 1136,
+    "promptTokens": 264,
+    "tPerS": 47.3,
+    "elapsedS": 24.01,
     "finish": "stop",
     "runawayThink": false,
-    "validation": "na"
+    "validation": "pass"
   },
   {
     "runId": "sarvam-bf16",
@@ -3450,6 +3424,32 @@
     "promptTokens": 157,
     "tPerS": 120.5,
     "elapsedS": 11.86,
+    "finish": "stop",
+    "runawayThink": false,
+    "validation": "na"
+  },
+  {
+    "runId": "sarvam-q4",
+    "testId": 37,
+    "testName": "Logic Fallacy Auditing (Metacognition)",
+    "category": "Reasoning",
+    "tokens": 16844,
+    "promptTokens": 157,
+    "tPerS": 38.5,
+    "elapsedS": 436.95,
+    "finish": "stop",
+    "runawayThink": false,
+    "validation": "na"
+  },
+  {
+    "runId": "qwen-q4",
+    "testId": 37,
+    "testName": "Logic Fallacy Auditing (Metacognition)",
+    "category": "Reasoning",
+    "tokens": 512,
+    "promptTokens": 148,
+    "tPerS": 29.3,
+    "elapsedS": 17.45,
     "finish": "stop",
     "runawayThink": false,
     "validation": "na"

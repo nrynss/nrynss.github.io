@@ -1,26 +1,6 @@
 {
   "runs": [
     {
-      "id": "sarvam-q4",
-      "label": "Sarvam-30B Q4_K_M",
-      "shortLabel": "Sarvam Q4",
-      "color": "#10b981",
-      "tags": [
-        "local",
-        "quantized"
-      ]
-    },
-    {
-      "id": "qwen-q4",
-      "label": "Qwen3-30B-A3B Q4_K_M",
-      "shortLabel": "Qwen Q4",
-      "color": "#3b82f6",
-      "tags": [
-        "local",
-        "quantized"
-      ]
-    },
-    {
       "id": "sarvam-bf16",
       "label": "Sarvam-30B BF16",
       "shortLabel": "Sarvam BF16",
@@ -48,6 +28,26 @@
       "tags": [
         "cloud",
         "bf16"
+      ]
+    },
+    {
+      "id": "sarvam-q4",
+      "label": "Sarvam-30B Q4_K_M",
+      "shortLabel": "Sarvam Q4",
+      "color": "#10b981",
+      "tags": [
+        "local",
+        "quantized"
+      ]
+    },
+    {
+      "id": "qwen-q4",
+      "label": "Qwen3-30B-A3B Q4_K_M",
+      "shortLabel": "Qwen Q4",
+      "color": "#3b82f6",
+      "tags": [
+        "local",
+        "quantized"
       ]
     }
   ],
