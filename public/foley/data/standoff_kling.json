@@ -10,32 +10,46 @@
       "kind": "discrete"
     },
     {
-      "name": "gunshot",
-      "start_time": 6.883,
-      "duration": 0.1,
+      "name": "rhythmic church bell tolling, a deep resonant bronze church bell striking steadily over and over, classic slow church bell peal",
+      "start_time": 6.65,
+      "duration": 8.141667,
+      "intensity": "med",
+      "kind": "rhythmic"
+    },
+    {
+      "name": "single loud revolver gunshot, sharp powerful crack with a long desert echo",
+      "start_time": 9.7,
+      "duration": 0.8,
       "intensity": "high",
       "kind": "discrete"
     },
     {
-      "name": "bell ringing",
-      "start_time": 6.908,
-      "duration": 1.2,
-      "intensity": "med",
-      "kind": "discrete"
-    },
-    {
-      "name": "gunshot",
+      "name": "single loud revolver gunshot, sharp powerful crack with a long desert echo",
       "start_time": 10.99,
-      "duration": 0.1,
+      "duration": 0.8,
       "intensity": "high",
       "kind": "discrete"
     },
     {
-      "name": "bell ringing",
-      "start_time": 11.018,
-      "duration": 1.2,
-      "intensity": "med",
+      "name": "single loud revolver gunshot, sharp powerful crack with a long desert echo",
+      "start_time": 11.15,
+      "duration": 0.8,
+      "intensity": "high",
       "kind": "discrete"
+    }
+  ],
+  "history": [
+    {
+      "when": "2026-07-19T13:35:17.842460+00:00",
+      "model": "google/gemini-2.5-flash",
+      "notes": "Remove the gunshot event at 6.88s \u2014 at that moment the picture is a bell-tower close-up, no gun on screen. Replace the two discrete bell-ringing events with a single rhythmic event: a slow church bell tolling steadily, starting at 6.9s and continuing until the end of the clip at 15s, medium intensity. At the volley: replace the gunshot at 10.99s with 'single loud revolver gunshot, sharp powerful crack with a long desert echo', high intensity, duration 0.8s, and add a second identical revolver gunshot at 11.15s \u2014 both duelists fire near-simultaneously.",
+      "changes": "  REMOVED: 'gunshot' @ 6.883s\n  REMOVED: 'bell ringing' @ 6.908s\n  REMOVED: 'gunshot' @ 10.99s\n  REMOVED: 'bell ringing' @ 11.018s\n  ADDED: 'slow church bell tolling steadily' @ 6.9s (rhythmic, med)\n  ADDED: 'single loud revolver gunshot, sharp powerful crack with a long desert echo' @ 10.99s (discrete, high)\n  ADDED: 'single loud revolver gunshot, sharp powerful crack with a long desert echo' @ 11.15s (discrete, high)"
+    },
+    {
+      "when": "2026-07-19T13:58:19.550926+00:00",
+      "model": "google/gemini-2.5-flash",
+      "notes": "Move the church bell event start from 6.9s to 6.65s \u2014 it lands a fraction late. Rewrite its name to 'rhythmic church bell tolling, a deep resonant bronze church bell striking steadily over and over, classic slow church bell peal' and keep it rhythmic, medium intensity, still running to the end of the clip. Add one more revolver gunshot at 9.7s: 'single loud revolver gunshot, sharp powerful crack with a long desert echo', high intensity, duration 0.8s \u2014 a gunman fires straight at camera there with smoke visible at 10s.",
+      "changes": "  REMOVED: 'slow church bell tolling steadily' @ 6.9s\n  ADDED: 'rhythmic church bell tolling, a deep resonant bronze church bell striking steadily over and over, classic slow church bell peal' @ 6.65s (rhythmic, med)\n  ADDED: 'single loud revolver gunshot, sharp powerful crack with a long desert echo' @ 9.7s (discrete, high)"
     }
   ]
 }

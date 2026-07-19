@@ -1,19 +1,11 @@
 {
-  "_comment": "Hand-authored ground-truth timeline for the 15s 'The Inhaler' hero clip, RETIMED against the actual generated video (scratch/output/inhaler_kling.mp4) by frame-scrubbing. Deviations from the scripted beats: no visible book fall (event dropped), a crumpled paper toss at ~2.3s instead, inhaler grabbed early (~7.4s) from atop the notebook, two separate shakes, and the press is a long ~2s draw ending ~14.3s. Dynamics arc: frantic and busy -> focused handling -> money moment (canister hiss at ~12.0s) -> long inhale into near-silence. The wheezy breathing is the foley-as-performance element: the video is silent, so every breath is an artistic choice.",
-  "duration": 15.0,
-  "ambience": "quiet home office room tone, faint muffled afternoon suburb outside; feels emptier and stiller in the final two seconds",
+  "duration": 15.041667,
+  "ambience": null,
   "events": [
     {
-      "name": "strained wheezy breathing, labored and quick",
-      "start_time": 0.0,
-      "duration": 11.8,
-      "intensity": "med",
-      "kind": "continuous"
-    },
-    {
       "name": "frantic two-handed paper shuffling and flipping on wooden desk",
-      "start_time": 0.0,
-      "duration": 3.0,
+      "start_time": 0,
+      "duration": 3,
       "intensity": "med",
       "kind": "rhythmic"
     },
@@ -40,7 +32,7 @@
     },
     {
       "name": "papers and desk objects shoved aside, urgent",
-      "start_time": 6.0,
+      "start_time": 6,
       "duration": 1.2,
       "intensity": "med",
       "kind": "rhythmic"
@@ -53,36 +45,8 @@
       "kind": "discrete"
     },
     {
-      "name": "inhaler canister shaken vigorously, plastic-metallic rattle",
-      "start_time": 7.8,
-      "duration": 0.8,
-      "intensity": "med",
-      "kind": "rhythmic"
-    },
-    {
-      "name": "hands fumbling with inhaler cap, small plastic clicks",
-      "start_time": 8.9,
-      "duration": 0.8,
-      "intensity": "low",
-      "kind": "continuous"
-    },
-    {
-      "name": "inhaler canister shaken again, plastic-metallic rattle",
-      "start_time": 9.8,
-      "duration": 0.8,
-      "intensity": "med",
-      "kind": "rhythmic"
-    },
-    {
-      "name": "plastic cap pulled off inhaler mouthpiece",
-      "start_time": 11.2,
-      "duration": 0.2,
-      "intensity": "low",
-      "kind": "discrete"
-    },
-    {
       "name": "canister press with sharp propellant hiss",
-      "start_time": 12.0,
+      "start_time": 12,
       "duration": 0.6,
       "intensity": "high",
       "kind": "discrete"
@@ -100,6 +64,21 @@
       "duration": 0.7,
       "intensity": "low",
       "kind": "discrete"
+    }
+  ],
+  "_comment": "Hand-authored ground-truth timeline for the 15s 'The Inhaler' hero clip, RETIMED against the actual generated video (scratch/output/inhaler_kling.mp4) by frame-scrubbing. Deviations from the scripted beats: no visible book fall (event dropped), a crumpled paper toss at ~2.3s instead, inhaler grabbed early (~7.4s) from atop the notebook, two separate shakes, and the press is a long ~2s draw ending ~14.3s. Dynamics arc: frantic and busy -> focused handling -> money moment (canister hiss at ~12.0s) -> long inhale into near-silence. The wheezy breathing is the foley-as-performance element: the video is silent, so every breath is an artistic choice.",
+  "history": [
+    {
+      "when": "2026-07-19T13:36:26.857034+00:00",
+      "model": "google/gemini-2.5-flash",
+      "notes": "Remove the background ambience entirely \u2014 no continuous ambience bed at all.",
+      "changes": "  EDITED: duration: 15 -> 15.041667\n  EDITED: ambience: 'quiet home office room tone, faint muffled afternoon suburb outside; feels emptier and stiller in the final two seconds' -> None"
+    },
+    {
+      "when": "2026-07-19T13:55:56.931239+00:00",
+      "model": "google/gemini-2.5-flash",
+      "notes": "Remove the continuous 'strained wheezy breathing' event entirely. Also remove all inhaler-object noises before the actual canister press at 12s: both 'inhaler canister shaken' rattle events at 7.8s and 9.8s, the 'hands fumbling with inhaler cap' clicks at 8.9s, and the 'plastic cap pulled off' at 11.2s. Keep the desk sounds, the inhaler snatch at 7.4s, the canister press, the inhale, and the final exhale.",
+      "changes": "  REMOVED: 'strained wheezy breathing, labored and quick' @ 0s\n  REMOVED: 'inhaler canister shaken vigorously, plastic-metallic rattle' @ 7.8s\n  REMOVED: 'hands fumbling with inhaler cap, small plastic clicks' @ 8.9s\n  REMOVED: 'inhaler canister shaken again, plastic-metallic rattle' @ 9.8s\n  REMOVED: 'plastic cap pulled off inhaler mouthpiece' @ 11.2s"
     }
   ]
 }

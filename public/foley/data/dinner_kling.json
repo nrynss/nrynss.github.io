@@ -1,30 +1,37 @@
 {
   "duration": 15.041667,
-  "ambience": "general quiet indoor dining room ambience with some distant neighborhood sounds",
+  "ambience": null,
   "events": [
     {
       "name": "water pouring into glass",
-      "start_time": 2.05,
-      "duration": 1.0,
+      "start_time": 1.3,
+      "duration": 2.7,
       "intensity": "low",
       "kind": "continuous"
     },
     {
-      "name": "metal fork scraping ceramic plate",
+      "name": "glass water jug being set down gently on a wooden table",
+      "start_time": 4.5,
+      "duration": 0.2,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "knife slicing gently through soft egg",
       "start_time": 5.4,
       "duration": 0.2,
       "intensity": "low",
       "kind": "discrete"
     },
     {
-      "name": "metal knife scraping ceramic plate",
+      "name": "knife slicing gently through soft egg",
       "start_time": 6.8,
       "duration": 0.2,
       "intensity": "low",
       "kind": "discrete"
     },
     {
-      "name": "metal fork scraping ceramic plate",
+      "name": "knife slicing gently through soft egg",
       "start_time": 7.4,
       "duration": 0.2,
       "intensity": "low",
@@ -38,18 +45,38 @@
       "kind": "discrete"
     },
     {
-      "name": "glass cups clinking",
-      "start_time": 13.0,
+      "name": "two drinking glasses tapped together in a toast, a short dry percussive glass-on-glass clack, real physical glass impact",
+      "start_time": 13,
       "duration": 0.3,
       "intensity": "med",
       "kind": "discrete"
     },
     {
-      "name": "glass cups clinking",
+      "name": "two drinking glasses tapped together in a toast, a short dry percussive glass-on-glass clack, real physical glass impact",
       "start_time": 13.3,
       "duration": 0.3,
       "intensity": "med",
       "kind": "discrete"
+    }
+  ],
+  "history": [
+    {
+      "when": "2026-07-19T13:23:13.282767+00:00",
+      "model": "google/gemini-2.5-flash",
+      "notes": "Remove the background ambience entirely \u2014 this clip should have no continuous room-tone bed. The three cutlery events at 5.4s, 6.8s and 7.4s are actually a knife and fork cutting through a soft cooked egg, not metal scraping ceramic: rename them to a soft squishy food-cutting sound (knife slicing gently through soft egg), keep their exact timings and low intensity. Add one new low-intensity discrete event at 4.5s: a glass water jug being set down gently on a wooden table.",
+      "changes": "  EDITED: ambience: 'general quiet indoor dining room ambience with some distant neighborhood sounds' -> None\n  REMOVED: 'metal fork scraping ceramic plate' @ 5.4s\n  REMOVED: 'metal knife scraping ceramic plate' @ 6.8s\n  REMOVED: 'metal fork scraping ceramic plate' @ 7.4s\n  ADDED: 'glass water jug being set down gently on a wooden table' @ 4.5s (discrete, low)\n  ADDED: 'knife slicing gently through soft egg' @ 5.4s (discrete, low)\n  ADDED: 'knife slicing gently through soft egg' @ 6.8s (discrete, low)\n  ADDED: 'knife slicing gently through soft egg' @ 7.4s (discrete, low)"
+    },
+    {
+      "when": "2026-07-19T13:32:47.707770+00:00",
+      "model": "google/gemini-2.5-flash",
+      "notes": "Move the water pouring event earlier: it should start at 1.3s with duration 2.7s \u2014 the pour visibly runs until the jug lifts away at 4.0s. Also replace the two 'glass cups clinking' events with a crisp bright real glass-on-glass clink \u2014 a delicate wine-glass ting with a short ring, medium intensity, not a dull thud. Keep their timings.",
+      "changes": "  EDITED: 'water pouring into glass': start_time 2.05 -> 1.3; duration 1 -> 2.7\n  REMOVED: 'glass cups clinking' @ 13s\n  REMOVED: 'glass cups clinking' @ 13.3s\n  ADDED: 'delicate wine-glass ting' @ 13.0s (discrete, med)\n  ADDED: 'delicate wine-glass ting' @ 13.3s (discrete, med)"
+    },
+    {
+      "when": "2026-07-19T13:56:49.264797+00:00",
+      "model": "google/gemini-2.5-flash",
+      "notes": "Replace both 'delicate wine-glass ting' events at 13.0s and 13.3s with 'two drinking glasses tapped together in a toast, a short dry percussive glass-on-glass clack, real physical glass impact'. It must sound like actual glassware knocking together, absolutely not musical, not a piano note, not a chime. Keep timings and medium intensity.",
+      "changes": "  REMOVED: 'delicate wine-glass ting' @ 13s\n  REMOVED: 'delicate wine-glass ting' @ 13.3s\n  ADDED: 'two drinking glasses tapped together in a toast, a short dry percussive glass-on-glass clack, real physical glass impact' @ 13.0s (discrete, med)\n  ADDED: 'two drinking glasses tapped together in a toast, a short dry percussive glass-on-glass clack, real physical glass impact' @ 13.3s (discrete, med)"
     }
   ]
 }

@@ -3,31 +3,31 @@
   "ambience": "distant market chatter and light wind",
   "events": [
     {
-      "name": "whoosh of fast movement",
+      "name": "light cloth rustle as fighter shifts stance",
       "start_time": 0.041,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "low",
       "kind": "discrete"
     },
     {
-      "name": "whoosh of fast movement",
+      "name": "light cloth rustle as fighter shifts stance",
       "start_time": 0.541,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "low",
       "kind": "discrete"
     },
     {
-      "name": "whoosh of fast movement",
+      "name": "light cloth rustle as fighter shifts stance",
       "start_time": 1.041,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "low",
       "kind": "discrete"
     },
     {
-      "name": "whoosh of fast movement",
+      "name": "light cloth rustle as fighter shifts stance",
       "start_time": 1.541,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "low",
       "kind": "discrete"
     },
     {
@@ -38,17 +38,17 @@
       "kind": "discrete"
     },
     {
-      "name": "punch connect",
+      "name": "sharp air-punch whoosh, fist cutting through air, no impact",
       "start_time": 2.291,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "whoosh of fast movement",
       "start_time": 2.502,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -59,17 +59,17 @@
       "kind": "discrete"
     },
     {
-      "name": "punch connect",
+      "name": "sharp air-punch whoosh, fist cutting through air, no impact",
       "start_time": 2.89,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "whoosh of fast movement",
       "start_time": 3.003,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -80,17 +80,17 @@
       "kind": "discrete"
     },
     {
-      "name": "impact sound",
+      "name": "sharp air-punch whoosh, fist cutting through air, no impact",
       "start_time": 3.337,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "whoosh of fast movement",
       "start_time": 3.504,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -101,42 +101,42 @@
       "kind": "discrete"
     },
     {
-      "name": "punch connect",
+      "name": "sharp air-punch whoosh, fist cutting through air, no impact",
       "start_time": 3.84,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "quick whoosh",
       "start_time": 4.103,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "quick whoosh",
       "start_time": 4.25,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "quick whoosh",
       "start_time": 4.393,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "fast whoosh sound effect",
       "start_time": 4.54,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
-      "name": "multiple wood crate impacts",
+      "name": "huge stylized body collision impact, deep cinematic boom with shockwave",
       "start_time": 4.908,
       "duration": 0.3,
       "intensity": "high",
@@ -146,7 +146,7 @@
       "name": "whoosh of fast movement",
       "start_time": 5.485,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -160,7 +160,7 @@
       "name": "whoosh of fast movement",
       "start_time": 6.002,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -188,7 +188,7 @@
       "name": "fast whoosh of boxes rising",
       "start_time": 6.758,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -293,14 +293,14 @@
       "name": "fast whoosh and cloth movement",
       "start_time": 10.041,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "fast whoosh and cloth movement",
       "start_time": 10.158,
       "duration": 0.2,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -314,14 +314,14 @@
       "name": "quick whoosh",
       "start_time": 10.508,
       "duration": 0.1,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
       "name": "whoosh of cloth through air",
       "start_time": 10.975,
       "duration": 0.3,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -342,7 +342,7 @@
       "name": "whoosh of cloth through air",
       "start_time": 11.425,
       "duration": 0.3,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -356,7 +356,7 @@
       "name": "whoosh of cloth through air",
       "start_time": 11.691,
       "duration": 0.3,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -370,7 +370,7 @@
       "name": "whoosh of cloth through air",
       "start_time": 12.008,
       "duration": 0.3,
-      "intensity": "high",
+      "intensity": "med",
       "kind": "discrete"
     },
     {
@@ -435,6 +435,14 @@
       "duration": 0.3,
       "intensity": "low",
       "kind": "discrete"
+    }
+  ],
+  "history": [
+    {
+      "when": "2026-07-19T13:59:30.108897+00:00",
+      "model": "google/gemini-2.5-flash",
+      "notes": "Fix mismatches with the picture. (1) In the first two seconds the fighters are only posturing and glaring in their split-screen panels \u2014 change the four 'whoosh of fast movement' events at 0.04s, 0.54s, 1.04s and 1.54s to low intensity and rename them 'light cloth rustle as fighter shifts stance'. (2) Between 2.1s and 4.0s the two men are shadowboxing in SEPARATE panels \u2014 no contact is possible. Change the 'punch connect' events at 2.29s and 2.89s and 3.84s and the 'impact sound' at 3.34s into 'sharp air-punch whoosh, fist cutting through air, no impact', medium intensity. (3) At 4.91s the split line shatters as both fighters collide with flying kicks \u2014 replace 'multiple wood crate impacts' with 'huge stylized body collision impact, deep cinematic boom with shockwave', high intensity. (4) Demote every remaining generic whoosh event (names starting 'whoosh', 'quick whoosh', 'fast whoosh') from high to medium intensity so the real impacts stand out. Keep everything else exactly as is.",
+      "changes": "  EDITED: 'whoosh of fast movement': start_time 0.041 -> 2.502; intensity high -> med\n  EDITED: 'whoosh of fast movement': start_time 0.541 -> 3.003; intensity high -> med\n  EDITED: 'whoosh of fast movement': start_time 1.041 -> 3.504; intensity high -> med\n  EDITED: 'whoosh of fast movement': start_time 1.541 -> 5.485; intensity high -> med\n  REMOVED: 'punch connect' @ 2.291s\n  EDITED: 'whoosh of fast movement': start_time 2.502 -> 6.002; intensity high -> med\n  REMOVED: 'punch connect' @ 2.89s\n  REMOVED: 'whoosh of fast movement' @ 3.003s\n  REMOVED: 'impact sound' @ 3.337s\n  REMOVED: 'whoosh of fast movement' @ 3.504s\n  REMOVED: 'punch connect' @ 3.84s\n  EDITED: 'quick whoosh': intensity high -> med\n  EDITED: 'quick whoosh': intensity high -> med\n  EDITED: 'quick whoosh': intensity high -> med\n  EDITED: 'fast whoosh sound effect': intensity high -> med\n  REMOVED: 'multiple wood crate impacts' @ 4.908s\n  REMOVED: 'whoosh of fast movement' @ 5.485s\n  REMOVED: 'whoosh of fast movement' @ 6.002s\n  EDITED: 'fast whoosh of boxes rising': intensity high -> med\n  EDITED: 'fast whoosh and cloth movement': intensity high -> med\n  EDITED: 'fast whoosh and cloth movement': intensity high -> med\n  EDITED: 'quick whoosh': intensity high -> med\n  EDITED: 'whoosh of cloth through air': intensity high -> med\n  EDITED: 'whoosh of cloth through air': intensity high -> med\n  EDITED: 'whoosh of cloth through air': intensity high -> med\n  EDITED: 'whoosh of cloth through air': intensity high -> med\n  ADDED: 'light cloth rustle as fighter shifts stance' @ 0.041s (discrete, low)\n  ADDED: 'light cloth rustle as fighter shifts stance' @ 0.541s (discrete, low)\n  ADDED: 'light cloth rustle as fighter shifts stance' @ 1.041s (discrete, low)\n  ADDED: 'light cloth rustle as fighter shifts stance' @ 1.541s (discrete, low)\n  ADDED: 'sharp air-punch whoosh, fist cutting through air, no impact' @ 2.291s (discrete, med)\n  ADDED: 'sharp air-punch whoosh, fist cutting through air, no impact' @ 2.89s (discrete, med)\n  ADDED: 'sharp air-punch whoosh, fist cutting through air, no impact' @ 3.337s (discrete, med)\n  ADDED: 'sharp air-punch whoosh, fist cutting through air, no impact' @ 3.84s (discrete, med)\n  ADDED: 'huge stylized body collision impact, deep cinematic boom with shockwave' @ 4.908s (discrete, high)"
     }
   ]
 }
