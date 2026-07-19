@@ -1,0 +1,55 @@
+{
+  "duration": 15.041667,
+  "ambience": "quiet indoor apartment or hallway",
+  "events": [
+    {
+      "name": "male footsteps on wooden floor",
+      "start_time": 1.25,
+      "duration": 1.3,
+      "intensity": "low",
+      "kind": "rhythmic"
+    },
+    {
+      "name": "knocking on wooden door",
+      "start_time": 3.73,
+      "duration": 0.3,
+      "intensity": "med",
+      "kind": "discrete"
+    },
+    {
+      "name": "wooden door opening",
+      "start_time": 4.1,
+      "duration": 0.4,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "turning metal doorknob",
+      "start_time": 4.95,
+      "duration": 0.2,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "male footsteps on wooden floor",
+      "start_time": 6.83,
+      "duration": 3.3,
+      "intensity": "low",
+      "kind": "rhythmic"
+    },
+    {
+      "name": "female footsteps on wooden floor",
+      "start_time": 6.9,
+      "duration": 2.2,
+      "intensity": "low",
+      "kind": "rhythmic"
+    },
+    {
+      "name": "male footsteps on stone floor",
+      "start_time": 8.0,
+      "duration": 2.5,
+      "intensity": "low",
+      "kind": "rhythmic"
+    }
+  ]
+}

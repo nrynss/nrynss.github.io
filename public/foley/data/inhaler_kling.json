@@ -1,0 +1,105 @@
+{
+  "_comment": "Hand-authored ground-truth timeline for the 15s 'The Inhaler' hero clip, RETIMED against the actual generated video (scratch/output/inhaler_kling.mp4) by frame-scrubbing. Deviations from the scripted beats: no visible book fall (event dropped), a crumpled paper toss at ~2.3s instead, inhaler grabbed early (~7.4s) from atop the notebook, two separate shakes, and the press is a long ~2s draw ending ~14.3s. Dynamics arc: frantic and busy -> focused handling -> money moment (canister hiss at ~12.0s) -> long inhale into near-silence. The wheezy breathing is the foley-as-performance element: the video is silent, so every breath is an artistic choice.",
+  "duration": 15.0,
+  "ambience": "quiet home office room tone, faint muffled afternoon suburb outside; feels emptier and stiller in the final two seconds",
+  "events": [
+    {
+      "name": "strained wheezy breathing, labored and quick",
+      "start_time": 0.0,
+      "duration": 11.8,
+      "intensity": "med",
+      "kind": "continuous"
+    },
+    {
+      "name": "frantic two-handed paper shuffling and flipping on wooden desk",
+      "start_time": 0.0,
+      "duration": 3.0,
+      "intensity": "med",
+      "kind": "rhythmic"
+    },
+    {
+      "name": "crumpled paper ball tossed aside",
+      "start_time": 2.3,
+      "duration": 0.4,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "wooden desk drawer yanked open, hard stop",
+      "start_time": 3.2,
+      "duration": 0.5,
+      "intensity": "med",
+      "kind": "discrete"
+    },
+    {
+      "name": "hand rummaging through pens and small clutter in drawer",
+      "start_time": 3.7,
+      "duration": 2.3,
+      "intensity": "med",
+      "kind": "continuous"
+    },
+    {
+      "name": "papers and desk objects shoved aside, urgent",
+      "start_time": 6.0,
+      "duration": 1.2,
+      "intensity": "med",
+      "kind": "rhythmic"
+    },
+    {
+      "name": "plastic inhaler snatched off notebook on desk",
+      "start_time": 7.4,
+      "duration": 0.3,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "inhaler canister shaken vigorously, plastic-metallic rattle",
+      "start_time": 7.8,
+      "duration": 0.8,
+      "intensity": "med",
+      "kind": "rhythmic"
+    },
+    {
+      "name": "hands fumbling with inhaler cap, small plastic clicks",
+      "start_time": 8.9,
+      "duration": 0.8,
+      "intensity": "low",
+      "kind": "continuous"
+    },
+    {
+      "name": "inhaler canister shaken again, plastic-metallic rattle",
+      "start_time": 9.8,
+      "duration": 0.8,
+      "intensity": "med",
+      "kind": "rhythmic"
+    },
+    {
+      "name": "plastic cap pulled off inhaler mouthpiece",
+      "start_time": 11.2,
+      "duration": 0.2,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "canister press with sharp propellant hiss",
+      "start_time": 12.0,
+      "duration": 0.6,
+      "intensity": "high",
+      "kind": "discrete"
+    },
+    {
+      "name": "long deep inhale through plastic mouthpiece",
+      "start_time": 12.4,
+      "duration": 1.8,
+      "intensity": "med",
+      "kind": "continuous"
+    },
+    {
+      "name": "slow relieved exhale, breathing settles to calm",
+      "start_time": 14.3,
+      "duration": 0.7,
+      "intensity": "low",
+      "kind": "discrete"
+    }
+  ]
+}

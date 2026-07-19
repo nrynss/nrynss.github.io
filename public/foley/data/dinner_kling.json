@@ -1,0 +1,55 @@
+{
+  "duration": 15.041667,
+  "ambience": "general quiet indoor dining room ambience with some distant neighborhood sounds",
+  "events": [
+    {
+      "name": "water pouring into glass",
+      "start_time": 2.05,
+      "duration": 1.0,
+      "intensity": "low",
+      "kind": "continuous"
+    },
+    {
+      "name": "metal fork scraping ceramic plate",
+      "start_time": 5.4,
+      "duration": 0.2,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "metal knife scraping ceramic plate",
+      "start_time": 6.8,
+      "duration": 0.2,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "metal fork scraping ceramic plate",
+      "start_time": 7.4,
+      "duration": 0.2,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "ceramic bowl sliding on wooden table",
+      "start_time": 10.6,
+      "duration": 0.2,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "glass cups clinking",
+      "start_time": 13.0,
+      "duration": 0.3,
+      "intensity": "med",
+      "kind": "discrete"
+    },
+    {
+      "name": "glass cups clinking",
+      "start_time": 13.3,
+      "duration": 0.3,
+      "intensity": "med",
+      "kind": "discrete"
+    }
+  ]
+}

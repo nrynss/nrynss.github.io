@@ -39,5 +39,14 @@
     "status": "active",
     "featured": true,
     "stack": ["TypeScript", "React", "OpenAPI"]
+  },
+  {
+    "id": "ai-foley",
+    "title": "AI Foley",
+    "description": "Scores silent AI-generated video automatically: a VLM builds an event timeline, each event gets a generated sound effect, and the whole soundtrack re-renders deterministically for fractions of a cent.",
+    "demo": "https://nryn.dev/foley/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Python", "Svelte", "fal.ai", "VLM"]
   }
 ]

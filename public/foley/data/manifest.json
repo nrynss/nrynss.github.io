@@ -1,0 +1,42 @@
+[
+  {
+    "id": "dinner_kling",
+    "name": "Family Dinner",
+    "tagline": "Live-action; cutlery, water pour, glass-clink toast",
+    "video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/dinner_kling.mp4",
+    "foley_video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/dinner_kling.foley.mp4",
+    "timeline_url": "/foley/data/dinner_kling.json"
+  },
+  {
+    "id": "split500_kling",
+    "name": "Expectations / Reality",
+    "tagline": "Animated split screen, (500) Days of Summer homage",
+    "video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/split500_kling.mp4",
+    "foley_video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/split500_kling.foley.mp4",
+    "timeline_url": "/foley/data/split500_kling.json"
+  },
+  {
+    "id": "brawl_kling",
+    "name": "The Brawl",
+    "tagline": "Anime split-screen street fight, 62 foley events",
+    "video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/brawl_kling.mp4",
+    "foley_video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/brawl_kling.foley.mp4",
+    "timeline_url": "/foley/data/brawl_kling.json"
+  },
+  {
+    "id": "standoff_kling",
+    "name": "The Standoff",
+    "tagline": "Sergio Leone three-way shootout",
+    "video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/standoff_kling.mp4",
+    "foley_video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/standoff_kling.foley.mp4",
+    "timeline_url": "/foley/data/standoff_kling.json"
+  },
+  {
+    "id": "inhaler_kling",
+    "name": "The Inhaler",
+    "tagline": "Live-action, curated ground-truth timeline",
+    "video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/inhaler_kling.mp4",
+    "foley_video_url": "https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/inhaler_kling.foley.mp4",
+    "timeline_url": "/foley/data/inhaler_kling.json"
+  }
+]

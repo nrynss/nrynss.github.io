@@ -1,0 +1,250 @@
+---
+// src/pages/foley.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FoleyStudio from '../components/interactive/foley/FoleyStudio.svelte';
+
+const ZIP_URL =
+  'https://github.com/nrynss/nrynss.github.io/releases/download/foley-assets-v1/ai-foley-cli.zip';
+
+const quickstart = `unzip ai-foley-cli.zip && cd ai-foley-cli
+uv sync
+cp .env.example .env        # add your FAL_KEY (fal.ai/dashboard/keys)
+uv run foley clip.mp4 --tier full -o clip.foley.mp4     # the CLI
+uv run uvicorn ui.server:app --port 8000                # local studio at :8000`;
+---
+
+<BaseLayout
+  title="AI Foley"
+  description="Silent AI video in, a synced sound effects track out — a VLM builds an event timeline, each event gets a generated SFX, and the whole thing re-renders deterministically for fractions of a cent."
+>
+  <article class="post-single">
+    <header class="post-header">
+      <h1 class="post-title">AI Foley</h1>
+      <div class="post-description">
+        Give it a silent AI-generated video and it scores the whole thing —
+        automatically.
+      </div>
+    </header>
+
+    <div class="post-content">
+      <p class="pitch">
+        Text-to-video models produce gorgeous, utterly silent footage. AI Foley
+        watches that footage with a vision-language model, writes
+        an <strong>event timeline</strong> of everything that should make a sound
+        (a fork on a plate at 5.4s, a glass-clink toast at 13.0s), generates a
+        bespoke sound effect for <em>each</em> event, and mixes them into a
+        synced soundtrack under an ambient room-tone bed. Because the timeline
+        is the picture-lock, re-rendering after an edit
+        is <strong>deterministic</strong> and cached — tweak one event and the rest
+        cost nothing. A full analysis runs for a fraction of a cent.
+      </p>
+
+      <div class="notice-box">
+        <div class="notice-title">Pre-rendered demo</div>
+        <div class="notice-content">
+          <p>
+            Everything below is static: the videos and their timelines were
+            rendered ahead of time, so nothing here calls a paid API or spends a
+            cent. The live version — Analyze, Director's Notes, Render — runs on
+            your own machine with your own key. Grab it from
+            the <a href="#download">download section</a> at the bottom.
+          </p>
+        </div>
+      </div>
+
+      <!-- The one interactive island -->
+      <FoleyStudio client:load />
+
+      <!-- Download CTA -->
+      <section id="download" class="cta">
+        <div class="cta-head">
+          <h2 class="cta-title">Run it yourself</h2>
+          <p class="cta-sub">
+            The full tool — the CLI and this exact studio UI — ships as a zip you
+            run locally against your own fal.ai key. Everything you just watched,
+            on your machine.
+          </p>
+        </div>
+
+        <a class="download-btn" href={ZIP_URL} download>
+          <span class="dl-icon" aria-hidden="true">↓</span>
+          Download the CLI (.zip)
+        </a>
+
+        <div class="quickstart">
+          <div class="qs-head">
+            <span class="qs-label">Quickstart</span>
+            <button id="copy-quickstart" class="copy-btn" type="button"
+              >Copy</button
+            >
+          </div>
+          <pre id="quickstart-block"><code>{quickstart}</code></pre>
+        </div>
+
+        <div class="reqs">
+          <div class="req-block">
+            <span class="req-title">Requirements</span>
+            <ul>
+              <li>Python 3.12+</li>
+              <li><code>uv</code></li>
+              <li>ffmpeg on <code>PATH</code></li>
+              <li>a fal.ai API key</li>
+            </ul>
+          </div>
+          <div class="req-block">
+            <span class="req-title">Typical cost</span>
+            <ul>
+              <li>~$0.005 per analysis</li>
+              <li>cents per generated SFX</li>
+              <li>cached re-renders are $0</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<script is:inline>
+  const btn = document.getElementById('copy-quickstart');
+  const block = document.getElementById('quickstart-block');
+  if (btn && block) {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(block.innerText);
+        const old = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => (btn.textContent = old), 1500);
+      } catch {
+        btn.textContent = 'Copy failed';
+      }
+    });
+  }
+</script>
+
+<style>
+  .pitch {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  /* Download CTA */
+  .cta {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border: 1px solid var(--accent-primary);
+    border-radius: 16px;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-primary), transparent 92%),
+      transparent
+    );
+  }
+  .cta-title {
+    margin: 0 0 0.5rem !important;
+    font-size: 1.6rem;
+  }
+  .cta-sub {
+    margin: 0 0 1.5rem;
+    color: var(--text-secondary);
+    max-width: 46rem;
+  }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--accent-primary);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+    text-decoration: none !important;
+    box-shadow: 0 6px 18px rgba(38, 208, 124, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(38, 208, 124, 0.35);
+  }
+  .dl-icon {
+    font-size: 1.1rem;
+  }
+  .quickstart {
+    margin-top: 1.5rem;
+    background: var(--bg-callout);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .qs-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .qs-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .copy-btn {
+    padding: 0.25rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .copy-btn:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+  .quickstart pre {
+    margin: 0;
+    padding: 1rem;
+    background: transparent;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+  .reqs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+  }
+  .req-title {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  .req-block ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+  .req-block li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.2rem;
+  }
+  .req-block code {
+    font-size: 0.78rem;
+    padding: 0.05em 0.3em;
+  }
+  @media (max-width: 640px) {
+    .cta {
+      padding: 1.5rem 1.25rem;
+    }
+  }
+</style>

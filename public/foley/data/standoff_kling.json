@@ -1,0 +1,41 @@
+{
+  "duration": 15.041667,
+  "ambience": "desert dusty town with distant wind",
+  "events": [
+    {
+      "name": "male character's boot on gravel",
+      "start_time": 0.089,
+      "duration": 0.1,
+      "intensity": "low",
+      "kind": "discrete"
+    },
+    {
+      "name": "gunshot",
+      "start_time": 6.883,
+      "duration": 0.1,
+      "intensity": "high",
+      "kind": "discrete"
+    },
+    {
+      "name": "bell ringing",
+      "start_time": 6.908,
+      "duration": 1.2,
+      "intensity": "med",
+      "kind": "discrete"
+    },
+    {
+      "name": "gunshot",
+      "start_time": 10.99,
+      "duration": 0.1,
+      "intensity": "high",
+      "kind": "discrete"
+    },
+    {
+      "name": "bell ringing",
+      "start_time": 11.018,
+      "duration": 1.2,
+      "intensity": "med",
+      "kind": "discrete"
+    }
+  ]
+}
