@@ -48,5 +48,15 @@
     "status": "active",
     "featured": true,
     "stack": ["Python", "Svelte", "fal.ai", "VLM"]
+  },
+  {
+    "id": "sarvam-benchmarks",
+    "title": "Sarvam Benchmarks",
+    "description": "An interactive evaluation dashboard and test explorer benchmarking Sarvam 30B (local and cloud) and Sarvam 105B across 37 test categories including Indic translation, coding, reasoning, and tool use.",
+    "blog": "/blog/sarvam-maya/",
+    "demo": "https://nryn.dev/benchmarks/sarvam/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Svelte", "Astro", "LLM", "llama.cpp", "Modal"]
   }
 ]

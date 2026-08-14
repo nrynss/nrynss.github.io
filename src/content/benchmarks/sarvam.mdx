@@ -1,18 +1,19 @@
 ---
-title: "Sarvam vs Qwen Benchmark Comparison"
-description: "A 37-test suite evaluating multilingual (Indic) capabilities, code generation, reasoning, and agency across local and cloud environments."
-date: 2026-06-15
+title: "Sarvam Benchmarks"
+description: "A 37-test suite evaluating Sarvam's multilingual (Indic) capabilities, code generation, reasoning, and agency across local and cloud environments."
 models:
   - "Sarvam-30B"
   - "Qwen3-30B-A3B"
   - "Sarvam-105B"
 tags:
   - "llm"
+  - "sarvam"
   - "benchmarks"
   - "indic"
+date: "2026-08-15"
 ---
 
-This benchmark evaluates **Sarvam-30B** and **Qwen3-30B-A3B** across 37 diverse test scenarios covering multilingual translation, reasoning, code synthesis, tool-selection agency, and safety guidelines. 
+This benchmark evaluates **Sarvam-30B** (with Qwen3-30B-A3B as a control) across 37 diverse test scenarios covering multilingual translation, reasoning, code synthesis, tool-selection agency, and safety guidelines. 
 
 The evaluation was performed across two main conditions:
 1. **Local Quantization (Q4_K_M)** using `llama.cpp` on consumer-grade hardware.
