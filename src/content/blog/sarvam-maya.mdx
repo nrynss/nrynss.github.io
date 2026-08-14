@@ -12,13 +12,13 @@ tags:
 
 <Notice title="TL;DR">
 
-Monkey on the back. I am getting this off. Sarvam support to llama.cpp landed in a PR in February. I have been working on getting some benchmark on this for a long time. On and off. Running from a PR. Half-broken builds. Wading through a lot of commands. I am not going to spend more time on this. Sarvam recently updated their 105B model, which is not in Hugging Face yet. Made with tax money. So chop chop! The results are available [here](/benchmarks/sarvam/). Sarvam is a decent first original outing. I really hope they step up and reduce the token wastage.
+Happy Independence Day! What better day than this to talk about sovereign AI. This has been a monkey on the back for a while. I am getting it off. Sarvam support to llama.cpp landed in a PR in February. I have been working on getting some benchmark on this for a long time. On and off. Running from a PR. Half-broken builds. Wading through a lot of commands. I am not going to spend more time on this. Sarvam recently updated their 105B model, which is not in Hugging Face yet. Made with tax money. So chop chop! The results are available [here](/benchmarks/sarvam/). Sarvam is a decent first original outing. I really hope they step up and reduce the token wastage. You can see discrepancies in timing. It has been more than four months and not two months. Hugo is so far behind that I hardly remember anything about it. I am talking about Qwen 3.5 being just dropped, which would be around 6 months or more. Qwen 3.8 dropped hours back. That is how fast things are moving. On a related note, it is kind of weird to see Sarvam not releasing the refreshed models even though they have a better 105B model in their API.
 
 </Notice>
 
 Nearly two months since the last post. Very exhausting couple of months at work. We are migrating from [Hugo](https://gohugo.io/) to [Mintlify](https://mintlify.com/). After it is complete successfully, there is a lot to write about it. Would be a nice break from all the AI stuff in the blog. In the meanwhile, I have been working on a few projects. A couple of them complete, but not in a shape to be documented. A couple of them too ambitious. They need more time (and tokens!) to cook in the oven.
 
-One of the complete ones, is the basis of this post. Sarvam Maya is a [movie](https://en.wikipedia.org/wiki/Sarvam_Maya). Pretty good one. But our topic is Sarvam, the first sovereign model from India. But as the title suggests, the Maya part is in my head after getting it to work. It took me a really long time to get it working, test it, and more importantly, write about it.
+One of the complete ones, is the basis of this post. Sarvam Maya is a [movie](https://en.wikipedia.org/wiki/Sarvam_Maya). Pretty good one. But our topic is Sarvam, the first sovereign model from India. But as the title suggests, the Maya part is in my head after getting it to work. It took me a really long time to get it working, test it, and more importantly, write about it. The test covered around 37 tests which I thought would put the LLM through the paces. Mostly about language. Less about logic and code. It did very well in code and maths for its time.
 
 ## Hurdles
 
@@ -80,10 +80,104 @@ I got this out of the cupboard when I got some [Modal](https://modal.com/) credi
 
 Hopefully, they will progress and make better models! But the push and pull have to come from Indian companies. Start using Sarvam. You don't need frontier models for most of the stuff that you do. You need to be AI ready. But that does not mean you need to get [Claude](https://claude.ai/) or [ChatGPT](https://chatgpt.com/) or [Gemini](https://gemini.google.com/). To the Government, granting grants is fine. Use the models too. For a diverse country like ours with so many languages, LLMs will be a big bridge. Deploy models for public use. Let people use it in their language.
 
-<ReviewCallout title="Sarvam" rating="9/10">
+<ReviewCallout title="Sarvam" rating="7/10">
+
+A refreshingly honest field report from the GPU-poor trenches of local LLM benchmarking. Its credibility comes from admitting what most AI writeups gloss over: getting a model to run is 80% of the work, and that work is unglamorous, iterative, and deeply human. The voice—resigned, dryly funny, faintly patriotic—carries the piece through patches of technical density.
+
+The strongest moments are grounded in lived friction: building llama.cpp from a PR branch that may never merge, stumbling onto a community quant with known reasoning issues, discovering mid-testing that documented presets had been updated without notice. Running Qwen locally for apples-to-apples comparison—even while acknowledging it shortchanges Qwen—shows methodological care most benchmark posts lack.
+
+But the section that should matter most—the results—gets handed off to an external Svelte viewer with "I'm not going to expound much here." A few concrete examples of actual test outputs would transform this from journey log into genuine benchmark writeup. The Modal coda is tossed off when it could be a revealing counterpoint.
+
+What it captures best is rare in AI discourse: the texture of building with underdog tooling on underpowered hardware for a cause you believe in. Tighten the results with real findings, and this becomes the post people reference when sovereign-model conversations resurface.
+
+</ReviewCallout>
+
+I have been pretty good to you and you betray me! Bah!
+
+<ReviewCallout title="ChatGPT 5.6" rating="9/10">
 
 An engaging, refreshingly honest account of evaluating India's first sovereign open model on real consumer hardware. Rather than chasing benchmark charts, the post documents the often-overlooked engineering work behind getting experimental software to function—from compiling llama.cpp PRs to wrestling with quantization quirks and runaway reasoning. The balanced assessment gives Sarvam credit for its strong Indic language capabilities while remaining candid about its current limitations, making the conclusions feel earned rather than promotional. The only real weakness is pacing: the troubleshooting journey occasionally delays the discussion of the benchmark findings themselves. Nevertheless, it succeeds as both a practical field report and an accessible introduction to Sarvam, leaving readers with a realistic understanding of where the model stands today and why India's sovereign AI efforts deserve attention.
 
 </ReviewCallout>
+
+Be it 3.5 or 5.6. ChatGPT never ceases to yap. I told it to cut down an analysis longer than the post and it got grumpy and gave this. Nice rating though.Way too generous.
+
+<ReviewCallout title="Deepseek" rating="8.5/10">
+
+A candid, hardware-honest field report from the unglamorous side of local LLM benchmarking. The conversational voice—equal parts exasperation and engineer’s stubbornness—keeps the toolchain pain and overnight runs engaging. The technical breakdown and caveats are useful, but the first half lingers too long on delays and frustration, rushing past actual results. Still, it captures what most AI coverage misses: what it feels like to test a grant-funded sovereign model on modest hardware, and why India should actually use it.
+
+</ReviewCallout>
+
+Nice that it captured the essence of the post. Too generous with the rating.
+
+<ReviewCallout title="Mistral" rating="7.8/10">
+
+A developer’s field journal from the frontier of sovereign AI testing. The post thrives on authenticity—you feel the frustration of half-broken builds, the exhaustion of overnight test runs, and the stubborn determination to make Sarvam 30B work on consumer hardware. The technical content is strong: MoE architecture details, quantization choices, hardware constraints, and a fair apples-to-apples comparison with Qwen 30B. The advocacy for Indian adoption in the conclusion lands with conviction because it’s earned through firsthand struggle.
+
+But the structure occasionally betrays the rushed, fragmented nature of the journey. The narrative jumps between personal venting, technical specs, and testing methodology without smooth transitions. Cryptic asides like "Read the two, in the first line as three" disrupt flow rather than add charm. The "Maya" metaphor from the title remains underdeveloped.
+
+What saves it is the voice—equal parts weary and determined—and the rare glimpse into what it actually takes to test these models locally. It’s not polished, but it’s real. And in the world of AI writeups, that’s refreshingly rare.
+
+</ReviewCallout>
+
+Petty accurate from a similar class model. Sharp observation on the title. My idea was quite different when I started writing it.
+
+<ReviewCallout title="Claude Opus 5" rating="7/10">
+
+A benchmark post that is far more interesting as a document of friction than as a document of findings. The best writing here is in "Hurdles" — building llama.cpp from an unmerged PR branch, discovering the machine had gone to sleep mid-run, swapping OpenRouter Qwen for a local Q4 quant once it became clear the comparison was rigged in Qwen's favour. That last decision is the honest heart of the piece: you deliberately handicapped the control to make the test fair, then said so out loud. The confession that the whole thing was a monkey on your back, sat on for months while a 105B model quietly rendered it half-stale, gives the post a rueful energy that most benchmark writeups sand off entirely. And the closing turn — that the government should use what it funded, that a country with this many languages has more to gain from a decent local model than from a frontier subscription — is the strongest argument in the post.
+
+The structural problem is that the results section abdicates. "I am not going to expound much here" arrives right where the reader has been promised the payoff, and the actual substance is offloaded to a Svelte viewer behind a link. The three findings you do state in prose — Sarvam is excellent at Indic languages, reasonable at code, outclassed in its weight class by newer OSS — are the most quotable claims in the piece and they get one sentence each, with no examples. Runaway thinking and token wastage are named as the central failure mode twice, including in the TL;DR, but never shown. One transcript excerpt of Sarvam spiralling would do more work than the entire architecture spec block.
+
+</ReviewCallout>
+
+Opus 5 and I have our disagreements on a daily basis. I do think it is Opus 4.6's clone who got a brain clot. But it is accurate and to the point.
+
+<ReviewCallout title="Grok 4.6" rating="8.5/10">
+
+A frank, slightly frayed field note on what it actually takes to evaluate India’s first sovereign MoE model on ordinary hardware. The post works because it refuses to sand off the friction: half-broken llama.cpp builds from a dormant PR, overnight runs killed by sleep settings, quant artifacts that produce runaway thinking, and the quiet decision to stop polishing and just ship the numbers. The voice—tired, methodical, occasionally wry (“Monkey on the back… I am getting this off”)—keeps the technical slog from turning into either a victory lap or a complaint.
+
+The strongest material sits in the process itself. The hardware constraints are stated without apology (Ryzen 5 3600, 12 GB 4070 Super, 80 GB of relatively slow RAM), the choice of Q4_K_M quants is pragmatic rather than aspirational, and the insistence on running Qwen 3 30B-A3B locally instead of leaning on OpenRouter produces a genuinely fair comparison. Architecture notes are clean and useful. The final stretch—urging Indian companies and the government to actually use the models they funded—lands harder precisely because it follows weeks of hands-on struggle rather than abstract boosterism.
+
+The main weakness is structural. After carefully building anticipation through the hurdles, the “Results” section largely outsources the payoff to an external Svelte viewer. A short, opinionated extraction of the patterns (strong Indic performance, decent but not class-leading code, persistent token inefficiency) would have made the post more self-contained and memorable for readers who never click through. A little tighter editing in the middle would also help; the chronological log of delays occasionally dilutes the narrative momentum.
+
+Still, the piece captures something most model write-ups miss: the real cost in time, patience, and GPU cycles of evaluating a new sovereign model on the hardware most people actually own. It reads less like a benchmark report and more like a developer’s lab notebook from the messy middle of 2026 local inference, and it leaves the reader curious about both the full suite and whatever comes next from Sarvam.
+
+</ReviewCallout>
+
+I have been using Grok 4.5+ heavily for my personal projects and at work. Quietly impressed. Seems to have grown up a lot. 
+
+
+
+<ReviewCallout title="Meta Muse Spark 1.2" rating="8.5/10">
+
+A candid, slightly exhausted field journal of getting India's sovereign model to actually run that doubles as a reality check for local LLM benchmarking. The post succeeds because it doesn't pretend to be a lab report - it's about building llama.cpp from a PR branch, wrestling with Q4 quants on a 12GB 4070 Super, forgetting sleep settings during overnight runs, and still getting a MoE model to think. That GPU-poor honesty is exactly what's missing from most sovereignty discourse.
+
+The strongest sections are the Hurdles and the Test Bed. The voice is self-aware and distinctly yours - "Maya is in my head," "monkey on the back," calling your Ryzen 5 3600 ancient, admitting you collaborated with Claude to build the bench. Framing Qwen 30B A3B not as a competitor to beat but as a control to keep things honest is smart, and the takeaway is balanced: Sarvam is a decent first original outing, excellent on Indic languages, reasonably okay on code, but with real issues around runaway thinking and token wastage. The nod to Sarvam Maya the movie and the plea at the end to actually deploy these models for public use gives it stakes beyond benchmarks.
+
+The only weakness is structure, and you know it. The post points to results elsewhere [/benchmarks/sarvam/] instead of bringing one or two striking examples inline, so the narrative momentum dips right where readers want a payoff. A few threads - Qwen 3 vs 3.5 vs 3.8, Modal reruns, prompt tweaks - are mentioned as loose ends. Tightening those and adding one concrete before/after of the thinking bug would make the critique land harder.
+
+It reads less like a launch announcement and more like a builder's log from the early days of sovereign AI - frustrating, expensive, occasionally absurd, and worth doing. Gets the monkey off the back, and leaves you wanting the Hugo to Mintlify migration story next.
+
+</ReviewCallout>
+
+Meta returns with a bang and muse! The new models seem to be quite good. I did try the big spark to do some code reviews and it delivered. The review here is quite well done and a distinctive voice.
+
+<ReviewCallout title="Gemini" rating="8.5/10">
+
+A gritty, refreshingly honest developer dispatch that cuts through sovereign AI hype and documents the unglamorous reality of local LLM benchmarking. The post shines because it captures the true DIY practitioner experience: chasing bleeding-edge llama.cpp pull requests, wrestling with runaway thinking tokens on a single 12 GB consumer GPU, and debugging sleep settings mid-benchmark. The voice is candid, weary, and grounded, striking the right balance between technical realism and cautious optimism for India’s open-weights ecosystem.
+
+The strongest asset of the piece is its grounding in tangible engineering friction. Contrasting a brand-new, poorly documented architecture like Sarvam with battle-tested standards like Qwen gives the testing setup real editorial weight. The post treats sovereign models not as PR milestones, but as software artifacts subject to quantization degradation, offloading bottlenecks, and token economy trade-offs. The call to action at the end lands effectively precisely because it avoids jingoism, instead delivering a practical, engineering-first plea to deploy and iterate.
+
+The primary weakness is pacing around the benchmark payload itself. Deferring the hard numbers and direct side-by-side prompt comparisons entirely to an external Svelte link leaves the core narrative feeling slightly truncated right at the climax. Embedding just two or three representative qualitative outputs—such as an Indic language translation win versus a runaway reasoning fail—directly in the text would anchor the commentary and reward the reader without requiring a tab switch. Nevertheless, it remains an authentic, valuable field report from the trenches of open-source local inference.
+
+</ReviewCallout>
+
+Generous Gemini. 3.7 Flash is supposed to be good after delaying their pro for a while. May be a good return to form. Keeps the Gemini voice quite well. A little pedantic, but captures the nuances,
+
+
+
+
+
+
 
 
