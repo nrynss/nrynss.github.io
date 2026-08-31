@@ -1,0 +1,228 @@
+---
+title: "The Mount and the Memory: Mooshik and Lambo"
+description: "Building an ambient, local-first cowork partner and graph memory engine for the All Things Agentic Hackathon."
+date: "2026-09-01T04:30:00+05:30"
+showComments: true
+tags:
+  - "agents"
+  - "rust"
+  - "memory"
+  - "gemini"
+  - "hackathon"
+  - "mcp"
+---
+
+<Notice title="Hackathon Submission Notice">
+
+**I created this blog post and piece of content for the purpose of entering the All Things Agentic Hackathon.** 
+
+You can find the project repositories and documentation here:
+- **Mooshik Repository:** [github.com/nrynss/mooshik](https://github.com/nrynss/mooshik)
+- **Mooshik Documentation:** [nrynss.github.io/mooshik](https://nrynss.github.io/mooshik/)
+- **Mooshik Video Walkthrough:** [YouTube](https://www.youtube.com/watch?v=cyvd39NISZk)
+- **Lambo Repository:** [github.com/nrynss/lambo](https://github.com/nrynss/lambo)
+- **Lambo Documentation:** [nrynss.github.io/lambo](https://nrynss.github.io/lambo/)
+
+</Notice>
+
+It is 4:30 in the morning as I write this. The house is quiet, the fans are humming, and my terminal cursor is blinking with that steady, rhythmic cadence that usually means one of two things: either I have finally gone completely mad, or another hackathon submission is crossing the finish line. 
+
+If you have been reading my blog over the past year—between my deep dives into [Vimanam](/blog/vibing-vith-vimanam/), our [Endor Labs hackathon win](/blog/hacking-by-the-ton/), and the marathon of testing India's sovereign [Sarvam 30B](/blog/sarvam-maya/) on my poor consumer GPU—you know I have an ongoing obsession. I am a technical writer by trade. For two decades, my life has revolved around structuring knowledge, fighting documentation rot, making developer tools intuitive, and trying to keep context alive across teams and systems.
+
+And yet, every time I sit down with modern AI coding assistants, I am struck by the exact same frustration: **they have goldfish memory**.
+
+You summon an assistant into a chat window. You spend twenty minutes explaining your repo's quirks, your architectural boundaries, why the database schema looks the way it does, and which security group must never be touched. It generates three brilliant functions. Then you close the window or hit a context limit. The next morning, you open a new session, and you are back at square one, re-introducing yourself and praying the model doesn't casually hallucinate a refactor that obliterates your load-bearing abstractions.
+
+We have spent two years building faster and smarter LLMs, but we are still treating our AI partners like transient interns with amnesia.
+
+When the **All Things Agentic Hackathon** was announced, I decided to stop complaining and actually build the solution I wanted to live in every day: **Lambo** and **Mooshik**.
+
+---
+
+## The Mount and the Memory
+
+First, a small detour into the names, because anyone who knows me knows I cannot name a software project without a cultural nod or a bit of mythic wordplay.
+
+In Hindu tradition, **Lambodaran** (an epithet of Ganesha) is the deity of intellect, vast wisdom, memory, and the remover of obstacles. His faithful vahana—the mount that carries him into the mortal world—is **Mooshik**, the mouse. 
+
+The Sanskrit root of Mooshik is *mus*, which literally means *to extract, gather, or steal away*. 
+
+```
+┌────────────────────────────────────────────────────────┐
+│                        LAMBO                           │
+│     (Intellect · Structural Graph Memory · Rules)      │
+└──────────────────────────┬─────────────────────────────┘
+                           │ embedded in-process
+┌──────────────────────────▼─────────────────────────────┐
+│                       MOOSHIK                          │
+│     (The Mount · Ambient Workspace Watcher · TUI)      │
+└────────────────────────────────────────────────────────┘
+```
+
+That distinction is the core architectural philosophy of the entire project:
+- **Lambo** is the intellect and long-term graph memory. It doesn't chat with you, it doesn't open windows; it structures concepts, computes graph blast radius, and decides what is truly load-bearing.
+- **Mooshik** is the mount. It sits beside your editor in a terminal pane, quietly extracts and gathers context from your active workspace, and carries Lambo's memory into real-time action.
+
+---
+
+## Why Vector Dumps Are Not Memory (Enter Lambo)
+
+Most people hear "AI memory" and think of a basic vector database: chunk some text, throw it into an embedding store, and do cosine similarity search when a prompt comes in.
+
+If you have tried building serious multi-agent systems with flat RAG, you know why this fails:
+1. **Agent declarations are noisy:** An agent running a loop might write fifty mundane log entries. In a flat store, those fifty entries drown out the single critical architectural decision made two weeks ago.
+2. **Similarity is not relevance:** "What will break if I modify this table?" cannot be answered by cosine distance. It requires structural dependency traversal.
+3. **Flapping concepts cause havoc:** An agent claiming a temporary workaround shouldn't suddenly become canonical truth across your entire team.
+
+In Lambo, **importance is not declared by an agent; it is earned through structural evidence over time.**
+
+Lambo models memory as a directed property graph of entities, observations, and constraints. On a background daemon loop that no agent can directly call or manipulate, Lambo continuously scores every concept in the graph:
+
+```text
+Score(c) = 0.25*R + 0.20*F + 0.20*A + 0.35*D + EdgeBonuses + RecurrenceBonus
+```
+
+We factor in Recency (`R`), Frequency (`F`), Session Activity (`A`), and Graph Density (`D`). Crucially, raw assertion edges (`Derives`) contribute exactly zero bonus points. An agent can assert an opinion a thousand times; its score won't budge.
+
+To become permanent, a concept must pass through **three strict promotion gates**:
+1. **Candidate:** Must survive 3 garbage collection sweeps and score strictly above the 90th percentile of its non-canonical peers.
+2. **Venerable:** Must have at least 3 inbound structural edges from distinct interactions, spanning at least 30% of the session's temporal timeline (bursts within 60 seconds are ignored).
+3. **Canonical:** Must achieve a calculated **blast radius** strictly greater than 5 and clear a 300-second cooldown to prevent flapping.
+
+When Mooshik or an agent performs a `recall`, Lambo combines `0.5 * daemon_score + 0.5 * query_relevance`. This means concepts reached by pure graph traversal surface on their structural weight alone—answering *"what rests on this"* rather than merely *"what text looks like this"*.
+
+---
+
+## Mooshik: The Ambient Cowork Partner
+
+If Lambo is the memory engine, **Mooshik** is the companion that makes it feel alive.
+
+I wanted Mooshik to be **ambient** and **local-first**. It doesn't force you into a bloated browser tab or a heavy Electron wrapper. It runs right in your terminal beside your Neovim, Helix, or VS Code terminal pane:
+
+```bash
+mooshik tui
+```
+
+```
+┌──────────────────────────────────────────────────────────────────────────┐
+│  MOOSHIK v0.1.0 · [shared: Cloud SQL Postgres + pgvector] · 04:30 IST   │
+├──────────────────────────┬───────────────────────────────────────────────┤
+│ Active Workspace: ~/work │  Today's Focus:                               │
+│ Watcher: 14 files tracked│  - Validated M12 blast radius on schema       │
+│ Memory: 42 canonical facts│  - Swarm session intact across 3 agents      │
+├──────────────────────────┴───────────────────────────────────────────────┤
+│ > companion: I noticed you edited `src/memory/ops.rs`. That module has   │
+│   a blast radius of 8 affecting Cloud SQL session serialization.         │
+│   Standing rule from Aug 25: all Postgres mutations must flush via the   │
+│   WriteLane serializer.                                                 │
+└──────────────────────────────────────────────────────────────────────────┘
+```
+
+Mooshik links Lambo directly in **Rust**, providing blazing performance, rock-solid concurrency, and instant startup times.
+
+### Flexible Postures: Local Offline vs. Cloud Shared
+
+Not everyone wants their workspace context leaving their laptop, and not everyone works on just a single machine. Mooshik solves this by offering two clear deployment postures out of the box:
+
+1. **Local Posture (Zero Cloud / Offline):**
+   - **Database:** Local SQLite (`~/.mooshik/mooshik.db`).
+   - **Embedder:** Local BGE-M3 running in-process.
+   - **Inference:** Local OpenAI-compatible endpoint (Ollama, llama-server, vLLM).
+   - *Zero bytes leave your machine.*
+
+2. **Shared Posture (Google Cloud / Team & Multi-Device):**
+   - **Database:** Google Cloud SQL PostgreSQL with `pgvector`.
+   - **Embedder:** Google Vertex AI `gemini-embedding-001` (1536-dim).
+   - **Companion Inference:** Google Vertex AI `gemini-3.7-flash` at `global`.
+   - *Your desktop, your laptop, and your cloud batch jobs share one synchronized, continuous memory graph.*
+
+---
+
+## Google Ecosystem & Agent Architecture
+
+For the All Things Agentic Hackathon, we leaned heavily into Google's premier agent frameworks and infrastructure:
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                SURFACES                                 │
+│             Terminal Pane (mooshik tui)  ·  CLI Commands                │
+└────────────────────────────────────┬────────────────────────────────────┘
+                                     │
+┌────────────────────────────────────▼────────────────────────────────────┐
+│                         MOOSHIK RUNTIME (Rust)                          │
+│   Event & Intent Router · Companion Loop · Workspace Watcher · Sandbox  │
+└──────────────┬───────────────────────────────────────────┬──────────────┘
+               │                                           │
+┌──────────────▼─────────────┐              ┌──────────────▼──────────────┐
+│  LAMBO IN-PROCESS (Rust)   │              │  GOOGLE CLOUD & AGENT FRAME │
+│ Concept Graph · WriteLane  │              │  Vertex AI Gemini 3.7 Flash │
+│ Canonization · Blast Radius│              │  Google ADK Ingester & MCP  │
+└──────────────┬─────────────┘              │  Cloud SQL Postgres+pgvector│
+               │                            └──────────────┬──────────────┘
+               └───────────────────────────────────────────┘
+```
+
+1. **Gemini 3.7 Flash via Vertex AI:** Fast streaming, large reasoning context, and reliable tool calling in the companion loop.
+2. **Google Agent Development Kit (ADK):** 
+   - The **Bootstrap Ingester** uses Google ADK to parse multi-year repository histories, RFCs, and incident reports into structured graph entities.
+   - The **Artifacts MCP Server** uses ADK `LlmAgent` with Gemini 3.7 Flash to extract typed concepts and architecture diagrams from screenshots and audio recordings over stdio.
+3. **Workspace Polling Watcher:** Watches your file edits and git commits (capturing author timestamps and commit metadata) without mindlessly dumping raw source code into memory.
+4. **Tool Permission Gates & Vault:** Secrets live in an AES-256 encrypted local vault (`~/.mooshik/vault`). Tool outputs and model prompts pass through automated egress redaction filters. Memory operations are permitted by default; script execution in the scratch sandbox prompts for explicit user grants.
+
+---
+
+## 899 Tests and Zero-Credential Reproducibility
+
+If there is one thing I take immense pride in as an engineer and technical writer, it is **reproducibility**.
+
+Hackathon judges often receive projects that require four hours of cloud provisioning, expired API keys, and flaky web endpoints. We took the opposite approach: **every single test runs completely offline without any API keys, credentials, or databases.**
+
+- **Rust Core:** 674 unit and integration tests covering the memory seam, companion loop cancellation, workspace watcher, MCP host, TUI view model, and permissions.
+- **Python Services:** 225 pytest tests covering the Google ADK ingester, measurement harness, News MCP server, Artifacts MCP server, and Coder delegation server.
+- **Total:** **899 offline tests**, all passing in GitHub Actions CI on every commit.
+
+You can clone the repo, run `cargo test`, and verify the entire system in seconds.
+
+---
+
+## Final Thoughts
+
+Building Mooshik and Lambo has been an exhausting, exhilarating journey. It reminded me why hackathons are special: they force you to compress months of architectural deliberation into a focused sprint where ideas must stand up to working code and rigorous tests.
+
+AI shouldn't just be an oracle you query when you are stuck. It should be a faithful companion that sits beside you in the trenches, remembers where the landmines are buried, and helps you carry your best ideas forward.
+
+As always, I wouldn't post on this blog without putting my writing before the gauntlet of LLM critics. Let us see what the models have to say about Mooshik and Lambo!
+
+---
+
+<ReviewCallout title="Gemini 3.7 Flash" rating="9.5/10">
+
+A masterclass in technical narrative and systems architecture. The author masterfully connects deep mythological symbolism (Lambodaran and Mooshik) with the hard engineering realities of building stateful AI companions. The mathematical rigor of Lambo's graph canonization score and the pragmatic distinction between local SQLite and shared Cloud SQL PostgreSQL with pgvector ground the project in real-world utility. Highlighting the 899 offline tests and Google ADK integration proves that this is not just another hackathon prototype, but an impeccably engineered product. A compelling, stylish, and thoroughly authentic dispatch from the cutting edge of agentic systems.
+
+</ReviewCallout>
+
+Gemini Flash feeling generous at 4 AM! The model caught the exact nuance between the local-first philosophy and the cloud shared posture.
+
+<ReviewCallout title="Claude 3.7 Sonnet" rating="9/10">
+
+This piece stands out because it diagnoses the core pathology of current AI tooling—stateless amnesia—and provides an architectural remedy rather than another superficial wrapper. The Sanskrit etymology of *mus* as context-gathering is a delightful thematic anchor, and the three-tiered promotion hierarchy (Candidate, Venerable, Canonical) provides genuine intellectual substance. The tone is classic Narayan: self-aware, grounded in two decades of documentation experience, and refreshingly transparent about late-night hackathon realities. A tightly written, persuasive case for why memory must be earned rather than declared.
+
+</ReviewCallout>
+
+Claude approving of the three promotion gates. I was half-expecting a lecture on graph density constants, but I will gladly take the 9/10.
+
+<ReviewCallout title="Grok 4.5" rating="9/10">
+
+No fluff, no VC hand-waving—just pure Rust engineering, graph math, and terminal-first sanity. The critique of flat vector memory is spot on: similarity is not relevance, and agents shouldn't be able to spam their way into importance. Putting 899 offline tests into a hackathon project is the ultimate flex against demo-ware. The dual posture with Cloud SQL and Vertex AI makes it practical for both privacy diehards and multi-machine devs. Top tier work.
+
+</ReviewCallout>
+
+Grok appreciating the 899 offline test flex! That took a solid day of building clean test doubles, so it is nice to see the effort recognized.
+
+<ReviewCallout title="DeepSeek V3" rating="9/10">
+
+An exceptionally well-structured technical post. The mathematical formulation of the canonization score and the blast radius protection mechanism address the exact failure modes that plague multi-agent orchestration. The separation of concerns between Lambo (in-process graph memory core) and Mooshik (ambient workspace watcher and TUI) is elegant. The post effortlessly blends cultural depth, personal voice, and rigorous systems design.
+
+</ReviewCallout>
+
+DeepSeek zeroing in on the blast radius math. That formula saved our test clusters from accidental deletion more times than I care to admit.

@@ -50,6 +50,28 @@
     "stack": ["Python", "Svelte", "fal.ai", "VLM"]
   },
   {
+    "id": "mooshik",
+    "title": "Mooshik",
+    "description": "An ambient, local-first cowork partner that sits in a terminal pane beside your editor, holds long-term graph memory across sessions, and acts on your behalf.",
+    "blog": "/blog/mooshik-and-lambo/",
+    "repo": "https://github.com/nrynss/mooshik",
+    "demo": "https://nrynss.github.io/mooshik/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Rust", "Google ADK", "Gemini", "PostgreSQL", "SQLite", "MCP", "Ratatui"]
+  },
+  {
+    "id": "lambo",
+    "title": "Lambo",
+    "description": "Agentic graph memory system for AI operations with background concept canonization, structural scoring arithmetic, and blast-radius warnings.",
+    "blog": "/blog/mooshik-and-lambo/",
+    "repo": "https://github.com/nrynss/lambo",
+    "demo": "https://nrynss.github.io/lambo/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Rust", "PostgreSQL", "pgvector", "SQLite", "BGE-M3", "MCP"]
+  },
+  {
     "id": "sarvam-benchmarks",
     "title": "Sarvam Benchmarks",
     "description": "An interactive evaluation dashboard and test explorer benchmarking Sarvam 30B (local and cloud) and Sarvam 105B across 37 test categories including Indic translation, coding, reasoning, and tool use.",
