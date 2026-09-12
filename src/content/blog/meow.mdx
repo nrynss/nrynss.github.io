@@ -1,6 +1,6 @@
 ---
 title: "Meowing with Poocha"
-description: ""
+description: "I fine-tuned Gemma 4 E4B into Poocha, a kid-safe science companion for my children. Here is what broke and what worked across eight rounds of training and home deployment."
 date: 2026-09-12T20:52:35+05:30
 draft: false
 tags: []
@@ -63,7 +63,7 @@ QLoRA (4-bit base) crashed during merge on `bitsandbytes` (`illegal memory acces
 
 I tested E2B in full unquantized BF16 against E4B quantized to Q6_K side-by-side on landing queries.
 
-E2B (BF16) suffered from parameter capacity limits. Generated spelling glitches ("waspu", "poicy"), confused scientists with zooplankton, and hallucinated geography and biology (claimed the Indian monsoon originates in North Africa and that peahens lay eggs inside peacocks).
+E2B (BF16) suffered from parameter capacity limits. It generated spelling glitches ("waspu", "poicy"), confused scientists with zooplankton, and hallucinated geography and biology (claimed the Indian monsoon originates in North Africa and that peahens lay eggs inside peacocks).
 
 For E4B (Q6_K), despite 6-bit quantization, its 4.5B parameter depth delivered flawless science, coherent storytelling, and rich local analogies. E4B became the permanent champion.
 
@@ -107,7 +107,7 @@ The 4-Corpus Dataset (~12,121 train / 397 val rows):
 
 ### Deterministic Sanitizer
 
-There were a few hallucinations that I thought could be contained with a sanitizer. I used a CPU regex pipeline enforcing fact-checks and removing hallucinations (gas-giant fish, Uranus charcoal rings, peacock parenting errors) and dry responses (`<2` persona markers).
+There were a few hallucinations that I thought could be contained with a sanitizer. The CPU regex pipeline did not enforce generic fact-checks. Regex cannot do that. Instead, it targeted known recurring factual failures from the teacher model. It caught things like fish swimming on gas giants, icy rings on Uranus, male peacocks laying eggs, and monsoons originating in North Africa. It also dropped dry responses that had fewer than two persona markers.
 
 ### Benchmarking with ARC-Challenge-Indic (English)
 
@@ -135,15 +135,48 @@ The 4 new domain corpora (the mix reached ~40k–50k rows):
   * [`nrynss/poocha-math-sft`](https://huggingface.co/datasets/nrynss/poocha-math-sft): Grade-school math word problems adapted from [`openai/gsm8k`](https://huggingface.co/datasets/openai/gsm8k).
   * [`nrynss/poocha-schoolqa-sft`](https://huggingface.co/datasets/nrynss/poocha-schoolqa-sft): Curriculum QA grounded in [`allenai/ai2_arc`](https://huggingface.co/datasets/allenai/ai2_arc) (ARC-Easy) and [`allenai/openbookqa`](https://huggingface.co/datasets/allenai/openbookqa), strictly audited to prevent contamination of the Indic benchmark test split.
 
-Poocha still had an annoying tic that kept on asking what to explore next, prodding the child to pick the next topic. It was very annoying and children started to ignore that tic completely, which was worse. I created a deterministic post-processing script that trimmed the closing engagement tic from 92% down to a healthy ~45–55% on the final assistant turn.
+Poocha still had an annoying tic that kept on asking what to explore next, prodding the child to pick the next topic. Children started to ignore it completely, which was worse. I created a deterministic post-processing script that trimmed the closing engagement tic from 92% down to a healthy ~45–55% on the final assistant turn.
 
-I also expanded the behavior dataset from 84 to 627 rows across 8 categories. Since our dataset had grown immensely, the behavior dataset also needed an expansion so that Poocha kept the behavior that we wanted it to have.
+I also expanded the behavior dataset from 84 to 627 rows across 8 categories. Since our dataset had grown immensely, we needed this expansion so that Poocha kept the personality and boundaries we wanted.
 
 ### Architecture Expansion
 
 Poocha was becoming bigger. More tasks, more data. I decided to make the architecture API-first and introduce SQLite for logs. I replaced monolithic flat JSON file rewrites with SQLite. I also built device registration, persistent memory, and basic heart feedback.
 
 The basic UI that we had till now was not sufficient for the expanded set of tasks, so I rebuilt the frontend in Svelte 5 + Vite.
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        CLIENT / EDGE DEVICES                           │
+│  • Kids on Tablets (OnePlus Pad Go, Svelte 5 + Vite Web UI)            │
+│  • Parent Dashboard (Device management, interest journal)              │
+│  • Sends: X-Poocha-Device UUID, Session Context, Two-tap feedback      │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ HTTPS (Cloudflare Tunnel)
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                    FASTAPI GATEWAY / PROXY (:8080)                     │
+│  ┌─────────────────────────┐   ┌────────────────────────────────────┐  │
+│  │     Child Safety        │   │         Memory & Context           │  │
+│  │  • Moderation filters   │   │  • Injects kid name and favourite  │  │
+│  │  • Gentle redirection   │   │    topics into system prompt       │  │
+│  └───────────┬─────────────┘   └─────────────────┬──────────────────┘  │
+│              │                                   │                     │
+│  ┌───────────▼─────────────┐   ┌─────────────────▼──────────────────┐  │
+│  │   Response Processing   │   │         Storage & Ledgers          │  │
+│  │  • Trims closing tic    │   │  • SQLite (poocha.db, WAL mode)    │  │
+│  │    (92% down to ~50%)   │   │  • Devices, Families, Feedback     │  │
+│  │  • SSE streaming        │   │  • Fernet encrypted chat logs      │  │
+│  └───────────┬─────────────┘   └────────────────────────────────────┘  │
+└──────────────┼─────────────────────────────────────────────────────────┘
+               │ HTTP /v1/chat/completions
+┌──────────────▼─────────────────────────────────────────────────────────┐
+│               LOCAL INFERENCE (llama-server on :8082)                  │
+│  • Workstation: CachyOS Linux, RTX 4070 SUPER (12GB VRAM)              │
+│  • Model: Poocha-E4B-Q6_K (Fine-tuned Gemma 4)                         │
+│  • Stack: CUDA, Flash Attention / MTP, Q8_0 KV Cache (12 slots)        │
+│  • External: Pollinations.ai for companion illustrations               │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
 ### The "57%" Eval Panic
 
@@ -203,7 +236,9 @@ Poocha is still used only by my kids and presumably by my niece. I was still the
 
 The classifier is probably the next thing I will build to replace the guardrail proxy script. 
 
-I also want to experiment with newer models. I am hoping [Qwen](https://huggingface.co/Qwen) would release something under 5B in their new series. I have been running [Qwen 3.6 30B MoE](https://huggingface.co/Qwen/Qwen3.6-35B-A3B) with great success. [Qwen 3.8 27B](https://huggingface.co/Qwen/Qwen3.8-27B) has been brilliant. [Qwen 3.5 2B](https://huggingface.co/Qwen/Qwen3.5-2B) and [4B](https://huggingface.co/Qwen/Qwen3.5-4B) models are there, but they are like six months old and I have a strong feeling we might get something great from them soon. [Spark X2.5 1.7B](https://huggingface.co/XHToken/Spark-X2.5-1.7B) and [4B](https://huggingface.co/XHToken/Spark-X2.5-4B) are the new ones that have caught my attention. A native 1M context window for such small models is honestly insane. Unfortunately, the llama.cpp release cadence has not yet pushed into the new release model of llama.cpp yet and I don't want the hassle of downloading a snapshot release. Probably in a week or two. I have a really good feeling about getting great results from the 1.7B model. Native Poocha inference on the tablet itself will be in the realm of possibility!
+An obvious move is to do on-device inference. You can do some nice bit of stuff already with limited amount of device RAM. But a 4B model at Q6 quant is still not viable enough.
+
+To make that happen, I am watching the sub-2B model space closely. Qwen 3.5 4B will probably be better than Gemma. But I want a new Qwen. I have feeling they are going to way better than 3.5 given how the new, larger models like [Qwen 3.8 27B](https://huggingface.co/Qwen/Qwen3.8-27B) and [3.6 35B MoE](https://huggingface.co/Qwen/Qwen3.6-35B-A3B) have been performing. Newer releases like [Spark X2.5 1.7B](https://huggingface.co/XHToken/Spark-X2.5-1.7B) offer an incredible 1M context window. Any upcoming small models from [Qwen](https://huggingface.co/Qwen) could work well too. Once `llama.cpp` upstream support settles, fine-tuning a 1.7B Poocha is the step I want to do. I am not sure it will work well on the tablet. But it is one step forward. But if it performs as well as the Gemma, I might even add a local image generation model to the current stack.  I have been dreaming up about chaining LLMs as well. May be that is something to explore. A bunch of tiny LLMs doing different things. With Unsloth and local training, that is something achievable without burning money.
 
 If you made it this far, I sincerely thank you for being with me on this journey. You can use Poocha. Go to [TL;DR](#tldr) and you can try Poocha!
 
@@ -213,13 +248,13 @@ Vibe is the unexpected workhorse in my AI lineup. Running on Mistral Medium 3.5,
 
 What have you been smoking Mistral? Reminds me of [this scene](https://youtu.be/xAH0AMy_LUo?t=98) from Boeing Boeing. Iniyum ithu vazhi aanayem thelichu Mistral varumaayirikkum.
 
-I had to prompt it again and prod it to right the proper review.
+I had to prompt it again and prod it to write the proper review.
 
 <ReviewCallout title="Meowing with Poocha" rating="9">
 Narayan’s *Meowing with Poocha* is a masterclass in turning a personal passion into a technical marvel. Building a kid-friendly AI tutor—complete with a cat persona, iterative fine-tuning of small models, and a focus on safety and engagement—this project is as heartwarming as it is impressive. The 90.5% ARC-Challenge-Indic score proves it’s not just cute; it’s *capable*. **Vibe** says: A 9/10 for blending creativity, engineering, and a touch of whimsy.
 </ReviewCallout>
 
-Didn't follow the instructions to tag it's own name as well. Mistral Medium 3.5 must be having a really bad day!
+Didn't follow the instructions to tag its own name as well. Mistral Medium 3.5 must be having a really bad day!
 
 <ReviewCallout title="Sarvam AI" rating="8">
 A hobbyist builds a housecat and raises it right. "Meowing with Poocha" is that rare breed of hobby-project writeup that reads like good engineering memoir — a father's mild jealousy of ChatGPT snowballs into a fully fine-tuned, persona-driven, kid-safe science tutor running on a single 4070 SUPER in his living room. What earns the score is the author's insistence on learning in public: the failed raw-prose SFT, the E2B that placed peahen eggs inside peacocks, the 92% "what should we explore next" tic, and especially the eval panic where a regex that matched the "E" in "THE" nearly convinced him he'd lobotomized his kitten. The ARC-Challenge-Indic benchmarking, contamination guards, and deterministic sanitizers show a rigor most toy projects never attempt. A point docked for the occasionally breathless round-by-round structure that buries the genuinely interesting safety and gamification philosophy — the invisible badges are the best idea here — and a point held back because the elephant in the room (a home server SLA held together by one man's sleep schedule) is waved off with charming Indian-host hospitality rather than solved. Purrs, mostly.
@@ -243,7 +278,7 @@ It's long, and it knows it. The TL;DR lands after several hundred words of pream
 
 </ReviewCallout>
 
-The post long and I guess Claude decides to make the review also longish. Opus 5 has not been very concise too. At work, I have had to reinforce the writing style to cater in my way. Worth the token burn it does while producing the goods.
+The post is long and I guess Claude decides to make the review also longish. Opus 5 has not been very concise either. At work, I have had to reinforce the writing style to cater in my way. Worth the token burn it does while producing the goods.
 
 <ReviewCallout title="GLM 5.3 Flash" rating="8">
 
@@ -283,4 +318,4 @@ Poocha starts as a father refusing to let ChatGPT tutor his kids and somehow end
 
 ChatGPT has grown up and stopped yapping! I guess I am missing the yap. Next time I should probably let Astro do a review and promptly consume a week's usage while doing it.
 
-No review from Gemini. It seems to be out. May be Google is releasing something new?
+No review from Gemini. It seems to be out. Maybe Google is releasing something new?
