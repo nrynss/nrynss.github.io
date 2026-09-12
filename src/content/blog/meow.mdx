@@ -25,6 +25,12 @@ My system can handle 7–8 concurrent users based on my testing. But there is no
 
 My niece in Mumbai was able to use it without any issues over a 5G network. So I guess geography doesn't matter much. I in fact had to slow down Poocha to make sure the responses felt more natural.
 
+## Watch Poocha in Action!
+
+Enough talking. Here's the cat.
+
+<video controls playsinline width="100%" style="border-radius: 12px; margin: 1.5rem 0;" src="/videos/poocha-action.mp4"></video>
+
 ## Genesis of Poocha
 
 I wanted the AI to have a persona. Cat came into my mind immediately. Space cat came next. Slightly inspired by Swat Kats, my absolute favourite cartoon back in the day. I designed the mascot with ChatGPT. My drawing skills are quite terrible for a kid who used to win painting competitions.
@@ -145,38 +151,7 @@ Poocha was becoming bigger. More tasks, more data. I decided to make the archite
 
 The basic UI that we had till now was not sufficient for the expanded set of tasks, so I rebuilt the frontend in Svelte 5 + Vite.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        CLIENT / EDGE DEVICES                           │
-│  • Kids on Tablets (OnePlus Pad Go, Svelte 5 + Vite Web UI)            │
-│  • Parent Dashboard (Device management, interest journal)              │
-│  • Sends: X-Poocha-Device UUID, Session Context, Two-tap feedback      │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │ HTTPS (Cloudflare Tunnel)
-┌───────────────────────────────────▼────────────────────────────────────┐
-│                    FASTAPI GATEWAY / PROXY (:8080)                     │
-│  ┌─────────────────────────┐   ┌────────────────────────────────────┐  │
-│  │     Child Safety        │   │         Memory & Context           │  │
-│  │  • Moderation filters   │   │  • Injects kid name and favourite  │  │
-│  │  • Gentle redirection   │   │    topics into system prompt       │  │
-│  └───────────┬─────────────┘   └─────────────────┬──────────────────┘  │
-│              │                                   │                     │
-│  ┌───────────▼─────────────┐   ┌─────────────────▼──────────────────┐  │
-│  │   Response Processing   │   │         Storage & Ledgers          │  │
-│  │  • Trims closing tic    │   │  • SQLite (poocha.db, WAL mode)    │  │
-│  │    (92% down to ~50%)   │   │  • Devices, Families, Feedback     │  │
-│  │  • SSE streaming        │   │  • Fernet encrypted chat logs      │  │
-│  └───────────┬─────────────┘   └────────────────────────────────────┘  │
-└──────────────┼─────────────────────────────────────────────────────────┘
-               │ HTTP /v1/chat/completions
-┌──────────────▼─────────────────────────────────────────────────────────┐
-│               LOCAL INFERENCE (llama-server on :8082)                  │
-│  • Workstation: CachyOS Linux, RTX 4070 SUPER (12GB VRAM)              │
-│  • Model: Poocha-E4B-Q6_K (Fine-tuned Gemma 4)                         │
-│  • Stack: CUDA, Flash Attention / MTP, Q8_0 KV Cache (12 slots)        │
-│  • External: Pollinations.ai for companion illustrations               │
-└────────────────────────────────────────────────────────────────────────┘
-```
+![Poocha System Architecture](/images/poocha-architecture.png)
 
 ### The "57%" Eval Panic
 
