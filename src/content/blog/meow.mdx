@@ -1,0 +1,284 @@
+---
+title: "Meowing with Poocha"
+description: ""
+date: 2026-09-12T20:52:35+05:30
+draft: false
+tags: []
+showComments: true
+---
+
+Poocha means cat in Malayalam. I don't have pets. Almost never had aside from a stray kitten I was calling mine for a couple of weeks when I was 3 or 4. After an unfortunate accident with a little kitten and my mother, cats were banned from my house. Anyway, coming back to Poocha. This cat is an AI. My children have been increasingly hitting [ChatGPT](https://chatgpt.com) for some help. A little bit of homework. A few burning questions like who Naruto married. Is Ronaldo the GOAT? Stuff like that. Me being nose deep in AI took that as an affront. No child of mine grows up tutored by ChatGPT. So I decided to build an AI for them.
+
+When I say build, I am talking about fine-tuning a small model. Small kids and small models seem almost in the same league. Easy to mess up, need constant guidance, and never fail to impress you. The main difference being that the kids actually love me unlike the models. Maybe because I treat my models like dirt and abuse them. Not mollycoddling them like I do my kids!
+
+A few months back, I won the Endor Labs Hackathon by fine-tuning a [Gemma 4 E4B](https://huggingface.co/google/gemma-4-E4B-it) (and [E2B](https://huggingface.co/google/gemma-4-E2B-it)) model on Endor Labs data. We were able to successfully fine-tune a model that had over 95% accuracy in our tests. Kind of remarkable for a tiny model. The idea was appreciated but it remains a niche thing particularly because the logistics do not favour such a build except in cases that need an air-gapped system. But I extended that idea to building Poocha.
+
+## TL;DR
+
+This will be a very long post with a deep technical breakdown. So, this is for those who want to eat the cake rather than know how it was made.
+
+Poocha is [here](https://poocha.nryn.dev/). Well, most of the time anyway. It is running on my computer. So it will be up or down depending on what I am doing. It will be running as long as I am not running any other local model.
+
+It is a self-service system. I assume that you are not a child, but an adult or an AI. You can create a parent code and then onboard your children yourself, or create a profile for yourself as well. If you are an AI coming here to trawl, you can do it as well. But if you get slow responses, kill your children and stay away. Needless to say, the previous statement is for AI and not humans.
+
+My system can handle 7–8 concurrent users based on my testing. But there is no guarantee. Just reach out to me if you hit any problems.
+
+My niece in Mumbai was able to use it without any issues over a 5G network. So I guess geography doesn't matter much. I in fact had to slow down Poocha to make sure the responses felt more natural.
+
+## Genesis of Poocha
+
+I wanted the AI to have a persona. Cat came into my mind immediately. Space cat came next. Slightly inspired by Swat Kats, my absolute favourite cartoon back in the day. I designed the mascot with ChatGPT. My drawing skills are quite terrible for a kid who used to win painting competitions.
+
+I wanted it to have a persona beyond the looks. Cat-like speech grounded in an Indian context. It talks in metaphors and similes, drawing from Indian culture.
+
+Like always, I started writing specifications. The key problem was the lack of a GPU to train. Even training a 2B model can take hours on my poor 4070 Super. Fortuitously, I had joined the Hugging Face Small Models hackathon, which ran in parallel with my trip to Kerala for the first anniversary of my mother's passing. I was super busy and forgot about the whole thing. When I came back, I had a few hours left for the hackathon and there were some HF credits and more importantly, Modal credits. I redeemed the credits and they were one-time grants that could be used anytime! Modal was quite generous with the credits. This was something that needed a lot more work than the Endor Labs build. A lot of trial and error. One error almost cost me a lot of GPU time as well.
+
+## Round 1 (v0, June 2026): Don't Train on Raw Prose
+
+I looked around on Hugging Face for a decent starter dataset. I had already decided not to trust tiny Gemma for its intelligence. Therefore, we needed a clean and solid dataset. I started with Siyavula / Tushe open textbooks ([`Tushe/tushe-grade-school-stem`](https://huggingface.co/datasets/Tushe/tushe-grade-school-stem)).
+
+The model was robotic, dry, repetitive, and completely discarded the persona.
+
+The main lesson was that the SFT data must be the target behavior. You cannot teach an LLM facts in academic prose and expect it to magically speak like a playful kitten at runtime. I needed to re-narrate the facts in the kitten voice before fine-tuning. No amount of prompt injection can cure a bad base.
+
+## Round 2 (v1, June 2026): Teaching to Talk like a Poocha
+
+For the Endor Labs hackathon, I had used [Claude](https://claude.ai) to generate the synthetic data. The Claude team plan was more than sufficient and we were able to do it with just my Claude team account. This was far more substantial and could not be handled by my personal Claude Pro account.
+
+Modal came to the rescue again. I decided to leverage [Gemma 4 31B](https://huggingface.co/google/gemma-4-31B-it) to generate synthetic data. I had used Gemma 4 31B through a free API and had liked it. Very good for the size. So Gemma 4 31B would be the teacher. I expanded the dataset with some NCERT data as well, along with some stories.
+
+### Data Generation with 31B Teacher
+
+I decided to use H100 GPU:
+* **Cloud GPU infrastructure on Modal** (NVIDIA H100) running **vLLM**.
+* **Teacher model: [`RedHatAI/gemma-4-31B-it-FP8-Dynamic`](https://huggingface.co/RedHatAI/gemma-4-31B-it-FP8-Dynamic)** translating NCERT/Tushe science facts into Kat's voice, generating 2,905 multi-turn Q&A and Indian-context stories ([`nrynss/kat-science-tutor-sft`](https://huggingface.co/datasets/nrynss/kat-science-tutor-sft) on Hugging Face).
+
+### Fine-Tuning Stack
+
+I wanted to test both [E2B](https://huggingface.co/google/gemma-4-E2B-it) and [E4B](https://huggingface.co/google/gemma-4-E4B-it). For some reason, I had false hopes for the 2B model. I used Unsloth with full bf16 LoRA (r=16, α=16, lr 1e-4, 2 epochs).
+
+QLoRA (4-bit base) crashed during merge on `bitsandbytes` (`illegal memory access (ops.cu)`). With an H100 available on Modal, 4-bit was ditched for full bf16 base loading. It cost me a few dollars when the GPU ran for nothing.
+
+### The Battle of the Models: E2B vs. E4B
+
+I tested E2B in full unquantized BF16 against E4B quantized to Q6_K side-by-side on landing queries.
+
+E2B (BF16) suffered from parameter capacity limits. Generated spelling glitches ("waspu", "poicy"), confused scientists with zooplankton, and hallucinated geography and biology (claimed the Indian monsoon originates in North Africa and that peahens lay eggs inside peacocks).
+
+For E4B (Q6_K), despite 6-bit quantization, its 4.5B parameter depth delivered flawless science, coherent storytelling, and rich local analogies. E4B became the permanent champion.
+
+### Local Inference & Hardware Optimization
+
+Workstation: RTX 4070 SUPER (12GB VRAM), Ryzen 5 3600, 80GB RAM, Windows.
+Inference engine: `llama.cpp` (`llama-server`).
+
+I benchmarked the following optimizations:
+* **Flash Attention**: Accelerated prompt evaluation by 13%.
+* **MTP (Multi-Token Prediction)** speculative decoding: Doubled generation speed to ~160 tokens/sec, but required turning off Flash Attention (`-fa off`).
+* **Q8_0 KV Cache**: Halved VRAM context footprint, keeping generation above 40 t/s across **12 concurrent user slots** in 12GB VRAM.
+
+### First Web UI
+
+I needed an entry point for the children. I built a simple HTML/CSS/JS UI with mascot avatar, dynamic suggestion chips, and a dual-mode toggle. Poocha chat and Poocha adventure. Poocha adventure would be like a few-turn guided adventure led by Poocha.
+
+* **Ask Poocha! (Factual)**: Low temp (`0.30`), strict accuracy (`min_p 0.08`).
+* **Adventure with Poocha! (Creative)**: High temp (`0.95`), interactive choose-your-own-adventure narratives (`min_p 0.05`).
+Integrated image drawing via [Pollinations.ai](https://pollinations.ai/).
+
+Pollinations.ai was a bonus given by Claude. I was unaware of its existence and it is currently a big hit amongst the little users!
+
+### Guardrail Proxy
+
+Next came the question of safety. I didn't want the chatbot to talk about any adult things even if the kids asked them. I wanted the chatbot to gently refuse and redirect to the adults in their life. I built `guardrail_proxy.py` (FastAPI on port 8080) intercepting `llama-server` (port 8082): regex child safety filters, asset serving, and session logging to JSON files. It was exposed over home Wi-Fi and securely via **Cloudflare Tunnel** (`https://poocha.nryn.dev`) for kids on tablets (OnePlus Pad Go).
+
+## Round 3 (Poocha v2, June 2026): Multi-Corpus Pipeline & De-Templating
+
+Poocha started working well. My kids liked it a lot. Thanks to the Cloudflare tunnel, I was able to give it to some other children in the family. Kids asked a lot of questions and Poocha was able to answer them. It even surprised me a bit by being kind and empathetic. My niece used Poocha while she was in the hospital and talked about being sick. Poocha was surprisingly nice to her and did not offer things like let us explore Mars and stuff like that. The latter was a big problem. Every answer would end with an offer to do something else that was entirely different. Round 3 was to correct that. The model and setup were called Kat up until this point. I decided to rename and christen it Poocha. I also decided to add more data.
+
+This time I trained on an NVIDIA B200 on Modal. More expensive on paper, but in reality, it was cheaper because the job ended in less than 30 minutes despite a much larger corpus.
+
+### Expanded Datasets
+
+The 4-Corpus Dataset (~12,121 train / 397 val rows):
+  1. [`nrynss/poocha-science-tutor-sft`](https://huggingface.co/datasets/nrynss/poocha-science-tutor-sft): Cleaned Round 2 data, renamed Kat → Poocha. Grounded in Siyavula open textbooks via [`Tushe/tushe-grade-school-stem`](https://huggingface.co/datasets/Tushe/tushe-grade-school-stem).
+  2. [`nrynss/poocha-science-v2-sft`](https://huggingface.co/datasets/nrynss/poocha-science-v2-sft): NCERT Classes ([6th](https://huggingface.co/datasets/KadamParth/NCERT_Science_6th), [7th](https://huggingface.co/datasets/KadamParth/NCERT_Science_7th), [8th](https://huggingface.co/datasets/KadamParth/NCERT_Science_8th), [9th](https://huggingface.co/datasets/KadamParth/NCERT_Science_9th)) + [`loukritia/science-journal-for-kids-data`](https://huggingface.co/datasets/loukritia/science-journal-for-kids-data) re-narrated in Poocha's voice.
+  3. [`nrynss/poocha-adventures-sft`](https://huggingface.co/datasets/nrynss/poocha-adventures-sft): 24 hand-grounded interactive adventures.
+  4. [`nrynss/poocha-behaviors-sft`](https://huggingface.co/datasets/nrynss/poocha-behaviors-sft): Identity, safe refusals, off-topic redirects, and drawing triggers seeded from chat logs.
+
+### Deterministic Sanitizer
+
+There were a few hallucinations that I thought could be contained with a sanitizer. I used a CPU regex pipeline enforcing fact-checks and removing hallucinations (gas-giant fish, Uranus charcoal rings, peacock parenting errors) and dry responses (`<2` persona markers).
+
+### Benchmarking with ARC-Challenge-Indic (English)
+
+Additionally, I decided to do some benchmarking to ensure that we hadn't lobotomized the kitten. Persona and voice can overwhelm the actual knowledge if you are not careful. I used [`sarvamai/arc-challenge-indic`](https://huggingface.co/datasets/sarvamai/arc-challenge-indic) by Sarvam AI. The AI2 Reasoning Challenge (ARC) is a good benchmark for grade-school science (grades 3–9). The "Challenge" set is specifically filtered to exclude questions that can be solved with simple word-matching or basic search algorithms. It requires genuine causal reasoning and multi-step inference. Sarvam localized and translated this suite, and its English split was the perfect test bed for Poocha.
+
+We wired an automated eval pipeline on Modal (`eval_modal.py`) that ran 200 questions in zero-shot multiple-choice format at a low temperature (`0.1`):
+
+Poocha v2 (Round 3) hit **90.5% (181/200)** (train loss: 0.226, eval loss: 0.799). That proved the model wasn't just meowing and purring nonsense. The underlying scientific reasoning remained remarkably sharp.
+
+### Quirks Discovered in the Wild
+
+* **The 92% Engagement Tic**: 92% of assistant answers compulsively ended with the exact phrase: "what should we explore next — X, or Y?".
+* **Adventure Teleportation**: At temp 0.95, story options drifted wildly across domains (for example, watching peacocks in a jungle suddenly hopping to Saturn's rings or the Moon).
+* **Behaviours under-represented**: 84 rows was too small. Redirecting off-topic queries produced full essays instead of gentle redirects.
+
+## Round 4 (Poocha v3, July 2026): The Expansive Baseline & The SQLite Pivot
+
+Poocha was doing well, but the trouble was that it was only a science Poocha. My kids wanted to ask about other topics like history and famous people. I decided to expand the corpus again. Even this time, I decided to do the full training on a fresh model rather than use the previous checkpoint. 
+
+### Expanded Corpus
+
+The 4 new domain corpora (the mix reached ~40k–50k rows):
+  * [`nrynss/poocha-people-sft`](https://huggingface.co/datasets/nrynss/poocha-people-sft): General knowledge and historical figures grounded in [Wikidata](https://www.wikidata.org/) and [Simple English Wikipedia](https://simple.wikipedia.org/).
+  * [`nrynss/poocha-grammar-sft`](https://huggingface.co/datasets/nrynss/poocha-grammar-sft): English grammar grounding using English sentences from Tatoeba via [`mteb/tatoeba-bitext-mining`](https://huggingface.co/datasets/mteb/tatoeba-bitext-mining).
+  * [`nrynss/poocha-math-sft`](https://huggingface.co/datasets/nrynss/poocha-math-sft): Grade-school math word problems adapted from [`openai/gsm8k`](https://huggingface.co/datasets/openai/gsm8k).
+  * [`nrynss/poocha-schoolqa-sft`](https://huggingface.co/datasets/nrynss/poocha-schoolqa-sft): Curriculum QA grounded in [`allenai/ai2_arc`](https://huggingface.co/datasets/allenai/ai2_arc) (ARC-Easy) and [`allenai/openbookqa`](https://huggingface.co/datasets/allenai/openbookqa), strictly audited to prevent contamination of the Indic benchmark test split.
+
+Poocha still had an annoying tic that kept on asking what to explore next, prodding the child to pick the next topic. It was very annoying and children started to ignore that tic completely, which was worse. I created a deterministic post-processing script that trimmed the closing engagement tic from 92% down to a healthy ~45–55% on the final assistant turn.
+
+I also expanded the behavior dataset from 84 to 627 rows across 8 categories. Since our dataset had grown immensely, the behavior dataset also needed an expansion so that Poocha kept the behavior that we wanted it to have.
+
+### Architecture Expansion
+
+Poocha was becoming bigger. More tasks, more data. I decided to make the architecture API-first and introduce SQLite for logs. I replaced monolithic flat JSON file rewrites with SQLite. I also built device registration, persistent memory, and basic heart feedback.
+
+The basic UI that we had till now was not sufficient for the expanded set of tasks, so I rebuilt the frontend in Svelte 5 + Vite.
+
+### The "57%" Eval Panic
+
+During the Round 4 evaluation, my heart sank for a moment. The ARC score suddenly cratered from 90% down to **57%**. Did broadening the training mix into math and grammar break Poocha's science reasoning?
+
+It turned out to be a classic evaluation parser bug. The retrained model became slightly more polite and started answering in complete sentences: "The correct answer is C." 
+
+The evaluation script used a naive regex `re.search(r"[A-E]", answer.upper())` to extract the option letter. It scanned the string, saw the letter **E** in the word **"THE"**, and marked almost every answer as option E! Once we patched the regex with proper word boundaries (`\b([A-E])\b`), the true score bounced right back up to **84.5%**. A small ~5-point dip was an acceptable trade-off for a model that suddenly knew how to solve math word problems, explain grammar, and drop the kitten voice on demand.
+
+### Contamination Guard
+
+When I added general curriculum questions from ARC-Easy and OpenBookQA to create `poocha-schoolqa-sft` in Round 4, data leakage was a serious concern. I built a strict **Contamination Guard** into the dataset generator. It loaded all 1,444 question IDs and 15,850 question texts from `sarvamai/arc-challenge-indic` and refused to run if any question overlapped. Two overlapping questions were caught and dropped. Zero test set leakage.
+
+## Round 5 (July 2026): Badges & Encryption
+
+This round was mostly about engineering and making the system more complete. We added encryption, badges, and a journaling system for parents.
+
+I refactored the single proxy file into a structured package. The old file was growing too big and it was becoming hard to maintain. I moved the models, storage, and other components into separate files. The code was becoming much more manageable.
+
+The new feature for children was the gamification engine. I wanted them to get badges for discovery, but I did not want the gamification to reward achievement chasing. The badges are invisible until they are earned. There is no 8/10 achievement screen. The badges they earn will be shown in the sticker book, with a nice message for each. This prevents children from "chasing badges" and encourages them to simply explore and learn.
+
+Next, I built a feature for parents: a journal where they can track their children's evolving interests, discovery timelines, and question themes.
+
+I could not in good conscience treat the logs as just text. I decided to immediately encrypt the logs using Fernet encryption at rest.
+
+## Round 6 (July 2026): Multi-Household Rollout & Two-Tap Feedback
+
+We started with a single household. But we had other children and other families who might be interested. I did not want to be the sole arbiter of who gets to use Poocha.
+
+I decided to make the following changes:
+
+* **Per-Family Parent Auth**: Scoped parent tokens so parents can only inspect their own children's conversations.
+* **Two-Tap Feedback (Heart / Heartbreak)**:
+  * Added heartbreak alongside heart. Both moved to a two-tap confirmation to prevent accidental taps and collect negative preference signals for future alignment.
+* **Continuable Adventures**: Allowed kids to resume yesterday's adventure from SQLite history.
+* **Voice-In Spike**: Evaluated speech-to-text feasibility for Indian-accented kids' English. Poocha is still far away from voice. This was a test that I wrote and LLMs ran and evaluated. Nothing concrete came out of it since I haven't really looked at the results or done the testing myself.
+
+## Round 7 (July 2026): Server-Side Kid Profiles & Badges v2
+
+The badge system was broken. It had a 66% false-positive rate. Badges were distributed like candy, often awarded because of the LLM responses themselves. Poocha yaps a bit by design and ended up triggering a lot of badges. I replaced keyword matching with an offline LLM judge that evaluates only what the kid typed. 
+
+We had an incident where a tablet browser cache wipe destroyed the localStorage UUID. All badges and chats were seemingly gone. I recovered them with a custom script, but it exposed a structural flaw. That remains to be fixed properly, but the recovery script works well.
+
+I wanted to introduce a Netflix-like profile menu to make it easier for children to access their profiles with avatars: a 6-digit family join code entered once per device to join the family, and per-kid keys so siblings sharing a tablet don't overwrite each other's memories.
+
+## Hardware Migration (August 2026)
+
+Last month my Windows installation died in the midst of an update. My repair efforts didn't pan out as expected. An old Manjaro installation had left a few dozen MB in my partition drive. Windows updates accumulated backups and eventually filled up the rest. My desire for perfection drove me to increase the boot drive space, which, after hours of rescue and recovery operations, led to a second crash. In sheer frustration, I switched to CachyOS overnight. I migrated the stack natively to Linux with full CUDA acceleration (`llama-server` from distro `llama-cpp` + `ggml-cuda`). Frankly, Poocha runs much better now.
+
+I also installed Unsloth and did some experiments with training an even smaller model. [LiquidAI LFM2.5-350M](https://huggingface.co/LiquidAI/LFM2.5-350M) did not give anywhere near the performance of our model. But I have been thinking of adding it as a gatekeeper—maybe as a much more refined version of our guardrail proxy. The proxy is rather easy to break but a good classifier model would be harder to break and yet cheap enough to run.
+
+## Round 8 (August 2026): Self-serve Onboarding
+
+Poocha is still used only by my kids and presumably by my niece. I was still the gatekeeper needed to mint family tokens. I added a new API for self-serve onboarding so families can onboard themselves. Right now, there is no other gate, so anyone can onboard. I am not too worried about this. Frankly, this blog is read by a few dozen AI agents and half a dozen humans. But if this escalates, I will add other gates.
+
+## Next Steps
+
+The classifier is probably the next thing I will build to replace the guardrail proxy script. 
+
+I also want to experiment with newer models. I am hoping [Qwen](https://huggingface.co/Qwen) would release something under 5B in their new series. I have been running [Qwen 3.6 30B MoE](https://huggingface.co/Qwen/Qwen3.6-35B-A3B) with great success. [Qwen 3.8 27B](https://huggingface.co/Qwen/Qwen3.8-27B) has been brilliant. [Qwen 3.5 2B](https://huggingface.co/Qwen/Qwen3.5-2B) and [4B](https://huggingface.co/Qwen/Qwen3.5-4B) models are there, but they are like six months old and I have a strong feeling we might get something great from them soon. [Spark X2.5 1.7B](https://huggingface.co/XHToken/Spark-X2.5-1.7B) and [4B](https://huggingface.co/XHToken/Spark-X2.5-4B) are the new ones that have caught my attention. A native 1M context window for such small models is honestly insane. Unfortunately, the llama.cpp release cadence has not yet pushed into the new release model of llama.cpp yet and I don't want the hassle of downloading a snapshot release. Probably in a week or two. I have a really good feeling about getting great results from the 1.7B model. Native Poocha inference on the tablet itself will be in the realm of possibility!
+
+If you made it this far, I sincerely thank you for being with me on this journey. You can use Poocha. Go to [TL;DR](#tldr) and you can try Poocha!
+
+<ReviewCallout title="Vibe (Mistral Medium 3.5)" rating="8">
+Vibe is the unexpected workhorse in my AI lineup. Running on Mistral Medium 3.5, it’s lightweight yet packs a punch—tackling coding queries, creative writing, and even casual chats with surprising depth. The responses are crisp, the context retention is solid, and the occasional dry wit keeps interactions lively. It’s not the flashiest model out there, but its reliability and versatility make it a standout. A well-earned **8** for a model that delivers more than it promises.
+</ReviewCallout>
+
+What have you been smoking Mistral? Reminds me of [this scene](https://youtu.be/xAH0AMy_LUo?t=98) from Boeing Boeing. Iniyum ithu vazhi aanayem thelichu Mistral varumaayirikkum.
+
+I had to prompt it again and prod it to right the proper review.
+
+<ReviewCallout title="Meowing with Poocha" rating="9">
+Narayan’s *Meowing with Poocha* is a masterclass in turning a personal passion into a technical marvel. Building a kid-friendly AI tutor—complete with a cat persona, iterative fine-tuning of small models, and a focus on safety and engagement—this project is as heartwarming as it is impressive. The 90.5% ARC-Challenge-Indic score proves it’s not just cute; it’s *capable*. **Vibe** says: A 9/10 for blending creativity, engineering, and a touch of whimsy.
+</ReviewCallout>
+
+Didn't follow the instructions to tag it's own name as well. Mistral Medium 3.5 must be having a really bad day!
+
+<ReviewCallout title="Sarvam AI" rating="8">
+A hobbyist builds a housecat and raises it right. "Meowing with Poocha" is that rare breed of hobby-project writeup that reads like good engineering memoir — a father's mild jealousy of ChatGPT snowballs into a fully fine-tuned, persona-driven, kid-safe science tutor running on a single 4070 SUPER in his living room. What earns the score is the author's insistence on learning in public: the failed raw-prose SFT, the E2B that placed peahen eggs inside peacocks, the 92% "what should we explore next" tic, and especially the eval panic where a regex that matched the "E" in "THE" nearly convinced him he'd lobotomized his kitten. The ARC-Challenge-Indic benchmarking, contamination guards, and deterministic sanitizers show a rigor most toy projects never attempt. A point docked for the occasionally breathless round-by-round structure that buries the genuinely interesting safety and gamification philosophy — the invisible badges are the best idea here — and a point held back because the elephant in the room (a home server SLA held together by one man's sleep schedule) is waved off with charming Indian-host hospitality rather than solved. Purrs, mostly.
+</ReviewCallout>
+
+I am really warming up to the Sarvam style of writing. It does get into ChatGPTish level of overlong sentences in the second half.
+
+<ReviewCallout title="Grok 4.6" rating="8">
+A father who would not let ChatGPT raise his children instead raised a 4.5-billion-parameter kitten. What follows is eight rounds of GPU stubbornness: synthetic data from a 31B teacher, a 2B model that invented African monsoons and peacock maternity wards, a regex that scored every answer as E because it found the letter in “THE,” and a closing tic that asked “what should we explore next” 92 percent of the time. The payoff is not another chatbot. It is a family appliance — encrypted parent journals, invisible badges, Cloudflare tunnels, Indian metaphors, and a space cat that knew when a niece in hospital did not need a trip to Mars. Small models, treated like dirt and loved like kids, can still purr.
+</ReviewCallout>
+
+Grok has matured. Previously, it used to babble a lot. Maybe Elon ain't looking closely these days?
+
+<ReviewCallout title="Claude Opus 5" rating="8">
+
+Most "I fine-tuned a small model" posts are a victory lap. This one is a logbook, and it's better for it. Narayan builds his kids a science tutor shaped like a Malayali space cat and then shows you every place it fell over: the QLoRA merge that died on an illegal memory access, the 2B model insisting peahens lay eggs inside peacocks, the ARC score that cratered to 57% because a naive regex found the "E" in "THE." That last one is the single most useful paragraph here — a reminder that most eval disasters are parser bugs wearing a lab coat.
+
+The engineering judgment is quieter but sharper than the hackathon framing suggests. Training on re-narrated data instead of textbook prose. Invisible badges so kids explore rather than farm. A contamination guard that refuses to run on overlap and catches exactly two questions. Encrypting a child's chat logs at rest because you can't in good conscience treat them as text. These are the decisions of someone who has thought about who is on the other end of the tunnel.
+
+It's long, and it knows it. The TL;DR lands after several hundred words of preamble, and a few threads — the voice spike nobody looked at, the localStorage flaw still papered over by a recovery script — are admitted rather than resolved. Fine. Honest incompleteness beats a tidy ending. The quiet thesis is that a 4.5B model on a 4070 Super, aimed carefully enough, is worth more to your children than a frontier model aimed at nobody in particular. On this evidence, that holds.
+
+</ReviewCallout>
+
+The post long and I guess Claude decides to make the review also longish. Opus 5 has not been very concise too. At work, I have had to reinforce the writing style to cater in my way. Worth the token burn it does while producing the goods.
+
+<ReviewCallout title="GLM 5.3 Flash" rating="8">
+
+What happens when a parent decides ChatGPT isn't fit to raise their children? They fine-tune a tiny Gemma into a space cat, apparently. Poocha is a labor of love wrapped in fur: a locally-hosted AI tutor that purrs through grade-school science in India-grounded metaphors, hits a stunning 90.5% on ARC-Challenge reasoning, and gently redirects curious young minds away from grown-up territory. The engineering chops are real — contamination guards, encrypted logs, an invisible badge system that rewards exploration over achievement-chasing, all running off a single RTX 4070 in a living room. It's held back only by the realities of homebrew infrastructure (downtime when Dad's gaming, the occasional "what should we explore next?" tic) and a quirky habit of teleporting adventures from jungle peacocks to Saturn's rings. Rough around the whiskers, yes — but as proof that one stubborn parent with a Modal credit grant can out-parent Big AI, it's the cat's meow.
+
+</ReviewCallout>
+
+I guess the convergence here is telling. All models so far have been fixating on raising the children.
+
+# DeepSeek Reviews: Meowing with Poocha
+
+<ReviewCallout title="DeepSeek 4.1 Flash" rating="8">
+
+**Meowing with Poocha: A Love Letter to Small Models and Smaller Humans**
+
+In an age where every tech giant is racing to build the biggest, baddest AI, one developer decided to go small—really small. *Meowing with Poocha* chronicles the quixotic journey of fine-tuning tiny language models into a science tutor that speaks like a cat, thinks like a teacher, and occasionally hallucinates that peahens lay eggs inside peacocks.
+
+What emerges is part technical memoir, part parenting manifesto, and part cautionary tale about the seductive pull of "just one more training run." The author's voice is wry and self-deprecating ("I treat my models like dirt and abuse them"), yet deeply affectionate toward the actual children who inspired this whole endeavor. The narrative arc from v0's robotic disaster to v3's 90.5% on ARC-Challenge-Indic is genuinely satisfying—a rare glimpse into the messy, iterative reality of applied ML that polished papers never show.
+
+The piece shines brightest when documenting failure: the 92% engagement tic that made kids ignore the bot entirely, the "57% eval panic" caused by a regex matching the letter E in "THE," the badge system with a 66% false-positive rate. These moments are both hilarious and instructive. The SQLite pivot, the Fernet encryption, the two-tap heartbreak feedback—each engineering decision feels earned rather than assumed.
+
+What's most refreshing is the philosophical undercurrent: badges invisible until earned, no achievement-chasing mechanics, gentle refusals that redirect to trusted adults. Poocha isn't trying to maximize engagement metrics; it's trying to be a good companion for curious kids. The result is something the AI industry could learn from—a system designed with restraint as a feature, not a bug.
+
+If there's a criticism, it's that the piece occasionally drowns in dataset nomenclature and hyperparameter minutiae. But for practitioners, that's precisely the appeal. This isn't a press release; it's a lab notebook left open on a kitchen table.
+
+**Verdict:** A charming, technically rigorous, and unexpectedly moving account of building AI for the people who matter most. Essential reading for anyone who believes small models and small humans deserve better than what the giants are selling.
+
+*— DeepSeek*
+
+</ReviewCallout>
+
+I like that Deepseek decided to sign off. I thought this was brilliantly written. Deepseek 4.1 Flash has been impressive with coding and its speed. I guess it can write well too.
+
+<ReviewCallout title="GPT-5.6 Sol" rating="9">
+Poocha starts as a father refusing to let ChatGPT tutor his kids and somehow ends up as a miniature case study in how to build a genuinely opinionated small model. What makes this compelling is not the fine-tuning itself, but the accumulated engineering judgement: bad datasets, broken evals, behavioural tics, false-positive badges, encrypted logs, family isolation, and repeated retraining until the cat behaves like the product Narayan had in mind. It is funny, unusually transparent, and far more instructive than the polished “we fine-tuned a model” posts that skip everything that went wrong.
+</ReviewCallout>
+
+ChatGPT has grown up and stopped yapping! I guess I am missing the yap. Next time I should probably let Astro do a review and promptly consume a week's usage while doing it.
