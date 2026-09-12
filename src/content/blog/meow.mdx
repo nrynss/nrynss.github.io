@@ -1,6 +1,6 @@
 ---
 title: "Meowing with Poocha"
-description: "I fine-tuned Gemma 4 E4B into Poocha, a kid-safe science companion for my children. Here is what broke and what worked across eight rounds of training and home deployment."
+description: "I fine-tuned Gemma 4 E4B into Poocha, a kid-safe science companion for my children.This post chronicles the journey."
 date: 2026-09-12T20:52:35+05:30
 draft: false
 tags: []
@@ -95,7 +95,7 @@ Pollinations.ai was a bonus given by Claude. I was unaware of its existence and 
 
 ### Guardrail Proxy
 
-Next came the question of safety. I didn't want the chatbot to talk about any adult things even if the kids asked them. I wanted the chatbot to gently refuse and redirect to the adults in their life. I built `guardrail_proxy.py` (FastAPI on port 8080) intercepting `llama-server` (port 8082): regex child safety filters, asset serving, and session logging to JSON files. It was exposed over home Wi-Fi and securely via **Cloudflare Tunnel** (`https://poocha.nryn.dev`) for kids on tablets (OnePlus Pad Go).
+Next came the question of safety. I didn't want the chatbot to talk about any adult things even if the kids asked them. I wanted the chatbot to gently refuse and redirect to the adults in their life. I built a guardrail proxy (FastAPI on port 8080) intercepting `llama-server` (port 8082): regex child safety filters, asset serving, and session logging to JSON files. It was exposed over home Wi-Fi and securely via **Cloudflare Tunnel** (`https://poocha.nryn.dev`) for kids on tablets (OnePlus Pad Go).
 
 ## Round 3 (Poocha v2, June 2026): Multi-Corpus Pipeline & De-Templating
 
@@ -113,15 +113,15 @@ The 4-Corpus Dataset (~12,121 train / 397 val rows):
 
 ### Deterministic Sanitizer
 
-There were a few hallucinations that I thought could be contained with a sanitizer. The CPU regex pipeline did not enforce generic fact-checks. Regex cannot do that. Instead, it targeted known recurring factual failures from the teacher model. It caught things like fish swimming on gas giants, icy rings on Uranus, male peacocks laying eggs, and monsoons originating in North Africa. It also dropped dry responses that had fewer than two persona markers.
+There were a few hallucinations that I thought could be contained with a sanitizer. The CPU regex pipeline did not enforce generic fact-checks. Regex cannot do that. Instead, it targeted known recurring factual failures. It caught things like fish swimming on gas giants, icy rings on Uranus to name a couple. It also dropped dry responses that had fewer than two persona markers.
 
 ### Benchmarking with ARC-Challenge-Indic (English)
 
 Additionally, I decided to do some benchmarking to ensure that we hadn't lobotomized the kitten. Persona and voice can overwhelm the actual knowledge if you are not careful. I used [`sarvamai/arc-challenge-indic`](https://huggingface.co/datasets/sarvamai/arc-challenge-indic) by Sarvam AI. The AI2 Reasoning Challenge (ARC) is a good benchmark for grade-school science (grades 3–9). The "Challenge" set is specifically filtered to exclude questions that can be solved with simple word-matching or basic search algorithms. It requires genuine causal reasoning and multi-step inference. Sarvam localized and translated this suite, and its English split was the perfect test bed for Poocha.
 
-We wired an automated eval pipeline on Modal (`eval_modal.py`) that ran 200 questions in zero-shot multiple-choice format at a low temperature (`0.1`):
+We wired an automated eval pipeline on Modal that ran 200 questions in zero-shot multiple-choice format at a low temperature (`0.1`):
 
-Poocha v2 (Round 3) hit **90.5% (181/200)** (train loss: 0.226, eval loss: 0.799). That proved the model wasn't just meowing and purring nonsense. The underlying scientific reasoning remained remarkably sharp.
+Poocha v2 (Round 3) hit **90.5% (181/200)** (train loss: 0.226, eval loss: 0.799). That proved the model wasn't just meowing and purring nonsense. The underlying scientific reasoning remained remarkably sharp. FWIW, I didn't evaluate the base Gemma model. I was and still is concerned about burning the credits.
 
 ### Quirks Discovered in the Wild
 
@@ -134,6 +134,7 @@ Poocha v2 (Round 3) hit **90.5% (181/200)** (train loss: 0.226, eval loss: 0.799
 Poocha was doing well, but the trouble was that it was only a science Poocha. My kids wanted to ask about other topics like history and famous people. I decided to expand the corpus again. Even this time, I decided to do the full training on a fresh model rather than use the previous checkpoint. 
 
 ### Expanded Corpus
+
 
 The 4 new domain corpora (the mix reached ~40k–50k rows):
   * [`nrynss/poocha-people-sft`](https://huggingface.co/datasets/nrynss/poocha-people-sft): General knowledge and historical figures grounded in [Wikidata](https://www.wikidata.org/) and [Simple English Wikipedia](https://simple.wikipedia.org/).
