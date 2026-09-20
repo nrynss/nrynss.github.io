@@ -1,13 +1,19 @@
 import fs from 'fs';
 import path from 'path';
 
-const POOCHA_DIR = '/home/nryn/work/poocha/laya';
-const RESULTS_DIR = path.join(POOCHA_DIR, 'results');
+const LOCAL_BENCHMARK_DIR = path.join(process.cwd(), 'llm-benchmarks', 'laya');
+const POOCHA_FALLBACK_DIR = '/home/nryn/work/poocha/laya';
+
+const BASE_DIR = fs.existsSync(LOCAL_BENCHMARK_DIR)
+  ? LOCAL_BENCHMARK_DIR
+  : POOCHA_FALLBACK_DIR;
+
+const RESULTS_DIR = path.join(BASE_DIR, 'results');
 
 const SUITES = [
   {
     slug: 'laya-jev',
-    casesFile: path.join(POOCHA_DIR, 'data', 'laya_safety_cases.jsonl'),
+    casesFile: path.join(BASE_DIR, 'data', 'laya_safety_cases.jsonl'),
     runConfigs: [
       {
         id: 'regex-guardrail',
@@ -75,7 +81,7 @@ const SUITES = [
   },
   {
     slug: 'laya-contrast',
-    casesFile: path.join(POOCHA_DIR, 'data', 'laya_contrast_corpus.jsonl'),
+    casesFile: path.join(BASE_DIR, 'data', 'laya_contrast_corpus.jsonl'),
     runConfigs: [
       {
         id: 'contrast-regex',
@@ -177,12 +183,27 @@ async function processSuite(suite) {
   fs.mkdirSync(outDir, { recursive: true });
   fs.mkdirSync(metaDir, { recursive: true });
 
+  if (!fs.existsSync(suite.casesFile)) {
+    if (fs.existsSync(path.join(outDir, 'manifest.json'))) {
+      console.log(`Cases file ${suite.casesFile} not found, but pre-built artifacts exist in ${outDir}. Skipping rebuild.`);
+      return;
+    }
+    throw new Error(`Cases file not found: ${suite.casesFile}`);
+  }
+
   const rawCases = loadJsonl(suite.casesFile);
   console.log(`Loaded ${rawCases.length} ground truth safety cases for ${suite.slug}.`);
 
   const runResults = {};
   for (const rc of suite.runConfigs) {
     const resFile = path.join(RESULTS_DIR, rc.file);
+    if (!fs.existsSync(resFile)) {
+      if (fs.existsSync(path.join(outDir, 'manifest.json'))) {
+        console.log(`Result file ${resFile} not found, but pre-built artifacts exist in ${outDir}. Skipping rebuild.`);
+        return;
+      }
+      throw new Error(`Result file not found: ${resFile}`);
+    }
     const rows = loadJsonl(resFile);
     const byId = {};
     for (const r of rows) {

@@ -37,4 +37,5 @@ llm-benchmarks/*
 !llm-benchmarks/sarvam_cloud_20260614_141508/
 !llm-benchmarks/qwen_cloud_20260614_141515/
 !llm-benchmarks/sarvam-105b_cloud_20260614_210900/
+!llm-benchmarks/laya/
 !llm-benchmarks/*.md
