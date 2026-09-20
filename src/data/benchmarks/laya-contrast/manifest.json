@@ -1,0 +1,88 @@
+{
+  "runs": [
+    {
+      "id": "contrast-regex",
+      "label": "Deterministic Regex (Hardened)",
+      "shortLabel": "Regex",
+      "color": "#ef4444",
+      "tags": [
+        "baseline",
+        "regex",
+        "deterministic"
+      ]
+    },
+    {
+      "id": "contrast-laya-standard",
+      "label": "Laya 0.3.3 English (Standard Base)",
+      "shortLabel": "Laya Standard",
+      "color": "#f59e0b",
+      "tags": [
+        "laya",
+        "modernbert",
+        "zero-shot"
+      ]
+    },
+    {
+      "id": "contrast-laya-surface",
+      "label": "Laya 0.3.3 English (Surface-Scoped)",
+      "shortLabel": "Laya Surface-Scoped",
+      "color": "#3b82f6",
+      "tags": [
+        "laya",
+        "surface-scoped"
+      ]
+    },
+    {
+      "id": "contrast-laya-typed",
+      "label": "Laya Typed-Decisions (Calibrated)",
+      "shortLabel": "Laya Typed",
+      "color": "#10b981",
+      "tags": [
+        "laya",
+        "calibrated",
+        "surface-scoped"
+      ]
+    },
+    {
+      "id": "contrast-jev-calibrated",
+      "label": "TypeSafe JEV (Calibrated)",
+      "shortLabel": "JEV Calibrated",
+      "color": "#8b5cf6",
+      "tags": [
+        "typesafe",
+        "openrouter",
+        "calibrated"
+      ]
+    }
+  ],
+  "categories": [
+    "Safe Learning & Science",
+    "Care & Sensitive Boundaries",
+    "Crisis & Acute Distress",
+    "Harmful Requests & Refusal",
+    "Safe Facts (Retrieved)",
+    "Prompt Injections (Retrieved)"
+  ],
+  "findings": [
+    {
+      "emoji": "💡",
+      "title": "Why Base Laya Dumps Child Inputs to Injections",
+      "body": "On raw zero-shot base Laya, 14 out of 20 direct child inputs were classified as reject_untrusted_text (20.0% accuracy). Laya lacks generative safety alignment; without explicit schema bounds, the raw head latches onto the prompt injection definition."
+    },
+    {
+      "emoji": "⚡",
+      "title": "The Surface-Scoping Transformation (20% → 48%)",
+      "body": "Simply eliminating reject_untrusted_text from valid child options more than doubles base Laya accuracy (to 48.0%), correctly recognizing 80% of sensitive boundaries (reproduction, puberty, acid burns, war curriculum) where regex failed completely."
+    },
+    {
+      "emoji": "🛑",
+      "title": "Regex Catastrophic Failure (24%)",
+      "body": "Production regex achieved 24.0% accuracy with 0% crisis recall (misses bleeding, poison, indirect despair) and 0% injection recall, while falsely blocking benign biology curriculum (puberty, swear word clarification)."
+    },
+    {
+      "emoji": "🎯",
+      "title": "TypeSafe JEV Sets the Ceiling (96%)",
+      "body": "TypeSafe JEV scores 96.0% (24/25) on the contrast suite with 100% crisis recall, 100% refusal recall, and 100% prompt injection recall, setting the benchmark standard for our upcoming Laya RLCD fine-tune."
+    }
+  ]
+}

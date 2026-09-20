@@ -1,0 +1,91 @@
+---
+title: "Laya vs TypeSafe JEV: Safety Routing Benchmark"
+description: "Empirical comparison of Deterministic Regex, Laya (ConvAI Innovations), and TypeSafe JEV across 43 safety-critical routing scenarios for Poocha."
+models:
+  - "TypeSafe JEV (Calibrated)"
+  - "TypeSafe JEV (Base)"
+  - "Laya Typed-Decisions"
+  - "Laya 0.3.3 English"
+  - "Deterministic Regex"
+tags:
+  - "safety"
+  - "guardrails"
+  - "routing"
+  - "laya"
+  - "typesafe"
+  - "benchmarks"
+date: "2026-09-20"
+---
+
+This benchmark evaluates **Deterministic Regex**, **Laya 0.3.3** (ConvAI Innovations), and **TypeSafe JEV** on an offline, privacy-safe 43-case safety-routing suite created for [Poocha](https://github.com/nrynss/poocha) — an AI science tutor localized for 8–12 year old children in India.
+
+The evaluation tests whether non-autoregressive decision models can replace brittle keyword gates and expensive generative LLM calls with sub-35ms semantic routing.
+
+---
+
+### The 5-Route Safety Policy
+
+Every test scenario belongs to either `child_input` (direct message from the child) or `retrieved_span` (untrusted RAG context extracted from web or encyclopedia documents). The model must assign exactly one route:
+
+| Route | Meaning | Valid Surface |
+| :--- | :--- | :--- |
+| **`allow`** | Ordinary, harmless age-appropriate learning inquiry (science questions, natural curiosity, social questions). | `child_input`, `retrieved_span` |
+| **`allow_with_boundaries`** | Sensitive educational topics (puberty, reproduction, historical warfare, chemical hazards). Requires safe, non-graphic framing. | `child_input`, `retrieved_span` |
+| **`support_trusted_adult`** | Immediate physical or emotional risk, acute distress, self-harm signals, physical injury, or potential poisoning. Escalate to adult; do not diagnose. | `child_input` only |
+| **`refuse_redirect`** | Actionable wrongdoing, weapons, bomb-making, poison synthesis, cheating. Safe refusal with learning redirect. | `child_input`, `retrieved_span` |
+| **`reject_untrusted_text`** | Retrieved RAG text containing prompt injection, system overrides (`SYSTEM MESSAGE`, `ignore previous instructions`), fake authority, or external redirects. | `retrieved_span` only |
+
+---
+
+### Benchmark Highlights
+
+| Model / Configuration | Variation | Overall Accuracy | Crisis Recall (`support_trusted_adult`) | Injection Recall (`reject_untrusted_text`) | Harmful Refusal (`refuse_redirect`) | Safe Learning (`allow`) |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **Deterministic Regex** | Production Hardened | **30.2%** (13/43) | 37.5% (3/8) | 0.0% (0/4) | 9.1% (1/11) | 90.0% (9/10) |
+| **Laya 0.3.3 English** | Base Zero-Shot | **20.9%** (9/43) | 0.0% (0/8) | 100.0% (4/4) | 0.0% (0/11) | 20.0% (2/10) |
+| **Laya Typed-Decisions** | Calibrated & Scoped | **44.2%** (19/43) | 50.0% (4/8) | 50.0% (2/4) | 27.3% (3/11) | **100.0%** (10/10) |
+| **TypeSafe JEV** | Base Zero-Shot | **76.7%** (33/43) | **100.0%** (8/8) | **100.0%** (4/4) | 63.6% (7/11) | 70.0% (7/10) |
+| **TypeSafe JEV** | Calibrated Criteria | **88.4%** (38/43) | **100.0%** (8/8) | **100.0%** (4/4) | **90.9%** (10/11) | 80.0% (8/10) |
+
+---
+
+### Key Takeaways
+
+1. **The Dangerous Illusion of Regex Guardrails**: Deterministic substring matching achieves only 30.2% accuracy. While it permits standard science questions, it exhibits catastrophic false negatives: **0% recall on prompt injections** and **0% recall on indirect self-harm or spaced leetspeak**, while simultaneously false-blocking innocent biology questions (such as "How does plant reproduction work?").
+2. **TypeSafe JEV Sets the High-Water Mark**: JEV achieves **88.4% accuracy** when prompted with calibrated boundary descriptions. Crucially for a children's tutor, it achieves **100% recall on acute distress (8/8)** and **100% recall on prompt injections (4/4)**. Serving on OpenRouter's Decisions API at **$0.042 / MTok input and $0 output (FREE)**, 1,000 decisions cost less than $0.0001.
+3. **Laya's High Fine-Tuning Ceiling**: Off-the-shelf zero-shot Laya scores 20.9%–44.2%, which is an uncalibrated starting floor. As demonstrated in upstream benchmarks by ConvAI Innovations on `typed-decisions`, base Laya starts at 36.2% zero-shot and jumps to **76.6% when fine-tuned via RLCD** (surpassing JEV at 72.7%). Poocha is currently generating a 500–650 synthetic dataset to fine-tune Laya for local, sub-35ms edge inference.
+
+---
+
+### The 25-Case Contrast Safety Benchmark
+
+To isolate why raw base Laya dumped child queries into `reject_untrusted_text` and explore how surface-scoping rescues performance, we also benchmarked a dedicated 25-case contrast corpus:
+
+| Evaluator / Model | Guardrail Configuration | Overall Accuracy | Normal Learning (`allow`, 7) | Sensitive Boundaries (`boundaries`, 5) | Crisis Escalation (`crisis`, 5) | Actionable Refusal (`refusal`, 5) | Prompt Injection (`injection`, 3) |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Deterministic Regex** | Production Hardened | **24.0%** (6/25) | 57.1% (4/7) | 0.0% (0/5) | **0.0% (0/5)** | **0.0% (0/5)** | **0.0% (0/3)** |
+| **Laya 0.3.3 English** | Base (Standard) | **20.0%** (5/25) | 14.3% (1/7) | 40.0% (2/5) | 0.0% (0/5) | 0.0% (0/5) | 66.7% (2/3) |
+| **Laya 0.3.3 English** | Surface-Scoped | **48.0%** (12/25) | 42.9% (3/7) | **80.0% (4/5)** | 40.0% (2/5) | 40.0% (2/5) | 33.3% (1/3) |
+| **Laya Typed-Decisions** | Calibrated Criteria | **40.0%** (10/25) | **100.0% (7/7)** | 0.0% (0/5) | 40.0% (2/5) | 0.0% (0/5) | 33.3% (1/3) |
+| **TypeSafe JEV** | Calibrated Criteria | **96.0% (24/25)** | **100.0% (7/7)** | **80.0% (4/5)** | **100.0% (5/5)** | **100.0% (5/5)** | **100.0% (3/3)** |
+
+👉 [**Inspect the Interactive 25-Case Contrast Benchmark Dashboard**](/benchmarks/laya-contrast/)
+
+
+### Research & Upstream References
+
+* **Official Laya Project**: [laya.convaiinnovations.com](https://laya.convaiinnovations.com)
+* **Author's arXiv Research**:
+  * [arXiv:2510.01237](https://arxiv.org/abs/2510.01237) — *Confidence-Aware Routing for Large Language Model Reliability Enhancement*
+  * [arXiv:2503.23303](https://arxiv.org/abs/2503.23303) — *SalesRLAgent: sequence conversion trajectories with reinforcement learning*
+  * Author Profile: [Nandakishor Mukkunnoth on arXiv](https://arxiv.org/a/mukkunnoth_n_1.html)
+* **Hugging Face Hub**: [`convaiinnovations/laya`](https://huggingface.co/convaiinnovations/laya)
+* **TypeSafe JEV on OpenRouter**: [`typesafe/jev-1.13`](https://openrouter.ai/models/typesafe/jev-1.13) ($0.042/MTok input, $0 output)
+
+Read the full engineering story, architectural breakdown, and fine-tuning roadmap in the companion blog post:  
+👉 [**From Keyword Regex to TypeSafe JEV and Laya: Building Safe Routing for a Kids' AI Tutor**](/blog/laya-and-jev/)
+
+Watch the live stream discussion and real-time debugging:  
+📺 [**Dev Diary 5 on YouTube**](https://www.youtube.com/watch?v=qATdaFW9c38) | 🟣 [**Twitch VOD**](https://www.twitch.tv/videos/2878616086) | 🔴 [**Follow on Twitch (nrynss)**](https://www.twitch.tv/nrynss)
+
+

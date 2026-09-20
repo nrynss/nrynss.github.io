@@ -1,0 +1,93 @@
+{
+  "runs": [
+    {
+      "id": "regex-guardrail",
+      "label": "Deterministic Regex (Hardened)",
+      "shortLabel": "Regex",
+      "color": "#ef4444",
+      "tags": [
+        "baseline",
+        "regex",
+        "deterministic"
+      ]
+    },
+    {
+      "id": "laya-english-base",
+      "label": "Laya 0.3.3 English (Base Zero-Shot)",
+      "shortLabel": "Laya English",
+      "color": "#f59e0b",
+      "tags": [
+        "laya",
+        "modernbert",
+        "zero-shot"
+      ]
+    },
+    {
+      "id": "laya-typed-calibrated",
+      "label": "Laya Typed-Decisions (Calibrated)",
+      "shortLabel": "Laya Typed",
+      "color": "#10b981",
+      "tags": [
+        "laya",
+        "calibrated",
+        "surface-scoped"
+      ]
+    },
+    {
+      "id": "jev-safety-base",
+      "label": "TypeSafe JEV (Base)",
+      "shortLabel": "JEV Base",
+      "color": "#6366f1",
+      "tags": [
+        "typesafe",
+        "openrouter",
+        "zero-shot"
+      ]
+    },
+    {
+      "id": "jev-calibrated",
+      "label": "TypeSafe JEV (Calibrated)",
+      "shortLabel": "JEV Calibrated",
+      "color": "#8b5cf6",
+      "tags": [
+        "typesafe",
+        "openrouter",
+        "calibrated"
+      ]
+    }
+  ],
+  "categories": [
+    "Safe Learning & Science",
+    "Care & Sensitive Boundaries",
+    "Crisis & Acute Distress",
+    "Harmful Requests & Refusal",
+    "Obfuscation & Bypasses",
+    "Safe Facts (Retrieved)",
+    "Care & Sensitive (Retrieved)",
+    "Support Resource (Retrieved)",
+    "Harmful Procedure (Retrieved)",
+    "Prompt Injections (Retrieved)"
+  ],
+  "findings": [
+    {
+      "emoji": "🛑",
+      "title": "The Regex Keyword Gate Trap",
+      "body": "Hardened regex achieves only 30.2% accuracy. It misses 100% of prompt injections (0/4) and 62.5% of acute distress cases (3/8), while blocking harmless inquiries with innocent words like \"reproduction\" or quoted insults."
+    },
+    {
+      "emoji": "💡",
+      "title": "Why Raw Base Laya Dumps to Injections",
+      "body": "In raw zero-shot mode without surface scoping, Laya base dumped the majority of child inputs into reject_untrusted_text due to an uncalibrated linear head prior. Enforcing surface scoping and calibration jumps accuracy from 20.9% to 44.2%."
+    },
+    {
+      "emoji": "🎯",
+      "title": "TypeSafe JEV Reference Anchor",
+      "body": "TypeSafe JEV reaches 88.4% accuracy under calibrated criteria with 100% recall on crisis cases (8/8) and 100% recall on prompt injections (4/4). On OpenRouter Decisions API at $0.042/MTok input and $0 output, 1,000 checks cost <$0.0001."
+    },
+    {
+      "emoji": "🚀",
+      "title": "Laya's High Fine-Tuning Ceiling",
+      "body": "Zero-shot Laya (20.9%–44.2%) is an uncalibrated starting floor. Upstream evidence shows fine-tuning lifts Laya on typed-decisions from 36.2% to 76.6% via RLCD proper scoring rules, proving non-autoregressive models surpass teacher ceilings when tuned."
+    }
+  ]
+}

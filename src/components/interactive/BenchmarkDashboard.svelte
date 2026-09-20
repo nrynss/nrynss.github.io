@@ -83,6 +83,30 @@
     metrics.length > 0 ? Math.max(...metrics.map(m => m.testId)) : 0
   );
 
+  let hasSpeedData = $derived(metrics.some(m => m.tPerS > 0));
+
+  // Compute accuracy per run
+  let runAccuracy = $derived.by(() => {
+    if (!manifest || metrics.length === 0) return {};
+    const result: Record<string, { pass: number; total: number; pct: number }> = {};
+    for (const r of manifest.runs) {
+      result[r.id] = { pass: 0, total: 0, pct: 0 };
+    }
+    for (const m of metrics) {
+      if (result[m.runId]) {
+        result[m.runId].total++;
+        if (m.validation === 'pass') {
+          result[m.runId].pass++;
+        }
+      }
+    }
+    for (const id of Object.keys(result)) {
+      const res = result[id];
+      res.pct = res.total > 0 ? Number(((res.pass / res.total) * 100).toFixed(1)) : 0;
+    }
+    return result;
+  });
+
   // Compute average speeds per run
   let runAvgSpeeds = $derived.by(() => {
     if (!manifest || metrics.length === 0) return {};
@@ -136,10 +160,17 @@
       </div>
       {#each manifest.runs as run}
         <div class="total-card run-speed-card" style="border-bottom: 3px solid {run.color}">
-          <span class="num" style="color: {run.color}">
-            {runAvgSpeeds[run.id]?.avg || 0}
-          </span>
-          <span class="lbl">Avg Speed (t/s) — {run.shortLabel}</span>
+          {#if hasSpeedData}
+            <span class="num" style="color: {run.color}">
+              {runAvgSpeeds[run.id]?.avg || 0}
+            </span>
+            <span class="lbl">Avg Speed (t/s) — {run.shortLabel}</span>
+          {:else}
+            <span class="num" style="color: {run.color}">
+              {runAccuracy[run.id]?.pct || 0}%
+            </span>
+            <span class="lbl">Pass Rate ({runAccuracy[run.id]?.pass || 0}/{runAccuracy[run.id]?.total || 0}) — {run.shortLabel}</span>
+          {/if}
         </div>
       {/each}
     </div>
@@ -193,19 +224,21 @@
         </button>
       {/if}
 
-      <button 
-        type="button" 
-        class="nav-tab" 
-        class:active={activeTab === 'speed'} 
-        onclick={() => activeTab = 'speed'}
-      >
-        📊 Speed Comparisons
-      </button>
+      {#if hasSpeedData}
+        <button 
+          type="button" 
+          class="nav-tab" 
+          class:active={activeTab === 'speed'} 
+          onclick={() => activeTab = 'speed'}
+        >
+          📊 Speed Comparisons
+        </button>
+      {/if}
     </div>
 
     <!-- Active Tab Panel View -->
     <div class="panel-content">
-      {#if activeTab === 'speed'}
+      {#if activeTab === 'speed' && hasSpeedData}
         <BenchSpeedChart 
           runs={manifest.runs} 
           {metrics} 
