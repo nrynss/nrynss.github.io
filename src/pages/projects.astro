@@ -6,7 +6,12 @@ import { getCollection } from 'astro:content';
 
 // Query the projects collection using Content Layer API
 const projects = await getCollection('projects');
-const projectsData = projects.map(p => p.data);
+// The file loader doesn't keep the JSON's order, so sort by `order`; unordered projects go last, by title
+const projectsData = projects
+  .map(p => p.data)
+  .sort((a, b) =>
+    (a.order ?? Infinity) - (b.order ?? Infinity) || a.title.localeCompare(b.title)
+  );
 ---
 
 <BaseLayout title="Projects" description="A list of projects I have worked on">

@@ -1,67 +1,18 @@
 [
   {
-    "id": "neom-mathventure",
-    "title": "Neom Mathventure",
-    "description": "A math game built for my children featuring tapir and capybara mascots. The difficulty increases as the child progresses.",
-    "blog": "/blog/neom/",
-    "repo": "https://github.com/nrynss/neom-mathventure/",
-    "demo": "https://nryn.dev/neom/",
+    "id": "poocha",
+    "order": 1,
+    "title": "Poocha",
+    "description": "A kid-safe science companion for children aged 8 to 12, fine-tuned from Gemma 4 E2B and E4B. Its persona, Kat, teaches with Indian analogies and routes unsafe questions to a trusted adult.",
+    "blog": "/blog/meow/",
+    "demo": "https://poocha.nryn.dev/",
     "status": "active",
     "featured": true,
-    "stack": ["Dioxus", "Rust", "WebAssembly"]
-  },
-  {
-    "id": "vimanam",
-    "title": "Vimanam",
-    "description": "Generate Markdown documentation from OpenAPI specifications. Supports both OpenAPI v2 and v3 json files.",
-    "blog": "/blog/vibing-vith-vimanam/",
-    "repo": "https://github.com/noemaforge/vimanam/",
-    "status": "active",
-    "featured": true,
-    "stack": ["Python", "OpenAPI", "Markdown"]
-  },
-  {
-    "id": "markdown-table-converter",
-    "title": "Markdown Table Converter",
-    "description": "Convert fragile Markdown tables into a robust, readable YAML format for Hugo shortcodes.",
-    "blog": "/blog/tabula-rasa/",
-    "repo": "https://github.com/nrynss/markdown-table-converter",
-    "status": "active",
-    "featured": true,
-    "stack": ["Python", "Markdown", "YAML"]
-  },
-  {
-    "id": "api-query-builder",
-    "title": "API Query Builder",
-    "description": "A dynamic tool that generates complex CLI commands on-the-fly from an OpenAPI specification.",
-    "blog": "/blog/api-generator/",
-    "demo": "https://docs.endorlabs.com/rest-api/api-query-builder/",
-    "status": "active",
-    "featured": true,
-    "stack": ["TypeScript", "React", "OpenAPI"]
-  },
-  {
-    "id": "ai-foley",
-    "title": "AI Foley",
-    "description": "Scores silent AI-generated video automatically: a VLM builds an event timeline, each event gets a generated sound effect, and the whole soundtrack re-renders deterministically for fractions of a cent.",
-    "demo": "https://nryn.dev/foley/",
-    "status": "active",
-    "featured": true,
-    "stack": ["Python", "Svelte", "fal.ai", "VLM"]
-  },
-  {
-    "id": "mooshik",
-    "title": "Mooshik",
-    "description": "An ambient, local-first cowork partner that sits in a terminal pane beside your editor, holds long-term graph memory across sessions, and acts on your behalf.",
-    "blog": "/blog/mooshik-and-lambo/",
-    "repo": "https://github.com/nrynss/mooshik",
-    "demo": "https://nrynss.github.io/mooshik/",
-    "status": "active",
-    "featured": true,
-    "stack": ["Rust", "Google ADK", "Gemini", "PostgreSQL", "SQLite", "MCP", "Ratatui"]
+    "stack": ["Gemma", "Fine-tuning", "llama.cpp", "Python"]
   },
   {
     "id": "lambo",
+    "order": 2,
     "title": "Lambo",
     "description": "Agentic graph memory system for AI operations with background concept canonization, structural scoring arithmetic, and blast-radius warnings.",
     "blog": "/blog/mooshik-and-lambo/",
@@ -72,7 +23,203 @@
     "stack": ["Rust", "PostgreSQL", "pgvector", "SQLite", "BGE-M3", "MCP"]
   },
   {
+    "id": "keel",
+    "order": 3,
+    "title": "Keel",
+    "description": "Go building blocks for media apps that sit on a public URL and call paid APIs: a rate gate, durable jobs with live progress, a private media store, ffmpeg tied to its job, and cost budgets that refuse before they spend.",
+    "repo": "https://github.com/nrynss/keel",
+    "status": "active",
+    "featured": true,
+    "stack": ["Go", "SQLite", "FFmpeg"]
+  },
+  {
+    "id": "chaaya",
+    "order": 4,
+    "title": "Chaaya",
+    "description": "A Svelte 5 kit of behaviour, not looks: theme tokens, audio and still capture, job progress over SSE, uploads, and an API client with typed errors. Each app keeps its own visual identity.",
+    "repo": "https://github.com/nrynss/chaaya",
+    "status": "active",
+    "featured": true,
+    "stack": ["Svelte", "TypeScript"]
+  },
+  {
+    "id": "vimanam",
+    "order": 5,
+    "title": "Vimanam",
+    "description": "Turns OpenAPI and Swagger specs (JSON or YAML) into focused, token-budgeted Markdown for people and LLMs, and diffs two versions of a spec, straight from Git refs if needed, flagging breaking changes for CI. Also usable as a Rust library.",
+    "blog": "/blog/vibing-vith-vimanam/",
+    "repo": "https://github.com/noemaforge/vimanam/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Rust", "OpenAPI", "Markdown"]
+  },
+  {
+    "id": "sethu",
+    "order": 6,
+    "title": "Sethu",
+    "description": "Traces OpenAPI changes into a consumer application, repairs the affected code in IBM Bob, and records evidence an independent checker can validate. Built on Vimanam's diffs.",
+    "repo": "https://github.com/noemaforge/sethu",
+    "status": "active",
+    "featured": true,
+    "stack": ["Rust", "OpenAPI", "IBM Bob"]
+  },
+  {
+    "id": "reprise",
+    "order": 7,
+    "title": "Reprise",
+    "description": "A personal podcast. You talk, a host asks questions, and the conversation becomes an episode. The host remembers earlier episodes, so the show calls back to what you said before.",
+    "repo": "https://github.com/nrynss/reprise",
+    "demo": "https://reprise.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Go", "Svelte", "AssemblyAI", "Gemini", "SQLite"]
+  },
+  {
+    "id": "thutapi",
+    "order": 8,
+    "title": "Thutapi",
+    "description": "A child is interviewed one short question at a time, and the answers become an illustrated, narrated picture book with a PDF and a captioned film.",
+    "repo": "https://github.com/nrynss/thutapi",
+    "demo": "https://thutapi.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Go", "MiniMax", "GMI Cloud", "SQLite", "FFmpeg"]
+  },
+  {
+    "id": "inner-life",
+    "order": 9,
+    "title": "Inner Life",
+    "description": "An agent that reads a DataHub catalog every day, writes what it found as drama, weather, dream and obituary, with every claim cited, and writes it back so the graph remembers.",
+    "repo": "https://github.com/nrynss/inner-life",
+    "demo": "https://inner-life.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Python", "Svelte", "DataHub", "Gemma", "ElevenLabs"]
+  },
+  {
+    "id": "orma",
+    "order": 10,
+    "title": "Orma",
+    "description": "A daily two-minute accountability call. It rings at a time you chose, leads with what you keep not doing, asks what needs capturing, and hangs up.",
+    "repo": "https://github.com/nrynss/orma",
+    "demo": "https://orma.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Svelte", "TypeScript", "Supabase", "Gemini", "CALL-E"]
+  },
+  {
+    "id": "mooshik",
+    "order": 11,
+    "title": "Mooshik",
+    "description": "An ambient, local-first cowork partner that sits in a terminal pane beside your editor, holds long-term graph memory across sessions, and acts on your behalf.",
+    "blog": "/blog/mooshik-and-lambo/",
+    "repo": "https://github.com/nrynss/mooshik",
+    "demo": "https://nrynss.github.io/mooshik/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Rust", "Google ADK", "Gemini", "PostgreSQL", "SQLite", "MCP", "Ratatui"]
+  },
+  {
+    "id": "ajilamu",
+    "order": 12,
+    "title": "Ajilamu",
+    "description": "Dubs creator video into another language and holds every line inside the slot the original speaker left for it, repairing takes that don't fit and recording what every call cost.",
+    "repo": "https://github.com/nrynss/ajilamu",
+    "demo": "https://ajilamu.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Go", "Svelte", "Gemini", "ClickHouse", "FFmpeg"]
+  },
+  {
+    "id": "seatright",
+    "order": 13,
+    "title": "Seatright",
+    "description": "A five-seat dark software factory on Band: a coordinator plans, three implementers build in parallel and a reviewer checks every candidate, each in its own Docker Sandbox, from a single dispatch.",
+    "repo": "https://github.com/nrynss/seatright",
+    "status": "active",
+    "featured": true,
+    "stack": ["Band", "Docker", "Go", "Svelte"]
+  },
+  {
+    "id": "auteur",
+    "order": 14,
+    "title": "Auteur",
+    "description": "Sound design for video where being fussy is free: a silent video becomes a mixed soundtrack in which every sound traces to the call that made it and every placement moves without paying again.",
+    "repo": "https://github.com/nrynss/auteur",
+    "demo": "https://auteur.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Python", "Svelte", "Gemini", "ElevenLabs", "Genblaze", "Backblaze B2"]
+  },
+  {
+    "id": "dry-run",
+    "order": 15,
+    "title": "Dry Run",
+    "description": "The interview before the interview. Paste a job posting and Dry Run finds where you're thin, asks grounded questions, and scores your answers against a transparent rubric. A WebMCP app.",
+    "repo": "https://github.com/nrynss/dryrun",
+    "demo": "https://dryrun.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Svelte", "TypeScript", "WebMCP", "OpenAI"]
+  },
+  {
+    "id": "rehearsal",
+    "order": 16,
+    "title": "Rehearsal",
+    "description": "Paste a job posting and get interviewed on it. Rehearsal researches the role and the company, briefs you on what to study, interviews you aloud and scores your answers.",
+    "repo": "https://github.com/nrynss/rehearsal",
+    "demo": "https://rehearsal.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["TypeScript", "Supabase", "native.builder"]
+  },
+  {
+    "id": "mosaic",
+    "order": 17,
+    "title": "Mosaic",
+    "description": "A framework for putting generative agents beside a deterministic, auditable core, with streaming state, human gates and immutable provenance, plus a running incident-response reference app.",
+    "repo": "https://github.com/nrynss/mosaic",
+    "demo": "https://mosaic.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Go", "Svelte", "OpenAI", "Supabase"]
+  },
+  {
+    "id": "cerebro-eoc",
+    "order": 18,
+    "title": "Cerebro EOC",
+    "description": "An AI emergency operations center: six specialist agent cells reason in parallel on Cerebras the moment an anomaly lands, and a commander synthesizes the operational picture in seconds.",
+    "repo": "https://github.com/nrynss/opsec-control",
+    "demo": "https://eoc.nryn.dev/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Go", "Svelte", "Cerebras", "Gemma"]
+  },
+  {
+    "id": "chalachithram",
+    "order": 19,
+    "title": "Chalachithram",
+    "description": "Turns a child's story into a short film: character-locked stills, image-to-video, multilingual dialogue and score, all from one film.json. Three films shipped, one in Malayalam.",
+    "repo": "https://github.com/nrynss/chalachithram",
+    "status": "active",
+    "featured": true,
+    "stack": ["Python", "fal.ai", "ElevenLabs", "Sarvam", "FFmpeg"]
+  },
+  {
+    "id": "neom-mathventure",
+    "order": 20,
+    "title": "Neom Mathventure",
+    "description": "A math game built for my children featuring tapir and capybara mascots. The difficulty increases as the child progresses.",
+    "blog": "/blog/neom/",
+    "repo": "https://github.com/nrynss/neom-mathventure/",
+    "demo": "https://nryn.dev/neom/",
+    "status": "active",
+    "featured": true,
+    "stack": ["Dioxus", "Rust", "WebAssembly"]
+  },
+  {
     "id": "sarvam-benchmarks",
+    "order": 21,
     "title": "Sarvam Benchmarks",
     "description": "An interactive evaluation dashboard and test explorer benchmarking Sarvam 30B (local and cloud) and Sarvam 105B across 37 test categories including Indic translation, coding, reasoning, and tool use.",
     "blog": "/blog/sarvam-maya/",
@@ -80,5 +227,67 @@
     "status": "active",
     "featured": true,
     "stack": ["Svelte", "Astro", "LLM", "llama.cpp", "Modal"]
+  },
+  {
+    "id": "rustydocs",
+    "order": 22,
+    "title": "Rustydocs",
+    "description": "Finds stale documentation using git history, section by section, with profiles for Hugo, Mintlify, GitBook and Starlight.",
+    "repo": "https://github.com/nrynss/rustydocs",
+    "status": "active",
+    "featured": true,
+    "stack": ["Go", "Git", "Markdown"]
+  },
+  {
+    "id": "pi-providers",
+    "order": 23,
+    "title": "Pi Model Providers",
+    "description": "Pi coding-agent extensions that register Sarvam AI and InferX as model providers, with the shims their OpenAI-compatible endpoints need.",
+    "repo": "https://github.com/nrynss/pi-sarvam-provider",
+    "status": "active",
+    "featured": true,
+    "stack": ["TypeScript", "Pi", "LLM"]
+  },
+  {
+    "id": "ibm-bob-bin",
+    "order": 24,
+    "title": "IBM Bob for Arch Linux",
+    "description": "Community packaging of the IBM Bob IDE for Arch Linux: an audited RPM repackaging and an AUR release workflow.",
+    "repo": "https://github.com/noemaforge/ibm-bob-bin",
+    "status": "active",
+    "featured": true,
+    "stack": ["Arch Linux", "AUR", "Shell"]
+  },
+  {
+    "id": "api-query-builder",
+    "order": 25,
+    "title": "API Query Builder",
+    "description": "A dynamic tool that generates complex CLI commands on-the-fly from an OpenAPI specification.",
+    "blog": "/blog/api-generator/",
+    "demo": "https://docs.endorlabs.com/rest-api/api-query-builder/",
+    "status": "active",
+    "featured": true,
+    "stack": ["TypeScript", "React", "OpenAPI"]
+  },
+  {
+    "id": "markdown-table-converter",
+    "order": 26,
+    "title": "Markdown Table Converter",
+    "description": "Convert fragile Markdown tables into a robust, readable YAML format for Hugo shortcodes.",
+    "blog": "/blog/tabula-rasa/",
+    "repo": "https://github.com/nrynss/markdown-table-converter",
+    "status": "active",
+    "featured": true,
+    "stack": ["Python", "Markdown", "YAML"]
+  },
+  {
+    "id": "ai-foley",
+    "order": 27,
+    "title": "AI Foley",
+    "description": "Scores silent AI-generated video automatically: a VLM builds an event timeline, each event gets a generated sound effect, and the whole soundtrack re-renders deterministically for fractions of a cent. Superseded by Auteur.",
+    "demo": "https://nryn.dev/foley/",
+    "status": "archived",
+    "featured": true,
+    "stack": ["Python", "Svelte", "fal.ai", "VLM"]
   }
 ]
